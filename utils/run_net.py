@@ -56,7 +56,7 @@ def evaluate(net, dataset):
 
   acc = 0
   count = 0
-  with torch.inference_mode():
+  with torch.no_grad():
       for dat, target in test_loader:
           labels = target
           labels = labels.long()
