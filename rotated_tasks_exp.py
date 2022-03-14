@@ -59,7 +59,7 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--exp_config', type=str,
-                        default="./experiments/config/taskA_taskB_exp.yaml",
+                        default="./experiments/config/rotated_tasks_exp.yaml",
                         help="Experiment configuration")
 
     args = parser.parse_args()
