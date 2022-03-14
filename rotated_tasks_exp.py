@@ -18,7 +18,7 @@ np.random.seed(SEED)
 torch.manual_seed(SEED)
 torch.backends.cudnn.deterministic = True
 
-def run_experiment(dataset, exp_conf):
+def run_experiment(exp_conf):
     n = exp_conf['n']
     hp = exp_conf['hp']
     df = pd.DataFrame()
