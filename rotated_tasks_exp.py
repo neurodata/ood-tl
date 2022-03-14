@@ -24,6 +24,7 @@ def run_experiment(exp_conf):
     df = pd.DataFrame()
 
     for angle in exp_conf['angles']:
+        print("Doing angle = {}".format(angle))
         dataset = CIFAR10Handler(exp_conf['task'], angle)
         i = 0
         for m in exp_conf['m']:
@@ -52,7 +53,7 @@ def run_experiment(exp_conf):
                 df.at[i, str(angle)] = risk
                 i+=1
 
-    df.to_csv('./experiments/results/rotated_tasks_exp_{}.csv'.format(exp_conf['task']))
+    df.to_csv('./experiments/results/rotated_tasks_exp_{}.csv'.format(str(exp_conf['task'])))
 
 def main():
     parser = argparse.ArgumentParser()
