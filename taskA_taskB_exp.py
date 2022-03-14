@@ -24,7 +24,7 @@ def run_experiment(exp_conf):
     df = pd.DataFrame()
 
     for task_id, task in enumerate(exp_conf['out_task']):
-        print("Doing angle = {}".format(str(task)))
+        print("Doing task = {}".format(str(task)))
         tasks = [exp_conf['in_task'], task]
         dataset = SplitCIFARHandler(tasks)
         i = 0

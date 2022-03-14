@@ -17,7 +17,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False):
     for dat, target in train_loader:
         optimizer.zero_grad()
 
-        labels = target
+        tasks, labels = target
         labels = labels.long()
         batch_size = int(labels.size()[0])
 
@@ -58,7 +58,7 @@ def evaluate(net, dataset):
   count = 0
   with torch.no_grad():
       for dat, target in test_loader:
-          labels = target
+          tasks, labels = target
           labels = labels.long()
           batch_size = int(labels.size()[0])
 
