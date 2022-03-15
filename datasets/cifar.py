@@ -9,7 +9,7 @@ from skimage.transform import rotate
 from typing import List
 from copy import deepcopy
 
-class CIFAR10Handler:
+class RotatedCIFAR10Handler:
     """
     Object for the CIFAR-10 dataset
     """
