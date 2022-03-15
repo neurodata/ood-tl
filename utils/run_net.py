@@ -51,7 +51,8 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False):
 def evaluate(net, dataset):
   device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-  test_loader = dataset.get_data_loader(100, train=False)
+#   test_loader = dataset.get_data_loader(100, train=False)
+  test_loader = dataset.get_task_data_loader(0, 100, train=False)
   net.eval()
 
   acc = 0
