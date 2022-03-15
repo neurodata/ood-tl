@@ -8,7 +8,7 @@ import seaborn as sns
 sns.set_theme()
 
 from utils.config import fetch_configs
-from datasets.cifar import CIFAR10Handler
+from datasets.cifar import RotatedCIFAR10Handler
 from net.smallconv import SmallConv
 from utils.run_net import train, evaluate
 
@@ -25,7 +25,7 @@ def run_experiment(exp_conf):
 
     for angle in exp_conf['angles']:
         print("Doing angle = {}".format(angle))
-        dataset = CIFAR10Handler(exp_conf['task'], angle)
+        dataset = RotatedCIFAR10Handler(exp_conf['task'], angle)
         i = 0
         for m in exp_conf['m']:
             print("m = {}".format(m))
