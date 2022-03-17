@@ -77,6 +77,14 @@ ___
 
 ___
 
+## Task 3 (Bird vs. Cat) & Task 3 (Deer vs. Dog)
+
+- Number of replicates: 20, each model was trained for 100 epochs
+
+![center w:950](figures/bridcat_deerdog_100epochs.svg)
+
+___
+
 ## Gaussian Tasks Experiment
 
 ![center w:1000](figures/gaussian_task_analytical_plot.svg)
