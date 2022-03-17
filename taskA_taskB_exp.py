@@ -54,7 +54,7 @@ def run_experiment(exp_conf):
                 df.at[i, str(task_id)] = risk
                 i+=1
 
-    df.to_csv('./experiments/results/taskA_taskB_exp_{}.csv'.format(str(exp_conf['in_task'])))
+    df.to_csv('./experiments/results/taskA_taskB_exp_{}_100epochs.csv'.format(str(exp_conf['in_task'])))
 
 def main():
     parser = argparse.ArgumentParser()
