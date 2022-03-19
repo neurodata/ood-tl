@@ -48,8 +48,8 @@ def run_experiment(exp_conf):
                                         weight_decay=hp['l2_reg'])
                 lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                 optimizer, hp['epochs'] * len(train_loader))
-                net = train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False)
-                risk = evaluate(net, dataset)
+                net = train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False, task_id_flag=False)
+                risk = evaluate(net, dataset, task_id_flag=False)
                 df.at[i, str(angle)] = risk
                 i+=1
 
