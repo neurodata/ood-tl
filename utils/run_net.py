@@ -2,7 +2,7 @@ import torch.nn as nn
 import torch
 import numpy as np
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False):
+def train(net, hp, train_loader, optimizer, lr_scheduler, task_id_flag=False, verbose=False):
   device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
   net.to(device)
 
@@ -17,15 +17,27 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False):
     for dat, target in train_loader:
         optimizer.zero_grad()
 
-        tasks, labels = target
-        labels = labels.long()
+        if task_id_flag:
+          tasks, labels = target
+          tasks = tasks.long()
+          labels = labels.long()
+          tasks = tasks.to(device)
+          labels = labels.to(device)
+        else:
+          labels = target
+          labels = labels.long()
+          labels = labels.to(device)
+        
         batch_size = int(labels.size()[0])
 
         dat = dat.to(device)
-        labels = labels.to(device)
 
         # Forward/Back-prop
-        out = net(dat)
+        if task_id_flag:
+          out = net(dat, tasks)
+        else:
+          out = net(dat)
+
         loss = criterion(out, labels)
         loss.backward()
 
@@ -48,25 +60,40 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False):
     
   return net
 
-def evaluate(net, dataset):
+def evaluate(net, dataset, task_id_flag=False):
   device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-#   test_loader = dataset.get_data_loader(100, train=False)
-  test_loader = dataset.get_task_data_loader(0, 100, train=False)
+  if task_id_flag:
+    test_loader = dataset.get_task_data_loader(0, 100, train=False)
+  else:
+    test_loader = dataset.get_data_loader(100, train=False)
+  
   net.eval()
 
   acc = 0
   count = 0
   with torch.no_grad():
       for dat, target in test_loader:
-          tasks, labels = target
-          labels = labels.long()
+          if task_id_flag:
+            tasks, labels = target
+            tasks = tasks.long()
+            labels = labels.long()
+            tasks = tasks.to(device)
+            labels = labels.to(device)
+          else:
+            labels = target
+            labels = labels.long()
+            labels = labels.to(device)
+          
           batch_size = int(labels.size()[0])
 
           dat = dat.to(device)
-          labels = labels.to(device)
 
-          out = net(dat)
+          if task_id_flag:
+            out = net(dat, tasks)
+          else:
+            out = net(dat)
+            
           out = out.cpu().detach().numpy()
           
           labels = labels.cpu().numpy()
