@@ -74,8 +74,7 @@ class MultiHeadNet(nn.Module):
 
         x = self.conv3(x)
         x = self.maxpool(self.relu(self.bn3(x)))
-        # x = x.view(-1, self.linsize)
-        x = x.flatten(1, -1)
+        x = x.view(-1, self.linsize)
 
         logits = self.fc[0](x) * 0 # get a zero-vector
 
