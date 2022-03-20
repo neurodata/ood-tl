@@ -53,7 +53,7 @@ p {
 
 ---
 
-## Bird vs. Cat & $\alpha$-Rotated Bird vs. Cat
+## Bird vs. Cat & $\alpha$-Rotated Bird vs. Cat (Single-Head Network)
 
 - Number of replicates: 10
 
@@ -61,7 +61,7 @@ p {
 
 ---
 
-## Bird vs. Cat & $\alpha$-Rotated Bird vs. Cat (Replicates)
+## Bird vs. Cat & $\alpha$-Rotated Bird vs. Cat (Single-Head Network)
 
 - Number of replicates: 10
 
@@ -69,7 +69,7 @@ p {
 
 ___
 
-## Task 3 (Bird vs. Cat) & Task 3 (Deer vs. Dog)
+## Task 2: Bird vs. Cat & Task 3: Deer vs. Dog (Single-Head Network)
 
 - Number of replicates: 20
 
@@ -77,11 +77,27 @@ ___
 
 ___
 
-## Task 3 (Bird vs. Cat) & Task 3 (Deer vs. Dog)
+## Task 2: Bird vs. Cat & Task 3: Deer vs. Dog (Single-Head Network)
 
 - Number of replicates: 20, each model was trained for 100 epochs
 
 ![center w:950](figures/bridcat_deerdog_100epochs.svg)
+
+___
+
+## Task 2: Bird vs. Cat & Task 3: Deer vs. Dog (Multi-Head Network)
+
+- Number of replicates: 20
+
+![center w:950](figures/cifar10_multihead_dual_tasks_T2_T3.svg)
+
+___
+
+## Task 2: Bird vs. Cat & Task 4: Frog vs. Horse (Multi-Head Network)
+
+- Number of replicates: 20
+
+![center w:950](figures/cifar10_multihead_dual_tasks_T2_T4.svg)
 
 ___
 
