@@ -64,7 +64,7 @@ def evaluate(net, dataset, task_id_flag=False):
   device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
   if task_id_flag:
-    test_loader = dataset.get_task_data_loader(0, 100, train=False)
+    test_loader = dataset.get_task_data_loader(1, 100, train=False)
   else:
     test_loader = dataset.get_data_loader(100, train=False)
   
