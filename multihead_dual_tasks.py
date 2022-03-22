@@ -42,7 +42,7 @@ def run_experiment(exp_conf):
                         depth=16,
                         num_task=len(tasks), 
                         num_cls=len(tasks[0]),
-                        wide_factor=4,
+                        widen_factor=4,
                         drop_rate=0.2
                     )
                 else:
