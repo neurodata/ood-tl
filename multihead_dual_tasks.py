@@ -4,12 +4,11 @@ import random
 import numpy as np
 import torch
 import pandas as pd
-import seaborn as sns
-sns.set_theme()
 
 from utils.config import fetch_configs
 from datasets.cifar import SplitCIFARHandler
 from net.smallconv import MultiHeadNet
+from net.wideresnet import WideResNetMultihead
 from utils.run_net import train, evaluate
 
 SEED = 1234
@@ -17,6 +16,7 @@ random.seed(SEED)
 np.random.seed(SEED)
 torch.manual_seed(SEED)
 torch.backends.cudnn.deterministic = True
+
 
 def run_experiment(exp_conf):
     n = exp_conf['n']
@@ -37,24 +37,35 @@ def run_experiment(exp_conf):
 
                 dataset.sample_data(n=n, m=m)
                 train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
-                net = MultiHeadNet(
-                    num_task=len(tasks), 
-                    num_cls=len(tasks[0]),
-                    channels=3, 
-                    avg_pool=2,
-                    lin_size=320
-                )
+                if 'net' in exp_conf and exp_conf['net'] == 'wrn':
+                    net = WideResNetMultihead(
+                        depth=16,
+                        num_task=len(tasks), 
+                        num_cls=len(tasks[0]),
+                        wide_factor=4,
+                        drop_rate=0.2
+                    )
+                else:
+                    net = MultiHeadNet(
+                        num_task=len(tasks), 
+                        num_cls=len(tasks[0]),
+                        channels=3, 
+                        avg_pool=2,
+                        lin_size=320
+                    )
                 optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
-                                        momentum=0.9, nesterov=True,
-                                        weight_decay=hp['l2_reg'])
+                                            momentum=0.9, nesterov=True,
+                                            weight_decay=hp['l2_reg'])
                 lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-                optimizer, hp['epochs'] * len(train_loader))
+                    optimizer, hp['epochs'] * len(train_loader))
                 net = train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False, task_id_flag=True)
                 risk = evaluate(net, dataset, task_id_flag=True)
+                print("Risk = %0.4f" % risk)
                 df.at[i, str(task_id)] = risk
                 i+=1
 
         df.to_csv('./experiments/results/{}_{}_{}_{}_sanity_check.csv'.format(exp_conf['dataset'], exp_conf['exp_name'], str(exp_conf['in_task']), str(task)))
+
 
 def main():
     parser = argparse.ArgumentParser()
