@@ -1,7 +1,6 @@
 import os
 import yaml
 
-
 def fetch_configs(fname):
     """
     Load yaml config file
