@@ -96,7 +96,7 @@ class WideResNetMultihead(nn.Module):
             - drop_rate: Dropout prob. that element is zeroed out
             - inp_channels: Number of channels in the input
         """
-        super(WideResNetMultiTask, self).__init__()
+        super(WideResNetMultihead, self).__init__()
         nChannels = [16, 16*widen_factor, 32*widen_factor, 64*widen_factor]
         assert((depth - 4) % 6 == 0)
         n = (depth - 4) // 6
