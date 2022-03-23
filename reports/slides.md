@@ -55,6 +55,33 @@ ___
 
 ## Gaussian Tasks Experiment
 
+- Consider an in-distribution task that consists of two class conditional gaussians. 
+- Now, consider an out-of-distribution task similar to the above task, but whose center is displaced by an amount $\Delta$.
+- The amount $\Delta$ reflects the "similarity" between the two tasks.
+
+![center w:500](figures/gausstask_fig.png)
+
+___
+
+## Gaussian Tasks Experiment
+
+- We have access to $n$ samples from the in-distribution task, and $m$ samples from the out-of-distribution task.
+- Using both the in-distribution and out-of-distribution samples, we train a classifier $h$ aimed at the in-distribution classification task.
+- Let's denote the classification error of $h$ by $\mathbb{E}[L_{n, m, \Delta}]$.
+
+___
+
+## Gaussian Tasks Experiment
+
+- Let $n$ be a small fixed constant. We hypothesize that, 
+    - For very small $\Delta$, as we add more out-of-distribution data (as $m$ increases) the $\mathbb{E}[L_{n, m, \Delta}]$ would decrease. 
+    - For moderately large $\Delta$, as we add more out-of-distribution data (as $m$ increases) the $\mathbb{E}[L_{n, m, \Delta}]$ would initially decrease and start increasing later. The initial decrease is due to the reduction in the variance of $h$. The later increase is due to the increase in bias of $h$ caused by the out-of-distribution samples. 
+    - For very large $\Delta$, as we add more out-of-distribution data (as $m$ increases) the $\mathbb{E}[L_{n, m, \Delta}]$ would keep increasing.
+
+___
+
+## Gaussian Tasks Experiment
+
 ![center w:1000](figures/gaussian_task_analytical_plot.svg)
 
 ___
