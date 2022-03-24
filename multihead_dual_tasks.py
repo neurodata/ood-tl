@@ -93,11 +93,12 @@ def main():
     if args.in_task is not None:
         exp_conf['in_task'] = args.in_task
     if args.out_tasks is not None:
-        exp_conf['out_tasks'] = args.out_tasks
+        exp_conf['out_task'] = args.out_tasks
     gpu = args.gpu
 
     print("Source Task : {}".format(exp_conf['in_task']))
-    print("Target Task(s) : {}".format(exp_conf['out_tasks']))
+    print("Target Task(s) : {}".format(exp_conf['out_task']))
+    print("GPU : {}".format(gpu))
 
     run_experiment(exp_conf, gpu)
 
