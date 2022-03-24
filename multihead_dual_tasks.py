@@ -81,7 +81,7 @@ def main():
     parser.add_argument('--in_task', type=int,
                             help="Source task")
 
-    parser.add_argument('--out_tasks', nargs='+', type=int,
+    parser.add_argument('--out_task', nargs='+', type=int,
                             help="Target task(s)")
 
     parser.add_argument('--gpu', type=str,
@@ -93,7 +93,7 @@ def main():
     if args.in_task is not None:
         exp_conf['in_task'] = args.in_task
     if args.out_tasks is not None:
-        exp_conf['out_task'] = args.out_tasks
+        exp_conf['out_task'] = args.out_task
     gpu = args.gpu
 
     print("Source Task : {}".format(exp_conf['in_task']))
