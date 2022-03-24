@@ -2,8 +2,8 @@ import torch.nn as nn
 import torch
 import numpy as np
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, task_id_flag=False, verbose=False):
-  device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False):
+  device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
   net.to(device)
 
   for epoch in range(hp['epochs']):
@@ -60,8 +60,8 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, task_id_flag=False, ve
     
   return net
 
-def evaluate(net, dataset, task_id_flag=False):
-  device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+def evaluate(net, dataset, gpu, task_id_flag=False):
+  device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
 
   if task_id_flag:
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
