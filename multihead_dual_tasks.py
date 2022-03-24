@@ -18,7 +18,7 @@ torch.manual_seed(SEED)
 torch.backends.cudnn.deterministic = True
 
 
-def run_experiment(exp_conf):
+def run_experiment(exp_conf, gpu):
     n = exp_conf['n']
     hp = exp_conf['hp']
     task_dict = exp_conf['task_dict']
@@ -60,8 +60,8 @@ def run_experiment(exp_conf):
                                             weight_decay=hp['l2_reg'])
                 lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                     optimizer, hp['epochs'] * len(train_loader))
-                net = train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False, task_id_flag=True)
-                risk = evaluate(net, dataset, task_id_flag=True)
+                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=True)
+                risk = evaluate(net, dataset, gpu, task_id_flag=True)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(task)] = risk
                 i+=1
@@ -78,10 +78,25 @@ def main():
                         default="./experiments/config/multihead_dual_tasks.yaml",
                         help="Experiment configuration")
 
+    parser.add_argument('--in_task', type=int,
+                            help="Source task")
+
+    parser.add_argument('--out_tasks', nargs='+', type=int,
+                            help="Target task(s)")
+
+    parser.add_argument('--gpu', type=str,
+                            default='cuda:0',
+                            help="GPU")                      
+
     args = parser.parse_args()
     exp_conf = fetch_configs(args.exp_config)
+    if args.in_task is not None:
+        exp_conf['in_task'] = args.in_task
+    if args.out_tasks is not None:
+        exp_conf['out_tasks'] = args.out_tasks
+    gpu = args.gpu
 
-    run_experiment(exp_conf)
+    run_experiment(exp_conf, gpu)
 
 
 if __name__ == '__main__':
