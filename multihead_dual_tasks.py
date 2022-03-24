@@ -21,17 +21,19 @@ torch.backends.cudnn.deterministic = True
 def run_experiment(exp_conf):
     n = exp_conf['n']
     hp = exp_conf['hp']
+    task_dict = exp_conf['task_dict']
     df = pd.DataFrame()
 
-    for task_id, task in enumerate(exp_conf['out_task']):
-        print("Doing task = {}".format(str(task)))
-        tasks = [exp_conf['in_task'], task]
+    for task in exp_conf['out_task']:
+        print("Doing task...T{}".format(task))
+        tasks = [task_dict[exp_conf['in_task']], task_dict[task]]
+        print("Tasks: {}".format(tasks))
         dataset = SplitCIFARHandler(tasks)
         i = 0
         for m in exp_conf['m']:
             print("m = {}".format(m))
             for r, rep in enumerate(range(exp_conf['reps'])):
-                print("Doing rep...{}".format(rep))
+                print("T{} vs. T{} : Doing rep...{}".format(exp_conf['in_task'], task, rep))
                 df.at[i, "m"] = m
                 df.at[i, "r"] = r
 
@@ -61,10 +63,12 @@ def run_experiment(exp_conf):
                 net = train(net, hp, train_loader, optimizer, lr_scheduler, verbose=False, task_id_flag=True)
                 risk = evaluate(net, dataset, task_id_flag=True)
                 print("Risk = %0.4f" % risk)
-                df.at[i, str(task_id)] = risk
+                df.at[i, str(task)] = risk
                 i+=1
-
-        df.to_csv('./experiments/results/{}_{}_{}_{}_{}.csv'.format(exp_conf['dataset'], exp_conf['net'], exp_conf['exp_name'], str(exp_conf['in_task']), str(task)))
+        print("Saving individual results...")
+        df.to_csv('{}/{}_{}_{}_T{}_T{}.csv'.format(exp_conf['save_folder'], exp_conf['dataset'], exp_conf['net'], exp_conf['exp_name'], exp_conf['in_task'], task))
+    print("Saving bulk results...")
+    df.to_csv('{}/{}_{}_{}_T{}.csv'.format(exp_conf['save_folder'], exp_conf['dataset'], exp_conf['net'], exp_conf['exp_name'], exp_conf['in_task']))
 
 
 def main():
