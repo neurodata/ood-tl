@@ -92,7 +92,7 @@ def main():
     exp_conf = fetch_configs(args.exp_config)
     if args.in_task is not None:
         exp_conf['in_task'] = args.in_task
-    if args.out_tasks is not None:
+    if args.out_task is not None:
         exp_conf['out_task'] = args.out_task
     gpu = args.gpu
 
