@@ -162,6 +162,15 @@ ___
 - Number of replicates: 10, Network: Wide Res-Net
 
 ![center w:890](figures/cifar10_wrn_multihead_dual_tasks_T2_T4.svg)
+
+___
+
+## Task 4: Frog vs. Horse & Task 2: Bird vs. Cat (Multi-Head Network)
+
+- Number of replicates: 10, Network: Wide Res-Net
+
+![center w:890](figures/cifar10_wrn_multihead_dual_tasks_T4_T2.svg)
+
 ___
 
 ## Bivariate LDA Problem
