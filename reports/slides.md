@@ -177,7 +177,7 @@ ___
 
 ![center w:550](figures/cifar_wrn_multihead.svg)
 
-___
+<!-- ___
 
 ## Bivariate LDA Problem
 
@@ -215,6 +215,90 @@ ___
 - Hence, the error $L(\hat{\mu}_{+1})$ is given by, 
     $$ L(\hat{\mu}_{+1}) = \mathbb{P}_{x \sim f_{-1}}[ \hat{\mu}_{+1} \cdot x > 0 ] + \mathbb{P}_{x \sim f_{+1}}[ \hat{\mu}_{+1} \cdot x < 0 ] $$ 
 - Therefore, 
-    $$ \mathbb{E}[L_{m, n, \theta}] = \mathbb{E}_{\hat{\mu}_{+1}}[L(\hat{\mu}_{+1})] $$
+    $$ \mathbb{E}[L_{m, n, \theta}] = \mathbb{E}_{\hat{\mu}_{+1}}[L(\hat{\mu}_{+1})] $$ -->
 
-    
+___
+
+## Bivariate LDA
+
+![center w:800](figures/bivariate_lda.png)
+
+___
+
+## Bivariate LDA
+
+- In-distribution samples (class 0): $X_1, \dots, X_{n/2} \sim \mathcal{N}(\mu, I)$
+- In-distribution samples (class 1): $X_{n/2+1}, \dots, X_n \sim \mathcal{N}(-\mu, I)$
+- Out-of-distribution samples (class 0): $X_{n+1}, \dots, X_{n+m/2} \sim \mathcal{N}(\mu + \Delta , I)$
+- In-distribution samples (class 1): $X_{n+m/2+1}, \dots, X_{n+m} \sim \mathcal{N}(-\mu + \Delta, I)$
+
+Consider the class 0 which is comprised of $n/2$ in-distribution and $m/2$ OOD samples. Let $\bar{\mu}_0$ and $\bar{\Sigma}_0$ be sample mean and sample covariance matrix of class 0.
+
+$$ \bar{\mu}_0 \sim \mathcal{N}\big( \mu + \frac{m}{n+m}\Delta, \frac{1}{n+m}I \big) $$
+
+Similarly, 
+
+$$ \bar{\mu}_1 \sim \mathcal{N}\big( -\mu + \frac{m}{n+m}\Delta, \frac{1}{n+m}I \big) $$
+
+___
+
+## Bivariate Single-Head LDA
+
+![center w:800](figures/bivariate_singlehead_lda.png)
+
+___
+
+## Bivariate Single-Head LDA
+
+The projection vector of the LDA is given by, (Assuming $\bar{\Sigma}_0 = \bar{\Sigma}_1 = \bar{\Sigma}$),
+
+$$ w = \bar{\Sigma}^{-1} (\bar{\mu}_1 - \bar{\mu}_0) $$
+
+The threshold is given by, 
+
+$$ c = w \cdot \frac{(\bar{\mu}_0 + \bar{\mu}_1)}{2} $$
+
+Then the LDA classification rule is given by, 
+
+$$ g(x) = \mathbb{I}(w \cdot x > c) $$
+___
+
+## Bivariate Single-Head LDA
+
+The risk $L_{n, m, \Delta}$ on the in-distribution data is given by, 
+
+$$L_{n, m, \Delta} = \mathbb{E}_{f_{w,c}}[L(w, c)] $$
+
+$$ L(w, c) = \mathbb{P}_{x \sim f_0}[ w \cdot x > c ] + \mathbb{P}_{x \sim f_1}[ w \cdot x < c] $$ 
+
+___
+
+## Bivariate Multi-Head LDA
+
+![center w:800](figures/bivariate_multihead_lda.png)
+
+___
+
+## Bivariate Multi-Head LDA
+
+The shared projection vector of the LDA is given by, (Assuming $\bar{\Sigma}_0 = \bar{\Sigma}_1 = \bar{\Sigma}$),
+
+$$ w = \bar{\Sigma}^{-1} (\bar{\mu}_1 - \bar{\mu}_0) $$
+
+The task-specific thresholds are given by, 
+
+$$ c_{in} = w \cdot \frac{(\bar{\mu}_{0,in} + \bar{\mu}_{1,in})}{2} ;\quad \bar{\mu}_{0,in} \sim \mathcal{N}(\mu, I), \bar{\mu}_{1,in} \sim \mathcal{N}(-\mu, I) $$
+$$ c_{out} = w \cdot \frac{(\bar{\mu}_{0,out} + \bar{\mu}_{1,out})}{2} ; \quad \bar{\mu}_{0,out} \sim \mathcal{N}(\mu+\Delta, I), \bar{\mu}_{1,out} \sim \mathcal{N}(-\mu+\Delta, I) $$
+
+Then the LDA classification rule for in-distribution data is given by, 
+$$ g(x) = \mathbb{I}(w \cdot x > c_{in}) $$
+
+___
+
+## Bivariate Single-Head LDA
+
+The risk $L_{n, m, \Delta}$ on the in-distribution data is given by, 
+
+$$L_{n, m, \Delta} = \mathbb{E}_{f_{w,c_{in}}}[L(w, c_{in})] $$
+
+$$ L(w, c_{in}) = \mathbb{P}_{x \sim f_0}[ w \cdot x > c_{in} ] + \mathbb{P}_{x \sim f_1}[ w \cdot x < c_{in}] $$ 
