@@ -173,6 +173,12 @@ ___
 
 ___
 
+## CIFAR-10 Tasks (Multi-Head Network)
+
+![center w:550](figures/cifar_wrn_multihead.svg)
+
+___
+
 ## Bivariate LDA Problem
 
 ![center w:800](figures/mulFLD_fig.png)
