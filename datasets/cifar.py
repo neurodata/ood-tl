@@ -5,6 +5,7 @@ import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 import numpy as np
 from skimage.transform import rotate
+import random
 
 from typing import List
 from copy import deepcopy
@@ -131,7 +132,7 @@ class SplitCIFARHandler:
         self.trainset = trainset
         self.testset = testset
 
-    def sample_data(self, n, m):
+    def sample_data(self, n, m, randomly=False):
         comb_trainset = deepcopy(self.trainset)
         data = self.trainset.data
         targets = np.array(self.trainset.targets)
@@ -141,7 +142,10 @@ class SplitCIFARHandler:
         
         indices = []
         for i, sample_size in enumerate(sample_sizes):
-          indices.extend(np.where(encoded_targets == i)[0][:sample_size])
+            if randomly:
+                indices.extend(random.sample(list(np.where(encoded_targets == i)[0]), sample_size))
+            else:
+                indices.extend(np.where(encoded_targets == i)[0][:sample_size])
         comb_trainset.data = data[indices]
         comb_trainset.targets = np.array(targets)[indices].tolist()
 

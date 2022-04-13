@@ -30,14 +30,15 @@ def run_experiment(exp_conf, gpu):
         print("Tasks: {}".format(tasks))
         dataset = SplitCIFARHandler(tasks)
         i = 0
-        for m in exp_conf['m']:
+        for mn in exp_conf['m_n_ratio']:
+            m = mn * n
             print("m = {}".format(m))
             for r, rep in enumerate(range(exp_conf['reps'])):
                 print("T{} vs. T{} : Doing rep...{}".format(exp_conf['in_task'], task, rep))
-                df.at[i, "m"] = m
+                df.at[i, "m"] = mn
                 df.at[i, "r"] = r
 
-                dataset.sample_data(n=n, m=m)
+                dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
                 train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
                 if 'net' in exp_conf and exp_conf['net'] == 'wrn':
                     net = WideResNetMultihead(
