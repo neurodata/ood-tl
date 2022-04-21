@@ -9,4 +9,4 @@ m_n_ratio: [0, 1, 2, 3, 4, 5, 10, 20, 30, 40, 60, 70, 80, 90]
 sample_scheme: True
 hp: {'epochs': 100,'batch_size': 16, 'lr': 0.01, 'l2_reg': 0.00001}
 reps: 10
-save_folder: "./experiments/results/cifar10_WideResNet_multihead_random_sampling"
+save_folder: "./experiments/results/cifar10_WideResNet_multihead_larger_m"
