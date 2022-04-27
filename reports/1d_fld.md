@@ -218,3 +218,85 @@ The expected generalization risk is given by,
 ![center w:300](figures/simple_ood_multihead_exp_plot.png)
 *Figure 1.2.1 OOD sample size vs. expected generalization risk for multi-head FLD under various shifts $\Delta$. ($n=5, \mu=1, \sigma=1$)*
 
+\pagebreak
+<!-- ## Sanity Check
+
+In the multi-head setting, the projection vector $\omega$ is estimated using both the in-distribution and OOD samples. However, now there would be 2 thresholds $c_{in}$ and $c_{out}$ reflecting the two task-specific heads of the FLD. Then, the decision rule specific to the in-distribution task is given by,
+
+\begin{equation}
+g_{in}(x) = 
+\begin{cases}
+   1, & \omega^\top x > c_{in} \\
+   0, & \text{otherwise}
+\end{cases}
+\end{equation}
+
+Consider, $\omega^\top x > c_{in}$. Here, $c_{in} = \frac{1}{2}\omega^\top (M_{0, in} + M_{1, in})$ where $M_{0, in}$ and $M_{1, in}$ are the population means of class 0 and class 1 clusters belonging to the in-distribution task respectively. Then, in the 1-D setting,
+
+\begin{align}
+\omega^\top x &> c_{in} \\
+\omega^\top x &> \frac{1}{2}\omega^\top (M_{0, in} + M_{1, in}) \\
+x &> \frac{1}{2} (M_{0, in} + M_{1, in}) \quad (\because \text{ projection is the same for both LHS and RHS})
+\end{align}
+
+Since $M_{0, in}$ and $M_{1, in}$ only depend on the $\mu$, $n$, and $\pi_{in}$, the decision rule is not affected by OOD sample size $m$ or $\Delta$. -->
+
+## 1-D Multi-Head LDA with Unequal Class Priors
+
+Let's begin with a general two-class problem $X$ has a density $(1-p)f_0(x) + pf_1(x)$, where $f_0$ and $f_1$ are both mulitivariate normal distributions with parameters $m_i, \Sigma_i$ for $i = 0, 1$. Then the Bayes rule is described by, 
+\begin{equation}
+g_(x) = 
+\begin{cases}
+   1, & pf_1(x) > (1-p)f_0(x)\\
+   0, & \text{otherwise}
+\end{cases}
+\end{equation}
+
+Taking the logarithms, we observe that $g(x) = 1$ if and only if,
+\begin{equation}
+   (x-m_1)^\top \Sigma_1^{-1} (x-m_1) - 2\log p + \log |\Sigma_1| < (x-m_0)^\top \Sigma_0^{-1} (x-m_0) - 2\log (1-p) + \log |\Sigma_1|
+\end{equation}
+
+When $\Sigma_1 = \Sigma_0 = \Sigma$, this expression reduces to,
+\begin{align}
+   (x-m_1)^\top \Sigma^{-1} (x-m_1) - 2\log p  &< (x-m_0)^\top \Sigma^{-1} (x-m_0) - 2\log (1-p)\\
+   2( x^\top \Sigma^{-1} m_1 -  x^\top \Sigma^{-1} m_0 ) &> m_1^\top \Sigma^{-1} x - m_0^\top \Sigma^{-1} x + 2 \log \frac{1-p}{p}\\
+   \big(2 \Sigma^{-1} (m_1 - m_0) \big)^\top x &> \big(2 \Sigma^{-1} (m_1 - m_0) \big)^\top \bigg( \frac{m_0 + m_1}{2} \bigg) + 2 \log \frac{1-p}{p}\\
+   \omega^\top x &> c + 2 \log \frac{1-p}{p}
+\end{align}
+where, 
+\begin{align}
+   \omega &=  2 \Sigma^{-1} (m_1 - m_0)\\
+   c &= \omega^\top \bigg( \frac{m_0 + m_1}{2} \bigg) + 2 \log \frac{1-p}{p}
+\end{align}
+
+In 1-D setting, these expressions reduce to, 
+\begin{align}
+   \omega &=  \frac{2}{\sigma^2}(m_1 - m_0)\\
+   c &= \omega \bigg( \frac{m_0 + m_1}{2} \bigg) + 2 \log \frac{1-p}{p}
+\end{align}
+
+In the multi-head setting, 
+\begin{align}
+   \omega &=  \frac{2}{\sigma^2 + \frac{mn}{(n+m)^2} \Delta^2}(\hat{m}_1 - \hat{m}_0)\\
+   c_{in} &= \omega \bigg( \frac{\hat{m}_{0,in} + \hat{m}_{1,in}}{2} \bigg) + 2 \log \frac{1-\pi_{in}}{\pi_{in}}
+\end{align}
+
+Therefore, the decision condition is given by, 
+\begin{align}
+   x &>  \frac{\hat{m}_{0,in} + \hat{m}_{1,in}}{2} + \frac{\sigma^2 + \frac{mn}{(n+m)^2} \Delta^2}{\hat{m}_1 - \hat{m}_0} \log \frac{1-\pi_{in}}{\pi_{in}}\\
+   x &> h + \frac{A}{g}
+\end{align}
+
+where, 
+\begin{align}
+   h_{in} &= \frac{\hat{m}_{0,in} + \hat{m}_{1,in}}{2}\\
+   g &= \hat{m}_1 - \hat{m}_0 \\
+   A &= \bigg( \sigma^2 + \frac{mn}{(n+m)^2} \Delta^2 \bigg) \log \frac{1-\pi_{in}}{\pi_{in}}
+\end{align}
+
+Hence the generalization error on the in-distribution task is given by, 
+\begin{equation}
+   L(h, g) = \frac{1}{2} \bigg[ 1 - \Phi\bigg(\frac{h_{in} + A/g + \mu}{\sigma}\bigg) + \Phi \bigg( \frac{h_{in} + A/g -\mu}{\sigma} \bigg) \bigg]
+\end{equation}
+where, $h_{in} \sim \mathcal{N}(0, \sigma^2 / n)$ and $g \sim \mathcal{N}(2\mu, 4\sigma^2/(n+m))$.

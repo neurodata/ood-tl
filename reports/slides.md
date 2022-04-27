@@ -183,6 +183,14 @@ ___
 
 ![center w:550](figures/split_cifar10_task_matrix.png)
 
+___
+
+## CIFAR-10 Tasks (Multi-Head Network)
+
+- Random sampling (large range of $m/n$ values)
+
+![center w:510](figures/cifar_wrn_multihead_larger_m.svg)
+
 <!-- ___
 
 ## Bivariate LDA Problem
@@ -223,7 +231,7 @@ ___
 - Therefore, 
     $$ \mathbb{E}[L_{m, n, \theta}] = \mathbb{E}_{\hat{\mu}_{+1}}[L(\hat{\mu}_{+1})] $$ -->
 
-___
+<!-- ___
 
 ## Bivariate LDA
 
@@ -307,4 +315,4 @@ The risk $L_{n, m, \Delta}$ on the in-distribution data is given by,
 
 $$L_{n, m, \Delta} = \mathbb{E}_{f_{w,c_{in}}}[L(w, c_{in})] $$
 
-$$ L(w, c_{in}) = \mathbb{P}_{x \sim f_0}[ w \cdot x > c_{in} ] + \mathbb{P}_{x \sim f_1}[ w \cdot x < c_{in}] $$ 
+$$ L(w, c_{in}) = \mathbb{P}_{x \sim f_0}[ w \cdot x > c_{in} ] + \mathbb{P}_{x \sim f_1}[ w \cdot x < c_{in}] $$  -->
