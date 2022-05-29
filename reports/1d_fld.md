@@ -300,3 +300,21 @@ Hence the generalization error on the in-distribution task is given by,
    L(h, g) = \frac{1}{2} \bigg[ 1 - \Phi\bigg(\frac{h_{in} + A/g + \mu}{\sigma}\bigg) + \Phi \bigg( \frac{h_{in} + A/g -\mu}{\sigma} \bigg) \bigg]
 \end{equation}
 where, $h_{in} \sim \mathcal{N}(0, \sigma^2 / n)$ and $g \sim \mathcal{N}(2\mu, 4\sigma^2/(n+m))$.
+
+## Proving Lemma 1.1?
+
+Consider the risk of the 1-D single-head LDA.
+
+$$ \mathcal{E} = \frac{1}{2} - \frac{1}{2} \Phi \bigg[ \frac{\bar{\mu} + \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg] + \frac{1}{2} \Phi \bigg[ \frac{\bar{\mu} - \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg] $$
+
+where $\bar{\mu} = \frac{(1-\alpha)m \Delta}{\alpha n + (1-\alpha)m}$ and $\bar{\sigma}^2 = \frac{((1-\alpha)^2 m + \alpha^2 n )\sigma^2}{(\alpha n + (1-\alpha)m)^2}$.
+
+\begin{align}
+   \frac{d\mathcal{E}}{dm} &= -\frac{1}{2} \phi \bigg[ \frac{\bar{\mu} + \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg] \frac{d}{dm} \bigg( \frac{\bar{\mu} + \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg) + \frac{1}{2} \phi \bigg[ \frac{\bar{\mu} - \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg] \frac{d}{dm} \bigg( \frac{\bar{\mu} - \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg) \\
+   &= \frac{1}{2} \phi \bigg[ \frac{\bar{\mu} + \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg] \bigg[ -\frac{d}{dm} \bigg( \frac{\bar{\mu} + \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg) + \exp \bigg( \frac{2\mu \bar{\mu}}{\sqrt{1 + \bar{\sigma}^2}} \bigg) \frac{d}{dm} \bigg( \frac{\bar{\mu} - \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg) \bigg] \\
+   &= - \frac{1}{2} \phi \bigg[ \frac{\bar{\mu} + \mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg] \bigg[ \frac{d}{dm} \bigg( \frac{\bar{\mu}}{\sqrt{1 + \bar{\sigma}^2}} \bigg) \bigg[ 1 - \exp \bigg( \frac{2\mu \bar{\mu}}{\sqrt{1 + \bar{\sigma}^2}} \bigg) \bigg] + \frac{d}{dm} \bigg( \frac{\mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg) \bigg]
+\end{align}
+
+Consider, 
+
+$$ A = \frac{d}{dm} \bigg( \frac{\bar{\mu}}{\sqrt{1 + \bar{\sigma}^2}} \bigg) \bigg[ 1 - \exp \bigg( \frac{2\mu \bar{\mu}}{\sqrt{1 + \bar{\sigma}^2}} \bigg) \bigg] + \frac{d}{dm} \bigg( \frac{\mu}{\sqrt{1 + \bar{\sigma}^2}} \bigg) $$
