@@ -8,7 +8,7 @@ import seaborn as sns
 sns.set_theme()
 
 from utils.config import fetch_configs
-from datasets.cifar import SplitCIFARHandler
+from datahandlers.cifar import SplitCIFARHandler
 from net.smallconv import SingleHeadNet
 from utils.run_net import train, evaluate
 

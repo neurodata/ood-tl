@@ -6,7 +6,7 @@ import torch
 import pandas as pd
 
 from utils.config import fetch_configs
-from datasets.cifar import SplitCIFARHandler
+from datahandlers.cifar import SplitCIFARHandler
 from net.smallconv import MultiHeadNet
 from net.wideresnet import WideResNetMultihead
 from utils.run_net import train, evaluate

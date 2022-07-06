@@ -17,16 +17,11 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
     for dat, target in train_loader:
         optimizer.zero_grad()
 
-        if task_id_flag:
-          tasks, labels = target
-          tasks = tasks.long()
-          labels = labels.long()
-          tasks = tasks.to(device)
-          labels = labels.to(device)
-        else:
-          labels = target
-          labels = labels.long()
-          labels = labels.to(device)
+        tasks, labels = target
+        tasks = tasks.long()
+        labels = labels.long()
+        tasks = tasks.to(device)
+        labels = labels.to(device)
         
         batch_size = int(labels.size()[0])
 
@@ -74,16 +69,12 @@ def evaluate(net, dataset, gpu, task_id_flag=False):
   count = 0
   with torch.no_grad():
       for dat, target in test_loader:
-          if task_id_flag:
-            tasks, labels = target
-            tasks = tasks.long()
-            labels = labels.long()
-            tasks = tasks.to(device)
-            labels = labels.to(device)
-          else:
-            labels = target
-            labels = labels.long()
-            labels = labels.to(device)
+
+          tasks, labels = target
+          tasks = tasks.long()
+          labels = labels.long()
+          tasks = tasks.to(device)
+          labels = labels.to(device)
           
           batch_size = int(labels.size()[0])
 
