@@ -1,8 +1,9 @@
+from multiprocessing import reduction
 import torch.nn as nn
 import torch
 import numpy as np
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False):
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
   net.to(device)
 
@@ -10,7 +11,10 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
     train_loss = 0.0
     train_acc = 0.0
     batches = 0.0
-    criterion = nn.CrossEntropyLoss()
+    if alpha is None:
+      criterion = nn.CrossEntropyLoss()
+    else:
+      criterion = nn.CrossEntropyLoss(reduction='none')
 
     net.train()
 
@@ -33,7 +37,19 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
         else:
           out = net(dat)
 
-        loss = criterion(out, labels)
+        if alpha is None:
+          loss = criterion(out, labels)
+        else:
+          loss = criterion(out, labels)
+          weights = torch.zeros(len(loss)).to(device)
+          for i in range(len(loss)):
+            if tasks[i] == 0:
+              weights[i] = alpha
+            else:
+              weights[i] = 1-alpha
+          loss = loss * weights
+          loss = loss.sum()/weights.sum()
+
         loss.backward()
 
         optimizer.step()
