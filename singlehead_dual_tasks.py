@@ -48,7 +48,10 @@ def run_experiment(exp_conf, gpu):
                         avg_pool=2,
                         lin_size=320
                     )
-                alpha = search_alpha(net, dataset, n, hp, gpu)
+                if m == 0:
+                    alpha = 1/2
+                else:
+                    alpha = search_alpha(net, dataset, n, hp, gpu)
                 print("Optimal alpha = {}".format(alpha))
                 train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
                 optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
