@@ -11,6 +11,7 @@ from utils.config import fetch_configs
 from datahandlers.cifar import SplitCIFARHandler
 from net.smallconv import SmallConvSingleHeadNet
 from utils.run_net import train, evaluate
+from utils.tune import search_alpha
 
 SEED = 1234
 random.seed(SEED)
@@ -48,12 +49,14 @@ def run_experiment(exp_conf, gpu):
                         avg_pool=2,
                         lin_size=320
                     )
+                alpha = search_alpha(net, dataset, n, hp, gpu)
+                print("Optimal alpha = {}".format(alpha))
                 optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
                                             momentum=0.9, nesterov=True,
                                             weight_decay=hp['l2_reg'])
                 lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                     optimizer, hp['epochs'] * len(train_loader))
-                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False)
+                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
                 risk = evaluate(net, dataset, gpu, task_id_flag=False)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(task)] = risk

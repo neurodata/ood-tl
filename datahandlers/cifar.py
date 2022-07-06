@@ -202,3 +202,4 @@ class SplitCIFARHandler:
             worker_init_fn=wif)
 
         return loader
+
