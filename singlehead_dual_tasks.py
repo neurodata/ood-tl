@@ -40,7 +40,6 @@ def run_experiment(exp_conf, gpu):
                 df.at[i, "r"] = r
 
                 dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
-                train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
                 if exp_conf['net'] == 'smallconv':
                     net = SmallConvSingleHeadNet(
                         num_task=len(tasks), 
@@ -51,6 +50,7 @@ def run_experiment(exp_conf, gpu):
                     )
                 alpha = search_alpha(net, dataset, n, hp, gpu)
                 print("Optimal alpha = {}".format(alpha))
+                train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
                 optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
                                             momentum=0.9, nesterov=True,
                                             weight_decay=hp['l2_reg'])
