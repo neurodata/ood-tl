@@ -1,4 +1,4 @@
-exp_name: "singlehead_dual_tasks"
+exp_name: "singlehead_dual_tasks_weighted"
 dataset: "cifar10"
 task_dict: {1:[0,1], 2:[2,3], 3:[4,5], 4:[6,7], 5:[8,9]}
 in_task: 2
