@@ -39,7 +39,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           out = net(dat)
 
           loss = criterion(out, labels)
-          weights = (alpha*torch.ones(3).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
+          weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
           loss = loss * weights
           loss = loss.sum()/weights.sum()
 
