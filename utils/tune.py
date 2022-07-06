@@ -127,9 +127,10 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
     tune_val_loader = DataLoader(tune_valset, batch_size=len(target_y_val), shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)    
 
     alpha_range = np.arange(0.5, 1.1, 0.1)
-    score = []
+    scores = []
 
     for alpha in alpha_range:
+        print("Checking alpha...{}".format(alpha))
         tune_net = deepcopy(net)
         optimizer = torch.optim.SGD(tune_net.parameters(), lr=hp['lr'],
                                             momentum=0.9, nesterov=True,
@@ -137,7 +138,9 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
         lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
             optimizer, hp['epochs'] * len(tune_train_loader))
         tune_net = train(tune_net, hp, tune_train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
-        score.append(evaluate(tune_net, tune_val_loader, gpu))
+        acc = evaluate(tune_net, tune_val_loader, gpu)
+        print(acc)
+        scores.append(acc)
 
     return alpha_range[np.argmin[score]]
 
