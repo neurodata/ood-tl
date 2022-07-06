@@ -87,8 +87,8 @@ def main():
         exp_conf['out_task'] = args.out_task
     gpu = args.gpu
 
-    print("Source Task : {}".format(exp_conf['in_task']))
-    print("Target Task(s) : {}".format(exp_conf['out_task']))
+    print("Source Task(s) : {}".format(exp_conf['out_task']))
+    print("Target Task : {}".format(exp_conf['in_task']))
     print("GPU : {}".format(gpu))
 
     run_experiment(exp_conf, gpu)
