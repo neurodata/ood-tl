@@ -13,7 +13,6 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
   triggertimes = 0
   for epoch in range(hp['epochs']):
     train_loss = 0.0
-    train_acc = 0.0
     batches = 0.0
     criterion = nn.CrossEntropyLoss(reduction='none')
 
