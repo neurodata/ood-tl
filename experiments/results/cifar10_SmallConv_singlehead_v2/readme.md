@@ -1,3 +1,5 @@
+This folder contains the outcomes of the cifar10_SmallConv_singlehead experiment.
+
 exp_name: "singlehead_dual_tasks"
 dataset: "cifar10"
 task_dict: {1:[0,1], 2:[2,3], 3:[4,5], 4:[6,7], 5:[8,9]}
