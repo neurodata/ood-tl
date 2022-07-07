@@ -13,7 +13,6 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
   triggertimes = 0
   for epoch in range(hp['epochs']):
     train_loss = 0.0
-    train_acc = 0.0
     batches = 0.0
     criterion = nn.CrossEntropyLoss(reduction='none')
 
@@ -126,7 +125,7 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
     tune_train_loader = DataLoader(tune_trainset, batch_size=hp['batch_size'], shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
     tune_val_loader = DataLoader(tune_valset, batch_size=len(target_y_val), shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)    
 
-    alpha_range = np.arange(0.5, 1.1, 0.1)
+    alpha_range = np.arange(0.5, 1, 0.1)
     scores = []
 
     for alpha in alpha_range:
@@ -142,7 +141,7 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
         print(acc)
         scores.append(acc)
 
-    return alpha_range[np.argmin[score]]
+    return alpha_range[np.argmin[scores]]
 
 
     
