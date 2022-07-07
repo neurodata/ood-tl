@@ -34,12 +34,11 @@ def run_experiment(exp_conf, gpu):
         for mn in exp_conf['m_n_ratio']:
             m = mn * n
             print("m = {}".format(m))
-            alpha = 0.5
             for r, rep in enumerate(range(exp_conf['reps'])):
                 print("T{} vs. T{} : Doing rep...{}".format(exp_conf['in_task'], task, rep))
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
-
+                
                 dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
                 if exp_conf['net'] == 'smallconv':
                     net = SmallConvSingleHeadNet(
@@ -49,19 +48,13 @@ def run_experiment(exp_conf, gpu):
                         avg_pool=2,
                         lin_size=320
                     )
-                if r==0:
-                    if m == 0:
-                        alpha = 0.5
-                    else:
-                        alpha = search_alpha(net, dataset, n, hp, gpu)
-                print("Optimal alpha = {}".format(alpha))
                 train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
                 optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
                                             momentum=0.9, nesterov=True,
                                             weight_decay=hp['l2_reg'])
                 lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                     optimizer, hp['epochs'] * len(train_loader))
-                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
+                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False)
                 risk = evaluate(net, dataset, gpu, task_id_flag=False)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(task)] = risk
