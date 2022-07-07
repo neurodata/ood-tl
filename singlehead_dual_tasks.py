@@ -34,6 +34,7 @@ def run_experiment(exp_conf, gpu):
         for mn in exp_conf['m_n_ratio']:
             m = mn * n
             print("m = {}".format(m))
+            alpha = 0.5
             for r, rep in enumerate(range(exp_conf['reps'])):
                 print("T{} vs. T{} : Doing rep...{}".format(exp_conf['in_task'], task, rep))
                 df.at[i, "m"] = mn
@@ -48,10 +49,11 @@ def run_experiment(exp_conf, gpu):
                         avg_pool=2,
                         lin_size=320
                     )
-                if m == 0:
-                    alpha = 1/2
-                else:
-                    alpha = search_alpha(net, dataset, n, hp, gpu)
+                if r==0:
+                    if m == 0:
+                        alpha = 0.5
+                    else:
+                        alpha = search_alpha(net, dataset, n, hp, gpu)
                 print("Optimal alpha = {}".format(alpha))
                 train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
                 optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
