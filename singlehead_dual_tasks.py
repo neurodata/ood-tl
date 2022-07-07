@@ -11,7 +11,6 @@ from utils.config import fetch_configs
 from datahandlers.cifar import SplitCIFARHandler
 from net.smallconv import SmallConvSingleHeadNet
 from utils.run_net import train, evaluate
-from utils.tune import search_alpha
 
 SEED = 1234
 random.seed(SEED)
@@ -38,7 +37,7 @@ def run_experiment(exp_conf, gpu):
                 print("T{} vs. T{} : Doing rep...{}".format(exp_conf['in_task'], task, rep))
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
-                
+
                 dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
                 if exp_conf['net'] == 'smallconv':
                     net = SmallConvSingleHeadNet(
