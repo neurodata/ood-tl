@@ -1,10 +1,6 @@
-from multiprocessing import reduction
 import torch.nn as nn
 import torch
 import numpy as np
-from copy import deepcopy
-from sklearn.model_selection import train_test_split
-from torch.utils.data import DataLoader
 
 def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
