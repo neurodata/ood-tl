@@ -1,8 +1,12 @@
+from multiprocessing import reduction
 import torch.nn as nn
 import torch
 import numpy as np
+from copy import deepcopy
+from sklearn.model_selection import train_test_split
+from torch.utils.data import DataLoader
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False):
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
   net.to(device)
 
@@ -10,23 +14,21 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
     train_loss = 0.0
     train_acc = 0.0
     batches = 0.0
-    criterion = nn.CrossEntropyLoss()
+    if alpha is None:
+      criterion = nn.CrossEntropyLoss()
+    else:
+      criterion = nn.CrossEntropyLoss(reduction='none')
 
     net.train()
 
     for dat, target in train_loader:
         optimizer.zero_grad()
 
-        if task_id_flag:
-          tasks, labels = target
-          tasks = tasks.long()
-          labels = labels.long()
-          tasks = tasks.to(device)
-          labels = labels.to(device)
-        else:
-          labels = target
-          labels = labels.long()
-          labels = labels.to(device)
+        tasks, labels = target
+        tasks = tasks.long()
+        labels = labels.long()
+        tasks = tasks.to(device)
+        labels = labels.to(device)
         
         batch_size = int(labels.size()[0])
 
@@ -38,7 +40,14 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
         else:
           out = net(dat)
 
-        loss = criterion(out, labels)
+        if alpha is None:
+          loss = criterion(out, labels)
+        else:
+          loss = criterion(out, labels)
+          weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
+          loss = loss * weights
+          loss = loss.sum()/weights.sum()
+
         loss.backward()
 
         optimizer.step()
@@ -63,10 +72,11 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
 def evaluate(net, dataset, gpu, task_id_flag=False):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
 
-  if task_id_flag:
-    test_loader = dataset.get_task_data_loader(0, 100, train=False)
-  else:
-    test_loader = dataset.get_data_loader(100, train=False)
+  # if task_id_flag:
+  #   test_loader = dataset.get_task_data_loader(0, 100, train=False)
+  # else:
+  #   test_loader = dataset.get_data_loader(100, train=False)
+  test_loader = dataset.get_task_data_loader(0, 100, train=False)
   
   net.eval()
 
@@ -74,16 +84,12 @@ def evaluate(net, dataset, gpu, task_id_flag=False):
   count = 0
   with torch.no_grad():
       for dat, target in test_loader:
-          if task_id_flag:
-            tasks, labels = target
-            tasks = tasks.long()
-            labels = labels.long()
-            tasks = tasks.to(device)
-            labels = labels.to(device)
-          else:
-            labels = target
-            labels = labels.long()
-            labels = labels.to(device)
+
+          tasks, labels = target
+          tasks = tasks.long()
+          labels = labels.long()
+          tasks = tasks.to(device)
+          labels = labels.to(device)
           
           batch_size = int(labels.size()[0])
 

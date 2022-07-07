@@ -8,9 +8,10 @@ import seaborn as sns
 sns.set_theme()
 
 from utils.config import fetch_configs
-from datasets.cifar import SplitCIFARHandler
-from net.smallconv import SingleHeadNet
+from datahandlers.cifar import SplitCIFARHandler
+from net.smallconv import SmallConvSingleHeadNet
 from utils.run_net import train, evaluate
+from utils.tune import search_alpha
 
 SEED = 1234
 random.seed(SEED)
@@ -33,26 +34,34 @@ def run_experiment(exp_conf, gpu):
         for mn in exp_conf['m_n_ratio']:
             m = mn * n
             print("m = {}".format(m))
+            alpha = 0.5
             for r, rep in enumerate(range(exp_conf['reps'])):
                 print("T{} vs. T{} : Doing rep...{}".format(exp_conf['in_task'], task, rep))
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
 
                 dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
+                if exp_conf['net'] == 'smallconv':
+                    net = SmallConvSingleHeadNet(
+                        num_task=len(tasks), 
+                        num_cls=len(tasks[0]),
+                        channels=3, 
+                        avg_pool=2,
+                        lin_size=320
+                    )
+                if r==0:
+                    if m == 0:
+                        alpha = 0.5
+                    else:
+                        alpha = search_alpha(net, dataset, n, hp, gpu)
+                print("Optimal alpha = {}".format(alpha))
                 train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
-                net = SingleHeadNet(
-                    num_task=len(tasks), 
-                    num_cls=len(tasks[0]),
-                    channels=3, 
-                    avg_pool=2,
-                    lin_size=320
-                )
                 optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
                                             momentum=0.9, nesterov=True,
                                             weight_decay=hp['l2_reg'])
                 lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                     optimizer, hp['epochs'] * len(train_loader))
-                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False)
+                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
                 risk = evaluate(net, dataset, gpu, task_id_flag=False)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(task)] = risk
@@ -87,8 +96,8 @@ def main():
         exp_conf['out_task'] = args.out_task
     gpu = args.gpu
 
-    print("Source Task : {}".format(exp_conf['in_task']))
-    print("Target Task(s) : {}".format(exp_conf['out_task']))
+    print("OOD Task(s) : {}".format(exp_conf['out_task']))
+    print("Target Task : {}".format(exp_conf['in_task']))
     print("GPU : {}".format(gpu))
 
     run_experiment(exp_conf, gpu)
