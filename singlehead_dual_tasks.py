@@ -38,6 +38,9 @@ def run_experiment(exp_conf, gpu):
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
 
+                beta = m/n
+                alpha = 1/4 + (1.5-np.exp((0.5)*beta**0.5))/2
+
                 dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
                 if exp_conf['net'] == 'smallconv':
                     net = SmallConvSingleHeadNet(
@@ -53,7 +56,7 @@ def run_experiment(exp_conf, gpu):
                                             weight_decay=hp['l2_reg'])
                 lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                     optimizer, hp['epochs'] * len(train_loader))
-                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=n/(n+m))
+                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
                 risk = evaluate(net, dataset, gpu, task_id_flag=False)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(task)] = risk
