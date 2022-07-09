@@ -39,7 +39,8 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           loss = criterion(out, labels)
           weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
           loss = loss * weights
-          loss = loss.sum()/weights.sum()
+          # loss = loss.sum()/weights.sum()
+          loss = loss.mean()
 
         loss.backward()
 
@@ -128,7 +129,6 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
     scores = []
 
     for alpha in alpha_range:
-        print("Checking alpha...{}".format(alpha))
         tune_net = deepcopy(net)
         optimizer = torch.optim.SGD(tune_net.parameters(), lr=hp['lr'],
                                             momentum=0.9, nesterov=True,
@@ -136,9 +136,9 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
         lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
             optimizer, hp['epochs'] * len(tune_train_loader))
         tune_net = train(tune_net, hp, tune_train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
-        acc = evaluate(tune_net, tune_val_loader, gpu)
-        print(acc)
-        scores.append(acc)
+        risk = evaluate(tune_net, tune_val_loader, gpu)
+        print("Risk at alpha = {:1f} : {:4f}".format(alpha, risk))
+        scores.append(risk)
 
     return alpha_range[np.argmin(scores)]
 

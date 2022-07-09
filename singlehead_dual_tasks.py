@@ -54,7 +54,7 @@ def run_experiment(exp_conf, gpu):
                         alpha = 0.5
                     else:
                         alpha = search_alpha(net, dataset, n, hp, gpu)
-                print("Optimal alpha = {}".format(alpha))
+                        print("Optimal alpha = {}".format(alpha))
                 train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
                 optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
                                             momentum=0.9, nesterov=True,
