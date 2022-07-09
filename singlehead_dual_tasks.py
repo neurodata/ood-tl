@@ -53,7 +53,7 @@ def run_experiment(exp_conf, gpu):
                     if m == 0:
                         alpha = 0.5
                     else:
-                        alpha = search_alpha(net, dataset, n, hp, gpu)
+                        alpha = search_alpha(net, dataset, n, hp, gpu, val_split=exp_conf['val_split'])
                         print("Optimal alpha = {:.1f}".format(alpha))
                 train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
                 optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
