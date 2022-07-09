@@ -112,21 +112,22 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
       # More than 128 bits (4 32-bit words) would be overkill.
       np.random.seed(ss.generate_state(4))
     
-    X = dataset.comb_trainset.data
-    y = dataset.comb_trainset.targets
+    # X = dataset.comb_trainset.data
+    # y = dataset.comb_trainset.targets
 
-    tune_trainset = deepcopy(dataset.comb_trainset)
-    tune_valset = deepcopy(dataset.comb_trainset) 
+    # tune_trainset = deepcopy(dataset.comb_trainset)
+    # tune_valset = deepcopy(dataset.comb_trainset) 
 
-    target_X_train, target_X_val, target_y_train, target_y_val = train_test_split(X[:n], y[:n], test_size=val_split)
-    tune_trainset.data = np.concatenate((target_X_train, X[n:]))
-    tune_trainset.targets = np.concatenate((target_y_train, y[n:])).tolist()
-    tune_valset.data = target_X_val
-    tune_valset.target = target_y_val
+    # target_X_train, target_X_val, target_y_train, target_y_val = train_test_split(X[:n], y[:n], test_size=val_split)
+    # tune_trainset.data = np.concatenate((target_X_train, X[n:]))
+    # tune_trainset.targets = np.concatenate((target_y_train, y[n:])).tolist()
+    # tune_valset.data = target_X_val
+    # tune_valset.target = target_y_val
 
-    tune_train_loader = DataLoader(tune_trainset, batch_size=hp['batch_size'], shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
-    tune_val_loader = DataLoader(tune_valset, batch_size=len(target_y_val), shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)   
+    # tune_train_loader = DataLoader(tune_trainset, batch_size=hp['batch_size'], shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
+    # tune_val_loader = DataLoader(tune_valset, batch_size=len(target_y_val), shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)   
 
+    train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
     alpha_range = np.arange(0.5, 1.01, 0.05)
@@ -140,8 +141,8 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
                                                 momentum=0.9, nesterov=True,
                                                 weight_decay=hp['l2_reg'])
             lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-                optimizer, hp['epochs'] * len(tune_train_loader))
-            tune_net = train(tune_net, hp, tune_train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
+                optimizer, hp['epochs'] * len(train_loader))
+            tune_net = train(tune_net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
             risk_rep.append(evaluate(tune_net, test_loader, gpu))
         risk = np.mean(risk_rep)
         print("Risk at alpha = {:.2f} : {:.4f} +/- {:.4f}".format(alpha, risk, np.std(risk_rep)))
