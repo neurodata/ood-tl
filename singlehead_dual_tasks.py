@@ -65,6 +65,7 @@ def run_experiment(exp_conf, gpu):
                 risk = evaluate(net, dataset, gpu, task_id_flag=False)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(task)] = risk
+                df.at[i, "alpha"] = alpha
                 i+=1
         print("Saving individual results...")
         df.to_csv('{}/{}_{}_{}_T{}_T{}.csv'.format(exp_conf['save_folder'], exp_conf['dataset'], exp_conf['net'], exp_conf['exp_name'], exp_conf['in_task'], task))

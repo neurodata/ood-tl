@@ -8,5 +8,5 @@ n: 100
 m_n_ratio: [0, 1, 2, 3, 4, 5, 10, 20, 30, 40]
 sample_scheme: False
 hp: {'epochs': 100,'batch_size': 16, 'lr': 0.01, 'l2_reg': 0.00001}
-reps: 5
+reps: 10
 save_folder: "./experiments/results/cifar10_SmallConv_singlehead"
