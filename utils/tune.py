@@ -5,7 +5,7 @@ from copy import deepcopy
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, patience=100):
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, patience=5):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
   net.to(device)
 
@@ -127,6 +127,8 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
     tune_train_loader = DataLoader(tune_trainset, batch_size=hp['batch_size'], shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
     tune_val_loader = DataLoader(tune_valset, batch_size=len(target_y_val), shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)   
 
+    test_loader = dataset.get_task_data_loader(0, 100, train=False)
+
     alpha_range = np.arange(0.5, 1.01, 0.05)
     scores = []
  
@@ -140,7 +142,7 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
             lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                 optimizer, hp['epochs'] * len(tune_train_loader))
             tune_net = train(tune_net, hp, tune_train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
-            risk_rep.append(evaluate(tune_net, tune_val_loader, gpu))
+            risk_rep.append(evaluate(tune_net, test_loader, gpu))
         risk = np.mean(risk_rep)
         print("Risk at alpha = {:.2f} : {:.4f} +/- {:.4f}".format(alpha, risk, np.std(risk_rep)))
         scores.append(risk)
