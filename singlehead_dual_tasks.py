@@ -24,6 +24,8 @@ def run_experiment(exp_conf, gpu):
     task_dict = exp_conf['task_dict']
     df = pd.DataFrame()
 
+    alpha_range = np.arange(0.5, 1.05, 0.1)
+
     for task in exp_conf['out_task']:
         print("Doing task...T{}".format(task))
         tasks = [task_dict[exp_conf['in_task']], task_dict[task]]
@@ -38,29 +40,39 @@ def run_experiment(exp_conf, gpu):
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
 
-                beta = m/n
-                alpha = 1/4 + (1.5-np.exp((0.5)*beta**0.5))/2
-
                 dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
-                if exp_conf['net'] == 'smallconv':
-                    net = SmallConvSingleHeadNet(
-                        num_task=len(tasks), 
-                        num_cls=len(tasks[0]),
-                        channels=3, 
-                        avg_pool=2,
-                        lin_size=320
-                    )
-                train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
-                optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
-                                            momentum=0.9, nesterov=True,
-                                            weight_decay=hp['l2_reg'])
-                lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-                    optimizer, hp['epochs'] * len(train_loader))
-                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
-                risk = evaluate(net, dataset, gpu, task_id_flag=False)
-                print("Risk = %0.4f" % risk)
-                df.at[i, str(task)] = risk
+
+                risk_alpha = []
+                for alpha in alpha_range:
+                    
+                    if exp_conf['net'] == 'smallconv':
+                        net = SmallConvSingleHeadNet(
+                            num_task=len(tasks), 
+                            num_cls=len(tasks[0]),
+                            channels=3, 
+                            avg_pool=2,
+                            lin_size=320
+                        )
+
+                    train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
+                    optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
+                                                momentum=0.9, nesterov=True,
+                                                weight_decay=hp['l2_reg'])
+                    lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+                        optimizer, hp['epochs'] * len(train_loader))
+                    net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
+                    risk = evaluate(net, dataset, gpu, task_id_flag=False)
+                    risk_alpha.append(risk)
+                    print("Risk at {:.1f} = {:.4f}".format(alpha, risk))
+                
+                optimal_alpha = alpha_range[np.argmin(risk_alpha)]
+                
+                print("Risk = %0.4f" % min(risk_alpha))
+                print("Optimal Alpha = %0.1f" % optimal_alpha)
+                df.at[i, str(task)] = min(risk_alpha)
+                df.at[i, "alpha"] = optimal_alpha
                 i+=1
+
         print("Saving individual results...")
         df.to_csv('{}/{}_{}_{}_T{}_T{}.csv'.format(exp_conf['save_folder'], exp_conf['dataset'], exp_conf['net'], exp_conf['exp_name'], exp_conf['in_task'], task))
     print("Saving bulk results...")
