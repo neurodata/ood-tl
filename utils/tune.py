@@ -125,7 +125,7 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
     tune_train_loader = DataLoader(tune_trainset, batch_size=hp['batch_size'], shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
     tune_val_loader = DataLoader(tune_valset, batch_size=len(target_y_val), shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)    
 
-    alpha_range = np.arange(0.5, 1.05, 0.1)
+    alpha_range = np.arange(0.5, 1.01, 0.05)
     scores = []
 
     for alpha in alpha_range:
