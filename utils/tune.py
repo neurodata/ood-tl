@@ -134,7 +134,7 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
  
     for alpha in alpha_range:
         risk_rep = []
-        for rep in range(3):
+        for rep in range(1):
             tune_net = deepcopy(net)
             optimizer = torch.optim.SGD(tune_net.parameters(), lr=hp['lr'],
                                                 momentum=0.9, nesterov=True,
