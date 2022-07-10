@@ -1,3 +1,4 @@
+from random import betavariate
 import torch.nn as nn
 import torch
 import numpy as np
@@ -5,7 +6,7 @@ from copy import deepcopy
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, patience=5):
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, beta=None, patience=5):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
   net.to(device)
 
@@ -35,9 +36,11 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           out = net(dat, tasks)
         else:
           out = net(dat)
-
           loss = criterion(out, labels)
-          weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
+          # weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
+          wt = alpha/beta
+          wo = (1-alpha)/(1-beta)
+          weights = wt*(torch.ones(len(loss)).to(device)-tasks) + wo*tasks
           loss = loss * weights
           # loss = loss.sum()/weights.sum()
           loss = loss.mean()
@@ -99,7 +102,7 @@ def evaluate(net, val_loader, gpu, task_id_flag=False):
   error = 1-acc/count
   return error
 
-def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
+def search_alpha(net, dataset, n, beta, hp, gpu, val_split=0.1, SEED=1996):
     def wif(id):
       """
       Used to fix randomization bug for pytorch dataloader + numpy
@@ -142,7 +145,7 @@ def search_alpha(net, dataset, n, hp, gpu, val_split=0.1, SEED=1996):
                                                 weight_decay=hp['l2_reg'])
             lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                 optimizer, hp['epochs'] * len(train_loader))
-            tune_net = train(tune_net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
+            tune_net = train(tune_net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha, beta=beta)
             risk_rep.append(evaluate(tune_net, test_loader, gpu))
         risk = np.mean(risk_rep)
         print("Risk at alpha = {:.2f} : {:.4f} +/- {:.4f}".format(alpha, risk, np.std(risk_rep)))

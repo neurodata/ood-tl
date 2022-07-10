@@ -6,7 +6,7 @@ from copy import deepcopy
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None):
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, beta=None):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
   net.to(device)
 
@@ -44,7 +44,10 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           loss = criterion(out, labels)
         else:
           loss = criterion(out, labels)
-          weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
+          # weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
+          wt = alpha/beta
+          wo = (1-alpha)/(1-beta)
+          weights = wt*(torch.ones(len(loss)).to(device)-tasks) + wo*tasks
           loss = loss * weights
           # loss = loss.sum()/weights.sum()
           loss = loss.mean()
