@@ -2,7 +2,7 @@ import torch.nn as nn
 import torch
 import numpy as np
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None):
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, beta=None):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
   net.to(device)
 
@@ -40,10 +40,15 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           loss = criterion(out, labels)
         else:
           loss = criterion(out, labels)
-          weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
-          loss = loss * weights
-          # loss = loss.sum()/weights.sum()
-          loss = loss.mean()
+          # weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
+          if beta == 1:
+            loss = loss.mean()
+          else:
+            wt = alpha/beta
+            wo = (1-alpha)/(1-beta)
+            weights = wt*(torch.ones(len(loss)).to(device)-tasks) + wo*tasks
+            loss = loss * weights
+            loss = loss.mean()
 
         loss.backward()
 
