@@ -41,10 +41,8 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           if beta == 1:
             loss = loss.mean()
           else:
-            # wt = alpha/beta
-            # wo = (1-alpha)/(1-beta)
-            wt = 1/beta
-            wo = alpha/(1-beta)
+            wt = alpha/beta
+            wo = (1-alpha)/(1-beta)
             weights = wt*(torch.ones(len(loss)).to(device)-tasks) + wo*tasks
             loss = loss * weights
             loss = loss.mean()
@@ -137,8 +135,7 @@ def search_alpha(net, dataset, n, beta, hp, gpu, val_split=0.1, SEED=1996):
     train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
-    # alpha_range = np.arange(0.5, 1.01, 0.05)
-    alpha_range = np.arange(0.1, 1.01, 0.1)
+    alpha_range = np.arange(0.7, 0.99, 0.001)
     scores = []
  
     for alpha in alpha_range:
@@ -153,7 +150,7 @@ def search_alpha(net, dataset, n, beta, hp, gpu, val_split=0.1, SEED=1996):
             tune_net = train(tune_net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha, beta=beta)
             risk_rep.append(evaluate(tune_net, test_loader, gpu))
         risk = np.mean(risk_rep)
-        print("Risk at alpha = {:.2f} : {:.4f} +/- {:.4f}".format(alpha, risk, np.std(risk_rep)))
+        print("Risk at alpha = {:.4f} : {:.4f} +/- {:.4f}".format(alpha, risk, np.std(risk_rep)))
         scores.append(risk)
 
     return alpha_range[np.argmin(scores)]
