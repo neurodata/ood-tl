@@ -91,6 +91,9 @@ def main():
     parser.add_argument('--out_task', nargs='+', type=int,
                             help="Target task(s)")
 
+    parser.add_argument('--tune_alpha', type=bool,
+                            help="Whether to tune alpha or not")
+
     parser.add_argument('--gpu', type=str,
                             default='cuda:0',
                             help="GPU")                      
@@ -101,6 +104,8 @@ def main():
         exp_conf['in_task'] = args.in_task
     if args.out_task is not None:
         exp_conf['out_task'] = args.out_task
+    if args.tune_alpha is not None:
+        exp_conf['tune_alpha'] = args.tune_alpha
     gpu = args.gpu
 
     print("OOD Task(s) : {}".format(exp_conf['out_task']))
