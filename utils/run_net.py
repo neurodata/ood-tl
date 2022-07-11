@@ -50,8 +50,8 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           else:
             # wt = alpha/beta
             # wo = (1-alpha)/(1-beta)
-            wt = alpha
-            wo = 1-alpha
+            wt = 1/beta
+            wo = alpha/(1-beta)
             weights = wt*(torch.ones(len(loss)).to(device)-tasks) + wo*tasks
             loss = loss * weights
             loss = loss.mean()
