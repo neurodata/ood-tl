@@ -56,7 +56,7 @@ def run_experiment(exp_conf, gpu):
 
                 if r==0:
                     if m == 0:
-                        alpha = 1
+                        alpha = 0.5
                     else:
                         if exp_conf['tune_alpha']:                            
                             alpha = search_alpha(net, dataset, n, beta, hp, gpu, val_split=exp_conf['val_split'])
