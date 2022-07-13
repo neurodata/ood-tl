@@ -30,11 +30,13 @@ def run_experiment(exp_conf, gpu):
         tasks = [task_dict[exp_conf['in_task']], task_dict[task]]
         print("Tasks: {}".format(tasks))
         dataset = SplitCIFARHandler(tasks)
+
         i = 0
         for mn in exp_conf['m_n_ratio']:
             m = mn * n
             print("m = {}".format(m))
             alpha = 0.5
+
             for r, rep in enumerate(range(exp_conf['reps'])):
                 print("T{} vs. T{} : Doing rep...{}".format(exp_conf['in_task'], task, rep))
                 df.at[i, "m"] = mn
@@ -51,13 +53,14 @@ def run_experiment(exp_conf, gpu):
                         avg_pool=2,
                         lin_size=320
                     )
+
                 if r==0:
                     if m == 0:
-                        alpha = 0.5
+                        alpha = 1
                     else:
                         if exp_conf['tune_alpha']:                            
                             alpha = search_alpha(net, dataset, n, beta, hp, gpu, val_split=exp_conf['val_split'])
-                            print("Optimal alpha = {:.2f}".format(alpha))
+                            print("Optimal alpha = {:.4f}".format(alpha))
                         else:
                             alpha = 0.5
                 
