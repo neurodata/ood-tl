@@ -36,16 +36,13 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           out = net(dat, tasks)
         else:
           out = net(dat)
-          loss = criterion(out, labels)
-          # weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
-          if beta == 1:
-            loss = loss.mean()
-          else:
-            wt = alpha/beta
-            wo = (1-alpha)/(1-beta)
-            weights = wt*(torch.ones(len(loss)).to(device)-tasks) + wo*tasks
-            loss = loss * weights
-            loss = loss.mean()
+
+        loss = criterion(out, labels)
+        wt = alpha
+        wo = (1-alpha)
+        loss_target = loss[tasks==0].mean()
+        loss_ood = loss[tasks==1].mean()
+        loss = wt*loss_target + wo*loss_ood
 
         loss.backward()
 
@@ -135,7 +132,7 @@ def search_alpha(net, dataset, n, beta, hp, gpu, val_split=0.1, SEED=1996):
     train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
-    alpha_range = np.arange(0.7, 0.99, 0.001)
+    alpha_range = np.arange(0.5, 1.01, 0.05)
     scores = []
  
     for alpha in alpha_range:

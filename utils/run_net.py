@@ -14,6 +14,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
     train_loss = 0.0
     train_acc = 0.0
     batches = 0.0
+    
     if alpha is None:
       criterion = nn.CrossEntropyLoss()
     else:
@@ -44,15 +45,11 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           loss = criterion(out, labels)
         else:
           loss = criterion(out, labels)
-          # weights = (alpha*torch.ones(len(loss)).to(device) - tasks)*((tasks==0).to(torch.int)-tasks)
-          if beta == 1:
-            loss = loss.mean()
-          else:
-            wt = alpha/beta
-            wo = (1-alpha)/(1-beta)
-            weights = wt*(torch.ones(len(loss)).to(device)-tasks) + wo*tasks
-            loss = loss * weights
-            loss = loss.mean()
+          wt = alpha
+          wo = (1-alpha)
+          loss_target = loss[tasks==0].mean()
+          loss_ood = loss[tasks==1].mean()
+          loss = wt*loss_target + wo*loss_ood
 
         loss.backward()
 
