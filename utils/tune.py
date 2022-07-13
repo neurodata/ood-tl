@@ -101,7 +101,7 @@ def evaluate(net, val_loader, gpu, task_id_flag=False):
   error = 1-acc/count
   return error
 
-def search_alpha(net, dataset, n, beta, hp, gpu, val_split=0.1, SEED=1996):
+def search_alpha(net, dataset, n, beta, hp, gpu, sensitivity=0.05, val_split=0.1, SEED=1996):
     def wif(id):
       """
       Used to fix randomization bug for pytorch dataloader + numpy
@@ -132,7 +132,7 @@ def search_alpha(net, dataset, n, beta, hp, gpu, val_split=0.1, SEED=1996):
     train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
-    alpha_range = np.arange(0.5, 1.01, 0.05)
+    alpha_range = np.arange(0.5, 1+1e-5, sensitivity)
     scores = []
  
     for alpha in alpha_range:

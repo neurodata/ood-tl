@@ -59,7 +59,7 @@ def run_experiment(exp_conf, gpu):
                         alpha = 0.5
                     else:
                         if exp_conf['tune_alpha']:                            
-                            alpha = search_alpha(net, dataset, n, beta, hp, gpu, val_split=exp_conf['val_split'])
+                            alpha = search_alpha(net, dataset, n, beta, hp, gpu, sensitivity=0.001, val_split=exp_conf['val_split'])
                             print("Optimal alpha = {:.4f}".format(alpha))
                         else:
                             alpha = 0.5
