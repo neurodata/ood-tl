@@ -11,4 +11,4 @@ hp: {'epochs': 100,'batch_size': 16, 'lr': 0.01, 'l2_reg': 0.00001}
 reps: 10
 tune_alpha: False
 val_split: 0.15
-save_folder: "./experiments/results/cifar10_SmallConv_singlehead_naive_v2"
+save_folder: "./experiments/results/cifar10_SmallConv_singlehead_naive"
