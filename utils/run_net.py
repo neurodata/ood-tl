@@ -54,7 +54,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           if alpha is None:
             loss = criterion(out, labels)
           else:
-            print("target instance fraction: {:.3f}".format(1-tasks.sum()/len(tasks)))
+            # print("target instance fraction: {:.3f}".format(1-tasks.sum()/len(tasks)))
             loss = criterion(out, labels)
             wt = alpha
             wo = (1-alpha)
