@@ -47,8 +47,13 @@ class StratifiedSampler(Sampler):
         y = self.task_vector.numpy()
         s.get_n_splits(X, y)
 
+        # indices = []
+        # for _, test_index in s.split(X, y):
+        #     indices = np.hstack([indices, test_index])
+
         indices = []
-        for _, test_index in s.split(X, y):
+        for i in range(self.n_splits):
+            _ , test_index = next(s.split(X, y))
             indices = np.hstack([indices, test_index])
 
         return indices.astype('int')
