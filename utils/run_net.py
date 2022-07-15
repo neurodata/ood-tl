@@ -47,10 +47,11 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
             loss = alpha*loss
           else:
             loss = (1-alpha)*loss
-        else:
+        else: 
           if alpha is None:
             loss = criterion(out, labels)
           else:
+            print("number of target instances : {}".format(tasks.sum()))
             loss = criterion(out, labels)
             wt = alpha
             wo = (1-alpha)
