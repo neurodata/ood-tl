@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader
 import numpy as np
 from skimage.transform import rotate
 import random
+from datahandlers.sampler import StratifiedSampler
 
 from typing import List
 from copy import deepcopy
@@ -165,10 +166,11 @@ class SplitCIFARHandler:
             # More than 128 bits (4 32-bit words) would be overkill.
             np.random.seed(ss.generate_state(4))
         if train:
-            sampler = torch.utils.data.RandomSampler(self.comb_trainset, replacement=True)
-            batch_sampler = torch.utils.data.BatchSampler(sampler, batch_size, drop_last=True)
-            # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
-            data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
+            targets = self.comb_trainset.targets
+            task_vector = [targets[i][0] for i in range(len(targets))]
+            strat_sampler = StratifiedSampler(task_vector, batch_size)
+            data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=strat_sampler)
+            # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
         return data_loader
