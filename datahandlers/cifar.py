@@ -167,7 +167,7 @@ class SplitCIFARHandler:
             np.random.seed(ss.generate_state(4))
         if train:
             targets = self.comb_trainset.targets
-            task_vector = [targets[i][0] for i in range(len(targets))]
+            task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
             strat_sampler = StratifiedSampler(task_vector, batch_size)
             data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=strat_sampler)
             # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
