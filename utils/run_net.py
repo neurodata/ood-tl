@@ -53,14 +53,14 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           else:
             # print("target instance fraction: {:.3f}".format(1-tasks.sum()/len(tasks)))
             loss = criterion(out, labels)
-            if tasks.sum() == len(tasks):
-              loss = 1e-4*loss_ood
-            else:
-              wt = alpha
-              wo = (1-alpha)
-              loss_target = loss[tasks==0].mean()
-              loss_ood = loss[tasks==1].mean()
-              loss = wt*loss_target + wo*loss_ood
+            wt = alpha
+            wo = (1-alpha)
+            loss_target = loss[tasks==0].mean()
+            loss_ood = loss[tasks==1].mean()
+            loss = wt*loss_target + wo*loss_ood
+            print("Target Loss : {:.3f}".format(loss_target))
+            print("OOD Loss : {:.3f}".format(loss_ood))
+            print("Loss : {:.3f}".format(loss))
 
         loss.backward()
 
