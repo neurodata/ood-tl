@@ -1,5 +1,7 @@
 import torch
 from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedKFold
+
 
 class Sampler(object):
     """Base class for all Samplers.
@@ -40,15 +42,16 @@ class StratifiedSampler(Sampler):
             print('Need scikit-learn for this functionality')
         import numpy as np
         
-        s = StratifiedShuffleSplit(n_splits=self.n_splits, test_size=0.5)
+        s = StratifiedKFold(n_splits=self.n_splits, shuffle=True)
         X = torch.randn(self.task_vector.size(0),2).numpy()
         y = self.task_vector.numpy()
         s.get_n_splits(X, y)
 
-        train_index, test_index = next(s.split(X, y))
-        # train_index, test_index = train_index.tolist(), test_index.tolist()
-        # train_index.extend(test_index)
-        return np.hstack([train_index, test_index])
+        indices = []
+        for _, test_index in s.split(X, y):
+            indices = np.hstack([indices, test_index])
+
+        return indices.astype('int')
 
     def __iter__(self):
         return iter(self.gen_sample_array())
