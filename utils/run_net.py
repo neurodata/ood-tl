@@ -41,15 +41,22 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
         else:
           out = net(dat)
 
-        if alpha is None:
+        if hp["batch_size"] == 1:
           loss = criterion(out, labels)
+          if tasks == 0:
+            loss = alpha*loss
+          else:
+            loss = (1-alpha)*loss
         else:
-          loss = criterion(out, labels)
-          wt = alpha
-          wo = (1-alpha)
-          loss_target = loss[tasks==0].mean()
-          loss_ood = loss[tasks==1].mean()
-          loss = wt*loss_target + wo*loss_ood
+          if alpha is None:
+            loss = criterion(out, labels)
+          else:
+            loss = criterion(out, labels)
+            wt = alpha
+            wo = (1-alpha)
+            loss_target = loss[tasks==0].mean()
+            loss_ood = loss[tasks==1].mean()
+            loss = wt*loss_target + wo*loss_ood
 
         loss.backward()
 
