@@ -6,9 +6,12 @@ from copy import deepcopy
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, beta=None):
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, beta=None, patience=5):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
   net.to(device)
+
+  last_loss = 1000
+  triggertimes = 0
 
   for epoch in range(hp['epochs']):
     train_loss = 0.0
@@ -58,9 +61,6 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
             loss_target = loss[tasks==0].mean()
             loss_ood = loss[tasks==1].mean()
             loss = wt*loss_target + wo*loss_ood
-            print("Target Loss : {:.3f}".format(loss_target))
-            print("OOD Loss : {:.3f}".format(loss_ood))
-            print("Loss : {:.3f}".format(loss))
 
         loss.backward()
 
@@ -74,6 +74,17 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
         labels = labels.cpu().numpy()
         out = out.cpu().detach().numpy()
         train_acc += np.sum(labels == (np.argmax(out, axis=1)))
+
+    # Early stopping
+    current_loss = train_loss/batches
+
+    if current_loss > last_loss:
+        trigger_times += 1
+        if trigger_times >= patience:
+            break
+    else:
+        trigger_times = 0
+        last_loss = current_loss
 
     if verbose:
       print("Epoch = {}".format(epoch))
