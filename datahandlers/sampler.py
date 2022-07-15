@@ -1,4 +1,5 @@
 import torch
+from sklearn.model_selection import StratifiedShuffleSplit
 
 class Sampler(object):
     """Base class for all Samplers.
@@ -45,9 +46,9 @@ class StratifiedSampler(Sampler):
         s.get_n_splits(X, y)
 
         train_index, test_index = next(s.split(X, y))
-        train_index, test_index = train_index.tolist(), test_index.tolist()
-        train_index.extend(test_index)
-        return train_index
+        # train_index, test_index = train_index.tolist(), test_index.tolist()
+        # train_index.extend(test_index)
+        return np.hstack([train_index, test_index])
 
     def __iter__(self):
         return iter(self.gen_sample_array())
