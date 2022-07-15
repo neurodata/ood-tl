@@ -165,7 +165,9 @@ class SplitCIFARHandler:
             # More than 128 bits (4 32-bit words) would be overkill.
             np.random.seed(ss.generate_state(4))
         if train:
-            data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
+            sampler = torch.utils.data.RandomSampler(self.comb_trainset, replacement=True)
+            batch_sampler = torch.utils.data.BatchSampler(sampler, batch_size, drop_last=True)
+            data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
         return data_loader
