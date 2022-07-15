@@ -167,7 +167,8 @@ class SplitCIFARHandler:
         if train:
             sampler = torch.utils.data.RandomSampler(self.comb_trainset, replacement=True)
             batch_sampler = torch.utils.data.BatchSampler(sampler, batch_size, drop_last=True)
-            data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
+            # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
+            data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
         return data_loader
