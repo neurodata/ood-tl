@@ -45,7 +45,8 @@ class StratifiedSampler(Sampler):
         s.get_n_splits(X, y)
 
         train_index, test_index = next(s.split(X, y))
-        return np.hstack([train_index, test_index])
+        train_index.extend(test_index)
+        return train_index
 
     def __iter__(self):
         return iter(self.gen_sample_array())
