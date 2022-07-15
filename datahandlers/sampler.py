@@ -45,6 +45,7 @@ class StratifiedSampler(Sampler):
         s.get_n_splits(X, y)
 
         train_index, test_index = next(s.split(X, y))
+        train_index, test_index = train_index.tolist(), test_index.tolist()
         train_index.extend(test_index)
         return train_index
 
