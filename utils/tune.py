@@ -44,6 +44,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
           else:
             loss = (1-alpha)*loss
         else:
+          print("Target Fraction : {:.3f}".format(1-tasks.sum()/len(tasks)))
           loss = criterion(out, labels)
           wt = alpha
           wo = (1-alpha)
