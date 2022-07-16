@@ -2,13 +2,13 @@ import torch
 import torch.nn as nn
 
 # define the base CNN
-class SingleHeadNet(nn.Module):
+class SmallConvSingleHeadNet(nn.Module):
     """
     Small convolution network with no residual connections
     """
     def __init__(self, num_task=1, num_cls=10, channels=3,
                  avg_pool=2, lin_size=320):
-        super(SingleHeadNet, self).__init__()
+        super(SmallConvSingleHeadNet, self).__init__()
         self.conv1 = nn.Conv2d(channels, 80, kernel_size=3, bias=False)
         self.conv2 = nn.Conv2d(80, 80, kernel_size=3)
         self.bn2 = nn.BatchNorm2d(80)
@@ -37,13 +37,13 @@ class SingleHeadNet(nn.Module):
 
 
 # define the base CNN
-class MultiHeadNet(nn.Module):
+class SmallConvMultiHeadNet(nn.Module):
     """
     Small convolution network with no residual connections
     """
     def __init__(self, num_task=1, num_cls=10, channels=3,
                  avg_pool=2, lin_size=320):
-        super(MultiHeadNet, self).__init__()
+        super(SmallConvMultiHeadNet, self).__init__()
         self.conv1 = nn.Conv2d(channels, 80, kernel_size=3, bias=False)
         self.conv2 = nn.Conv2d(80, 80, kernel_size=3)
         self.bn2 = nn.BatchNorm2d(80)

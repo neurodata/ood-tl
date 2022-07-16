@@ -132,7 +132,7 @@ class SplitCIFARHandler:
         self.trainset = trainset
         self.testset = testset
 
-    def sample_data(self, n, m, randomly=False):
+    def sample_data(self, n, m, randomly=False, SEED=1234):
         comb_trainset = deepcopy(self.trainset)
         data = self.trainset.data
         targets = np.array(self.trainset.targets)
@@ -141,6 +141,7 @@ class SplitCIFARHandler:
         sample_sizes = [int(n/2), int(n/2), int(m/2), int(m/2)]
         
         indices = []
+        random.seed(SEED)
         for i, sample_size in enumerate(sample_sizes):
             if randomly:
                 indices.extend(random.sample(list(np.where(encoded_targets == i)[0]), sample_size))
@@ -201,3 +202,4 @@ class SplitCIFARHandler:
             worker_init_fn=wif)
 
         return loader
+

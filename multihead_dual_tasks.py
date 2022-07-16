@@ -6,7 +6,7 @@ import torch
 import pandas as pd
 
 from utils.config import fetch_configs
-from datasets.cifar import SplitCIFARHandler
+from datahandlers.cifar import SplitCIFARHandler
 from net.smallconv import MultiHeadNet
 from net.wideresnet import WideResNetMultihead
 from utils.run_net import train, evaluate
@@ -97,8 +97,8 @@ def main():
         exp_conf['out_task'] = args.out_task
     gpu = args.gpu
 
-    print("Source Task : {}".format(exp_conf['in_task']))
-    print("Target Task(s) : {}".format(exp_conf['out_task']))
+    print("OOD Task(s) : {}".format(exp_conf['out_task']))
+    print("Target Task : {}".format(exp_conf['in_task']))
     print("GPU : {}".format(gpu))
 
     run_experiment(exp_conf, gpu)
