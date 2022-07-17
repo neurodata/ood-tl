@@ -166,7 +166,9 @@ class SplitCIFARHandler:
             # More than 128 bits (4 32-bit words) would be overkill.
             np.random.seed(ss.generate_state(4))
         if train:
-            if batch_size == 1:
+            targets = self.comb_trainset.targets
+            task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
+            if batch_size == 1 or task_vector.sum()==0:
                 data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
             else:
                 targets = self.comb_trainset.targets
