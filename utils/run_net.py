@@ -46,7 +46,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
 
         if hp["batch_size"] == 1:
           loss = criterion(out, labels)
-          if tasks == 0:
+          if tasks[0].item() == 0:
             loss = alpha*loss
           else:
             loss = (1-alpha)*loss

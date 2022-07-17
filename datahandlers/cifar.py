@@ -166,11 +166,14 @@ class SplitCIFARHandler:
             # More than 128 bits (4 32-bit words) would be overkill.
             np.random.seed(ss.generate_state(4))
         if train:
-            targets = self.comb_trainset.targets
-            task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
-            strat_sampler = StratifiedSampler(task_vector, batch_size)
-            batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
-            data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
+            if batch_size == 1:
+                data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+            else:
+                targets = self.comb_trainset.targets
+                task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
+                strat_sampler = StratifiedSampler(task_vector, batch_size)
+                batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
+                data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
             # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
