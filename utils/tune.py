@@ -6,7 +6,7 @@ from copy import deepcopy
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, beta=None, patience=100):
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, beta=None, patience=8):
   device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
   net.to(device)
 
@@ -140,7 +140,8 @@ def search_alpha(net, dataset, n, beta, hp, gpu, sensitivity=0.05, val_split=0.1
     train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
-    alpha_range = np.arange(0.5, 1+1e-5, sensitivity)
+    # alpha_range = np.arange(0.5, 1+1e-5, sensitivity)
+    alpha_range = np.arange(0.9, 1+1e-5, 0.01)
     scores = []
  
     for alpha in alpha_range:
