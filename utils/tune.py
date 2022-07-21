@@ -6,7 +6,7 @@ from copy import deepcopy
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=False, verbose=False, alpha=None, patience=100):
+def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihead=False, verbose=False, alpha=None, patience=100):
     device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
     net.to(device)
 
@@ -32,7 +32,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
             dat = dat.to(device)
 
             # Forward/Back-prop
-            if task_id_flag:
+            if is_multihead:
                 out = net(dat, tasks)
             else:
                 out = net(dat)
@@ -68,7 +68,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
 
     return net
 
-def evaluate(net, val_loader, gpu, is_task_id=False):
+def evaluate(net, val_loader, gpu, is_multihead=False):
     device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
     
     net.eval()
@@ -88,7 +88,7 @@ def evaluate(net, val_loader, gpu, is_task_id=False):
 
             dat = dat.to(device)
 
-            if is_task_id:
+            if is_multihead:
                 out = net(dat, tasks)
             else:
                 out = net(dat)
@@ -151,7 +151,7 @@ def search_alpha(net, dataset, n, hp, gpu, sensitivity=0.05, is_task_id=True, va
             lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                                         optimizer, 
                                         hp['epochs'] * len(train_loader))
-            tune_net = train(tune_net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
+            tune_net = train(tune_net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, alpha=alpha)
             risk_rep.append(evaluate(tune_net, test_loader, gpu))
         risk = np.mean(risk_rep)
         print("Risk at alpha = {:.4f} : {:.4f} +/- {:.4f}".format(alpha, risk, np.std(risk_rep)))
