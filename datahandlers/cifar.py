@@ -108,7 +108,7 @@ class RotatedCIFAR10Handler:
 
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, batch_size, train=True):
+    def get_data_loader(self, batch_size, train=True, alpha=None):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -121,17 +121,20 @@ class RotatedCIFAR10Handler:
             # More than 128 bits (4 32-bit words) would be overkill.
             np.random.seed(ss.generate_state(4))
         if train:
-            targets = self.comb_trainset.targets
-            task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
-            if batch_size == 1 or task_vector.sum()==0:
+            if alpha is None:
                 data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
             else:
                 targets = self.comb_trainset.targets
                 task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
-                strat_sampler = StratifiedSampler(task_vector, batch_size)
-                batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
-                data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
-            # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                if batch_size == 1 or task_vector.sum()==0:
+                    data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                else:
+                    targets = self.comb_trainset.targets
+                    task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
+                    strat_sampler = StratifiedSampler(task_vector, batch_size)
+                    batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
+                    data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
+                # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
         return data_loader
@@ -236,7 +239,7 @@ class SplitCIFARHandler:
 
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, batch_size, train=True):
+    def get_data_loader(self, batch_size, train=True, alpha=None):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -249,17 +252,20 @@ class SplitCIFARHandler:
             # More than 128 bits (4 32-bit words) would be overkill.
             np.random.seed(ss.generate_state(4))
         if train:
-            targets = self.comb_trainset.targets
-            task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
-            if batch_size == 1 or task_vector.sum()==0:
+            if alpha is None:
                 data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
             else:
                 targets = self.comb_trainset.targets
                 task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
-                strat_sampler = StratifiedSampler(task_vector, batch_size)
-                batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
-                data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
-            # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                if batch_size == 1 or task_vector.sum()==0:
+                    data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                else:
+                    targets = self.comb_trainset.targets
+                    task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
+                    strat_sampler = StratifiedSampler(task_vector, batch_size)
+                    batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
+                    data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
+                # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
         return data_loader
