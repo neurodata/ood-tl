@@ -90,10 +90,6 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, task_id_flag=Fals
 def evaluate(net, dataset, gpu, is_task_id=False):
     device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
 
-    # if is_task_id:
-    #     test_loader = dataset.get_task_data_loader(0, 100, train=False)
-    # else:
-    #     test_loader = dataset.get_data_loader(100, train=False)
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
     net.eval()

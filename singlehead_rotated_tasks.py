@@ -76,7 +76,7 @@ def run_experiment(exp_conf, gpu):
                                             optimizer, 
                                             hp['epochs'] * len(train_loader))
                 net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
-                risk = evaluate(net, dataset, gpu, task_id_flag=False)
+                risk = evaluate(net, dataset, gpu)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(angle)] = risk
                 df.at[i, "alpha"] = alpha
