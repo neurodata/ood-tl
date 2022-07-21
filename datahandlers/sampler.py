@@ -20,7 +20,7 @@ class Sampler(object):
     def __len__(self):
         raise NotImplementedError
 
-class StratifiedSampler(Sampler):
+class CustomBatchSampler(Sampler):
     """Stratified Sampling
     Provides equal representation of target classes in each batch
     """
