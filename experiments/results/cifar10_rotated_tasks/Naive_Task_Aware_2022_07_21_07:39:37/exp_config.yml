@@ -1,0 +1,29 @@
+angles:
+- 0
+- 10
+- 45
+- 90
+- 135
+dataset: cifar10
+exp_name: singlehead_rotated_tasks
+hp:
+  batch_size: 64
+  epochs: 100
+  l2_reg: 1.0e-05
+  lr: 0.01
+m_n_ratio:
+- 30
+- 40
+- 50
+n: 100
+net: smallconv
+reps: 10
+sample_scheme: false
+save_folder: ./experiments/results/cifar10_rotated_tasks/Naive_Task_Aware_2022_07_21_07:39:37
+setting: Naive_Task_Aware
+task:
+- 2
+- 3
+task_aware: true
+tune_alpha: false
+val_split: 0.15
