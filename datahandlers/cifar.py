@@ -60,32 +60,115 @@ class RotatedCIFAR10Handler:
           im = trainset.data[i]/255.0
           rot_trainset.data[i] = rotate(im, angle)*255
 
-        self.trainset = trainset
-        self.testset = testset
-        self.rot_trainset = rot_trainset
+        rot_testset = deepcopy(testset)
+        for i in range(len(testset.data)):
+          im = testset.data[i]/255.0
+          rot_testset.data[i] = rotate(im, angle)*255
 
-    def sample_data(self, n, m):
+        trainset.data = np.concatenate((trainset.data, rot_trainset.data))
+        train_targets = []
+        for i in range(2*len(trainset.targets)):
+            if i < len(trainset.targets):
+                train_targets.append([0, trainset.targets[i]])
+            else:
+                train_targets.append([1, trainset.targets[i-len(trainset.targets)]])
+        trainset.targets = train_targets
+        self.trainset = trainset
+        
+        testset.data = np.concatenate((testset.data, rot_testset.data))
+        test_targets = []
+        for i in range(2*len(testset.targets)):
+            if i < len(testset.targets):
+                test_targets.append([0, testset.targets[i]])
+            else:
+                test_targets.append([1, testset.targets[i-len(testset.targets)]])
+        testset.targets = test_targets
+        self.testset = testset
+
+    def sample_data(self, n, m, randomly=False, SEED=1234):
         comb_trainset = deepcopy(self.trainset)
         data = self.trainset.data
-        rot_data = self.rot_trainset.data
         targets = np.array(self.trainset.targets)
-        class_0_indices = np.where(targets == 0)[0]
-        class_1_indices = np.where(targets == 1)[0]
 
-        n_indices = np.concatenate((class_0_indices[:int(n/2)], class_1_indices[:int(n/2)]))
-        m_indices = np.concatenate((class_0_indices[int(n/2):int(n/2)+int(m/2)], class_1_indices[int(n/2):int(n/2)+int(m/2)]))
-
-        comb_trainset.data = np.concatenate((data[n_indices], rot_data[m_indices]))
-        comb_trainset.targets = np.concatenate((targets[n_indices], targets[m_indices])).tolist()
+        encoded_targets = np.dot(np.array(targets), 2**np.arange(1, -1, -1))
+        sample_sizes = [int(n/2), int(n/2), int(m/2), int(m/2)]
+        
+        indices = []
+        random.seed(SEED)
+        for i, sample_size in enumerate(sample_sizes):
+            if randomly:
+                indices.extend(random.sample(list(np.where(encoded_targets == i)[0]), sample_size))
+            else:
+                if i==2 or i==3:
+                    indices.extend(np.where(encoded_targets == i)[0][int(n/2):int(n/2)+sample_size])
+                else:
+                    indices.extend(np.where(encoded_targets == i)[0][:sample_size])
+        comb_trainset.data = data[indices]
+        comb_trainset.targets = np.array(targets)[indices].tolist()
 
         self.comb_trainset = comb_trainset
 
     def get_data_loader(self, batch_size, train=True):
+        def wif(id):
+            """
+            Used to fix randomization bug for pytorch dataloader + numpy
+            Code from https://github.com/pytorch/pytorch/issues/5059
+            """
+            process_seed = torch.initial_seed()
+            # Back out the base_seed so we can use all the bits.
+            base_seed = process_seed - id
+            ss = np.random.SeedSequence([id, base_seed])
+            # More than 128 bits (4 32-bit words) would be overkill.
+            np.random.seed(ss.generate_state(4))
         if train:
-            data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True)
+            targets = self.comb_trainset.targets
+            task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
+            if batch_size == 1 or task_vector.sum()==0:
+                data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+            else:
+                targets = self.comb_trainset.targets
+                task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
+                strat_sampler = StratifiedSampler(task_vector, batch_size)
+                batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
+                data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
+            # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
         else:
-            data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False)
+            data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
         return data_loader
+
+    def get_task_data_loader(self, task, batch_size, train=False):
+        """
+        Get Dataloader for a specific task
+        """
+        def wif(id):
+            """
+            Used to fix randomization bug for pytorch dataloader + numpy
+            Code from https://github.com/pytorch/pytorch/issues/5059
+            """
+            process_seed = torch.initial_seed()
+            # Back out the base_seed so we can use all the bits.
+            base_seed = process_seed - id
+            ss = np.random.SeedSequence([id, base_seed])
+            # More than 128 bits (4 32-bit words) would be overkill.
+            np.random.seed(ss.generate_state(4))
+        if train:
+            task_set = deepcopy(self.trainset)
+        else:
+            task_set = deepcopy(self.testset)
+
+        task_ind = [task == i[0] for i in task_set.targets]
+
+        task_set.data = task_set.data[task_ind]
+        task_set.targets = np.array(task_set.targets)[task_ind, :]
+        task_set.targets = [(lab[0], lab[1]) for lab in task_set.targets]
+
+        loader = DataLoader(
+            task_set, batch_size=batch_size,
+            shuffle=False, num_workers=6, pin_memory=True,
+            worker_init_fn=wif)
+
+        return loader
+
 
 class SplitCIFARHandler:
     """

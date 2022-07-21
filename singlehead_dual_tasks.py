@@ -35,13 +35,16 @@ def run_experiment(exp_conf, gpu):
         for mn in exp_conf['m_n_ratio']:
             m = mn * n
             print("m = {}".format(m))
-            alpha = 0.5
+
+            if exp_conf['task_aware']:
+                alpha = 0.5
+            else:
+                alpha = None
 
             for r, rep in enumerate(range(exp_conf['reps'])):
                 print("T{} vs. T{} : Doing rep...{}".format(exp_conf['in_task'], task, rep))
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
-                beta = n/(n+m)
 
                 dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
                 
@@ -54,30 +57,38 @@ def run_experiment(exp_conf, gpu):
                         lin_size=320
                     )
 
-                if r==0:
-                    if m == 0:
-                        alpha = 0.5
-                    else:
-                        if exp_conf['tune_alpha']:                            
-                            alpha = search_alpha(net, dataset, n, beta, hp, gpu, sensitivity=0.05, val_split=exp_conf['val_split'])
-                            print("Optimal alpha = {:.4f}".format(alpha))
-                        else:
+                if exp_conf['task_aware']:
+                    if r==0:
+                        if m == 0:
                             alpha = 0.5
+                        else:
+                            if exp_conf['tune_alpha']:                            
+                                alpha = search_alpha(net, dataset, n, hp, gpu, sensitivity=0.05, val_split=exp_conf['val_split'])
+                                print("Optimal alpha = {:.4f}".format(alpha))
+                            else:
+                                alpha = 0.5
+                else:
+                    alpha = None
                 
                 train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
-                optimizer = torch.optim.SGD(net.parameters(), lr=hp['lr'],
-                                            momentum=0.9, nesterov=True,
+                optimizer = torch.optim.SGD(net.parameters(), 
+                                            lr=hp['lr'],
+                                            momentum=0.9, 
+                                            nesterov=True,
                                             weight_decay=hp['l2_reg'])
                 lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
                     optimizer, hp['epochs'] * len(train_loader))
-                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha, beta=beta)
+                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, task_id_flag=False, alpha=alpha)
                 risk = evaluate(net, dataset, gpu, task_id_flag=False)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(task)] = risk
                 df.at[i, "alpha"] = alpha
                 i+=1
+
         print("Saving individual results...")
-        df.to_csv('{}/{}_{}_{}_T{}_T{}.csv'.format(exp_conf['save_folder'], exp_conf['dataset'], exp_conf['net'], exp_conf['exp_name'], exp_conf['in_task'], task))
+        dfi = df.filter(['m', 'r', str(task)])
+        dfi.to_csv('{}/{}_{}_{}_T{}_T{}.csv'.format(exp_conf['save_folder'], exp_conf['dataset'], exp_conf['net'], exp_conf['exp_name'], exp_conf['in_task'], task))
+    
     print("Saving bulk results...")
     df.to_csv('{}/{}_{}_{}_T{}.csv'.format(exp_conf['save_folder'], exp_conf['dataset'], exp_conf['net'], exp_conf['exp_name'], exp_conf['in_task']))
 
