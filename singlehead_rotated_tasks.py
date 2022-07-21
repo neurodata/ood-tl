@@ -114,7 +114,7 @@ def main():
 
     if not os.path.exists(exp_conf['save_folder']):
         os.makedirs(exp_conf['save_folder'])
-    exp_folder_path = os.path.join(exp_conf['save_folder'], str(datetime.datetime.now()))
+    exp_folder_path = os.path.join(exp_conf['save_folder'], datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S'))
     os.makedirs(exp_folder_path)
     exp_conf['save_folder'] = exp_folder_path
 
@@ -129,7 +129,7 @@ def main():
     print("Experimental Setting : ", setting)
     exp_conf['setting'] = setting
 
-    with open('exp_config.yml', 'w') as outfile:
+    with open(os.path.join(exp_folder_path, 'exp_config.yml'), 'w') as outfile:
         yaml.dump(exp_conf, outfile, default_flow_style=False)
 
     run_experiment(exp_conf, gpu)
