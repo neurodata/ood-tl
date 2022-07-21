@@ -134,7 +134,6 @@ class RotatedCIFAR10Handler:
                     strat_sampler = StratifiedSampler(task_vector, batch_size)
                     batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
                     data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
-                # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
         return data_loader
@@ -265,7 +264,6 @@ class SplitCIFARHandler:
                     strat_sampler = StratifiedSampler(task_vector, batch_size)
                     batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
                     data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
-                # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
         return data_loader
