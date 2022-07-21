@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 import numpy as np
 from skimage.transform import rotate
 import random
-from datahandlers.sampler import StratifiedSampler
+from datahandlers.sampler import CustomBatchSampler
 
 from typing import List
 from copy import deepcopy
@@ -16,6 +16,7 @@ class RotatedCIFAR10Handler:
     Object for the CIFAR-10 dataset
     """
     def __init__(self, task, angle):
+        # separate the selected task-data from the main dataset
         mean_norm = [0.50, 0.50, 0.50]
         std_norm = [0.2, 0.25, 0.25]
         vanilla_transform = transforms.Compose([
@@ -54,7 +55,7 @@ class RotatedCIFAR10Handler:
         trainset.targets = [it for it in tr_lab]
         testset.targets = [it for it in te_lab]
 
-        # rotate the dataset
+        # Rotate the selected task-data by the specified angle
         rot_trainset = deepcopy(trainset)
         for i in range(len(trainset.data)):
           im = trainset.data[i]/255.0
@@ -65,6 +66,7 @@ class RotatedCIFAR10Handler:
           im = testset.data[i]/255.0
           rot_testset.data[i] = rotate(im, angle)*255
 
+        # Combined the selected task-data with rotated selected task-data and add (task_id, class label) as targets
         trainset.data = np.concatenate((trainset.data, rot_trainset.data))
         train_targets = []
         for i in range(2*len(trainset.targets)):
@@ -90,15 +92,20 @@ class RotatedCIFAR10Handler:
         data = self.trainset.data
         targets = np.array(self.trainset.targets)
 
+        # encode the (task_id, class_lable) to an integer
         encoded_targets = np.dot(np.array(targets), 2**np.arange(1, -1, -1))
+
+        # specify the target and OOD sample sizes in each class
         sample_sizes = [int(n/2), int(n/2), int(m/2), int(m/2)]
         
         indices = []
         random.seed(SEED)
         for i, sample_size in enumerate(sample_sizes):
             if randomly:
+                # select the samples randomly
                 indices.extend(random.sample(list(np.where(encoded_targets == i)[0]), sample_size))
             else:
+                # select the samples non-randomly (incrementally)
                 if i==2 or i==3:
                     indices.extend(np.where(encoded_targets == i)[0][int(n/2):int(n/2)+sample_size])
                 else:
@@ -122,16 +129,20 @@ class RotatedCIFAR10Handler:
             np.random.seed(ss.generate_state(4))
         if train:
             if alpha is None:
+                # Use a usual dataloader if task-agnostic setting
                 data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
             else:
+                # Use the dataloader if task-aware setting
                 targets = self.comb_trainset.targets
                 task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
                 if batch_size == 1 or task_vector.sum()==0:
+                    # Use a usual dataloader if there're no OOD samples in the combined dataset
                     data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
                 else:
+                    # Use a equal-propotion batch-sampler there're OOD samples in the combined dataset
                     targets = self.comb_trainset.targets
                     task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
-                    strat_sampler = StratifiedSampler(task_vector, batch_size)
+                    strat_sampler = CustomBatchSampler(task_vector, batch_size)
                     batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
                     data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
         else:
@@ -261,7 +272,7 @@ class SplitCIFARHandler:
                 else:
                     targets = self.comb_trainset.targets
                     task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
-                    strat_sampler = StratifiedSampler(task_vector, batch_size)
+                    strat_sampler = CustomBatchSampler(task_vector, batch_size)
                     batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
                     data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
         else:
