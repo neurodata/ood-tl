@@ -46,8 +46,8 @@ def run_experiment(exp_conf, gpu):
                 
                 if exp_conf['net'] == 'smallconv':
                     net = SmallConvSingleHeadNet(
-                        num_task=len(tasks), 
-                        num_cls=len(tasks[0]),
+                        num_task=2, 
+                        num_cls=2,
                         channels=3, 
                         avg_pool=2,
                         lin_size=320
