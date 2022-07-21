@@ -134,8 +134,8 @@ def search_alpha(net, dataset, n, hp, gpu, sensitivity=0.05, is_task_id=True, va
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
     # alpha_range = np.arange(0.5, 1+1e-5, sensitivity)
-    alpha_range = np.arange(0.9, 1+1e-5, 0.001)
-    # alpha_range = np.concatenate((np.arange(0.5, 0.9, 0.05), np.arange(0.9, 1+1e-4, 0.001)))
+    # alpha_range = np.arange(0.9, 1+1e-5, 0.001)
+    alpha_range = np.concatenate((np.arange(0.5, 0.9, 0.05), np.arange(0.9, 1+1e-4, 0.01)))
 
     scores = []
  

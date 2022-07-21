@@ -4,11 +4,11 @@ task: [2, 3]
 angles: [0, 10, 45, 90, 135]
 net: "smallconv"
 n: 100
-m_n_ratio: [30, 40, 50] # [0, 1, 2, 3, 4, 5, 10, 20] 
+m_n_ratio: [0, 5, 10, 20] 
 sample_scheme: False
 hp: {'epochs': 100,'batch_size': 64, 'lr': 0.01, 'l2_reg': 0.00001}
 reps: 10
 task_aware: True
-tune_alpha: False
+tune_alpha: True
 val_split: 0.15
 save_folder: "./experiments/results/cifar10_rotated_tasks"
