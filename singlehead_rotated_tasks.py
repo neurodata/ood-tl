@@ -79,7 +79,7 @@ def run_experiment(exp_conf, gpu):
                 risk = evaluate(net, dataset, gpu)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(angle)] = risk
-                df.at[i, "alpha"] = alpha
+                df.at[i, "{}_alpha".format(angle)] = alpha
                 i+=1
         
         print("Saving individual results...")
@@ -112,12 +112,6 @@ def main():
     print("angles : {}".format(exp_conf['angles']))
     print("GPU : {}".format(gpu))
 
-    if not os.path.exists(exp_conf['save_folder']):
-        os.makedirs(exp_conf['save_folder'])
-    exp_folder_path = os.path.join(exp_conf['save_folder'], datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S'))
-    os.makedirs(exp_folder_path)
-    exp_conf['save_folder'] = exp_folder_path
-
     if exp_conf['task_aware']:
         if exp_conf['tune_alpha']:
             setting = "Optimal_Task_Aware"
@@ -125,6 +119,12 @@ def main():
             setting = "Naive_Task_Aware"
     else:
         setting = "Task_Agnostic"
+
+    if not os.path.exists(exp_conf['save_folder']):
+        os.makedirs(exp_conf['save_folder'])
+    exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}".format(setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S')))
+    os.makedirs(exp_folder_path)
+    exp_conf['save_folder'] = exp_folder_path
 
     print("Experimental Setting : ", setting)
     exp_conf['setting'] = setting
