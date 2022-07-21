@@ -1,7 +1,7 @@
 exp_name: "singlehead_rotated_tasks"
 dataset: "cifar10"
 task: [2, 3]
-angles: [0, 10, 45, 90, 135]
+angles: [135]
 net: "smallconv"
 n: 100
 m_n_ratio: [0, 1, 2, 3, 4, 5, 10, 20]
