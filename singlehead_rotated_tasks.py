@@ -16,6 +16,7 @@ from net.smallconv import SmallConvSingleHeadNet
 from utils.run_net import train, evaluate
 from utils.tune import search_alpha
 
+# set random seeds
 SEED = 1234
 random.seed(SEED)
 np.random.seed(SEED)
@@ -42,9 +43,10 @@ def run_experiment(exp_conf, gpu):
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
 
-                dataset.sample_data(n=n, m=m)
+                dataset.sample_data(n=n, m=m, randomly=False)
                 
                 if exp_conf['net'] == 'smallconv':
+                    # define the network
                     net = SmallConvSingleHeadNet(
                         num_task=2, 
                         num_cls=2,
@@ -54,28 +56,64 @@ def run_experiment(exp_conf, gpu):
                     )
 
                 if exp_conf['task_aware']:
-                    if r==0:
+                    # tuning occurs only in the task-aware setting
+                    if r == 0:
+                        # tunning occures before the first replicate
                         if m == 0:
+                            # if no OOD samples are present, the alpha is set to 0.5
                             alpha = 0.5
                         else:
-                            if exp_conf['tune_alpha']:                            
-                                alpha = search_alpha(net, dataset, n, hp, gpu, sensitivity=0.05, val_split=exp_conf['val_split'])
+                            if exp_conf['tune_alpha']:     
+                                # if OOD samples are present, we search for the optimal alpha  
+                                alpha = search_alpha(
+                                    net=net,
+                                    dataset=dataset,
+                                    n=n,
+                                    hp=hp,
+                                    gpu=gpu,
+                                    sensitivity=0.05,
+                                    val_split=exp_conf['val_split']
+                                )                     
                                 print("Optimal alpha = {:.4f}".format(alpha))
                             else:
+                                # if naive-task-aware setting, no alpha tuning is done
                                 alpha = 0.5
                 else:
+                    # if task-agnostic alpha is set to None
                     alpha = None
                 
-                train_loader = dataset.get_data_loader(hp['batch_size'], train=True, isTaskAware=exp_conf['task_aware'])
-                optimizer = torch.optim.SGD(net.parameters(), 
-                                            lr=hp['lr'],
-                                            momentum=0.9, 
-                                            nesterov=True,
-                                            weight_decay=hp['l2_reg'])
+                train_loader = dataset.get_data_loader(
+                    batch_size=hp['batch_size'],
+                    train=True,
+                    isTaskAware=exp_conf['task_aware']
+                )
+
+                optimizer = torch.optim.SGD(
+                    net.parameters(), 
+                    lr=hp['lr'],
+                    momentum=0.9, 
+                    nesterov=True,
+                    weight_decay=hp['l2_reg']
+                )
+
                 lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-                                            optimizer, 
-                                            hp['epochs'] * len(train_loader))
-                net = train(net, hp, train_loader, optimizer, lr_scheduler, gpu, verbose=False, alpha=alpha)
+                    optimizer, 
+                    hp['epochs'] * len(train_loader)
+                )
+
+                net = train(
+                    net=net,
+                    alpha=alpha,
+                    hp=hp,
+                    train_loader=train_loader,
+                    optimizer=optimizer,
+                    lr_scheduler=lr_scheduler,
+                    gpu=gpu,
+                    is_multihead=False,
+                    verbose=False,
+                    isTaskAware=exp_conf['task_aware']
+                )
+
                 risk = evaluate(net, dataset, gpu)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(angle)] = risk
@@ -116,6 +154,7 @@ def main():
     print("angles : {}".format(exp_conf['angles']))
     print("GPU : {}".format(gpu))
 
+    # obtain the setting of the experiment
     if exp_conf['task_aware']:
         if exp_conf['tune_alpha']:
             setting = "Optimal_Task_Aware"
@@ -125,8 +164,10 @@ def main():
         setting = "Task_Agnostic"
 
     if args.makefolder:
+        # if the specified experiment folder doesn't exist, make a new folder with the specified folder name
         if not os.path.exists(exp_conf['save_folder']):
             os.makedirs(exp_conf['save_folder'])
+        # create a results folder to store the results from the current experiment
         exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}".format(setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S')))
         os.makedirs(exp_folder_path)
         exp_conf['save_folder'] = exp_folder_path
@@ -134,6 +175,7 @@ def main():
     print("Experimental Setting : ", setting)
     exp_conf['setting'] = setting
 
+    # save the experiment config file in the current results folder
     with open(os.path.join(exp_folder_path, 'exp_config.yml'), 'w') as outfile:
         yaml.dump(exp_conf, outfile, default_flow_style=False)
 

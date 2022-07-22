@@ -6,10 +6,11 @@ from copy import deepcopy
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 
-def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihead=False, verbose=False, alpha=None, patience=100):
+def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihead=False, verbose=False, isTaskAware=True, patience=100):
     device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
     net.to(device)
 
+    # initialize early stopping
     last_loss = 1000
     triggertimes = 0
 
@@ -18,11 +19,13 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihead=Fals
         train_acc = 0.0
         batches = 0.0
     
-        if alpha is None:
-            criterion = nn.CrossEntropyLoss()
-        else:
+        if isTaskAware:
+            # if task-aware return losses of the batch separately (no aggregation)
             criterion = nn.CrossEntropyLoss(reduction='none')
-
+        else:
+            # if task-agnostic return the mean loss of the batch
+            criterion = nn.CrossEntropyLoss()
+            
         net.train()
 
         for dat, target in train_loader:
@@ -38,15 +41,16 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihead=Fals
 
             dat = dat.to(device)
 
-            # Forward/Back-prop
+            # forward pass
             if is_multihead:
+                # if multi-head setup, the network takes data and task_id
                 out = net(dat, tasks)
             else:
+                # if single-head setup, the network only takes data
                 out = net(dat)
 
-            if alpha is None:
-                loss = criterion(out, labels)
-            else:
+            if isTaskAware:
+                # if task-aware, compute the target and OOD risks separaely from the batch (and weight if specified)
                 # print("target instance fraction: {:.3f}".format(1-tasks.sum()/len(tasks)))
                 loss = criterion(out, labels)
                 wt = alpha
@@ -54,6 +58,9 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihead=Fals
                 loss_target = loss[tasks==0].mean()
                 loss_ood = loss[tasks==1].mean()
                 loss = wt*loss_target + wo*loss_ood
+            else:
+                # if task-agnostic, compute the mean of the batch losses
+                loss = criterion(out, labels)
 
             loss.backward()
 
@@ -90,6 +97,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihead=Fals
 def evaluate(net, dataset, gpu, is_multihead=False):
     device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
 
+    # get the data loader that only returns the target samples
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
     net.eval()
@@ -110,8 +118,10 @@ def evaluate(net, dataset, gpu, is_multihead=False):
             dat = dat.to(device)
 
             if is_multihead:
+                # if multi-head setup, the network takes data and task_id
                 out = net(dat, tasks)
             else:
+                # if single-head setup, the network only takes data
                 out = net(dat)
               
             out = out.cpu().detach().numpy()
