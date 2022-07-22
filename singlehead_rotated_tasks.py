@@ -101,7 +101,11 @@ def main():
 
     parser.add_argument('--gpu', type=str,
                             default='cuda:0',
-                            help="GPU")    
+                            help="GPU") 
+
+    parser.add_argument('--makefolder', type=bool,
+                            default=True,
+                            help="Whether to make a new exp folder or not") 
 
     args = parser.parse_args()
     exp_conf = fetch_configs(args.exp_config)
@@ -120,11 +124,12 @@ def main():
     else:
         setting = "Task_Agnostic"
 
-    if not os.path.exists(exp_conf['save_folder']):
-        os.makedirs(exp_conf['save_folder'])
-    exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}".format(setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S')))
-    os.makedirs(exp_folder_path)
-    exp_conf['save_folder'] = exp_folder_path
+    if args.makefolder:
+        if not os.path.exists(exp_conf['save_folder']):
+            os.makedirs(exp_conf['save_folder'])
+        exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}".format(setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S')))
+        os.makedirs(exp_folder_path)
+        exp_conf['save_folder'] = exp_folder_path
 
     print("Experimental Setting : ", setting)
     exp_conf['setting'] = setting

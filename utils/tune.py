@@ -37,7 +37,7 @@ def train(net, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihead=Fals
             else:
                 out = net(dat)
 
-            # print("Target Fraction : {:.3f}".format(1-tasks.sum()/len(tasks)))
+            print("Target Fraction : {:.3f}".format(1-tasks.sum()/len(tasks)))
             loss = criterion(out, labels)
             wt = alpha
             wo = (1-alpha)
