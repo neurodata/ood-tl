@@ -60,7 +60,7 @@ def run_experiment(exp_conf, gpu):
                     if r == 0:
                         # tunning occures before the first replicate
                         if m == 0:
-                            # if no OOD samples are present, the alpha is set to 0.5
+                            # if no OOD samples are present, alpha is set to 0.5
                             alpha = 0.5
                         else:
                             if exp_conf['tune_alpha']:     
