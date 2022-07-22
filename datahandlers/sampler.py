@@ -41,6 +41,8 @@ class CustomBatchSampler(Sampler):
         self.target_indices = np.where(tasks==0)[0].tolist()
         self.ood_indices = np.where(tasks==1)[0].tolist()
 
+        self.beta = len(self.target_indices)/(len(tasks))
+
     def gen_sample_array(self):
         try:
             from sklearn.model_selection import StratifiedShuffleSplit
@@ -66,8 +68,8 @@ class CustomBatchSampler(Sampler):
 
         indices = []
         for i in range(self.n_splits):
-            indices.extend(np.random.choice(self.target_indices, self.batch_size // 2, replace=False))
-            indices.extend(np.random.choice(self.ood_indices, self.batch_size // 2, replace=False))
+            indices.extend(np.random.choice(self.target_indices, np.round(self.batch_size * self.beta), replace=False))
+            indices.extend(np.random.choice(self.ood_indices,  np.round(self.batch_size * (1-self.beta)), replace=False))
         indices = np.array(indices)
         
         return indices.astype('int')
