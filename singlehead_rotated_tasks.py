@@ -66,7 +66,7 @@ def run_experiment(exp_conf, gpu):
                 else:
                     alpha = None
                 
-                train_loader = dataset.get_data_loader(hp['batch_size'], train=True, alpha=alpha)
+                train_loader = dataset.get_data_loader(hp['batch_size'], train=True, isTaskAware=exp_conf['task_aware'])
                 optimizer = torch.optim.SGD(net.parameters(), 
                                             lr=hp['lr'],
                                             momentum=0.9, 

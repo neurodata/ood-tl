@@ -115,7 +115,7 @@ class RotatedCIFAR10Handler:
 
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, batch_size, train=True, alpha=None):
+    def get_data_loader(self, batch_size, train=True, isTaskAware=True):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -128,22 +128,19 @@ class RotatedCIFAR10Handler:
             # More than 128 bits (4 32-bit words) would be overkill.
             np.random.seed(ss.generate_state(4))
         if train:
-            if alpha is None:
+            if not isTaskAware:
                 # Use a usual dataloader if task-agnostic setting
                 data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
             else:
                 # Use the dataloader if task-aware setting
                 targets = self.comb_trainset.targets
                 task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
-                if batch_size == 1 or task_vector.sum()==0:
+                if task_vector.sum()==0:
                     # Use a usual dataloader if there're no OOD samples in the combined dataset
                     data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
                 else:
                     # Use a equal-propotion batch-sampler there're OOD samples in the combined dataset
-                    targets = self.comb_trainset.targets
-                    task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
-                    strat_sampler = CustomBatchSampler(task_vector, batch_size)
-                    batch_sampler = torch.utils.data.BatchSampler(strat_sampler, batch_size, True)
+                    batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size), batch_size, True)
                     data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)

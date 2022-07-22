@@ -130,7 +130,7 @@ def search_alpha(net, dataset, n, hp, gpu, sensitivity=0.05, is_task_id=True, va
     # tune_train_loader = DataLoader(tune_trainset, batch_size=hp['batch_size'], shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
     # tune_val_loader = DataLoader(tune_valset, batch_size=len(target_y_val), shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)   
 
-    train_loader = dataset.get_data_loader(hp['batch_size'], train=True)
+    train_loader = dataset.get_data_loader(hp['batch_size'], train=True, isTaskAware=True)
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
     # alpha_range = np.arange(0.5, 1+1e-5, sensitivity)
