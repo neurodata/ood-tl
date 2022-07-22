@@ -4,7 +4,7 @@ task: [2, 3]
 angles: [135]
 net: "smallconv"
 n: 100
-m_n_ratio: [30, 40, 50] 
+m_n_ratio: [0, 3, 5, 10, 20, 30, 40, 50] 
 sample_scheme: False
 hp: {'epochs': 100,'batch_size': 64, 'lr': 0.01, 'l2_reg': 0.00001}
 reps: 10
