@@ -53,12 +53,15 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
             if isTaskAware:
                 # if task-aware, compute the target and OOD risks separaely from the batch (and weight if specified)
                 # print("target instance fraction: {:.3f}".format(1-tasks.sum()/len(tasks)))
-                loss = criterion(out, labels)
-                wt = alpha
-                wo = (1-alpha)
-                loss_target = torch.nan_to_num(loss[tasks==0].mean())
-                loss_ood = torch.nan_to_num(loss[tasks==1].mean())
-                loss = wt*loss_target + wo*loss_ood
+                if tasks.sum() == 0:
+                    loss = criterion(out, labels).mean()
+                else:
+                    loss = criterion(out, labels)
+                    wt = alpha
+                    wo = (1-alpha)
+                    loss_target = torch.nan_to_num(loss[tasks==0].mean())
+                    loss_ood = torch.nan_to_num(loss[tasks==1].mean())
+                    loss = wt*loss_target + wo*loss_ood
             else:
                 # if task-agnostic, compute the mean of the batch losses
                 loss = criterion(out, labels)
