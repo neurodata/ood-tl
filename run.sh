@@ -5,4 +5,4 @@
 # python singlehead_dual_tasks.py --in_task 4 --out_task 1 2 3 5
 # python singlehead_dual_tasks.py --in_task 5 --out_task 1 2 3 4
 
-python singlehead_dual_tasks.py --in_task 1 --out_task 5 --tast_aware False --tune_alpha False --net wrn --augment True --epochs 200 --batch_size 64 --reps 5 --gpu cuda:3
+python singlehead_dual_tasks.py --in_task 1 --out_task 5 --task_aware False --tune_alpha False --net wrn --augment True --epochs 200 --batch_size 64 --reps 5 --gpu cuda:3
