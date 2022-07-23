@@ -29,6 +29,7 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
             
         net.train()
 
+        flag = True
         for dat, target in train_loader:
             optimizer.zero_grad()
 
@@ -51,6 +52,9 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
                 out = net(dat)
 
             if isTaskAware:
+                if flag:
+                    target_fraction = 1-tasks.sum()/len(tasks)
+                    flag = False
                 # if task-aware, compute the target and OOD risks separaely from the batch (and weight if specified)
                 # print("target instance fraction: {:.3f}".format(1-tasks.sum()/len(tasks)))
                 if tasks.sum() == 0:
@@ -98,6 +102,11 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
                 "train_acc": round(train_acc/batches, 4)
             }
             logging.info(str(info))
+            if isTaskAware:
+                info = {
+                    "batch_target_fraction" : round(target_fraction)
+                }
+                logging.info(str(info))
 
         if verbose:
             print("Epoch = {}".format(epoch))
