@@ -54,6 +54,7 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
                 # if task-aware, compute the target and OOD risks separaely from the batch (and weight if specified)
                 # print("target instance fraction: {:.3f}".format(1-tasks.sum()/len(tasks)))
                 if tasks.sum() == 0:
+                    # if there are no OOD samples in the batch, just compute the mean of the target losses (no alpha is applied)
                     loss = criterion(out, labels).mean()
                 else:
                     loss = criterion(out, labels)

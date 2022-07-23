@@ -7,4 +7,6 @@
 
 python singlehead_dual_tasks.py --in_task 1 --out_task 5 --no-task_aware --no-tune_alpha --net wrn --augment --epochs 200 --batch_size 64 --reps 5 --gpu cuda:3
 
-python singlehead_dual_tasks.py --in_task 1 --out_task 5 --no-task_aware --no-tune_alpha --net wrn --no-augment --epochs 200 --batch_size 64 --reps 5 --gpu cuda:3
+python singlehead_dual_tasks.py --in_task 1 --out_task 5 --no-task_aware --no-tune_alpha --net wrn --no-augment --epochs 200 --batch_size 64 --reps 5 --gpu cuda:2
+
+python singlehead_dual_tasks.py --in_task 1 --out_task 5 --no-task_aware --no-tune_alpha --net smallconv --augment --epochs 200 --batch_size 64 --reps 5 --gpu cuda:1
