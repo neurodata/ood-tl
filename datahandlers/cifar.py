@@ -139,7 +139,7 @@ class RotatedCIFAR10Handler:
                     # Use a usual dataloader if there're no OOD samples in the combined dataset
                     data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
                 else:
-                    # Use a equal-propotion batch-sampler there're OOD samples in the combined dataset
+                    # Use a custom batch-sampler there're OOD samples in the combined dataset
                     batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size), batch_size, True)
                     data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
         else:

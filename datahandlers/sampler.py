@@ -68,8 +68,8 @@ class CustomBatchSampler(Sampler):
 
         indices = []
         for i in range(self.n_splits):
-            indices.extend(np.random.choice(self.target_indices, np.round(self.batch_size * self.beta), replace=False))
-            indices.extend(np.random.choice(self.ood_indices,  np.round(self.batch_size * (1-self.beta)), replace=False))
+            indices.extend(np.random.choice(self.target_indices, round(self.batch_size * self.beta), replace=False))
+            indices.extend(np.random.choice(self.ood_indices,  round(self.batch_size * (1-self.beta)), replace=False))
         indices = np.array(indices)
         
         return indices.astype('int')
