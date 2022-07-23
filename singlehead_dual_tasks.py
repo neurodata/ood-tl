@@ -7,9 +7,7 @@ import random
 import numpy as np
 import torch
 import pandas as pd
-import seaborn as sns
 import logging
-sns.set_theme()
 
 from utils.config import fetch_configs
 from datahandlers.cifar import SplitCIFARHandler
@@ -171,17 +169,17 @@ def main():
     parser.add_argument('--out_task', nargs='+', type=int,
                             help="Target task(s)")
 
-    parser.add_argument('--task_aware', type=bool,
-                            help="Task-aware or not")
+    parser.add_argument('--task_aware', action='store_true')
+    parser.add_argument('--no-task_aware', dest='task_aware', action='store_false')
 
-    parser.add_argument('--tune_alpha', type=bool,
-                            help="Whether to tune alpha or not")
+    parser.add_argument('--tune_alpha', action='store_true')
+    parser.add_argument('--no-tune_alpha', dest='tune_alpha', action='store_false')
 
     parser.add_argument('--net', type=str,
                             help="Network type (smallconv or wrn)")
 
-    parser.add_argument('--augment', type=bool,
-                        help="Whether to augment data or not")
+    parser.add_argument('--augment', action='store_true')
+    parser.add_argument('--no-augment', dest='augment', action='store_false')
 
     parser.add_argument('--epochs', type=int,
                         help="Number of epochs")
@@ -223,9 +221,6 @@ def main():
     
     gpu = args.gpu
 
-    print(args.task_aware)
-    print(exp_conf)
-
     # obtain the setting of the experiment
     if exp_conf['task_aware']:
         if exp_conf['tune_alpha']:
@@ -244,6 +239,7 @@ def main():
         os.makedirs(exp_folder_path)
         exp_conf['save_folder'] = exp_folder_path
 
+    print(exp_conf)
     print("OOD Task(s) : {}".format(exp_conf['out_task']))
     print("Target Task : {}".format(exp_conf['in_task']))
     print("GPU : {}".format(gpu))
