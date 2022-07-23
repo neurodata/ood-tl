@@ -129,7 +129,7 @@ def run_experiment(exp_conf, gpu):
                     "m_n_ratio": mn,
                     "replicate_id": r,
                     "alpha": alpha,
-                    "target_risk": risk
+                    "target_risk": round(risk, 4)
                 }
                 logging.info(str(info))
                 
