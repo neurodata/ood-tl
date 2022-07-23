@@ -10,3 +10,8 @@ python singlehead_dual_tasks.py --in_task 1 --out_task 5 --no-task_aware --no-tu
 python singlehead_dual_tasks.py --in_task 1 --out_task 5 --no-task_aware --no-tune_alpha --net wrn --no-augment --epochs 200 --batch_size 64 --reps 5 --gpu cuda:2
 
 python singlehead_dual_tasks.py --in_task 1 --out_task 5 --no-task_aware --no-tune_alpha --net smallconv --augment --epochs 200 --batch_size 64 --reps 5 --gpu cuda:1
+
+python singlehead_dual_tasks.py --in_task 1 --out_task 5 --task_aware --tune_alpha --net smallconv --no-augment --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3
+python singlehead_dual_tasks.py --in_task 1 --out_task 5 --task_aware --no-tune_alpha --net smallconv --no-augment --epochs 100 --batch_size 128 --reps 10 --gpu cuda:2
+
+python singlehead_dual_tasks.py --in_task 2 --out_task 3 --task_aware --no-tune_alpha --net smallconv --no-augment --epochs 100 --batch_size 128 --reps 10 --gpu cuda:1
