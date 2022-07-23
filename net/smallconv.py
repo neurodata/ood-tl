@@ -6,7 +6,7 @@ class SmallConvSingleHeadNet(nn.Module):
     """
     Small convolution network with no residual connections
     """
-    def __init__(self, num_task=1, num_cls=10, channels=3,
+    def __init__(self, num_cls=10, channels=3,
                  avg_pool=2, lin_size=320):
         super(SmallConvSingleHeadNet, self).__init__()
         self.conv1 = nn.Conv2d(channels, 80, kernel_size=3, bias=False)

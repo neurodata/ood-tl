@@ -14,6 +14,7 @@ sns.set_theme()
 from utils.config import fetch_configs
 from datahandlers.cifar import RotatedCIFAR10Handler
 from net.smallconv import SmallConvSingleHeadNet
+from net.wideresnet import WideResNetSingleHeadNet
 from utils.run_net import train, evaluate
 from utils.tune import search_alpha
 
@@ -35,7 +36,12 @@ def run_experiment(exp_conf, gpu):
 
     for angle in exp_conf['angles']:
         print("Doing angle = {}".format(angle))
-        dataset = RotatedCIFAR10Handler(exp_conf['task'], angle)
+        
+        dataset = RotatedCIFAR10Handler(
+            task=exp_conf['task'],
+            angle=angle,
+            netid=exp_conf['net']
+        )
         
         i = 0
         for mn in exp_conf['m_n_ratio']:
@@ -53,11 +59,19 @@ def run_experiment(exp_conf, gpu):
                 if exp_conf['net'] == 'smallconv':
                     # define the network
                     net = SmallConvSingleHeadNet(
-                        num_task=2, 
                         num_cls=2,
                         channels=3, 
                         avg_pool=2,
                         lin_size=320
+                    )
+                if exp_conf['net'] == 'wrn':
+                    net = WideResNetSingleHeadNet(
+                        depth=10,
+                        num_cls=2,
+                        base_chans=4,
+                        widen_factor=1,
+                        drop_rate=0,
+                        inp_channels=3
                     )
 
                 if exp_conf['task_aware']:
