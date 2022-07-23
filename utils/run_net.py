@@ -104,7 +104,7 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
             logging.info(str(info))
             if isTaskAware:
                 info = {
-                    "batch_target_fraction" : round(target_fraction)
+                    "batch_target_fraction" : round(target_fraction.item())
                 }
                 logging.info(str(info))
 
