@@ -130,8 +130,7 @@ class WideResNetSingleHeadNet(nn.Module):
                 m.bias.data.zero_()
 
     def forward(self,
-                x: Tensor,
-                tasks: Tensor) -> Tensor:
+                x: Tensor) -> Tensor:
         out = self.conv1(x)
         out = self.block1(out)
         out = self.block2(out)
