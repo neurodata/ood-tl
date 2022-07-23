@@ -223,6 +223,8 @@ def main():
     
     gpu = args.gpu
 
+    print(exp_conf)
+
     # obtain the setting of the experiment
     if exp_conf['task_aware']:
         if exp_conf['tune_alpha']:
