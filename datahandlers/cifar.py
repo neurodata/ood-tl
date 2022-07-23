@@ -198,9 +198,10 @@ class SplitCIFARHandler:
                             transforms.Normalize(mean_norm, std_norm)])
 
         if augment:
-            print("Using data augmentation...")
+            print("Using data augmentations...")
             train_transform = augment_transform
         else:
+            print("No data augmentations...")
             train_transform = vanilla_transform
 
         trainset = torchvision.datasets.CIFAR10('data/cifar10', download=True, train=True, transform=train_transform)
