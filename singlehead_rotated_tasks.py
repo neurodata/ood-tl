@@ -8,6 +8,7 @@ import numpy as np
 import torch
 import pandas as pd
 import seaborn as sns
+import logging
 sns.set_theme()
 
 from utils.config import fetch_configs
@@ -24,6 +25,10 @@ torch.manual_seed(SEED)
 torch.backends.cudnn.deterministic = True
 
 def run_experiment(exp_conf, gpu):
+    log_filename = exp_conf['save_folder'] + "/exp_log.log"
+    logging.basicConfig(filename="exp_log.log", level=logging.DEBUG)
+    logging.info(str(exp_conf))
+
     n = exp_conf['n']
     hp = exp_conf['hp']
     df = pd.DataFrame()
@@ -118,6 +123,15 @@ def run_experiment(exp_conf, gpu):
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(angle)] = risk
                 df.at[i, "{}_alpha".format(angle)] = alpha
+
+                info = {
+                    "angle": angle,
+                    "m_n_ratio": mn,
+                    "replicate_id": r,
+                    "alpha": alpha,
+                    "target_risk": risk
+                }
+                logging.info(str(info))
                 i+=1
         
         print("Saving individual results...")
