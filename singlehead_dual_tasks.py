@@ -145,7 +145,7 @@ def run_experiment(exp_conf, gpu):
                     "out_task": task,
                     "m_n_ratio": mn,
                     "replicate_id": r,
-                    "alpha": round(alpha, 4),
+                    "alpha": alpha,
                     "target_risk": round(risk, 4)
                 }
                 logging.info(str(info))
