@@ -96,17 +96,20 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
             last_loss = current_loss
 
         if epoch % 10 == 0:
-            info = {
-                "epoch": epoch,
-                "train_loss": round(train_loss/batches, 4),
-                "train_acc": round(train_acc/batches, 4)
-            }
-            logging.info(str(info))
             if isTaskAware:
                 info = {
+                    "epoch": epoch,
+                    "train_loss": round(train_loss/batches, 4),
+                    "train_acc": round(train_acc/batches, 4),
                     "batch_target_fraction" : round(target_fraction.item())
                 }
-                logging.info(str(info))
+            else:
+                info = {
+                    "epoch": epoch,
+                    "train_loss": round(train_loss/batches, 4),
+                    "train_acc": round(train_acc/batches, 4)
+                }
+            logging.info(str(info))
 
         if verbose:
             print("Epoch = {}".format(epoch))
