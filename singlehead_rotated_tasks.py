@@ -115,7 +115,7 @@ def run_experiment(exp_conf, gpu):
                     lr_scheduler=lr_scheduler,
                     gpu=gpu,
                     is_multihead=False,
-                    verbose=False,
+                    verbose=True,
                     isTaskAware=exp_conf['task_aware']
                 )
 
