@@ -223,6 +223,7 @@ def main():
     
     gpu = args.gpu
 
+    print(args.task_aware)
     print(exp_conf)
 
     # obtain the setting of the experiment
