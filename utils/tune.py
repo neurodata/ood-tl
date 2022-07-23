@@ -5,6 +5,7 @@ import numpy as np
 from copy import deepcopy
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
+import logging
 
 def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihead=False, verbose=False, patience=100):
     device = torch.device(gpu if torch.cuda.is_available() else 'cpu')
@@ -69,6 +70,14 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
         else:
             trigger_times = 0
             last_loss = current_loss
+
+        if epoch % 20 == 0:
+            info = {
+                "tuning_alpha": round(alpha, 4),
+                "epoch": epoch,
+                "train_loss": round(train_loss/batches, 4),
+            }
+            logging.info(str(info))
 
     return net
 
@@ -141,8 +150,8 @@ def search_alpha(net, dataset, n, hp, gpu, sensitivity=0.05, val_split=0.1, SEED
 
     # set alpha search space
     # alpha_range = np.arange(0.5, 1+1e-5, sensitivity)
-    # alpha_range = np.arange(0.9, 1+1e-5, 0.001)
-    alpha_range = np.concatenate((np.arange(0.5, 0.9, 0.05), np.arange(0.9, 1+1e-5, 0.001)))
+    alpha_range = np.arange(0.9, 1+1e-5, 0.001)
+    # alpha_range = np.concatenate((np.arange(0.5, 0.9, 0.05), np.arange(0.9, 1+1e-5, 0.001)))
 
     scores = []
  
