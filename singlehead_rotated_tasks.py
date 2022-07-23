@@ -26,7 +26,7 @@ torch.backends.cudnn.deterministic = True
 
 def run_experiment(exp_conf, gpu):
     log_filename = exp_conf['save_folder'] + "/exp_log.log"
-    logging.basicConfig(filename="exp_log.log", level=logging.DEBUG)
+    logging.basicConfig(filename=log_filename, level=logging.DEBUG)
     logging.info(str(exp_conf))
 
     n = exp_conf['n']
@@ -132,6 +132,7 @@ def run_experiment(exp_conf, gpu):
                     "target_risk": risk
                 }
                 logging.info(str(info))
+                
                 i+=1
         
         print("Saving individual results...")
