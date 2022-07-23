@@ -240,7 +240,7 @@ def main():
         if not os.path.exists(exp_conf['save_folder']):
             os.makedirs(exp_conf['save_folder'])
         # create a results folder to store the results from the current experiment
-        exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}".format(setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M')))
+        exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}".format(setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S')))
         os.makedirs(exp_folder_path)
         exp_conf['save_folder'] = exp_folder_path
 
