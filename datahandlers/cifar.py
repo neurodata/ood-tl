@@ -198,6 +198,7 @@ class SplitCIFARHandler:
                             transforms.Normalize(mean_norm, std_norm)])
 
         if augment:
+            print("Using data augmentation...")
             train_transform = augment_transform
         else:
             train_transform = vanilla_transform

@@ -57,6 +57,7 @@ def run_experiment(exp_conf, gpu):
                 dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
                 
                 if exp_conf['net'] == 'smallconv':
+                    print("Using ",exp_conf['net'])
                     net = SmallConvSingleHeadNet(
                         num_task=len(tasks), 
                         num_cls=len(tasks[0]),
@@ -65,6 +66,7 @@ def run_experiment(exp_conf, gpu):
                         lin_size=320
                     )
                 if exp_conf['net'] == 'wrn':
+                    print("Using ",exp_conf['net'])
                     net = WideResNetSingleHeadNet(
                         depth=10,
                         num_cls=2,
