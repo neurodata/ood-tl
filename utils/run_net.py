@@ -55,8 +55,8 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
                 loss = criterion(out, labels)
                 wt = alpha
                 wo = (1-alpha)
-                loss_target = loss[tasks==0].mean()
-                loss_ood = loss[tasks==1].mean()
+                loss_target = torch.nan_to_num(loss[tasks==0].mean())
+                loss_ood = torch.nan_to_num(loss[tasks==1].mean())
                 loss = wt*loss_target + wo*loss_ood
             else:
                 # if task-agnostic, compute the mean of the batch losses
