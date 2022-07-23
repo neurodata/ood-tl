@@ -190,10 +190,7 @@ def main():
                         help="Number of epochs")
 
     parser.add_argument('--reps', type=int,
-                        help="Number of epochs")
-
-    parser.add_argument('--reps', type=int,
-                        help="Number of epochs")
+                        help="Number of replicates")
 
     parser.add_argument('--gpu', type=str,
                             default='cuda:0',
@@ -218,9 +215,9 @@ def main():
     if args.augment is not None:
         exp_conf['augment'] = args.augment
     if args.epochs is not None:
-        exp_conf['epochs'] = args.epochs
+        exp_conf['hp']['epochs'] = args.epochs
     if args.batch_size is not None:
-        exp_conf['batch_size'] = args.batch_size
+        exp_conf['hp']['batch_size'] = args.batch_size
     if args.reps is not None:
         exp_conf['reps'] = args.reps
     
