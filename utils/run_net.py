@@ -1,3 +1,4 @@
+import logging
 from multiprocessing import reduction
 import torch.nn as nn
 import torch
@@ -85,6 +86,14 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
         else:
             trigger_times = 0
             last_loss = current_loss
+
+        if epoch % 10 == 0:
+            info = {
+                "epoch": epoch,
+                "train_loss": round(train_loss/batches, 4),
+                "train_acc": round(train_acc/batches, 4)
+            }
+            logging.info(str(info))
 
         if verbose:
             print("Epoch = {}".format(epoch))

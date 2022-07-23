@@ -48,7 +48,7 @@ def run_experiment(exp_conf, gpu):
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
 
-                dataset.sample_data(n=n, m=m, randomly=False)
+                dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
                 
                 if exp_conf['net'] == 'smallconv':
                     # define the network
@@ -115,7 +115,7 @@ def run_experiment(exp_conf, gpu):
                     lr_scheduler=lr_scheduler,
                     gpu=gpu,
                     is_multihead=False,
-                    verbose=True,
+                    verbose=False,
                     isTaskAware=exp_conf['task_aware']
                 )
 
