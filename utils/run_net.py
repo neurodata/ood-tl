@@ -20,12 +20,7 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
         train_acc = 0.0
         batches = 0.0
     
-        if isTaskAware:
-            # if task-aware return losses of the batch separately (no aggregation)
-            criterion = nn.CrossEntropyLoss(reduction='none')
-        else:
-            # if task-agnostic return the mean loss of the batch
-            criterion = nn.CrossEntropyLoss()
+        criterion = nn.CrossEntropyLoss(reduction='none')
             
         net.train()
 
@@ -53,10 +48,10 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
 
             if isTaskAware:
                 if flag:
+                    # obtain the target fraction in the batch (for logging)
                     target_fraction = 1-tasks.sum()/len(tasks)
                     flag = False
                 # if task-aware, compute the target and OOD risks separaely from the batch (and weight if specified)
-                # print("target instance fraction: {:.3f}".format(1-tasks.sum()/len(tasks)))
                 if tasks.sum() == 0:
                     # if there are no OOD samples in the batch, just compute the mean of the target losses (no alpha is applied)
                     loss = criterion(out, labels).mean()
@@ -69,7 +64,7 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
                     loss = wt*loss_target + wo*loss_ood
             else:
                 # if task-agnostic, compute the mean of the batch losses
-                loss = criterion(out, labels)
+                loss = criterion(out, labels).mean()
 
             loss.backward()
 
@@ -80,6 +75,9 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
             # Compute Train metrics
             batches += batch_size
             train_loss += loss.item() * batch_size
+            if isTaskAware and tasks.sum() != 0:
+                target_train_loss += loss_target.item() * batch_size
+                ood_train_loss += loss_ood.item() * batch_size
             labels = labels.cpu().numpy()
             out = out.cpu().detach().numpy()
             train_acc += np.sum(labels == (np.argmax(out, axis=1)))
@@ -96,12 +94,14 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
             last_loss = current_loss
 
         if epoch % 10 == 0:
-            if isTaskAware:
+            if isTaskAware and tasks.sum() != 0:
                 info = {
                     "epoch": epoch,
+                    "target_train_loss": round(target_train_loss/batches, 4),
+                    "ood_train_loss": round(ood_train_loss/batches, 4),
                     "train_loss": round(train_loss/batches, 4),
                     "train_acc": round(train_acc/batches, 4),
-                    "batch_target_fraction" : round(target_fraction.item())
+                    "batch_target_fraction" : round(target_fraction.item(), 4)
                 }
             else:
                 info = {

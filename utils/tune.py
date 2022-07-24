@@ -14,10 +14,11 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
     # initialize early stopping
     last_loss = 1000
     triggertimes = 0
+
     for epoch in range(hp['epochs']):
         train_loss = 0.0
         batches = 0.0
-        criterion = nn.CrossEntropyLoss(reduction='none')
+        criterion = nn.CrossEntropyLoss(reduction='none') # when tuning, there are non-zero amount of OOD samples in the combined dataset
 
         net.train()
 
@@ -42,7 +43,6 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
                 out = net(dat)
 
             # compute the target and OOD risks separaely from the batch (and weight if specified)
-            # print("Target Fraction : {:.3f}".format(1-tasks.sum()/len(tasks)))
             loss = criterion(out, labels)
             wt = alpha
             wo = (1-alpha)
@@ -59,6 +59,8 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
             # Compute Train metrics
             batches += batch_size
             train_loss += loss.item() * batch_size
+            target_train_loss += loss_target.item() * batch_size
+            ood_train_loss += loss_ood.item() * batch_size
 
         # Early stopping
         current_loss = train_loss/batches
@@ -71,10 +73,13 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
             trigger_times = 0
             last_loss = current_loss
 
+        # logging
         if epoch % 20 == 0:
             info = {
                 "tuning_alpha": round(alpha, 4),
                 "epoch": epoch,
+                "target_train_loss": round(target_train_loss/batches, 4),
+                "ood_train_loss": round(ood_train_loss/batches, 4),
                 "train_loss": round(train_loss/batches, 4),
             }
             logging.info(str(info))
@@ -118,47 +123,21 @@ def evaluate(net, val_loader, gpu, is_multihead=False):
     return error
 
 def search_alpha(net, dataset, n, hp, gpu, sensitivity=0.05, val_split=0.1, SEED=1996):
-    def wif(id):
-        """
-        Used to fix randomization bug for pytorch dataloader + numpy
-        Code from https://github.com/pytorch/pytorch/issues/5059
-        """
-        process_seed = torch.initial_seed()
-        # Back out the base_seed so we can use all the bits.
-        base_seed = process_seed - id
-        ss = np.random.SeedSequence([id, base_seed])
-        # More than 128 bits (4 32-bit words) would be overkill.
-        np.random.seed(ss.generate_state(4))
-    
-    # X = dataset.comb_trainset.data
-    # y = dataset.comb_trainset.targets
-
-    # tune_trainset = deepcopy(dataset.comb_trainset)
-    # tune_valset = deepcopy(dataset.comb_trainset) 
-
-    # target_X_train, target_X_val, target_y_train, target_y_val = train_test_split(X[:n], y[:n], test_size=val_split)
-    # tune_trainset.data = np.concatenate((target_X_train, X[n:]))
-    # tune_trainset.targets = np.concatenate((target_y_train, y[n:])).tolist()
-    # tune_valset.data = target_X_val
-    # tune_valset.target = target_y_val
-
-    # tune_train_loader = DataLoader(tune_trainset, batch_size=hp['batch_size'], shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)
-    # tune_val_loader = DataLoader(tune_valset, batch_size=len(target_y_val), shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4)   
 
     train_loader = dataset.get_data_loader(hp['batch_size'], train=True, isTaskAware=True) # pass the task-aware flag to be true, since tuning of alpha occur only at the task-aware setting
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
     # set alpha search space
     # alpha_range = np.arange(0.5, 1+1e-5, sensitivity)
-    alpha_range = np.arange(0.9, 1+1e-5, 0.001)
     # alpha_range = np.concatenate((np.arange(0.5, 0.9, 0.05), np.arange(0.9, 1+1e-5, 0.001)))
+    alpha_range = np.arange(0.9, 1+1e-5, 0.001)
 
     scores = []
  
     for alpha in alpha_range:
         risk_rep = []
         for rep in range(1):
-            tune_net = deepcopy(net) # deepcopy the network
+            tune_net = deepcopy(net) # deepcopy the network architecture
             optimizer = torch.optim.SGD(
                 tune_net.parameters(), 
                 lr=hp['lr'],
@@ -184,9 +163,14 @@ def search_alpha(net, dataset, n, hp, gpu, sensitivity=0.05, val_split=0.1, SEED
         
         risk = np.mean(risk_rep)
         print("Risk at alpha = {:.4f} : {:.4f} +/- {:.4f}".format(alpha, risk, np.std(risk_rep)))
+        info = {
+                "alpha": round(alpha, 4),
+                "risk_at_alpha": round(risk, 4),
+            }
+        logging.info(str(info))
         scores.append(risk)
 
-    return alpha_range[np.argmin(scores)]
+    return alpha_range[np.argmin(scores)] # should we enforce that optimal alpha should be monotonically increasing?
 
 
     

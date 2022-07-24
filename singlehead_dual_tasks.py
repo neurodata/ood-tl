@@ -28,8 +28,8 @@ def run_experiment(exp_conf, gpu):
     logging.basicConfig(filename=log_filename, level=logging.DEBUG)
     logging.info(str(exp_conf))
 
-    n = exp_conf['n']
-    hp = exp_conf['hp']
+    n = exp_conf['n'] # target sample size
+    hp = exp_conf['hp'] # hyperparams
     task_dict = exp_conf['task_dict']
     df = pd.DataFrame()
 
@@ -45,7 +45,7 @@ def run_experiment(exp_conf, gpu):
 
         i = 0
         for mn in exp_conf['m_n_ratio']:
-            m = mn * n
+            m = mn * n # OOD sample size
             print("m = {}".format(m))
             alpha = 0.5 # initialize
 
@@ -54,8 +54,9 @@ def run_experiment(exp_conf, gpu):
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
 
-                dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
+                dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme']) # create the combined dataset
                 
+                # define the network architecture
                 if exp_conf['net'] == 'smallconv':
                     print("Using ",exp_conf['net'])
                     net = SmallConvSingleHeadNet(
@@ -138,7 +139,7 @@ def run_experiment(exp_conf, gpu):
                 risk = evaluate(net, dataset, gpu)
                 print("Risk = %0.4f" % risk)
                 df.at[i, str(task)] = risk
-                df.at[i, "alpha"] = alpha
+                df.at[i, "{}_alpha".format(task)] = alpha
 
                 info = {
                     "in_task": exp_conf['in_task'],
@@ -159,6 +160,7 @@ def run_experiment(exp_conf, gpu):
     df.to_csv('{}/{}_{}_{}_T{}.csv'.format(exp_conf['save_folder'], exp_conf['dataset'], exp_conf['net'], exp_conf['exp_name'], exp_conf['in_task']))
 
 def main():
+    # parse the parameters
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--exp_config', type=str,
@@ -196,9 +198,8 @@ def main():
                             default='cuda:0',
                             help="GPU")         
 
-    parser.add_argument('--makefolder', type=bool,
-                            default=True,
-                            help="Whether to make a new exp folder or not")              
+    parser.add_argument('--makefolder', action='store_true')
+    parser.add_argument('--no-makefolder', dest='makefolder', action='store_false')    
 
     args = parser.parse_args()
     exp_conf = fetch_configs(args.exp_config)
