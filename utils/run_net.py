@@ -16,6 +16,8 @@ def train(net, alpha, hp, train_loader, optimizer, lr_scheduler, gpu, is_multihe
     triggertimes = 0
 
     for epoch in range(hp['epochs']):
+        target_train_loss = 0.0
+        ood_train_loss = 0.0
         train_loss = 0.0
         train_acc = 0.0
         batches = 0.0
