@@ -1,0 +1,51 @@
+INFO:root:{'exp_name': 'singlehead_dual_tasks', 'dataset': 'cifar10', 'task_dict': {1: [0, 1], 2: [2, 3], 3: [4, 5], 4: [6, 7], 5: [8, 9]}, 'in_task': 2, 'out_task': [3], 'task_aware': True, 'tune_alpha': False, 'net': 'smallconv', 'augment': False, 'n': 100, 'm_n_ratio': [0, 1, 2, 3, 4, 5, 10, 20], 'sample_scheme': False, 'hp': {'epochs': 100, 'batch_size': 128, 'lr': 0.01, 'l2_reg': 1e-05}, 'reps': 10, 'val_split': 0.15, 'save_folder': './experiments/results/cifar10_dual_tasks/Naive_Task_Aware_2022_07_23_14:22:59', 'setting': 'Naive_Task_Aware'}
+INFO:root:{'epoch': 0, 'train_loss': 0.6954, 'train_acc': 0.58}
+INFO:root:{'epoch': 10, 'train_loss': 0.0738, 'train_acc': 1.0}
+INFO:root:{'epoch': 20, 'train_loss': 0.0127, 'train_acc': 1.0}
+INFO:root:{'epoch': 30, 'train_loss': 0.0049, 'train_acc': 1.0}
+INFO:root:{'epoch': 40, 'train_loss': 0.0031, 'train_acc': 1.0}
+INFO:root:{'epoch': 50, 'train_loss': 0.0024, 'train_acc': 1.0}
+INFO:root:{'epoch': 60, 'train_loss': 0.0021, 'train_acc': 1.0}
+INFO:root:{'epoch': 70, 'train_loss': 0.002, 'train_acc': 1.0}
+INFO:root:{'epoch': 80, 'train_loss': 0.002, 'train_acc': 1.0}
+INFO:root:{'epoch': 90, 'train_loss': 0.0019, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 3, 'm_n_ratio': 0, 'replicate_id': 0, 'alpha': 0.5, 'target_risk': 0.3245}
+INFO:root:{'epoch': 0, 'train_loss': 1.0813, 'train_acc': 0.51}
+INFO:root:{'epoch': 10, 'train_loss': 0.0984, 'train_acc': 1.0}
+INFO:root:{'epoch': 20, 'train_loss': 0.0165, 'train_acc': 1.0}
+INFO:root:{'epoch': 30, 'train_loss': 0.0059, 'train_acc': 1.0}
+INFO:root:{'epoch': 40, 'train_loss': 0.0035, 'train_acc': 1.0}
+INFO:root:{'epoch': 50, 'train_loss': 0.0028, 'train_acc': 1.0}
+INFO:root:{'epoch': 60, 'train_loss': 0.0024, 'train_acc': 1.0}
+INFO:root:{'epoch': 70, 'train_loss': 0.0023, 'train_acc': 1.0}
+INFO:root:{'epoch': 80, 'train_loss': 0.0022, 'train_acc': 1.0}
+INFO:root:{'epoch': 90, 'train_loss': 0.0022, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 3, 'm_n_ratio': 0, 'replicate_id': 1, 'alpha': 0.5, 'target_risk': 0.334}
+INFO:root:{'epoch': 0, 'train_loss': 0.8552, 'train_acc': 0.48}
+INFO:root:{'epoch': 10, 'train_loss': 0.0867, 'train_acc': 1.0}
+INFO:root:{'epoch': 20, 'train_loss': 0.0148, 'train_acc': 1.0}
+INFO:root:{'epoch': 30, 'train_loss': 0.0054, 'train_acc': 1.0}
+INFO:root:{'epoch': 40, 'train_loss': 0.0033, 'train_acc': 1.0}
+INFO:root:{'epoch': 50, 'train_loss': 0.0026, 'train_acc': 1.0}
+INFO:root:{'epoch': 60, 'train_loss': 0.0023, 'train_acc': 1.0}
+INFO:root:{'epoch': 70, 'train_loss': 0.0021, 'train_acc': 1.0}
+INFO:root:{'epoch': 80, 'train_loss': 0.0021, 'train_acc': 1.0}
+INFO:root:{'epoch': 90, 'train_loss': 0.002, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 3, 'm_n_ratio': 0, 'replicate_id': 2, 'alpha': 0.5, 'target_risk': 0.3255}
+INFO:root:{'epoch': 0, 'train_loss': 0.7553, 'train_acc': 0.52}
+INFO:root:{'epoch': 10, 'train_loss': 0.0844, 'train_acc': 1.0}
+INFO:root:{'epoch': 20, 'train_loss': 0.0144, 'train_acc': 1.0}
+INFO:root:{'epoch': 30, 'train_loss': 0.0053, 'train_acc': 1.0}
+INFO:root:{'epoch': 40, 'train_loss': 0.0033, 'train_acc': 1.0}
+INFO:root:{'epoch': 50, 'train_loss': 0.0026, 'train_acc': 1.0}
+INFO:root:{'epoch': 60, 'train_loss': 0.0023, 'train_acc': 1.0}
+INFO:root:{'epoch': 70, 'train_loss': 0.0021, 'train_acc': 1.0}
+INFO:root:{'epoch': 80, 'train_loss': 0.0021, 'train_acc': 1.0}
+INFO:root:{'epoch': 90, 'train_loss': 0.0021, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 3, 'm_n_ratio': 0, 'replicate_id': 3, 'alpha': 0.5, 'target_risk': 0.3315}
+INFO:root:{'epoch': 0, 'train_loss': 0.9768, 'train_acc': 0.5}
+INFO:root:{'epoch': 10, 'train_loss': 0.0808, 'train_acc': 1.0}
+INFO:root:{'epoch': 20, 'train_loss': 0.0143, 'train_acc': 1.0}
+INFO:root:{'epoch': 30, 'train_loss': 0.0053, 'train_acc': 1.0}
+INFO:root:{'epoch': 40, 'train_loss': 0.0033, 'train_acc': 1.0}
+INFO:root:{'epoch': 50, 'train_loss': 0.0026, 'train_acc': 1.0}
