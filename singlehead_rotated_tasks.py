@@ -14,6 +14,7 @@ sns.set_theme()
 from utils.config import fetch_configs
 from datahandlers.cifar import RotatedCIFAR10Handler
 from net.smallconv import SmallConvSingleHeadNet
+from net.wideresnet import WideResNetSingleHeadNet
 from utils.run_net import train, evaluate
 from utils.tune import search_alpha
 
@@ -29,35 +30,51 @@ def run_experiment(exp_conf, gpu):
     logging.basicConfig(filename=log_filename, level=logging.DEBUG)
     logging.info(str(exp_conf))
 
-    n = exp_conf['n']
-    hp = exp_conf['hp']
+    n = exp_conf['n'] # target sample size
+    hp = exp_conf['hp'] # hyperparams
     df = pd.DataFrame()
 
     for angle in exp_conf['angles']:
         print("Doing angle = {}".format(angle))
-        dataset = RotatedCIFAR10Handler(exp_conf['task'], angle)
+        
+        dataset = RotatedCIFAR10Handler(
+            task=exp_conf['task'],
+            angle=angle,
+            augment=exp_conf['augment']
+        )
         
         i = 0
         for mn in exp_conf['m_n_ratio']:
-            m = mn * n
+            m = mn * n # OOD sample size
             print("m = {}".format(m))
-            alpha = 0.5
+            alpha = 0.5 # initialize
 
             for r, rep in enumerate(range(exp_conf['reps'])):
                 print("Angle = {} : Doing rep...{}".format(angle, rep))
                 df.at[i, "m"] = mn
                 df.at[i, "r"] = r
 
-                dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme'])
+                dataset.sample_data(n=n, m=m, randomly=exp_conf['sample_scheme']) # create the combined dataset
                 
+                # define the network architecture
                 if exp_conf['net'] == 'smallconv':
-                    # define the network
+                    print("Using ",exp_conf['net'])
                     net = SmallConvSingleHeadNet(
-                        num_task=2, 
+                        num_task=1, 
                         num_cls=2,
                         channels=3, 
                         avg_pool=2,
                         lin_size=320
+                    )
+                if exp_conf['net'] == 'wrn':
+                    print("Using ",exp_conf['net'])
+                    net = WideResNetSingleHeadNet(
+                        depth=10,
+                        num_cls=2,
+                        base_chans=4,
+                        widen_factor=1,
+                        drop_rate=0,
+                        inp_channels=3
                     )
 
                 if exp_conf['task_aware']:
@@ -149,25 +166,57 @@ def main():
                         default="./experiments/config/singlehead_rotated_tasks.yaml",
                         help="Experiment configuration")
 
-    parser.add_argument('--tune_alpha', type=bool,
-                            help="Whether to tune alpha or not")
+    parser.add_argument('--angles', nargs='+', type=int,
+                            help="Angles")
+
+    parser.add_argument('--task_aware', action='store_true')
+    parser.add_argument('--no-task_aware', dest='task_aware', action='store_false')
+
+    parser.add_argument('--tune_alpha', action='store_true')
+    parser.add_argument('--no-tune_alpha', dest='tune_alpha', action='store_false')
+
+    parser.add_argument('--net', type=str,
+                            help="Network type (smallconv or wrn)")
+
+    parser.add_argument('--augment', action='store_true')
+    parser.add_argument('--no-augment', dest='augment', action='store_false')
+
+    parser.add_argument('--epochs', type=int,
+                        help="Number of epochs")
+
+    parser.add_argument('--batch_size', type=int,
+                        help="Number of epochs")
+
+    parser.add_argument('--reps', type=int,
+                        help="Number of replicates")
 
     parser.add_argument('--gpu', type=str,
                             default='cuda:0',
-                            help="GPU") 
+                            help="GPU")         
 
-    parser.add_argument('--makefolder', type=bool,
-                            default=True,
-                            help="Whether to make a new exp folder or not") 
+    parser.add_argument('--makefolder', action='store_true')
+    parser.add_argument('--no-makefolder', dest='makefolder', action='store_false')    
 
     args = parser.parse_args()
     exp_conf = fetch_configs(args.exp_config)
+    if args.angles is not None:
+        exp_conf['angles'] = args.angles
+    if args.task_aware is not None:
+        exp_conf['task_aware'] = args.task_aware
     if args.tune_alpha is not None:
         exp_conf['tune_alpha'] = args.tune_alpha
-    gpu = args.gpu
+    if args.net is not None:
+        exp_conf['net'] = args.net
+    if args.augment is not None:
+        exp_conf['augment'] = args.augment
+    if args.epochs is not None:
+        exp_conf['hp']['epochs'] = args.epochs
+    if args.batch_size is not None:
+        exp_conf['hp']['batch_size'] = args.batch_size
+    if args.reps is not None:
+        exp_conf['reps'] = args.reps
 
-    print("angles : {}".format(exp_conf['angles']))
-    print("GPU : {}".format(gpu))
+    gpu = args.gpu
 
     # obtain the setting of the experiment
     if exp_conf['task_aware']:
@@ -187,12 +236,11 @@ def main():
         os.makedirs(exp_folder_path)
         exp_conf['save_folder'] = exp_folder_path
 
+    print(exp_conf)
+    print("angles : {}".format(exp_conf['angles']))
+    print("GPU : {}".format(gpu))
     print("Experimental Setting : ", setting)
     exp_conf['setting'] = setting
-
-    # save the experiment config file in the current results folder
-    with open(os.path.join(exp_folder_path, 'exp_config.yml'), 'w') as outfile:
-        yaml.dump(exp_conf, outfile, default_flow_style=False)
 
     run_experiment(exp_conf, gpu)
 

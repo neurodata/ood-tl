@@ -150,6 +150,7 @@ def run_experiment(exp_conf, gpu):
                     "target_risk": round(risk, 4)
                 }
                 logging.info(str(info))
+                
                 i+=1
 
         print("Saving individual results...")
