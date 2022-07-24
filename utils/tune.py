@@ -124,9 +124,14 @@ def evaluate(net, val_loader, gpu, is_multihead=False):
     error = 1-acc/count
     return error
 
-def search_alpha(net, dataset, n, hp, gpu, sensitivity=0.05, val_split=0.1, SEED=1996):
+def search_alpha(net, dataset, n, hp, gpu, use_custom_sampler, sensitivity=0.05, val_split=0.1, SEED=1996):
 
-    train_loader = dataset.get_data_loader(hp['batch_size'], train=True, isTaskAware=True) # pass the task-aware flag to be true, since tuning of alpha occur only at the task-aware setting
+    train_loader = dataset.get_data_loader(
+                    batch_size=hp['batch_size'],
+                    train=True,
+                    isTaskAware=True,
+                    use_custom_sampler=use_custom_sampler
+                ) # pass the task-aware flag to be true, since tuning of alpha occur only at the task-aware setting
     test_loader = dataset.get_task_data_loader(0, 100, train=False)
 
     # set alpha search space

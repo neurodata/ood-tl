@@ -93,6 +93,7 @@ def run_experiment(exp_conf, gpu):
                                     n=n,
                                     hp=hp,
                                     gpu=gpu,
+                                    use_custom_sampler=exp_conf['custom_sampler'],
                                     sensitivity=0.05,
                                     val_split=exp_conf['val_split']
                                 )        
@@ -107,7 +108,8 @@ def run_experiment(exp_conf, gpu):
                 train_loader = dataset.get_data_loader(
                     batch_size=hp['batch_size'],
                     train=True,
-                    isTaskAware=exp_conf['task_aware']
+                    isTaskAware=exp_conf['task_aware'],
+                    use_custom_sampler=exp_conf['custom_sampler']
                 )
 
                 optimizer = torch.optim.SGD(
@@ -168,6 +170,9 @@ def main():
                         default="./experiments/config/singlehead_dual_tasks.yaml",
                         help="Experiment configuration")
 
+    parser.add_argument('--exp_id', type=str,
+                            help="Name for the experiment")
+
     parser.add_argument('--in_task', type=int,
                             help="Source task")
 
@@ -185,6 +190,9 @@ def main():
 
     parser.add_argument('--augment', action='store_true')
     parser.add_argument('--no-augment', dest='augment', action='store_false')
+
+    parser.add_argument('--custom_sampler', action='store_true')
+    parser.add_argument('--no-custom_sampler', dest='custom_sampler', action='store_false')
 
     parser.add_argument('--epochs', type=int,
                         help="Number of epochs")
@@ -216,6 +224,8 @@ def main():
         exp_conf['net'] = args.net
     if args.augment is not None:
         exp_conf['augment'] = args.augment
+    if args.custom_sampler is not None:
+        exp_conf['custom_sampler'] = args.custom_sampler
     if args.epochs is not None:
         exp_conf['hp']['epochs'] = args.epochs
     if args.batch_size is not None:
@@ -239,7 +249,7 @@ def main():
         if not os.path.exists(exp_conf['save_folder']):
             os.makedirs(exp_conf['save_folder'])
         # create a results folder to store the results from the current experiment
-        exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}".format(setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S')))
+        exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}_{}".format(args.exp_id, setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S')))
         os.makedirs(exp_folder_path)
         exp_conf['save_folder'] = exp_folder_path
 

@@ -271,7 +271,7 @@ class SplitCIFARHandler:
 
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, batch_size, train=True, isTaskAware=True):
+    def get_data_loader(self, batch_size, train=True, isTaskAware=True, use_custom_sampler=True):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -296,9 +296,11 @@ class SplitCIFARHandler:
                     data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
                 else:
                     # Use a custom batch-sampler there're OOD samples in the combined dataset
-                    batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size), batch_size, True)
-                    data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
-                    # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                    if use_custom_sampler:
+                        batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size), batch_size, True)
+                        data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
+                    else:
+                        data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
         else:
             data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
         return data_loader
