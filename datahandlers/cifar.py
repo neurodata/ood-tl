@@ -283,26 +283,27 @@ class SplitCIFARHandler:
             ss = np.random.SeedSequence([id, base_seed])
             # More than 128 bits (4 32-bit words) would be overkill.
             np.random.seed(ss.generate_state(4))
+        num_workers = 4
         if train:
             if not isTaskAware:
                 # Use a usual dataloader if task-agnostic setting
-                data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=num_workers) # original
             else:
                 # Use the dataloader if task-aware setting
                 targets = self.comb_trainset.targets
                 task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
                 if task_vector.sum()==0:
                     # Use a usual dataloader if there're no OOD samples in the combined dataset
-                    data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                    data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=num_workers) # original
                 else:
                     # Use a custom batch-sampler there're OOD samples in the combined dataset
                     if use_custom_sampler:
                         batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size), batch_size, True)
-                        data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
+                        data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=num_workers, batch_sampler=batch_sampler)
                     else:
-                        data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                        data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=num_workers) # original
         else:
-            data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
+            data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=num_workers)
         return data_loader
 
     def get_task_data_loader(self, task, batch_size, train=False):
