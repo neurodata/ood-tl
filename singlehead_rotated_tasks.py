@@ -95,6 +95,7 @@ def run_experiment(exp_conf, gpu):
                                     n=n,
                                     hp=hp,
                                     gpu=gpu,
+                                    use_custom_sampler=exp_conf['custom_sampler'],
                                     sensitivity=0.05,
                                     val_split=exp_conf['val_split']
                                 )                     
