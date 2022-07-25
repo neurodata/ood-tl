@@ -1,0 +1,1307 @@
+INFO:root:{'exp_name': 'singlehead_dual_tasks', 'dataset': 'cifar10', 'task_dict': {1: [0, 1], 2: [2, 3], 3: [4, 5], 4: [6, 7], 5: [8, 9]}, 'in_task': 2, 'out_task': [5], 'task_aware': True, 'tune_alpha': True, 'net': 'smallconv', 'augment': True, 'n': 100, 'm_n_ratio': [0, 1, 2, 3, 4, 5, 10, 20], 'sample_scheme': False, 'hp': {'epochs': 100, 'batch_size': 128, 'lr': 0.01, 'l2_reg': 1e-05}, 'reps': 10, 'val_split': 0.15, 'save_folder': './experiments/results/cifar10_dual_tasks/aug_custom_2_5_opt_Optimal_Task_Aware_2022_07_25_06:18:39', 'custom_sampler': True, 'setting': 'Optimal_Task_Aware'}
+INFO:root:{'epoch': 0, 'train_loss': 0.7185, 'train_acc': 0.52}
+INFO:root:{'epoch': 10, 'train_loss': 0.454, 'train_acc': 0.77}
+INFO:root:{'epoch': 20, 'train_loss': 0.3036, 'train_acc': 0.89}
+INFO:root:{'epoch': 30, 'train_loss': 0.2349, 'train_acc': 0.92}
+INFO:root:{'epoch': 40, 'train_loss': 0.1327, 'train_acc': 0.96}
+INFO:root:{'epoch': 50, 'train_loss': 0.068, 'train_acc': 1.0}
+INFO:root:{'epoch': 60, 'train_loss': 0.075, 'train_acc': 0.99}
+INFO:root:{'epoch': 70, 'train_loss': 0.0477, 'train_acc': 1.0}
+INFO:root:{'epoch': 80, 'train_loss': 0.0541, 'train_acc': 0.99}
+INFO:root:{'epoch': 90, 'train_loss': 0.0359, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 0, 'alpha': 0.5, 'target_risk': 0.313}
+INFO:root:{'epoch': 0, 'train_loss': 0.6932, 'train_acc': 0.54}
+INFO:root:{'epoch': 10, 'train_loss': 0.3842, 'train_acc': 0.86}
+INFO:root:{'epoch': 20, 'train_loss': 0.3393, 'train_acc': 0.83}
+INFO:root:{'epoch': 30, 'train_loss': 0.2061, 'train_acc': 0.94}
+INFO:root:{'epoch': 40, 'train_loss': 0.1298, 'train_acc': 0.97}
+INFO:root:{'epoch': 50, 'train_loss': 0.0857, 'train_acc': 0.99}
+INFO:root:{'epoch': 60, 'train_loss': 0.0831, 'train_acc': 0.98}
+INFO:root:{'epoch': 70, 'train_loss': 0.0545, 'train_acc': 1.0}
+INFO:root:{'epoch': 80, 'train_loss': 0.0486, 'train_acc': 1.0}
+INFO:root:{'epoch': 90, 'train_loss': 0.0418, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 1, 'alpha': 0.5, 'target_risk': 0.302}
+INFO:root:{'epoch': 0, 'train_loss': 0.7153, 'train_acc': 0.55}
+INFO:root:{'epoch': 10, 'train_loss': 0.4213, 'train_acc': 0.83}
+INFO:root:{'epoch': 20, 'train_loss': 0.2916, 'train_acc': 0.92}
+INFO:root:{'epoch': 30, 'train_loss': 0.208, 'train_acc': 0.94}
+INFO:root:{'epoch': 40, 'train_loss': 0.1211, 'train_acc': 0.97}
+INFO:root:{'epoch': 50, 'train_loss': 0.089, 'train_acc': 0.97}
+INFO:root:{'epoch': 60, 'train_loss': 0.0724, 'train_acc': 0.99}
+INFO:root:{'epoch': 70, 'train_loss': 0.0548, 'train_acc': 1.0}
+INFO:root:{'epoch': 80, 'train_loss': 0.0398, 'train_acc': 1.0}
+INFO:root:{'epoch': 90, 'train_loss': 0.0512, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 2, 'alpha': 0.5, 'target_risk': 0.2905}
+INFO:root:{'epoch': 0, 'train_loss': 0.8077, 'train_acc': 0.45}
+INFO:root:{'epoch': 10, 'train_loss': 0.442, 'train_acc': 0.8}
+INFO:root:{'epoch': 20, 'train_loss': 0.2936, 'train_acc': 0.88}
+INFO:root:{'epoch': 30, 'train_loss': 0.1594, 'train_acc': 0.95}
+INFO:root:{'epoch': 40, 'train_loss': 0.1229, 'train_acc': 0.96}
+INFO:root:{'epoch': 50, 'train_loss': 0.0704, 'train_acc': 1.0}
+INFO:root:{'epoch': 60, 'train_loss': 0.0711, 'train_acc': 1.0}
+INFO:root:{'epoch': 70, 'train_loss': 0.0425, 'train_acc': 1.0}
+INFO:root:{'epoch': 80, 'train_loss': 0.0471, 'train_acc': 0.99}
+INFO:root:{'epoch': 90, 'train_loss': 0.0641, 'train_acc': 0.98}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 3, 'alpha': 0.5, 'target_risk': 0.2915}
+INFO:root:{'epoch': 0, 'train_loss': 0.7223, 'train_acc': 0.46}
+INFO:root:{'epoch': 10, 'train_loss': 0.3981, 'train_acc': 0.81}
+INFO:root:{'epoch': 20, 'train_loss': 0.3048, 'train_acc': 0.91}
+INFO:root:{'epoch': 30, 'train_loss': 0.1893, 'train_acc': 0.94}
+INFO:root:{'epoch': 40, 'train_loss': 0.1527, 'train_acc': 0.96}
+INFO:root:{'epoch': 50, 'train_loss': 0.0889, 'train_acc': 0.99}
+INFO:root:{'epoch': 60, 'train_loss': 0.0493, 'train_acc': 1.0}
+INFO:root:{'epoch': 70, 'train_loss': 0.0713, 'train_acc': 0.99}
+INFO:root:{'epoch': 80, 'train_loss': 0.041, 'train_acc': 1.0}
+INFO:root:{'epoch': 90, 'train_loss': 0.0397, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 4, 'alpha': 0.5, 'target_risk': 0.2995}
+INFO:root:{'epoch': 0, 'train_loss': 0.7231, 'train_acc': 0.56}
+INFO:root:{'epoch': 10, 'train_loss': 0.4455, 'train_acc': 0.81}
+INFO:root:{'epoch': 20, 'train_loss': 0.3533, 'train_acc': 0.86}
+INFO:root:{'epoch': 30, 'train_loss': 0.2118, 'train_acc': 0.93}
+INFO:root:{'epoch': 40, 'train_loss': 0.1377, 'train_acc': 0.97}
+INFO:root:{'epoch': 50, 'train_loss': 0.0969, 'train_acc': 0.98}
+INFO:root:{'epoch': 60, 'train_loss': 0.1025, 'train_acc': 0.97}
+INFO:root:{'epoch': 70, 'train_loss': 0.0594, 'train_acc': 0.99}
+INFO:root:{'epoch': 80, 'train_loss': 0.0535, 'train_acc': 0.99}
+INFO:root:{'epoch': 90, 'train_loss': 0.0422, 'train_acc': 0.99}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 5, 'alpha': 0.5, 'target_risk': 0.28}
+INFO:root:{'epoch': 0, 'train_loss': 0.7492, 'train_acc': 0.51}
+INFO:root:{'epoch': 10, 'train_loss': 0.4343, 'train_acc': 0.81}
+INFO:root:{'epoch': 20, 'train_loss': 0.2856, 'train_acc': 0.91}
+INFO:root:{'epoch': 30, 'train_loss': 0.2007, 'train_acc': 0.94}
+INFO:root:{'epoch': 40, 'train_loss': 0.1503, 'train_acc': 0.97}
+INFO:root:{'epoch': 50, 'train_loss': 0.1163, 'train_acc': 0.97}
+INFO:root:{'epoch': 60, 'train_loss': 0.0839, 'train_acc': 0.99}
+INFO:root:{'epoch': 70, 'train_loss': 0.0649, 'train_acc': 1.0}
+INFO:root:{'epoch': 80, 'train_loss': 0.0677, 'train_acc': 0.99}
+INFO:root:{'epoch': 90, 'train_loss': 0.0662, 'train_acc': 0.99}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 6, 'alpha': 0.5, 'target_risk': 0.33}
+INFO:root:{'epoch': 0, 'train_loss': 0.7376, 'train_acc': 0.38}
+INFO:root:{'epoch': 10, 'train_loss': 0.4135, 'train_acc': 0.86}
+INFO:root:{'epoch': 20, 'train_loss': 0.3503, 'train_acc': 0.88}
+INFO:root:{'epoch': 30, 'train_loss': 0.2142, 'train_acc': 0.94}
+INFO:root:{'epoch': 40, 'train_loss': 0.1396, 'train_acc': 0.95}
+INFO:root:{'epoch': 50, 'train_loss': 0.0791, 'train_acc': 0.99}
+INFO:root:{'epoch': 60, 'train_loss': 0.0586, 'train_acc': 1.0}
+INFO:root:{'epoch': 70, 'train_loss': 0.062, 'train_acc': 0.98}
+INFO:root:{'epoch': 80, 'train_loss': 0.0614, 'train_acc': 0.99}
+INFO:root:{'epoch': 90, 'train_loss': 0.0424, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 7, 'alpha': 0.5, 'target_risk': 0.299}
+INFO:root:{'epoch': 0, 'train_loss': 0.6862, 'train_acc': 0.58}
+INFO:root:{'epoch': 10, 'train_loss': 0.4515, 'train_acc': 0.79}
+INFO:root:{'epoch': 20, 'train_loss': 0.2708, 'train_acc': 0.9}
+INFO:root:{'epoch': 30, 'train_loss': 0.1813, 'train_acc': 0.94}
+INFO:root:{'epoch': 40, 'train_loss': 0.1408, 'train_acc': 0.95}
+INFO:root:{'epoch': 50, 'train_loss': 0.0969, 'train_acc': 0.99}
+INFO:root:{'epoch': 60, 'train_loss': 0.0772, 'train_acc': 0.99}
+INFO:root:{'epoch': 70, 'train_loss': 0.0539, 'train_acc': 0.99}
+INFO:root:{'epoch': 80, 'train_loss': 0.0339, 'train_acc': 1.0}
+INFO:root:{'epoch': 90, 'train_loss': 0.0338, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 8, 'alpha': 0.5, 'target_risk': 0.307}
+INFO:root:{'epoch': 0, 'train_loss': 0.8616, 'train_acc': 0.49}
+INFO:root:{'epoch': 10, 'train_loss': 0.436, 'train_acc': 0.79}
+INFO:root:{'epoch': 20, 'train_loss': 0.2537, 'train_acc': 0.94}
+INFO:root:{'epoch': 30, 'train_loss': 0.1864, 'train_acc': 0.95}
+INFO:root:{'epoch': 40, 'train_loss': 0.1675, 'train_acc': 0.95}
+INFO:root:{'epoch': 50, 'train_loss': 0.1267, 'train_acc': 0.96}
+INFO:root:{'epoch': 60, 'train_loss': 0.0622, 'train_acc': 1.0}
+INFO:root:{'epoch': 70, 'train_loss': 0.0831, 'train_acc': 0.97}
+INFO:root:{'epoch': 80, 'train_loss': 0.0433, 'train_acc': 1.0}
+INFO:root:{'epoch': 90, 'train_loss': 0.0495, 'train_acc': 1.0}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 0, 'replicate_id': 9, 'alpha': 0.5, 'target_risk': 0.2895}
+INFO:root:{'tuning_alpha': 0.9, 'epoch': 0, 'target_train_loss': 0.9073, 'ood_train_loss': 0.7515, 'train_loss': 0.8917}
+INFO:root:{'tuning_alpha': 0.9, 'epoch': 20, 'target_train_loss': 0.4603, 'ood_train_loss': 0.6053, 'train_loss': 0.4748}
+INFO:root:{'tuning_alpha': 0.9, 'epoch': 40, 'target_train_loss': 0.231, 'ood_train_loss': 0.4685, 'train_loss': 0.2548}
+INFO:root:{'tuning_alpha': 0.9, 'epoch': 60, 'target_train_loss': 0.178, 'ood_train_loss': 0.4578, 'train_loss': 0.206}
+INFO:root:{'tuning_alpha': 0.9, 'epoch': 80, 'target_train_loss': 0.1311, 'ood_train_loss': 0.363, 'train_loss': 0.1543}
+INFO:root:{'alpha': 0.9, 'risk_at_alpha': 0.2935}
+INFO:root:{'tuning_alpha': 0.91, 'epoch': 0, 'target_train_loss': 0.7927, 'ood_train_loss': 0.7708, 'train_loss': 0.7907}
+INFO:root:{'tuning_alpha': 0.91, 'epoch': 20, 'target_train_loss': 0.4082, 'ood_train_loss': 0.6931, 'train_loss': 0.4338}
+INFO:root:{'tuning_alpha': 0.91, 'epoch': 40, 'target_train_loss': 0.2566, 'ood_train_loss': 0.3135, 'train_loss': 0.2617}
+INFO:root:{'tuning_alpha': 0.91, 'epoch': 60, 'target_train_loss': 0.1286, 'ood_train_loss': 0.5238, 'train_loss': 0.1641}
+INFO:root:{'tuning_alpha': 0.91, 'epoch': 80, 'target_train_loss': 0.1017, 'ood_train_loss': 0.4577, 'train_loss': 0.1338}
+INFO:root:{'alpha': 0.91, 'risk_at_alpha': 0.298}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 0, 'target_train_loss': 0.8706, 'ood_train_loss': 0.8619, 'train_loss': 0.8699}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 20, 'target_train_loss': 0.2955, 'ood_train_loss': 0.4919, 'train_loss': 0.3112}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 40, 'target_train_loss': 0.2671, 'ood_train_loss': 0.5637, 'train_loss': 0.2908}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 60, 'target_train_loss': 0.139, 'ood_train_loss': 0.4474, 'train_loss': 0.1637}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 80, 'target_train_loss': 0.0943, 'ood_train_loss': 0.583, 'train_loss': 0.1334}
+INFO:root:{'alpha': 0.92, 'risk_at_alpha': 0.2915}
+INFO:root:{'tuning_alpha': 0.93, 'epoch': 0, 'target_train_loss': 0.8323, 'ood_train_loss': 0.8907, 'train_loss': 0.8364}
+INFO:root:{'tuning_alpha': 0.93, 'epoch': 20, 'target_train_loss': 0.4749, 'ood_train_loss': 0.8873, 'train_loss': 0.5037}
+INFO:root:{'tuning_alpha': 0.93, 'epoch': 40, 'target_train_loss': 0.2164, 'ood_train_loss': 0.669, 'train_loss': 0.2481}
+INFO:root:{'tuning_alpha': 0.93, 'epoch': 60, 'target_train_loss': 0.2066, 'ood_train_loss': 0.4773, 'train_loss': 0.2256}
+INFO:root:{'tuning_alpha': 0.93, 'epoch': 80, 'target_train_loss': 0.0819, 'ood_train_loss': 0.4588, 'train_loss': 0.1083}
+INFO:root:{'alpha': 0.93, 'risk_at_alpha': 0.297}
+INFO:root:{'tuning_alpha': 0.94, 'epoch': 0, 'target_train_loss': 0.8056, 'ood_train_loss': 0.7399, 'train_loss': 0.8017}
+INFO:root:{'tuning_alpha': 0.94, 'epoch': 20, 'target_train_loss': 0.411, 'ood_train_loss': 0.5707, 'train_loss': 0.4206}
+INFO:root:{'tuning_alpha': 0.94, 'epoch': 40, 'target_train_loss': 0.2479, 'ood_train_loss': 0.5724, 'train_loss': 0.2673}
+INFO:root:{'tuning_alpha': 0.94, 'epoch': 60, 'target_train_loss': 0.1094, 'ood_train_loss': 0.5274, 'train_loss': 0.1344}
+INFO:root:{'tuning_alpha': 0.94, 'epoch': 80, 'target_train_loss': 0.0893, 'ood_train_loss': 0.535, 'train_loss': 0.116}
+INFO:root:{'alpha': 0.94, 'risk_at_alpha': 0.297}
+INFO:root:{'tuning_alpha': 0.95, 'epoch': 0, 'target_train_loss': 0.8597, 'ood_train_loss': 0.7778, 'train_loss': 0.8556}
+INFO:root:{'tuning_alpha': 0.95, 'epoch': 20, 'target_train_loss': 0.3775, 'ood_train_loss': 0.6988, 'train_loss': 0.3935}
+INFO:root:{'tuning_alpha': 0.95, 'epoch': 40, 'target_train_loss': 0.2604, 'ood_train_loss': 0.7057, 'train_loss': 0.2827}
+INFO:root:{'tuning_alpha': 0.95, 'epoch': 60, 'target_train_loss': 0.1253, 'ood_train_loss': 0.8212, 'train_loss': 0.16}
+INFO:root:{'tuning_alpha': 0.95, 'epoch': 80, 'target_train_loss': 0.1238, 'ood_train_loss': 0.6814, 'train_loss': 0.1517}
+INFO:root:{'alpha': 0.95, 'risk_at_alpha': 0.299}
+INFO:root:{'tuning_alpha': 0.96, 'epoch': 0, 'target_train_loss': 0.8242, 'ood_train_loss': 0.8493, 'train_loss': 0.8252}
+INFO:root:{'tuning_alpha': 0.96, 'epoch': 20, 'target_train_loss': 0.4327, 'ood_train_loss': 0.6563, 'train_loss': 0.4417}
+INFO:root:{'tuning_alpha': 0.96, 'epoch': 40, 'target_train_loss': 0.2228, 'ood_train_loss': 0.6818, 'train_loss': 0.2412}
+INFO:root:{'tuning_alpha': 0.96, 'epoch': 60, 'target_train_loss': 0.1703, 'ood_train_loss': 0.779, 'train_loss': 0.1947}
+INFO:root:{'tuning_alpha': 0.96, 'epoch': 80, 'target_train_loss': 0.1203, 'ood_train_loss': 0.6617, 'train_loss': 0.142}
+INFO:root:{'alpha': 0.96, 'risk_at_alpha': 0.3065}
+INFO:root:{'tuning_alpha': 0.97, 'epoch': 0, 'target_train_loss': 0.8074, 'ood_train_loss': 0.8722, 'train_loss': 0.8094}
+INFO:root:{'tuning_alpha': 0.97, 'epoch': 20, 'target_train_loss': 0.3271, 'ood_train_loss': 0.7277, 'train_loss': 0.3391}
+INFO:root:{'tuning_alpha': 0.97, 'epoch': 40, 'target_train_loss': 0.2685, 'ood_train_loss': 0.8507, 'train_loss': 0.286}
+INFO:root:{'tuning_alpha': 0.97, 'epoch': 60, 'target_train_loss': 0.1042, 'ood_train_loss': 0.867, 'train_loss': 0.1271}
+INFO:root:{'tuning_alpha': 0.97, 'epoch': 80, 'target_train_loss': 0.0971, 'ood_train_loss': 0.5104, 'train_loss': 0.1095}
+INFO:root:{'alpha': 0.97, 'risk_at_alpha': 0.308}
+INFO:root:{'tuning_alpha': 0.98, 'epoch': 0, 'target_train_loss': 0.7639, 'ood_train_loss': 0.8516, 'train_loss': 0.7656}
+INFO:root:{'tuning_alpha': 0.98, 'epoch': 20, 'target_train_loss': 0.3138, 'ood_train_loss': 0.7514, 'train_loss': 0.3225}
+INFO:root:{'tuning_alpha': 0.98, 'epoch': 40, 'target_train_loss': 0.2308, 'ood_train_loss': 0.8613, 'train_loss': 0.2435}
+INFO:root:{'tuning_alpha': 0.98, 'epoch': 60, 'target_train_loss': 0.1181, 'ood_train_loss': 0.8383, 'train_loss': 0.1325}
+INFO:root:{'tuning_alpha': 0.98, 'epoch': 80, 'target_train_loss': 0.0732, 'ood_train_loss': 0.7713, 'train_loss': 0.0871}
+INFO:root:{'alpha': 0.98, 'risk_at_alpha': 0.304}
+INFO:root:{'tuning_alpha': 0.99, 'epoch': 0, 'target_train_loss': 0.8419, 'ood_train_loss': 0.8511, 'train_loss': 0.842}
+INFO:root:{'tuning_alpha': 0.99, 'epoch': 20, 'target_train_loss': 0.3359, 'ood_train_loss': 0.7092, 'train_loss': 0.3397}
+INFO:root:{'tuning_alpha': 0.99, 'epoch': 40, 'target_train_loss': 0.1948, 'ood_train_loss': 0.7988, 'train_loss': 0.2009}
+INFO:root:{'tuning_alpha': 0.99, 'epoch': 60, 'target_train_loss': 0.212, 'ood_train_loss': 0.8553, 'train_loss': 0.2184}
+INFO:root:{'tuning_alpha': 0.99, 'epoch': 80, 'target_train_loss': 0.0832, 'ood_train_loss': 0.8586, 'train_loss': 0.091}
+INFO:root:{'alpha': 0.99, 'risk_at_alpha': 0.301}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 0, 'target_train_loss': 0.7924, 'ood_train_loss': 0.7463, 'train_loss': 0.7924}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 20, 'target_train_loss': 0.3371, 'ood_train_loss': 0.786, 'train_loss': 0.3371}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 40, 'target_train_loss': 0.2188, 'ood_train_loss': 0.9176, 'train_loss': 0.2188}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 60, 'target_train_loss': 0.1209, 'ood_train_loss': 1.3298, 'train_loss': 0.1209}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 80, 'target_train_loss': 0.0721, 'ood_train_loss': 1.2862, 'train_loss': 0.0721}
+INFO:root:{'alpha': 1.0, 'risk_at_alpha': 0.2995}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8974, 'ood_train_loss': 0.8255, 'train_loss': 0.8917, 'train_acc': 0.4688, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4931, 'ood_train_loss': 0.6782, 'train_loss': 0.5079, 'train_acc': 0.6719, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3388, 'ood_train_loss': 0.5043, 'train_loss': 0.352, 'train_acc': 0.8047, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.3087, 'ood_train_loss': 0.7519, 'train_loss': 0.3442, 'train_acc': 0.7344, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1896, 'ood_train_loss': 0.5411, 'train_loss': 0.2177, 'train_acc': 0.8359, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.2033, 'ood_train_loss': 0.5133, 'train_loss': 0.2281, 'train_acc': 0.8359, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.1088, 'ood_train_loss': 0.4368, 'train_loss': 0.135, 'train_acc': 0.8906, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.1355, 'ood_train_loss': 0.5053, 'train_loss': 0.1651, 'train_acc': 0.875, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.1323, 'ood_train_loss': 0.4908, 'train_loss': 0.161, 'train_acc': 0.8672, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0995, 'ood_train_loss': 0.4734, 'train_loss': 0.1294, 'train_acc': 0.8984, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 0, 'alpha': 0.92, 'target_risk': 0.3065}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7493, 'ood_train_loss': 0.8385, 'train_loss': 0.7565, 'train_acc': 0.4609, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4858, 'ood_train_loss': 0.4806, 'train_loss': 0.4854, 'train_acc': 0.75, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2829, 'ood_train_loss': 0.6215, 'train_loss': 0.31, 'train_acc': 0.7891, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2241, 'ood_train_loss': 0.65, 'train_loss': 0.2582, 'train_acc': 0.8359, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1434, 'ood_train_loss': 0.501, 'train_loss': 0.172, 'train_acc': 0.8984, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1353, 'ood_train_loss': 0.7969, 'train_loss': 0.1882, 'train_acc': 0.7891, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.1249, 'ood_train_loss': 0.4099, 'train_loss': 0.1477, 'train_acc': 0.9062, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.1255, 'ood_train_loss': 0.3754, 'train_loss': 0.1455, 'train_acc': 0.8984, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.1114, 'ood_train_loss': 0.3474, 'train_loss': 0.1303, 'train_acc': 0.9219, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.117, 'ood_train_loss': 0.3689, 'train_loss': 0.1372, 'train_acc': 0.8906, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 1, 'alpha': 0.92, 'target_risk': 0.2965}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7526, 'ood_train_loss': 0.8911, 'train_loss': 0.7637, 'train_acc': 0.4688, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4361, 'ood_train_loss': 0.6334, 'train_loss': 0.4519, 'train_acc': 0.7109, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3674, 'ood_train_loss': 0.5951, 'train_loss': 0.3856, 'train_acc': 0.7656, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2375, 'ood_train_loss': 0.5909, 'train_loss': 0.2658, 'train_acc': 0.8047, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.2338, 'ood_train_loss': 0.5483, 'train_loss': 0.2589, 'train_acc': 0.8125, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.2321, 'ood_train_loss': 0.6283, 'train_loss': 0.2638, 'train_acc': 0.8438, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.1511, 'ood_train_loss': 0.5471, 'train_loss': 0.1828, 'train_acc': 0.8828, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0982, 'ood_train_loss': 0.5171, 'train_loss': 0.1317, 'train_acc': 0.8984, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.12, 'ood_train_loss': 0.443, 'train_loss': 0.1458, 'train_acc': 0.8594, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0848, 'ood_train_loss': 0.4979, 'train_loss': 0.1179, 'train_acc': 0.9219, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 2, 'alpha': 0.92, 'target_risk': 0.298}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7921, 'ood_train_loss': 0.8988, 'train_loss': 0.8006, 'train_acc': 0.4531, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.5226, 'ood_train_loss': 0.6948, 'train_loss': 0.5364, 'train_acc': 0.6406, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3411, 'ood_train_loss': 0.6822, 'train_loss': 0.3684, 'train_acc': 0.7109, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2911, 'ood_train_loss': 0.6086, 'train_loss': 0.3165, 'train_acc': 0.7891, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.2126, 'ood_train_loss': 0.6804, 'train_loss': 0.2501, 'train_acc': 0.7891, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.2207, 'ood_train_loss': 0.4922, 'train_loss': 0.2424, 'train_acc': 0.8672, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.1398, 'ood_train_loss': 0.4302, 'train_loss': 0.163, 'train_acc': 0.8828, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.1417, 'ood_train_loss': 0.4374, 'train_loss': 0.1654, 'train_acc': 0.8984, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.1091, 'ood_train_loss': 0.4395, 'train_loss': 0.1355, 'train_acc': 0.8672, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.1094, 'ood_train_loss': 0.5051, 'train_loss': 0.1411, 'train_acc': 0.8594, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 3, 'alpha': 0.92, 'target_risk': 0.296}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6683, 'ood_train_loss': 0.7312, 'train_loss': 0.6734, 'train_acc': 0.5547, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4613, 'ood_train_loss': 0.5911, 'train_loss': 0.4717, 'train_acc': 0.7344, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.4136, 'ood_train_loss': 0.3884, 'train_loss': 0.4116, 'train_acc': 0.8125, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2314, 'ood_train_loss': 0.6098, 'train_loss': 0.2617, 'train_acc': 0.8281, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.23, 'ood_train_loss': 0.549, 'train_loss': 0.2555, 'train_acc': 0.8359, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1137, 'ood_train_loss': 0.5538, 'train_loss': 0.1489, 'train_acc': 0.8438, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.1114, 'ood_train_loss': 0.4636, 'train_loss': 0.1396, 'train_acc': 0.8828, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.1242, 'ood_train_loss': 0.5258, 'train_loss': 0.1563, 'train_acc': 0.8984, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0859, 'ood_train_loss': 0.443, 'train_loss': 0.1144, 'train_acc': 0.8906, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.1078, 'ood_train_loss': 0.4687, 'train_loss': 0.1367, 'train_acc': 0.8828, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 4, 'alpha': 0.92, 'target_risk': 0.2885}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.709, 'ood_train_loss': 0.7131, 'train_loss': 0.7093, 'train_acc': 0.5625, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4161, 'ood_train_loss': 0.5325, 'train_loss': 0.4254, 'train_acc': 0.7734, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3669, 'ood_train_loss': 0.6247, 'train_loss': 0.3876, 'train_acc': 0.7109, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2967, 'ood_train_loss': 0.6689, 'train_loss': 0.3264, 'train_acc': 0.7891, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.203, 'ood_train_loss': 0.47, 'train_loss': 0.2244, 'train_acc': 0.8594, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1358, 'ood_train_loss': 0.5384, 'train_loss': 0.168, 'train_acc': 0.8828, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0913, 'ood_train_loss': 0.4821, 'train_loss': 0.1226, 'train_acc': 0.8906, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.09, 'ood_train_loss': 0.4059, 'train_loss': 0.1152, 'train_acc': 0.8906, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.1024, 'ood_train_loss': 0.6562, 'train_loss': 0.1467, 'train_acc': 0.8203, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0788, 'ood_train_loss': 0.5302, 'train_loss': 0.1149, 'train_acc': 0.8906, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 5, 'alpha': 0.92, 'target_risk': 0.2955}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8237, 'ood_train_loss': 0.8203, 'train_loss': 0.8235, 'train_acc': 0.4609, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4704, 'ood_train_loss': 0.7153, 'train_loss': 0.49, 'train_acc': 0.7109, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3984, 'ood_train_loss': 0.6485, 'train_loss': 0.4184, 'train_acc': 0.7344, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.3136, 'ood_train_loss': 0.509, 'train_loss': 0.3292, 'train_acc': 0.7891, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.169, 'ood_train_loss': 0.6187, 'train_loss': 0.205, 'train_acc': 0.8438, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1351, 'ood_train_loss': 0.4926, 'train_loss': 0.1637, 'train_acc': 0.8828, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.1061, 'ood_train_loss': 0.4213, 'train_loss': 0.1313, 'train_acc': 0.8984, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.1203, 'ood_train_loss': 0.4271, 'train_loss': 0.1448, 'train_acc': 0.8906, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.1035, 'ood_train_loss': 0.5086, 'train_loss': 0.1359, 'train_acc': 0.875, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0936, 'ood_train_loss': 0.5244, 'train_loss': 0.1281, 'train_acc': 0.8594, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 6, 'alpha': 0.92, 'target_risk': 0.2915}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7922, 'ood_train_loss': 0.917, 'train_loss': 0.8022, 'train_acc': 0.4609, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4405, 'ood_train_loss': 0.5893, 'train_loss': 0.4524, 'train_acc': 0.7656, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.349, 'ood_train_loss': 0.6387, 'train_loss': 0.3722, 'train_acc': 0.8047, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2803, 'ood_train_loss': 0.5781, 'train_loss': 0.3041, 'train_acc': 0.8125, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.2108, 'ood_train_loss': 0.4793, 'train_loss': 0.2323, 'train_acc': 0.8281, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1584, 'ood_train_loss': 0.5558, 'train_loss': 0.1902, 'train_acc': 0.8359, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.1587, 'ood_train_loss': 0.4098, 'train_loss': 0.1788, 'train_acc': 0.8828, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0887, 'ood_train_loss': 0.3591, 'train_loss': 0.1103, 'train_acc': 0.9141, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.1014, 'ood_train_loss': 0.4445, 'train_loss': 0.1289, 'train_acc': 0.8828, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0596, 'ood_train_loss': 0.4746, 'train_loss': 0.0928, 'train_acc': 0.9062, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 7, 'alpha': 0.92, 'target_risk': 0.29}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7649, 'ood_train_loss': 0.6765, 'train_loss': 0.7578, 'train_acc': 0.5469, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4629, 'ood_train_loss': 0.7189, 'train_loss': 0.4834, 'train_acc': 0.7109, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3257, 'ood_train_loss': 0.698, 'train_loss': 0.3555, 'train_acc': 0.7656, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2666, 'ood_train_loss': 0.6405, 'train_loss': 0.2965, 'train_acc': 0.7891, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.2261, 'ood_train_loss': 0.6301, 'train_loss': 0.2585, 'train_acc': 0.7891, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1646, 'ood_train_loss': 0.444, 'train_loss': 0.1869, 'train_acc': 0.875, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.1349, 'ood_train_loss': 0.5477, 'train_loss': 0.1679, 'train_acc': 0.875, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0985, 'ood_train_loss': 0.4599, 'train_loss': 0.1275, 'train_acc': 0.8984, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0867, 'ood_train_loss': 0.5719, 'train_loss': 0.1255, 'train_acc': 0.8828, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.1126, 'ood_train_loss': 0.5677, 'train_loss': 0.149, 'train_acc': 0.8281, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 8, 'alpha': 0.92, 'target_risk': 0.281}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6785, 'ood_train_loss': 0.7611, 'train_loss': 0.6851, 'train_acc': 0.5469, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.5166, 'ood_train_loss': 0.6525, 'train_loss': 0.5274, 'train_acc': 0.7422, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.4145, 'ood_train_loss': 0.6489, 'train_loss': 0.4332, 'train_acc': 0.6953, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.3422, 'ood_train_loss': 0.6516, 'train_loss': 0.3669, 'train_acc': 0.7422, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.309, 'ood_train_loss': 0.5066, 'train_loss': 0.3248, 'train_acc': 0.8438, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.25, 'ood_train_loss': 0.7937, 'train_loss': 0.2935, 'train_acc': 0.8125, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.1276, 'ood_train_loss': 0.4264, 'train_loss': 0.1515, 'train_acc': 0.8906, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.1481, 'ood_train_loss': 0.3854, 'train_loss': 0.1671, 'train_acc': 0.875, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.1019, 'ood_train_loss': 0.5148, 'train_loss': 0.135, 'train_acc': 0.9062, 'batch_target_fraction': 0.5}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.148, 'ood_train_loss': 0.3577, 'train_loss': 0.1648, 'train_acc': 0.9219, 'batch_target_fraction': 0.5}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 1, 'replicate_id': 9, 'alpha': 0.92, 'target_risk': 0.2985}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 0, 'target_train_loss': 0.7376, 'ood_train_loss': 0.7643, 'train_loss': 0.7397}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 20, 'target_train_loss': 0.2371, 'ood_train_loss': 0.7982, 'train_loss': 0.282}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 40, 'target_train_loss': 0.1563, 'ood_train_loss': 0.5244, 'train_loss': 0.1858}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 60, 'target_train_loss': 0.0718, 'ood_train_loss': 0.5584, 'train_loss': 0.1108}
+INFO:root:{'tuning_alpha': 0.92, 'epoch': 80, 'target_train_loss': 0.0444, 'ood_train_loss': 0.5081, 'train_loss': 0.0815}
+INFO:root:{'alpha': 0.92, 'risk_at_alpha': 0.2895}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 0, 'target_train_loss': 0.6861, 'ood_train_loss': 0.7315, 'train_loss': 0.6893}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 20, 'target_train_loss': 0.2802, 'ood_train_loss': 0.8353, 'train_loss': 0.3196}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 40, 'target_train_loss': 0.1086, 'ood_train_loss': 0.8023, 'train_loss': 0.1579}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 60, 'target_train_loss': 0.0519, 'ood_train_loss': 0.5766, 'train_loss': 0.0892}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 80, 'target_train_loss': 0.0369, 'ood_train_loss': 0.5903, 'train_loss': 0.0763}
+INFO:root:{'alpha': 0.9289, 'risk_at_alpha': 0.281}
+INFO:root:{'tuning_alpha': 0.9378, 'epoch': 0, 'target_train_loss': 0.8402, 'ood_train_loss': 0.8265, 'train_loss': 0.8394}
+INFO:root:{'tuning_alpha': 0.9378, 'epoch': 20, 'target_train_loss': 0.3007, 'ood_train_loss': 0.6464, 'train_loss': 0.3222}
+INFO:root:{'tuning_alpha': 0.9378, 'epoch': 40, 'target_train_loss': 0.1339, 'ood_train_loss': 0.7415, 'train_loss': 0.1717}
+INFO:root:{'tuning_alpha': 0.9378, 'epoch': 60, 'target_train_loss': 0.0903, 'ood_train_loss': 0.6657, 'train_loss': 0.1261}
+INFO:root:{'tuning_alpha': 0.9378, 'epoch': 80, 'target_train_loss': 0.0645, 'ood_train_loss': 0.4993, 'train_loss': 0.0916}
+INFO:root:{'alpha': 0.9378, 'risk_at_alpha': 0.282}
+INFO:root:{'tuning_alpha': 0.9467, 'epoch': 0, 'target_train_loss': 0.7302, 'ood_train_loss': 0.7356, 'train_loss': 0.7305}
+INFO:root:{'tuning_alpha': 0.9467, 'epoch': 20, 'target_train_loss': 0.2776, 'ood_train_loss': 0.6623, 'train_loss': 0.2981}
+INFO:root:{'tuning_alpha': 0.9467, 'epoch': 40, 'target_train_loss': 0.1194, 'ood_train_loss': 0.822, 'train_loss': 0.1569}
+INFO:root:{'tuning_alpha': 0.9467, 'epoch': 60, 'target_train_loss': 0.0716, 'ood_train_loss': 0.6738, 'train_loss': 0.1037}
+INFO:root:{'tuning_alpha': 0.9467, 'epoch': 80, 'target_train_loss': 0.0354, 'ood_train_loss': 0.5583, 'train_loss': 0.0633}
+INFO:root:{'alpha': 0.9467, 'risk_at_alpha': 0.2855}
+INFO:root:{'tuning_alpha': 0.9556, 'epoch': 0, 'target_train_loss': 0.7952, 'ood_train_loss': 0.7812, 'train_loss': 0.7946}
+INFO:root:{'tuning_alpha': 0.9556, 'epoch': 20, 'target_train_loss': 0.2392, 'ood_train_loss': 0.8228, 'train_loss': 0.2651}
+INFO:root:{'tuning_alpha': 0.9556, 'epoch': 40, 'target_train_loss': 0.1235, 'ood_train_loss': 0.905, 'train_loss': 0.1583}
+INFO:root:{'tuning_alpha': 0.9556, 'epoch': 60, 'target_train_loss': 0.0661, 'ood_train_loss': 0.8235, 'train_loss': 0.0998}
+INFO:root:{'tuning_alpha': 0.9556, 'epoch': 80, 'target_train_loss': 0.0657, 'ood_train_loss': 0.6378, 'train_loss': 0.0911}
+INFO:root:{'alpha': 0.9556, 'risk_at_alpha': 0.2905}
+INFO:root:{'tuning_alpha': 0.9644, 'epoch': 0, 'target_train_loss': 0.7496, 'ood_train_loss': 0.7589, 'train_loss': 0.7499}
+INFO:root:{'tuning_alpha': 0.9644, 'epoch': 20, 'target_train_loss': 0.2299, 'ood_train_loss': 0.9942, 'train_loss': 0.2571}
+INFO:root:{'tuning_alpha': 0.9644, 'epoch': 40, 'target_train_loss': 0.1155, 'ood_train_loss': 0.8336, 'train_loss': 0.141}
+INFO:root:{'tuning_alpha': 0.9644, 'epoch': 60, 'target_train_loss': 0.0552, 'ood_train_loss': 0.795, 'train_loss': 0.0815}
+INFO:root:{'tuning_alpha': 0.9644, 'epoch': 80, 'target_train_loss': 0.036, 'ood_train_loss': 0.7288, 'train_loss': 0.0607}
+INFO:root:{'alpha': 0.9644, 'risk_at_alpha': 0.2875}
+INFO:root:{'tuning_alpha': 0.9733, 'epoch': 0, 'target_train_loss': 0.6741, 'ood_train_loss': 0.7623, 'train_loss': 0.6764}
+INFO:root:{'tuning_alpha': 0.9733, 'epoch': 20, 'target_train_loss': 0.2148, 'ood_train_loss': 1.0081, 'train_loss': 0.2359}
+INFO:root:{'tuning_alpha': 0.9733, 'epoch': 40, 'target_train_loss': 0.1158, 'ood_train_loss': 1.0785, 'train_loss': 0.1415}
+INFO:root:{'tuning_alpha': 0.9733, 'epoch': 60, 'target_train_loss': 0.0578, 'ood_train_loss': 0.9637, 'train_loss': 0.0819}
+INFO:root:{'tuning_alpha': 0.9733, 'epoch': 80, 'target_train_loss': 0.033, 'ood_train_loss': 0.984, 'train_loss': 0.0584}
+INFO:root:{'alpha': 0.9733, 'risk_at_alpha': 0.285}
+INFO:root:{'tuning_alpha': 0.9822, 'epoch': 0, 'target_train_loss': 0.7208, 'ood_train_loss': 0.7364, 'train_loss': 0.7211}
+INFO:root:{'tuning_alpha': 0.9822, 'epoch': 20, 'target_train_loss': 0.2891, 'ood_train_loss': 1.0098, 'train_loss': 0.3019}
+INFO:root:{'tuning_alpha': 0.9822, 'epoch': 40, 'target_train_loss': 0.1119, 'ood_train_loss': 1.0706, 'train_loss': 0.1289}
+INFO:root:{'tuning_alpha': 0.9822, 'epoch': 60, 'target_train_loss': 0.0524, 'ood_train_loss': 1.4306, 'train_loss': 0.0769}
+INFO:root:{'tuning_alpha': 0.9822, 'epoch': 80, 'target_train_loss': 0.0341, 'ood_train_loss': 1.2437, 'train_loss': 0.0556}
+INFO:root:{'alpha': 0.9822, 'risk_at_alpha': 0.29}
+INFO:root:{'tuning_alpha': 0.9911, 'epoch': 0, 'target_train_loss': 0.7287, 'ood_train_loss': 0.6829, 'train_loss': 0.7283}
+INFO:root:{'tuning_alpha': 0.9911, 'epoch': 20, 'target_train_loss': 0.2788, 'ood_train_loss': 0.8664, 'train_loss': 0.284}
+INFO:root:{'tuning_alpha': 0.9911, 'epoch': 40, 'target_train_loss': 0.1185, 'ood_train_loss': 1.0552, 'train_loss': 0.1268}
+INFO:root:{'tuning_alpha': 0.9911, 'epoch': 60, 'target_train_loss': 0.0493, 'ood_train_loss': 1.1773, 'train_loss': 0.0593}
+INFO:root:{'tuning_alpha': 0.9911, 'epoch': 80, 'target_train_loss': 0.0562, 'ood_train_loss': 1.4998, 'train_loss': 0.069}
+INFO:root:{'alpha': 0.9911, 'risk_at_alpha': 0.302}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 0, 'target_train_loss': 0.9137, 'ood_train_loss': 0.7961, 'train_loss': 0.9137}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 20, 'target_train_loss': 0.3063, 'ood_train_loss': 1.2133, 'train_loss': 0.3063}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 40, 'target_train_loss': 0.1106, 'ood_train_loss': 1.1779, 'train_loss': 0.1106}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 60, 'target_train_loss': 0.0584, 'ood_train_loss': 1.6146, 'train_loss': 0.0584}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 80, 'target_train_loss': 0.0565, 'ood_train_loss': 1.4794, 'train_loss': 0.0565}
+INFO:root:{'alpha': 1.0, 'risk_at_alpha': 0.316}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8596, 'ood_train_loss': 0.7563, 'train_loss': 0.8523, 'train_acc': 0.5352, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3635, 'ood_train_loss': 0.7892, 'train_loss': 0.3938, 'train_acc': 0.6641, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2349, 'ood_train_loss': 1.0074, 'train_loss': 0.2899, 'train_acc': 0.6797, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.191, 'ood_train_loss': 0.4785, 'train_loss': 0.2114, 'train_acc': 0.8281, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1465, 'ood_train_loss': 0.8097, 'train_loss': 0.1937, 'train_acc': 0.7969, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1286, 'ood_train_loss': 0.6125, 'train_loss': 0.163, 'train_acc': 0.8086, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0895, 'ood_train_loss': 0.5381, 'train_loss': 0.1214, 'train_acc': 0.8398, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0795, 'ood_train_loss': 0.5204, 'train_loss': 0.1108, 'train_acc': 0.8555, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0575, 'ood_train_loss': 0.6029, 'train_loss': 0.0963, 'train_acc': 0.8438, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0536, 'ood_train_loss': 0.4825, 'train_loss': 0.0841, 'train_acc': 0.875, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 0, 'alpha': 0.9288888888888889, 'target_risk': 0.288}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6763, 'ood_train_loss': 0.7843, 'train_loss': 0.684, 'train_acc': 0.582, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4101, 'ood_train_loss': 0.6302, 'train_loss': 0.4258, 'train_acc': 0.7148, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.4205, 'ood_train_loss': 0.9037, 'train_loss': 0.4549, 'train_acc': 0.6875, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2291, 'ood_train_loss': 0.6134, 'train_loss': 0.2564, 'train_acc': 0.7617, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1403, 'ood_train_loss': 0.7821, 'train_loss': 0.1859, 'train_acc': 0.75, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0872, 'ood_train_loss': 0.5279, 'train_loss': 0.1185, 'train_acc': 0.8633, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0679, 'ood_train_loss': 0.4967, 'train_loss': 0.0984, 'train_acc': 0.8789, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0424, 'ood_train_loss': 0.5304, 'train_loss': 0.0771, 'train_acc': 0.8594, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0613, 'ood_train_loss': 0.4278, 'train_loss': 0.0874, 'train_acc': 0.8945, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.051, 'ood_train_loss': 0.4326, 'train_loss': 0.0781, 'train_acc': 0.8555, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 1, 'alpha': 0.9288888888888889, 'target_risk': 0.2895}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8546, 'ood_train_loss': 0.806, 'train_loss': 0.8512, 'train_acc': 0.4531, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4377, 'ood_train_loss': 0.6632, 'train_loss': 0.4538, 'train_acc': 0.6953, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2562, 'ood_train_loss': 0.7317, 'train_loss': 0.29, 'train_acc': 0.7617, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1893, 'ood_train_loss': 0.6104, 'train_loss': 0.2192, 'train_acc': 0.8047, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1144, 'ood_train_loss': 0.6269, 'train_loss': 0.1509, 'train_acc': 0.8125, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1365, 'ood_train_loss': 0.4761, 'train_loss': 0.1607, 'train_acc': 0.8555, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0666, 'ood_train_loss': 0.6429, 'train_loss': 0.1076, 'train_acc': 0.8164, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0441, 'ood_train_loss': 0.642, 'train_loss': 0.0867, 'train_acc': 0.8398, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0383, 'ood_train_loss': 0.3908, 'train_loss': 0.0634, 'train_acc': 0.8867, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.041, 'ood_train_loss': 0.4545, 'train_loss': 0.0704, 'train_acc': 0.8633, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 2, 'alpha': 0.9288888888888889, 'target_risk': 0.277}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8102, 'ood_train_loss': 0.7551, 'train_loss': 0.8063, 'train_acc': 0.5352, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4405, 'ood_train_loss': 0.8099, 'train_loss': 0.4668, 'train_acc': 0.6641, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3124, 'ood_train_loss': 0.7842, 'train_loss': 0.346, 'train_acc': 0.7109, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1618, 'ood_train_loss': 0.8079, 'train_loss': 0.2078, 'train_acc': 0.7305, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1295, 'ood_train_loss': 0.8229, 'train_loss': 0.1788, 'train_acc': 0.7578, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0998, 'ood_train_loss': 0.4604, 'train_loss': 0.1255, 'train_acc': 0.8711, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0682, 'ood_train_loss': 0.6703, 'train_loss': 0.111, 'train_acc': 0.8008, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.045, 'ood_train_loss': 0.5661, 'train_loss': 0.0821, 'train_acc': 0.8477, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0485, 'ood_train_loss': 0.6431, 'train_loss': 0.0908, 'train_acc': 0.8203, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0639, 'ood_train_loss': 0.4644, 'train_loss': 0.0923, 'train_acc': 0.8672, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 3, 'alpha': 0.9288888888888889, 'target_risk': 0.287}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8345, 'ood_train_loss': 0.7139, 'train_loss': 0.8259, 'train_acc': 0.5078, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3624, 'ood_train_loss': 0.6519, 'train_loss': 0.383, 'train_acc': 0.7305, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2874, 'ood_train_loss': 0.7672, 'train_loss': 0.3216, 'train_acc': 0.7305, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.0973, 'ood_train_loss': 0.7621, 'train_loss': 0.1446, 'train_acc': 0.8008, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.065, 'ood_train_loss': 0.7142, 'train_loss': 0.1111, 'train_acc': 0.8008, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0754, 'ood_train_loss': 0.6173, 'train_loss': 0.1139, 'train_acc': 0.8164, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0528, 'ood_train_loss': 0.5524, 'train_loss': 0.0884, 'train_acc': 0.8516, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0564, 'ood_train_loss': 0.5249, 'train_loss': 0.0897, 'train_acc': 0.8281, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0704, 'ood_train_loss': 0.4616, 'train_loss': 0.0982, 'train_acc': 0.8633, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0455, 'ood_train_loss': 0.4444, 'train_loss': 0.0739, 'train_acc': 0.8789, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 4, 'alpha': 0.9288888888888889, 'target_risk': 0.284}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7898, 'ood_train_loss': 0.7625, 'train_loss': 0.7878, 'train_acc': 0.457, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3455, 'ood_train_loss': 0.6955, 'train_loss': 0.3704, 'train_acc': 0.7461, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2414, 'ood_train_loss': 0.7441, 'train_loss': 0.2771, 'train_acc': 0.7461, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1474, 'ood_train_loss': 0.6275, 'train_loss': 0.1816, 'train_acc': 0.8047, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0797, 'ood_train_loss': 0.6323, 'train_loss': 0.119, 'train_acc': 0.793, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1004, 'ood_train_loss': 0.4623, 'train_loss': 0.1261, 'train_acc': 0.8398, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0626, 'ood_train_loss': 0.5581, 'train_loss': 0.0978, 'train_acc': 0.8438, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0466, 'ood_train_loss': 0.5291, 'train_loss': 0.0809, 'train_acc': 0.8555, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0411, 'ood_train_loss': 0.5002, 'train_loss': 0.0738, 'train_acc': 0.8594, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0486, 'ood_train_loss': 0.4604, 'train_loss': 0.0779, 'train_acc': 0.8555, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 5, 'alpha': 0.9288888888888889, 'target_risk': 0.2925}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8265, 'ood_train_loss': 0.8775, 'train_loss': 0.8302, 'train_acc': 0.3906, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.479, 'ood_train_loss': 0.7213, 'train_loss': 0.4962, 'train_acc': 0.6758, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.287, 'ood_train_loss': 0.77, 'train_loss': 0.3214, 'train_acc': 0.6953, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1752, 'ood_train_loss': 0.643, 'train_loss': 0.2085, 'train_acc': 0.7812, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1236, 'ood_train_loss': 0.6968, 'train_loss': 0.1643, 'train_acc': 0.7891, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0702, 'ood_train_loss': 0.7456, 'train_loss': 0.1182, 'train_acc': 0.7812, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0706, 'ood_train_loss': 0.4901, 'train_loss': 0.1005, 'train_acc': 0.8594, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0603, 'ood_train_loss': 0.5512, 'train_loss': 0.0952, 'train_acc': 0.8281, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0474, 'ood_train_loss': 0.5143, 'train_loss': 0.0806, 'train_acc': 0.8516, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0559, 'ood_train_loss': 0.5129, 'train_loss': 0.0884, 'train_acc': 0.8398, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 6, 'alpha': 0.9288888888888889, 'target_risk': 0.2845}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7793, 'ood_train_loss': 0.7705, 'train_loss': 0.7787, 'train_acc': 0.4414, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3631, 'ood_train_loss': 0.7387, 'train_loss': 0.3898, 'train_acc': 0.7031, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2966, 'ood_train_loss': 0.6369, 'train_loss': 0.3208, 'train_acc': 0.75, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1869, 'ood_train_loss': 0.7574, 'train_loss': 0.2275, 'train_acc': 0.7422, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.113, 'ood_train_loss': 0.721, 'train_loss': 0.1562, 'train_acc': 0.7852, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0905, 'ood_train_loss': 0.6118, 'train_loss': 0.1275, 'train_acc': 0.8164, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0719, 'ood_train_loss': 0.5937, 'train_loss': 0.109, 'train_acc': 0.832, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0409, 'ood_train_loss': 0.544, 'train_loss': 0.0766, 'train_acc': 0.8555, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0344, 'ood_train_loss': 0.4837, 'train_loss': 0.0663, 'train_acc': 0.8789, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0284, 'ood_train_loss': 0.4077, 'train_loss': 0.0554, 'train_acc': 0.875, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 7, 'alpha': 0.9288888888888889, 'target_risk': 0.2975}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7469, 'ood_train_loss': 0.6461, 'train_loss': 0.7397, 'train_acc': 0.5938, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3888, 'ood_train_loss': 0.6749, 'train_loss': 0.4091, 'train_acc': 0.6797, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2604, 'ood_train_loss': 0.6668, 'train_loss': 0.2893, 'train_acc': 0.7578, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.196, 'ood_train_loss': 0.6742, 'train_loss': 0.23, 'train_acc': 0.7891, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1142, 'ood_train_loss': 0.6805, 'train_loss': 0.1545, 'train_acc': 0.7969, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0756, 'ood_train_loss': 0.6243, 'train_loss': 0.1146, 'train_acc': 0.8164, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0764, 'ood_train_loss': 0.5979, 'train_loss': 0.1135, 'train_acc': 0.8438, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0445, 'ood_train_loss': 0.4812, 'train_loss': 0.0756, 'train_acc': 0.8789, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0377, 'ood_train_loss': 0.534, 'train_loss': 0.073, 'train_acc': 0.8477, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0348, 'ood_train_loss': 0.4967, 'train_loss': 0.0677, 'train_acc': 0.8477, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 8, 'alpha': 0.9288888888888889, 'target_risk': 0.295}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7, 'ood_train_loss': 0.7162, 'train_loss': 0.7011, 'train_acc': 0.5742, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3542, 'ood_train_loss': 0.7144, 'train_loss': 0.3798, 'train_acc': 0.707, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.235, 'ood_train_loss': 0.7545, 'train_loss': 0.272, 'train_acc': 0.7227, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1711, 'ood_train_loss': 0.6543, 'train_loss': 0.2055, 'train_acc': 0.7734, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.2068, 'ood_train_loss': 0.5809, 'train_loss': 0.2334, 'train_acc': 0.8125, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0698, 'ood_train_loss': 0.5759, 'train_loss': 0.1058, 'train_acc': 0.8711, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0631, 'ood_train_loss': 0.5013, 'train_loss': 0.0943, 'train_acc': 0.8633, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.034, 'ood_train_loss': 0.4603, 'train_loss': 0.0643, 'train_acc': 0.8672, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0259, 'ood_train_loss': 0.3337, 'train_loss': 0.0478, 'train_acc': 0.8984, 'batch_target_fraction': 0.3359}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0274, 'ood_train_loss': 0.3608, 'train_loss': 0.0511, 'train_acc': 0.8945, 'batch_target_fraction': 0.3359}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 2, 'replicate_id': 9, 'alpha': 0.9288888888888889, 'target_risk': 0.2745}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 0, 'target_train_loss': 0.7189, 'ood_train_loss': 0.7165, 'train_loss': 0.7188}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 20, 'target_train_loss': 0.2497, 'ood_train_loss': 0.7252, 'train_loss': 0.2835}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 40, 'target_train_loss': 0.1104, 'ood_train_loss': 0.6699, 'train_loss': 0.1502}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 60, 'target_train_loss': 0.0575, 'ood_train_loss': 0.4891, 'train_loss': 0.0882}
+INFO:root:{'tuning_alpha': 0.9289, 'epoch': 80, 'target_train_loss': 0.0325, 'ood_train_loss': 0.5898, 'train_loss': 0.0721}
+INFO:root:{'alpha': 0.9289, 'risk_at_alpha': 0.282}
+INFO:root:{'tuning_alpha': 0.9368, 'epoch': 0, 'target_train_loss': 0.6804, 'ood_train_loss': 0.7039, 'train_loss': 0.6819}
+INFO:root:{'tuning_alpha': 0.9368, 'epoch': 20, 'target_train_loss': 0.2668, 'ood_train_loss': 0.8501, 'train_loss': 0.3037}
+INFO:root:{'tuning_alpha': 0.9368, 'epoch': 40, 'target_train_loss': 0.0663, 'ood_train_loss': 0.6908, 'train_loss': 0.1058}
+INFO:root:{'tuning_alpha': 0.9368, 'epoch': 60, 'target_train_loss': 0.0381, 'ood_train_loss': 0.6182, 'train_loss': 0.0748}
+INFO:root:{'tuning_alpha': 0.9368, 'epoch': 80, 'target_train_loss': 0.0337, 'ood_train_loss': 0.4698, 'train_loss': 0.0612}
+INFO:root:{'alpha': 0.9368, 'risk_at_alpha': 0.2815}
+INFO:root:{'tuning_alpha': 0.9447, 'epoch': 0, 'target_train_loss': 0.775, 'ood_train_loss': 0.7587, 'train_loss': 0.7741}
+INFO:root:{'tuning_alpha': 0.9447, 'epoch': 20, 'target_train_loss': 0.2274, 'ood_train_loss': 0.8379, 'train_loss': 0.2611}
+INFO:root:{'tuning_alpha': 0.9447, 'epoch': 40, 'target_train_loss': 0.0878, 'ood_train_loss': 0.6104, 'train_loss': 0.1167}
+INFO:root:{'tuning_alpha': 0.9447, 'epoch': 60, 'target_train_loss': 0.054, 'ood_train_loss': 0.6023, 'train_loss': 0.0844}
+INFO:root:{'tuning_alpha': 0.9447, 'epoch': 80, 'target_train_loss': 0.0518, 'ood_train_loss': 0.5817, 'train_loss': 0.0811}
+INFO:root:{'alpha': 0.9447, 'risk_at_alpha': 0.2855}
+INFO:root:{'tuning_alpha': 0.9526, 'epoch': 0, 'target_train_loss': 0.6944, 'ood_train_loss': 0.759, 'train_loss': 0.6975}
+INFO:root:{'tuning_alpha': 0.9526, 'epoch': 20, 'target_train_loss': 0.3079, 'ood_train_loss': 0.9283, 'train_loss': 0.3373}
+INFO:root:{'tuning_alpha': 0.9526, 'epoch': 40, 'target_train_loss': 0.1495, 'ood_train_loss': 0.7464, 'train_loss': 0.1778}
+INFO:root:{'tuning_alpha': 0.9526, 'epoch': 60, 'target_train_loss': 0.0879, 'ood_train_loss': 0.5436, 'train_loss': 0.1095}
+INFO:root:{'tuning_alpha': 0.9526, 'epoch': 80, 'target_train_loss': 0.0288, 'ood_train_loss': 0.6354, 'train_loss': 0.0576}
+INFO:root:{'alpha': 0.9526, 'risk_at_alpha': 0.2845}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 0, 'target_train_loss': 0.7488, 'ood_train_loss': 0.8018, 'train_loss': 0.7509}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 20, 'target_train_loss': 0.1887, 'ood_train_loss': 0.9391, 'train_loss': 0.2184}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 40, 'target_train_loss': 0.0771, 'ood_train_loss': 0.874, 'train_loss': 0.1086}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 60, 'target_train_loss': 0.0372, 'ood_train_loss': 0.689, 'train_loss': 0.0629}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 80, 'target_train_loss': 0.0391, 'ood_train_loss': 0.6028, 'train_loss': 0.0614}
+INFO:root:{'alpha': 0.9605, 'risk_at_alpha': 0.2805}
+INFO:root:{'tuning_alpha': 0.9684, 'epoch': 0, 'target_train_loss': 0.8107, 'ood_train_loss': 0.7594, 'train_loss': 0.809}
+INFO:root:{'tuning_alpha': 0.9684, 'epoch': 20, 'target_train_loss': 0.2373, 'ood_train_loss': 0.9005, 'train_loss': 0.2583}
+INFO:root:{'tuning_alpha': 0.9684, 'epoch': 40, 'target_train_loss': 0.0903, 'ood_train_loss': 1.0761, 'train_loss': 0.1215}
+INFO:root:{'tuning_alpha': 0.9684, 'epoch': 60, 'target_train_loss': 0.0351, 'ood_train_loss': 0.8531, 'train_loss': 0.0609}
+INFO:root:{'tuning_alpha': 0.9684, 'epoch': 80, 'target_train_loss': 0.025, 'ood_train_loss': 0.706, 'train_loss': 0.0466}
+INFO:root:{'alpha': 0.9684, 'risk_at_alpha': 0.2895}
+INFO:root:{'tuning_alpha': 0.9763, 'epoch': 0, 'target_train_loss': 0.7469, 'ood_train_loss': 0.8068, 'train_loss': 0.7483}
+INFO:root:{'tuning_alpha': 0.9763, 'epoch': 20, 'target_train_loss': 0.2734, 'ood_train_loss': 1.112, 'train_loss': 0.2933}
+INFO:root:{'tuning_alpha': 0.9763, 'epoch': 40, 'target_train_loss': 0.1063, 'ood_train_loss': 0.9345, 'train_loss': 0.126}
+INFO:root:{'tuning_alpha': 0.9763, 'epoch': 60, 'target_train_loss': 0.0356, 'ood_train_loss': 0.7697, 'train_loss': 0.053}
+INFO:root:{'tuning_alpha': 0.9763, 'epoch': 80, 'target_train_loss': 0.0196, 'ood_train_loss': 0.8074, 'train_loss': 0.0382}
+INFO:root:{'alpha': 0.9763, 'risk_at_alpha': 0.297}
+INFO:root:{'tuning_alpha': 0.9842, 'epoch': 0, 'target_train_loss': 0.6888, 'ood_train_loss': 0.7136, 'train_loss': 0.6892}
+INFO:root:{'tuning_alpha': 0.9842, 'epoch': 20, 'target_train_loss': 0.2498, 'ood_train_loss': 1.1301, 'train_loss': 0.2637}
+INFO:root:{'tuning_alpha': 0.9842, 'epoch': 40, 'target_train_loss': 0.0751, 'ood_train_loss': 1.2334, 'train_loss': 0.0934}
+INFO:root:{'tuning_alpha': 0.9842, 'epoch': 60, 'target_train_loss': 0.0575, 'ood_train_loss': 1.1604, 'train_loss': 0.0749}
+INFO:root:{'tuning_alpha': 0.9842, 'epoch': 80, 'target_train_loss': 0.0218, 'ood_train_loss': 1.1428, 'train_loss': 0.0395}
+INFO:root:{'alpha': 0.9842, 'risk_at_alpha': 0.292}
+INFO:root:{'tuning_alpha': 0.9921, 'epoch': 0, 'target_train_loss': 0.7004, 'ood_train_loss': 0.7833, 'train_loss': 0.701}
+INFO:root:{'tuning_alpha': 0.9921, 'epoch': 20, 'target_train_loss': 0.285, 'ood_train_loss': 1.183, 'train_loss': 0.2921}
+INFO:root:{'tuning_alpha': 0.9921, 'epoch': 40, 'target_train_loss': 0.1757, 'ood_train_loss': 1.2695, 'train_loss': 0.1843}
+INFO:root:{'tuning_alpha': 0.9921, 'epoch': 60, 'target_train_loss': 0.0358, 'ood_train_loss': 1.4183, 'train_loss': 0.0468}
+INFO:root:{'tuning_alpha': 0.9921, 'epoch': 80, 'target_train_loss': 0.0217, 'ood_train_loss': 1.4224, 'train_loss': 0.0327}
+INFO:root:{'alpha': 0.9921, 'risk_at_alpha': 0.2935}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 0, 'target_train_loss': 0.7109, 'ood_train_loss': 0.8219, 'train_loss': 0.7109}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 20, 'target_train_loss': 0.2677, 'ood_train_loss': 1.149, 'train_loss': 0.2677}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 40, 'target_train_loss': 0.0752, 'ood_train_loss': 1.818, 'train_loss': 0.0752}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 60, 'target_train_loss': 0.0317, 'ood_train_loss': 2.2631, 'train_loss': 0.0317}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 80, 'target_train_loss': 0.0228, 'ood_train_loss': 2.0615, 'train_loss': 0.0228}
+INFO:root:{'alpha': 1.0, 'risk_at_alpha': 0.3085}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6875, 'ood_train_loss': 0.6686, 'train_loss': 0.6868, 'train_acc': 0.5755, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3859, 'ood_train_loss': 0.8798, 'train_loss': 0.4054, 'train_acc': 0.6589, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2699, 'ood_train_loss': 0.8725, 'train_loss': 0.2937, 'train_acc': 0.7161, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1589, 'ood_train_loss': 0.8645, 'train_loss': 0.1868, 'train_acc': 0.737, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0805, 'ood_train_loss': 0.9599, 'train_loss': 0.1152, 'train_acc': 0.7005, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1103, 'ood_train_loss': 0.7619, 'train_loss': 0.136, 'train_acc': 0.776, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0312, 'ood_train_loss': 0.7609, 'train_loss': 0.0601, 'train_acc': 0.7943, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0274, 'ood_train_loss': 0.7452, 'train_loss': 0.0558, 'train_acc': 0.7839, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0211, 'ood_train_loss': 0.6215, 'train_loss': 0.0448, 'train_acc': 0.7891, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0409, 'ood_train_loss': 0.6371, 'train_loss': 0.0645, 'train_acc': 0.7995, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 0, 'alpha': 0.9604938271604938, 'target_risk': 0.29}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7931, 'ood_train_loss': 0.8336, 'train_loss': 0.7947, 'train_acc': 0.4922, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3389, 'ood_train_loss': 0.8822, 'train_loss': 0.3604, 'train_acc': 0.6276, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3339, 'ood_train_loss': 0.7813, 'train_loss': 0.3516, 'train_acc': 0.6927, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1825, 'ood_train_loss': 0.8276, 'train_loss': 0.208, 'train_acc': 0.7344, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1097, 'ood_train_loss': 0.837, 'train_loss': 0.1384, 'train_acc': 0.7708, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0553, 'ood_train_loss': 0.9445, 'train_loss': 0.0904, 'train_acc': 0.7578, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0476, 'ood_train_loss': 0.6801, 'train_loss': 0.0726, 'train_acc': 0.7969, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0384, 'ood_train_loss': 0.6934, 'train_loss': 0.0643, 'train_acc': 0.8151, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0213, 'ood_train_loss': 0.674, 'train_loss': 0.0471, 'train_acc': 0.8385, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.021, 'ood_train_loss': 0.5818, 'train_loss': 0.0431, 'train_acc': 0.8542, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 1, 'alpha': 0.9604938271604938, 'target_risk': 0.273}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7361, 'ood_train_loss': 0.76, 'train_loss': 0.7371, 'train_acc': 0.5156, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3744, 'ood_train_loss': 0.8434, 'train_loss': 0.3929, 'train_acc': 0.6745, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2963, 'ood_train_loss': 0.888, 'train_loss': 0.3196, 'train_acc': 0.6823, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1759, 'ood_train_loss': 0.8659, 'train_loss': 0.2031, 'train_acc': 0.7188, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0954, 'ood_train_loss': 0.9933, 'train_loss': 0.1309, 'train_acc': 0.7318, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0538, 'ood_train_loss': 0.7175, 'train_loss': 0.08, 'train_acc': 0.7812, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0444, 'ood_train_loss': 0.7293, 'train_loss': 0.0714, 'train_acc': 0.8021, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0263, 'ood_train_loss': 0.7318, 'train_loss': 0.0541, 'train_acc': 0.7995, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0518, 'ood_train_loss': 0.6959, 'train_loss': 0.0773, 'train_acc': 0.8203, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.027, 'ood_train_loss': 0.7173, 'train_loss': 0.0543, 'train_acc': 0.8047, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 2, 'alpha': 0.9604938271604938, 'target_risk': 0.2895}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8153, 'ood_train_loss': 0.8563, 'train_loss': 0.8169, 'train_acc': 0.5104, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4744, 'ood_train_loss': 0.8751, 'train_loss': 0.4902, 'train_acc': 0.6589, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2633, 'ood_train_loss': 0.7651, 'train_loss': 0.2832, 'train_acc': 0.7135, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1756, 'ood_train_loss': 0.7419, 'train_loss': 0.198, 'train_acc': 0.737, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1069, 'ood_train_loss': 0.7839, 'train_loss': 0.1336, 'train_acc': 0.7734, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0788, 'ood_train_loss': 0.7479, 'train_loss': 0.1052, 'train_acc': 0.7917, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0588, 'ood_train_loss': 0.7772, 'train_loss': 0.0872, 'train_acc': 0.763, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0392, 'ood_train_loss': 0.6776, 'train_loss': 0.0644, 'train_acc': 0.8021, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0272, 'ood_train_loss': 0.6553, 'train_loss': 0.052, 'train_acc': 0.7995, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0285, 'ood_train_loss': 0.7011, 'train_loss': 0.0551, 'train_acc': 0.7969, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 3, 'alpha': 0.9604938271604938, 'target_risk': 0.2875}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6634, 'ood_train_loss': 0.782, 'train_loss': 0.6681, 'train_acc': 0.5208, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3019, 'ood_train_loss': 0.7868, 'train_loss': 0.3211, 'train_acc': 0.6849, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2069, 'ood_train_loss': 0.9525, 'train_loss': 0.2363, 'train_acc': 0.6901, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1588, 'ood_train_loss': 0.8971, 'train_loss': 0.188, 'train_acc': 0.7031, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0714, 'ood_train_loss': 0.6756, 'train_loss': 0.0953, 'train_acc': 0.8021, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.065, 'ood_train_loss': 0.8216, 'train_loss': 0.0949, 'train_acc': 0.7604, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0412, 'ood_train_loss': 0.7694, 'train_loss': 0.07, 'train_acc': 0.7734, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0279, 'ood_train_loss': 0.6979, 'train_loss': 0.0544, 'train_acc': 0.776, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0304, 'ood_train_loss': 0.7458, 'train_loss': 0.0587, 'train_acc': 0.8047, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0217, 'ood_train_loss': 0.588, 'train_loss': 0.0441, 'train_acc': 0.8151, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 4, 'alpha': 0.9604938271604938, 'target_risk': 0.2795}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6058, 'ood_train_loss': 0.8145, 'train_loss': 0.614, 'train_acc': 0.513, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3382, 'ood_train_loss': 0.688, 'train_loss': 0.352, 'train_acc': 0.6979, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2286, 'ood_train_loss': 0.8678, 'train_loss': 0.2538, 'train_acc': 0.7161, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1197, 'ood_train_loss': 0.9134, 'train_loss': 0.151, 'train_acc': 0.7161, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0795, 'ood_train_loss': 0.9627, 'train_loss': 0.1144, 'train_acc': 0.7344, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0721, 'ood_train_loss': 0.8003, 'train_loss': 0.1009, 'train_acc': 0.7891, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0389, 'ood_train_loss': 0.8712, 'train_loss': 0.0718, 'train_acc': 0.75, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0259, 'ood_train_loss': 0.6558, 'train_loss': 0.0508, 'train_acc': 0.8151, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0171, 'ood_train_loss': 0.7944, 'train_loss': 0.0479, 'train_acc': 0.7995, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0251, 'ood_train_loss': 0.7816, 'train_loss': 0.055, 'train_acc': 0.7943, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 5, 'alpha': 0.9604938271604938, 'target_risk': 0.2865}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7499, 'ood_train_loss': 0.821, 'train_loss': 0.7527, 'train_acc': 0.5391, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3153, 'ood_train_loss': 0.7403, 'train_loss': 0.3321, 'train_acc': 0.7057, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2556, 'ood_train_loss': 0.9961, 'train_loss': 0.2849, 'train_acc': 0.6667, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1436, 'ood_train_loss': 0.8308, 'train_loss': 0.1707, 'train_acc': 0.75, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.066, 'ood_train_loss': 0.831, 'train_loss': 0.0962, 'train_acc': 0.7812, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0659, 'ood_train_loss': 0.7148, 'train_loss': 0.0916, 'train_acc': 0.7995, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.059, 'ood_train_loss': 0.747, 'train_loss': 0.0862, 'train_acc': 0.7969, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0741, 'ood_train_loss': 0.8856, 'train_loss': 0.1061, 'train_acc': 0.7552, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0434, 'ood_train_loss': 0.6987, 'train_loss': 0.0693, 'train_acc': 0.8021, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.024, 'ood_train_loss': 0.5955, 'train_loss': 0.0466, 'train_acc': 0.8073, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 6, 'alpha': 0.9604938271604938, 'target_risk': 0.2805}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.742, 'ood_train_loss': 0.7831, 'train_loss': 0.7436, 'train_acc': 0.5521, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3601, 'ood_train_loss': 0.7841, 'train_loss': 0.3769, 'train_acc': 0.6719, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.1753, 'ood_train_loss': 0.9226, 'train_loss': 0.2048, 'train_acc': 0.7031, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1457, 'ood_train_loss': 1.135, 'train_loss': 0.1848, 'train_acc': 0.6823, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0396, 'ood_train_loss': 0.7392, 'train_loss': 0.0672, 'train_acc': 0.7682, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0547, 'ood_train_loss': 0.7545, 'train_loss': 0.0823, 'train_acc': 0.7969, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0392, 'ood_train_loss': 0.6542, 'train_loss': 0.0635, 'train_acc': 0.8151, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0285, 'ood_train_loss': 0.7317, 'train_loss': 0.0563, 'train_acc': 0.7995, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0287, 'ood_train_loss': 0.7107, 'train_loss': 0.0556, 'train_acc': 0.8047, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0204, 'ood_train_loss': 0.7083, 'train_loss': 0.0476, 'train_acc': 0.8125, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 7, 'alpha': 0.9604938271604938, 'target_risk': 0.279}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6628, 'ood_train_loss': 0.7676, 'train_loss': 0.6669, 'train_acc': 0.5521, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.388, 'ood_train_loss': 0.752, 'train_loss': 0.4024, 'train_acc': 0.6745, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2983, 'ood_train_loss': 0.9193, 'train_loss': 0.3228, 'train_acc': 0.7109, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.17, 'ood_train_loss': 0.9857, 'train_loss': 0.2022, 'train_acc': 0.7188, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1164, 'ood_train_loss': 0.9782, 'train_loss': 0.1505, 'train_acc': 0.7161, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0392, 'ood_train_loss': 0.8977, 'train_loss': 0.0732, 'train_acc': 0.7526, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0283, 'ood_train_loss': 0.8322, 'train_loss': 0.06, 'train_acc': 0.7578, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0352, 'ood_train_loss': 0.7503, 'train_loss': 0.0635, 'train_acc': 0.776, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0308, 'ood_train_loss': 0.7011, 'train_loss': 0.0573, 'train_acc': 0.7943, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0258, 'ood_train_loss': 0.6985, 'train_loss': 0.0523, 'train_acc': 0.7917, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 8, 'alpha': 0.9604938271604938, 'target_risk': 0.286}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7666, 'ood_train_loss': 0.7485, 'train_loss': 0.7659, 'train_acc': 0.5026, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.447, 'ood_train_loss': 0.8725, 'train_loss': 0.4638, 'train_acc': 0.6276, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2062, 'ood_train_loss': 0.733, 'train_loss': 0.227, 'train_acc': 0.7188, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1602, 'ood_train_loss': 0.7821, 'train_loss': 0.1847, 'train_acc': 0.7292, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0858, 'ood_train_loss': 0.8063, 'train_loss': 0.1143, 'train_acc': 0.7578, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0376, 'ood_train_loss': 0.9082, 'train_loss': 0.072, 'train_acc': 0.7344, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0342, 'ood_train_loss': 0.7817, 'train_loss': 0.0637, 'train_acc': 0.7865, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0178, 'ood_train_loss': 0.7566, 'train_loss': 0.0469, 'train_acc': 0.7865, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0201, 'ood_train_loss': 0.4762, 'train_loss': 0.0381, 'train_acc': 0.8594, 'batch_target_fraction': 0.25}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.027, 'ood_train_loss': 0.6979, 'train_loss': 0.0535, 'train_acc': 0.7839, 'batch_target_fraction': 0.25}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 3, 'replicate_id': 9, 'alpha': 0.9604938271604938, 'target_risk': 0.2785}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 0, 'target_train_loss': 0.7339, 'ood_train_loss': 0.6861, 'train_loss': 0.732}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 20, 'target_train_loss': 0.2635, 'ood_train_loss': 0.7159, 'train_loss': 0.2813}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 40, 'target_train_loss': 0.1528, 'ood_train_loss': 1.0078, 'train_loss': 0.1865}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 60, 'target_train_loss': 0.0574, 'ood_train_loss': 0.7772, 'train_loss': 0.0858}
+INFO:root:{'tuning_alpha': 0.9605, 'epoch': 80, 'target_train_loss': 0.0443, 'ood_train_loss': 0.8447, 'train_loss': 0.0759}
+INFO:root:{'alpha': 0.9605, 'risk_at_alpha': 0.299}
+INFO:root:{'tuning_alpha': 0.9649, 'epoch': 0, 'target_train_loss': 0.7624, 'ood_train_loss': 0.8602, 'train_loss': 0.7659}
+INFO:root:{'tuning_alpha': 0.9649, 'epoch': 20, 'target_train_loss': 0.3103, 'ood_train_loss': 0.8613, 'train_loss': 0.3297}
+INFO:root:{'tuning_alpha': 0.9649, 'epoch': 40, 'target_train_loss': 0.152, 'ood_train_loss': 1.0695, 'train_loss': 0.1842}
+INFO:root:{'tuning_alpha': 0.9649, 'epoch': 60, 'target_train_loss': 0.0825, 'ood_train_loss': 0.7898, 'train_loss': 0.1074}
+INFO:root:{'tuning_alpha': 0.9649, 'epoch': 80, 'target_train_loss': 0.0511, 'ood_train_loss': 0.9111, 'train_loss': 0.0813}
+INFO:root:{'alpha': 0.9649, 'risk_at_alpha': 0.312}
+INFO:root:{'tuning_alpha': 0.9693, 'epoch': 0, 'target_train_loss': 0.679, 'ood_train_loss': 0.7897, 'train_loss': 0.6824}
+INFO:root:{'tuning_alpha': 0.9693, 'epoch': 20, 'target_train_loss': 0.3128, 'ood_train_loss': 0.9303, 'train_loss': 0.3318}
+INFO:root:{'tuning_alpha': 0.9693, 'epoch': 40, 'target_train_loss': 0.1452, 'ood_train_loss': 0.9469, 'train_loss': 0.1698}
+INFO:root:{'tuning_alpha': 0.9693, 'epoch': 60, 'target_train_loss': 0.1036, 'ood_train_loss': 0.9502, 'train_loss': 0.1296}
+INFO:root:{'tuning_alpha': 0.9693, 'epoch': 80, 'target_train_loss': 0.0596, 'ood_train_loss': 1.0887, 'train_loss': 0.0912}
+INFO:root:{'alpha': 0.9693, 'risk_at_alpha': 0.297}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 0, 'target_train_loss': 0.6901, 'ood_train_loss': 0.7038, 'train_loss': 0.6905}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 20, 'target_train_loss': 0.4068, 'ood_train_loss': 0.9439, 'train_loss': 0.4209}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 40, 'target_train_loss': 0.1348, 'ood_train_loss': 0.8807, 'train_loss': 0.1544}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 60, 'target_train_loss': 0.0474, 'ood_train_loss': 0.7684, 'train_loss': 0.0664}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 80, 'target_train_loss': 0.0334, 'ood_train_loss': 0.9093, 'train_loss': 0.0565}
+INFO:root:{'alpha': 0.9737, 'risk_at_alpha': 0.288}
+INFO:root:{'tuning_alpha': 0.9781, 'epoch': 0, 'target_train_loss': 0.7833, 'ood_train_loss': 0.8793, 'train_loss': 0.7854}
+INFO:root:{'tuning_alpha': 0.9781, 'epoch': 20, 'target_train_loss': 0.4372, 'ood_train_loss': 0.9119, 'train_loss': 0.4476}
+INFO:root:{'tuning_alpha': 0.9781, 'epoch': 40, 'target_train_loss': 0.1482, 'ood_train_loss': 1.1253, 'train_loss': 0.1697}
+INFO:root:{'tuning_alpha': 0.9781, 'epoch': 60, 'target_train_loss': 0.1016, 'ood_train_loss': 1.2575, 'train_loss': 0.1269}
+INFO:root:{'tuning_alpha': 0.9781, 'epoch': 80, 'target_train_loss': 0.0628, 'ood_train_loss': 0.8846, 'train_loss': 0.0808}
+INFO:root:{'alpha': 0.9781, 'risk_at_alpha': 0.2965}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 0, 'target_train_loss': 0.6244, 'ood_train_loss': 0.8753, 'train_loss': 0.6288}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 20, 'target_train_loss': 0.3493, 'ood_train_loss': 1.0848, 'train_loss': 0.3623}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 40, 'target_train_loss': 0.1585, 'ood_train_loss': 1.1376, 'train_loss': 0.1756}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 60, 'target_train_loss': 0.0401, 'ood_train_loss': 1.1093, 'train_loss': 0.0589}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 80, 'target_train_loss': 0.0524, 'ood_train_loss': 1.2232, 'train_loss': 0.0729}
+INFO:root:{'alpha': 0.9824, 'risk_at_alpha': 0.303}
+INFO:root:{'tuning_alpha': 0.9868, 'epoch': 0, 'target_train_loss': 0.6496, 'ood_train_loss': 0.8421, 'train_loss': 0.6521}
+INFO:root:{'tuning_alpha': 0.9868, 'epoch': 20, 'target_train_loss': 0.2736, 'ood_train_loss': 0.9017, 'train_loss': 0.2819}
+INFO:root:{'tuning_alpha': 0.9868, 'epoch': 40, 'target_train_loss': 0.0841, 'ood_train_loss': 1.1262, 'train_loss': 0.0979}
+INFO:root:{'tuning_alpha': 0.9868, 'epoch': 60, 'target_train_loss': 0.0736, 'ood_train_loss': 1.0894, 'train_loss': 0.0869}
+INFO:root:{'tuning_alpha': 0.9868, 'epoch': 80, 'target_train_loss': 0.0373, 'ood_train_loss': 1.2463, 'train_loss': 0.0532}
+INFO:root:{'alpha': 0.9868, 'risk_at_alpha': 0.3035}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 0, 'target_train_loss': 0.709, 'ood_train_loss': 0.8273, 'train_loss': 0.7101}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 20, 'target_train_loss': 0.3876, 'ood_train_loss': 1.0051, 'train_loss': 0.393}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 40, 'target_train_loss': 0.2048, 'ood_train_loss': 1.3957, 'train_loss': 0.2153}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 60, 'target_train_loss': 0.15, 'ood_train_loss': 1.4335, 'train_loss': 0.1613}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 80, 'target_train_loss': 0.0506, 'ood_train_loss': 1.2969, 'train_loss': 0.0616}
+INFO:root:{'alpha': 0.9912, 'risk_at_alpha': 0.3035}
+INFO:root:{'tuning_alpha': 0.9956, 'epoch': 0, 'target_train_loss': 0.6645, 'ood_train_loss': 0.8499, 'train_loss': 0.6654}
+INFO:root:{'tuning_alpha': 0.9956, 'epoch': 20, 'target_train_loss': 0.3054, 'ood_train_loss': 1.0081, 'train_loss': 0.3085}
+INFO:root:{'tuning_alpha': 0.9956, 'epoch': 40, 'target_train_loss': 0.1452, 'ood_train_loss': 1.5593, 'train_loss': 0.1514}
+INFO:root:{'tuning_alpha': 0.9956, 'epoch': 60, 'target_train_loss': 0.0541, 'ood_train_loss': 1.6061, 'train_loss': 0.0609}
+INFO:root:{'tuning_alpha': 0.9956, 'epoch': 80, 'target_train_loss': 0.0294, 'ood_train_loss': 1.5663, 'train_loss': 0.0361}
+INFO:root:{'alpha': 0.9956, 'risk_at_alpha': 0.3175}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 0, 'target_train_loss': 0.8092, 'ood_train_loss': 0.8273, 'train_loss': 0.8092}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 20, 'target_train_loss': 0.2804, 'ood_train_loss': 1.0667, 'train_loss': 0.2804}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 40, 'target_train_loss': 0.1898, 'ood_train_loss': 1.2623, 'train_loss': 0.1898}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 60, 'target_train_loss': 0.031, 'ood_train_loss': 1.6935, 'train_loss': 0.031}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 80, 'target_train_loss': 0.0545, 'ood_train_loss': 1.5779, 'train_loss': 0.0545}
+INFO:root:{'alpha': 1.0, 'risk_at_alpha': 0.3135}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6128, 'ood_train_loss': 0.7682, 'train_loss': 0.6168, 'train_acc': 0.5547, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4441, 'ood_train_loss': 0.9785, 'train_loss': 0.4582, 'train_acc': 0.5938, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.4527, 'ood_train_loss': 1.1938, 'train_loss': 0.4723, 'train_acc': 0.5156, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1945, 'ood_train_loss': 0.9368, 'train_loss': 0.214, 'train_acc': 0.6953, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1521, 'ood_train_loss': 0.9626, 'train_loss': 0.1735, 'train_acc': 0.6927, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0775, 'ood_train_loss': 0.93, 'train_loss': 0.0999, 'train_acc': 0.7526, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0893, 'ood_train_loss': 1.0973, 'train_loss': 0.1159, 'train_acc': 0.6901, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0437, 'ood_train_loss': 0.9381, 'train_loss': 0.0672, 'train_acc': 0.724, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0284, 'ood_train_loss': 0.9714, 'train_loss': 0.0532, 'train_acc': 0.7161, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0341, 'ood_train_loss': 1.0077, 'train_loss': 0.0598, 'train_acc': 0.7396, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 0, 'alpha': 0.9736625514403292, 'target_risk': 0.3105}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7958, 'ood_train_loss': 0.7033, 'train_loss': 0.7933, 'train_acc': 0.5703, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3435, 'ood_train_loss': 0.9123, 'train_loss': 0.3585, 'train_acc': 0.6068, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3978, 'ood_train_loss': 0.8495, 'train_loss': 0.4097, 'train_acc': 0.6562, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1383, 'ood_train_loss': 0.9183, 'train_loss': 0.1589, 'train_acc': 0.6719, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1288, 'ood_train_loss': 1.0073, 'train_loss': 0.152, 'train_acc': 0.7057, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.07, 'ood_train_loss': 0.8903, 'train_loss': 0.0916, 'train_acc': 0.7474, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0436, 'ood_train_loss': 0.7671, 'train_loss': 0.0627, 'train_acc': 0.776, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0486, 'ood_train_loss': 0.8615, 'train_loss': 0.07, 'train_acc': 0.7682, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0339, 'ood_train_loss': 0.8, 'train_loss': 0.054, 'train_acc': 0.7865, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0269, 'ood_train_loss': 0.8357, 'train_loss': 0.0482, 'train_acc': 0.763, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 1, 'alpha': 0.9736625514403292, 'target_risk': 0.274}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.904, 'ood_train_loss': 0.8926, 'train_loss': 0.9037, 'train_acc': 0.4844, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3693, 'ood_train_loss': 0.9391, 'train_loss': 0.3843, 'train_acc': 0.638, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2658, 'ood_train_loss': 0.9229, 'train_loss': 0.2831, 'train_acc': 0.6745, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2388, 'ood_train_loss': 1.1246, 'train_loss': 0.2622, 'train_acc': 0.6458, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.093, 'ood_train_loss': 1.1592, 'train_loss': 0.1211, 'train_acc': 0.638, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1093, 'ood_train_loss': 1.0007, 'train_loss': 0.1328, 'train_acc': 0.7266, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0587, 'ood_train_loss': 0.8447, 'train_loss': 0.0794, 'train_acc': 0.7578, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0389, 'ood_train_loss': 0.9017, 'train_loss': 0.0616, 'train_acc': 0.7839, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0301, 'ood_train_loss': 0.8249, 'train_loss': 0.0511, 'train_acc': 0.8047, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0282, 'ood_train_loss': 0.9186, 'train_loss': 0.0517, 'train_acc': 0.7604, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 2, 'alpha': 0.9736625514403292, 'target_risk': 0.287}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7484, 'ood_train_loss': 0.7689, 'train_loss': 0.749, 'train_acc': 0.5, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4583, 'ood_train_loss': 1.0303, 'train_loss': 0.4734, 'train_acc': 0.5833, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2539, 'ood_train_loss': 0.8468, 'train_loss': 0.2695, 'train_acc': 0.7005, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2104, 'ood_train_loss': 0.8702, 'train_loss': 0.2278, 'train_acc': 0.7083, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.2295, 'ood_train_loss': 1.3197, 'train_loss': 0.2583, 'train_acc': 0.625, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0834, 'ood_train_loss': 0.938, 'train_loss': 0.1059, 'train_acc': 0.7214, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0903, 'ood_train_loss': 0.9756, 'train_loss': 0.1136, 'train_acc': 0.7135, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0476, 'ood_train_loss': 0.8715, 'train_loss': 0.0693, 'train_acc': 0.7526, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0358, 'ood_train_loss': 0.8336, 'train_loss': 0.0568, 'train_acc': 0.7526, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0382, 'ood_train_loss': 0.8242, 'train_loss': 0.0589, 'train_acc': 0.75, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 3, 'alpha': 0.9736625514403292, 'target_risk': 0.2885}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6907, 'ood_train_loss': 0.7093, 'train_loss': 0.6912, 'train_acc': 0.5599, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.5282, 'ood_train_loss': 0.9278, 'train_loss': 0.5387, 'train_acc': 0.5885, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2701, 'ood_train_loss': 0.8048, 'train_loss': 0.2842, 'train_acc': 0.7031, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1567, 'ood_train_loss': 0.9118, 'train_loss': 0.1766, 'train_acc': 0.6927, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1434, 'ood_train_loss': 0.8797, 'train_loss': 0.1628, 'train_acc': 0.6875, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0804, 'ood_train_loss': 1.1749, 'train_loss': 0.1092, 'train_acc': 0.6562, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0975, 'ood_train_loss': 0.8066, 'train_loss': 0.1162, 'train_acc': 0.7578, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0314, 'ood_train_loss': 0.8359, 'train_loss': 0.0526, 'train_acc': 0.7786, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0478, 'ood_train_loss': 0.7566, 'train_loss': 0.0665, 'train_acc': 0.7552, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0701, 'ood_train_loss': 0.8629, 'train_loss': 0.091, 'train_acc': 0.7578, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 4, 'alpha': 0.9736625514403292, 'target_risk': 0.308}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6841, 'ood_train_loss': 0.7909, 'train_loss': 0.6869, 'train_acc': 0.526, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3629, 'ood_train_loss': 0.7421, 'train_loss': 0.3729, 'train_acc': 0.6615, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3682, 'ood_train_loss': 0.8077, 'train_loss': 0.3798, 'train_acc': 0.6719, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.267, 'ood_train_loss': 0.9234, 'train_loss': 0.2843, 'train_acc': 0.6953, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1351, 'ood_train_loss': 1.2019, 'train_loss': 0.1632, 'train_acc': 0.6484, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.134, 'ood_train_loss': 0.9262, 'train_loss': 0.1549, 'train_acc': 0.7031, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0553, 'ood_train_loss': 0.8121, 'train_loss': 0.0752, 'train_acc': 0.7474, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0453, 'ood_train_loss': 0.8067, 'train_loss': 0.0654, 'train_acc': 0.7578, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0244, 'ood_train_loss': 0.8606, 'train_loss': 0.0464, 'train_acc': 0.7578, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0423, 'ood_train_loss': 0.9437, 'train_loss': 0.0661, 'train_acc': 0.7344, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 5, 'alpha': 0.9736625514403292, 'target_risk': 0.2855}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7472, 'ood_train_loss': 0.8028, 'train_loss': 0.7486, 'train_acc': 0.5469, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4747, 'ood_train_loss': 0.7792, 'train_loss': 0.4827, 'train_acc': 0.651, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3797, 'ood_train_loss': 1.0802, 'train_loss': 0.3982, 'train_acc': 0.638, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1695, 'ood_train_loss': 1.13, 'train_loss': 0.1948, 'train_acc': 0.6589, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0929, 'ood_train_loss': 1.1002, 'train_loss': 0.1194, 'train_acc': 0.7083, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0646, 'ood_train_loss': 0.9774, 'train_loss': 0.0887, 'train_acc': 0.7318, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0449, 'ood_train_loss': 0.9468, 'train_loss': 0.0686, 'train_acc': 0.7474, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0546, 'ood_train_loss': 0.7967, 'train_loss': 0.0742, 'train_acc': 0.763, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0396, 'ood_train_loss': 0.9172, 'train_loss': 0.0627, 'train_acc': 0.7812, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0531, 'ood_train_loss': 0.8515, 'train_loss': 0.0742, 'train_acc': 0.7552, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 6, 'alpha': 0.9736625514403292, 'target_risk': 0.288}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.687, 'ood_train_loss': 0.7639, 'train_loss': 0.689, 'train_acc': 0.5469, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4276, 'ood_train_loss': 0.9245, 'train_loss': 0.4407, 'train_acc': 0.5964, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2833, 'ood_train_loss': 0.7795, 'train_loss': 0.2964, 'train_acc': 0.7109, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1687, 'ood_train_loss': 1.0335, 'train_loss': 0.1915, 'train_acc': 0.6615, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0843, 'ood_train_loss': 1.0249, 'train_loss': 0.1091, 'train_acc': 0.7057, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0836, 'ood_train_loss': 0.9597, 'train_loss': 0.1066, 'train_acc': 0.7109, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0946, 'ood_train_loss': 0.8371, 'train_loss': 0.1142, 'train_acc': 0.7396, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0586, 'ood_train_loss': 0.8926, 'train_loss': 0.0805, 'train_acc': 0.7214, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0339, 'ood_train_loss': 0.9005, 'train_loss': 0.0568, 'train_acc': 0.763, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0236, 'ood_train_loss': 0.9888, 'train_loss': 0.049, 'train_acc': 0.7396, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 7, 'alpha': 0.9736625514403292, 'target_risk': 0.304}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6758, 'ood_train_loss': 0.7606, 'train_loss': 0.678, 'train_acc': 0.5547, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4936, 'ood_train_loss': 0.8426, 'train_loss': 0.5028, 'train_acc': 0.625, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3124, 'ood_train_loss': 0.8194, 'train_loss': 0.3257, 'train_acc': 0.6432, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1791, 'ood_train_loss': 1.0494, 'train_loss': 0.202, 'train_acc': 0.6719, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1519, 'ood_train_loss': 0.9113, 'train_loss': 0.1719, 'train_acc': 0.7083, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1017, 'ood_train_loss': 0.9482, 'train_loss': 0.124, 'train_acc': 0.7188, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0679, 'ood_train_loss': 0.9666, 'train_loss': 0.0916, 'train_acc': 0.7656, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.028, 'ood_train_loss': 1.0032, 'train_loss': 0.0537, 'train_acc': 0.7266, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0264, 'ood_train_loss': 0.7729, 'train_loss': 0.046, 'train_acc': 0.7917, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0546, 'ood_train_loss': 0.9598, 'train_loss': 0.0784, 'train_acc': 0.7214, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 8, 'alpha': 0.9736625514403292, 'target_risk': 0.301}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7473, 'ood_train_loss': 0.7929, 'train_loss': 0.7485, 'train_acc': 0.5234, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3148, 'ood_train_loss': 0.9249, 'train_loss': 0.3309, 'train_acc': 0.6406, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2712, 'ood_train_loss': 0.9772, 'train_loss': 0.2898, 'train_acc': 0.6615, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.156, 'ood_train_loss': 0.8795, 'train_loss': 0.1751, 'train_acc': 0.7109, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0763, 'ood_train_loss': 1.1489, 'train_loss': 0.1045, 'train_acc': 0.6849, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0748, 'ood_train_loss': 1.0715, 'train_loss': 0.101, 'train_acc': 0.6979, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0388, 'ood_train_loss': 0.9939, 'train_loss': 0.064, 'train_acc': 0.7422, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0265, 'ood_train_loss': 0.8301, 'train_loss': 0.0476, 'train_acc': 0.7656, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.034, 'ood_train_loss': 0.9013, 'train_loss': 0.0568, 'train_acc': 0.7786, 'batch_target_fraction': 0.2031}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0169, 'ood_train_loss': 1.1513, 'train_loss': 0.0468, 'train_acc': 0.724, 'batch_target_fraction': 0.2031}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 4, 'replicate_id': 9, 'alpha': 0.9736625514403292, 'target_risk': 0.287}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 0, 'target_train_loss': 0.7113, 'ood_train_loss': 0.8285, 'train_loss': 0.7144}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 20, 'target_train_loss': 0.3878, 'ood_train_loss': 0.971, 'train_loss': 0.4032}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 40, 'target_train_loss': 0.1231, 'ood_train_loss': 0.9254, 'train_loss': 0.1442}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 60, 'target_train_loss': 0.0648, 'ood_train_loss': 0.8064, 'train_loss': 0.0844}
+INFO:root:{'tuning_alpha': 0.9737, 'epoch': 80, 'target_train_loss': 0.0303, 'ood_train_loss': 0.8485, 'train_loss': 0.0519}
+INFO:root:{'alpha': 0.9737, 'risk_at_alpha': 0.2945}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 0, 'target_train_loss': 0.7551, 'ood_train_loss': 0.8246, 'train_loss': 0.7567}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 20, 'target_train_loss': 0.225, 'ood_train_loss': 1.0764, 'train_loss': 0.2449}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 40, 'target_train_loss': 0.1332, 'ood_train_loss': 1.0335, 'train_loss': 0.1543}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 60, 'target_train_loss': 0.0636, 'ood_train_loss': 1.0035, 'train_loss': 0.0856}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 80, 'target_train_loss': 0.0271, 'ood_train_loss': 1.0138, 'train_loss': 0.0502}
+INFO:root:{'alpha': 0.9766, 'risk_at_alpha': 0.2865}
+INFO:root:{'tuning_alpha': 0.9795, 'epoch': 0, 'target_train_loss': 0.6811, 'ood_train_loss': 0.8284, 'train_loss': 0.6842}
+INFO:root:{'tuning_alpha': 0.9795, 'epoch': 20, 'target_train_loss': 0.2315, 'ood_train_loss': 0.9216, 'train_loss': 0.2456}
+INFO:root:{'tuning_alpha': 0.9795, 'epoch': 40, 'target_train_loss': 0.0864, 'ood_train_loss': 1.176, 'train_loss': 0.1087}
+INFO:root:{'tuning_alpha': 0.9795, 'epoch': 60, 'target_train_loss': 0.035, 'ood_train_loss': 1.2004, 'train_loss': 0.0589}
+INFO:root:{'tuning_alpha': 0.9795, 'epoch': 80, 'target_train_loss': 0.0254, 'ood_train_loss': 1.0394, 'train_loss': 0.0461}
+INFO:root:{'alpha': 0.9795, 'risk_at_alpha': 0.292}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 0, 'target_train_loss': 0.6918, 'ood_train_loss': 0.8206, 'train_loss': 0.6941}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 20, 'target_train_loss': 0.3155, 'ood_train_loss': 1.0437, 'train_loss': 0.3283}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 40, 'target_train_loss': 0.0862, 'ood_train_loss': 1.2097, 'train_loss': 0.1059}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 60, 'target_train_loss': 0.0595, 'ood_train_loss': 1.0133, 'train_loss': 0.0762}
+INFO:root:{'tuning_alpha': 0.9824, 'epoch': 80, 'target_train_loss': 0.0352, 'ood_train_loss': 1.1807, 'train_loss': 0.0553}
+INFO:root:{'alpha': 0.9824, 'risk_at_alpha': 0.2895}
+INFO:root:{'tuning_alpha': 0.9854, 'epoch': 0, 'target_train_loss': 0.8326, 'ood_train_loss': 0.8285, 'train_loss': 0.8325}
+INFO:root:{'tuning_alpha': 0.9854, 'epoch': 20, 'target_train_loss': 0.3233, 'ood_train_loss': 0.9188, 'train_loss': 0.332}
+INFO:root:{'tuning_alpha': 0.9854, 'epoch': 40, 'target_train_loss': 0.1074, 'ood_train_loss': 1.3162, 'train_loss': 0.1251}
+INFO:root:{'tuning_alpha': 0.9854, 'epoch': 60, 'target_train_loss': 0.0618, 'ood_train_loss': 1.3539, 'train_loss': 0.0807}
+INFO:root:{'tuning_alpha': 0.9854, 'epoch': 80, 'target_train_loss': 0.0287, 'ood_train_loss': 1.1099, 'train_loss': 0.0445}
+INFO:root:{'alpha': 0.9854, 'risk_at_alpha': 0.296}
+INFO:root:{'tuning_alpha': 0.9883, 'epoch': 0, 'target_train_loss': 0.7854, 'ood_train_loss': 0.8839, 'train_loss': 0.7865}
+INFO:root:{'tuning_alpha': 0.9883, 'epoch': 20, 'target_train_loss': 0.3664, 'ood_train_loss': 1.2472, 'train_loss': 0.3767}
+INFO:root:{'tuning_alpha': 0.9883, 'epoch': 40, 'target_train_loss': 0.1019, 'ood_train_loss': 1.1157, 'train_loss': 0.1138}
+INFO:root:{'tuning_alpha': 0.9883, 'epoch': 60, 'target_train_loss': 0.0614, 'ood_train_loss': 1.3102, 'train_loss': 0.076}
+INFO:root:{'tuning_alpha': 0.9883, 'epoch': 80, 'target_train_loss': 0.0213, 'ood_train_loss': 1.2585, 'train_loss': 0.0358}
+INFO:root:{'alpha': 0.9883, 'risk_at_alpha': 0.294}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 0, 'target_train_loss': 0.6507, 'ood_train_loss': 0.722, 'train_loss': 0.6513}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 20, 'target_train_loss': 0.226, 'ood_train_loss': 1.0278, 'train_loss': 0.233}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 40, 'target_train_loss': 0.1361, 'ood_train_loss': 1.2914, 'train_loss': 0.1462}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 60, 'target_train_loss': 0.0249, 'ood_train_loss': 1.4403, 'train_loss': 0.0373}
+INFO:root:{'tuning_alpha': 0.9912, 'epoch': 80, 'target_train_loss': 0.0187, 'ood_train_loss': 1.1306, 'train_loss': 0.0284}
+INFO:root:{'alpha': 0.9912, 'risk_at_alpha': 0.293}
+INFO:root:{'tuning_alpha': 0.9941, 'epoch': 0, 'target_train_loss': 0.7034, 'ood_train_loss': 0.7774, 'train_loss': 0.7038}
+INFO:root:{'tuning_alpha': 0.9941, 'epoch': 20, 'target_train_loss': 0.3587, 'ood_train_loss': 1.0348, 'train_loss': 0.3627}
+INFO:root:{'tuning_alpha': 0.9941, 'epoch': 40, 'target_train_loss': 0.1471, 'ood_train_loss': 1.3231, 'train_loss': 0.154}
+INFO:root:{'tuning_alpha': 0.9941, 'epoch': 60, 'target_train_loss': 0.095, 'ood_train_loss': 1.4827, 'train_loss': 0.1031}
+INFO:root:{'tuning_alpha': 0.9941, 'epoch': 80, 'target_train_loss': 0.0343, 'ood_train_loss': 1.4452, 'train_loss': 0.0426}
+INFO:root:{'alpha': 0.9941, 'risk_at_alpha': 0.3005}
+INFO:root:{'tuning_alpha': 0.9971, 'epoch': 0, 'target_train_loss': 0.7513, 'ood_train_loss': 0.7956, 'train_loss': 0.7514}
+INFO:root:{'tuning_alpha': 0.9971, 'epoch': 20, 'target_train_loss': 0.3054, 'ood_train_loss': 1.1932, 'train_loss': 0.308}
+INFO:root:{'tuning_alpha': 0.9971, 'epoch': 40, 'target_train_loss': 0.1955, 'ood_train_loss': 1.4723, 'train_loss': 0.1992}
+INFO:root:{'tuning_alpha': 0.9971, 'epoch': 60, 'target_train_loss': 0.0588, 'ood_train_loss': 1.4798, 'train_loss': 0.0629}
+INFO:root:{'tuning_alpha': 0.9971, 'epoch': 80, 'target_train_loss': 0.0413, 'ood_train_loss': 1.9819, 'train_loss': 0.047}
+INFO:root:{'alpha': 0.9971, 'risk_at_alpha': 0.2905}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 0, 'target_train_loss': 0.7451, 'ood_train_loss': 0.877, 'train_loss': 0.7451}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 20, 'target_train_loss': 0.2736, 'ood_train_loss': 1.074, 'train_loss': 0.2736}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 40, 'target_train_loss': 0.0996, 'ood_train_loss': 1.5923, 'train_loss': 0.0996}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 60, 'target_train_loss': 0.0519, 'ood_train_loss': 1.6929, 'train_loss': 0.0519}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 80, 'target_train_loss': 0.0491, 'ood_train_loss': 1.9233, 'train_loss': 0.0491}
+INFO:root:{'alpha': 1.0, 'risk_at_alpha': 0.3125}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8346, 'ood_train_loss': 0.8808, 'train_loss': 0.8357, 'train_acc': 0.4551, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4146, 'ood_train_loss': 1.0589, 'train_loss': 0.4297, 'train_acc': 0.5879, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3062, 'ood_train_loss': 1.019, 'train_loss': 0.3229, 'train_acc': 0.6406, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.172, 'ood_train_loss': 1.1249, 'train_loss': 0.1943, 'train_acc': 0.6504, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1141, 'ood_train_loss': 0.8189, 'train_loss': 0.1306, 'train_acc': 0.7461, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0601, 'ood_train_loss': 0.8409, 'train_loss': 0.0784, 'train_acc': 0.7656, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0789, 'ood_train_loss': 1.1497, 'train_loss': 0.1039, 'train_acc': 0.6621, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0589, 'ood_train_loss': 1.0093, 'train_loss': 0.0812, 'train_acc': 0.7148, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0225, 'ood_train_loss': 0.7863, 'train_loss': 0.0404, 'train_acc': 0.7754, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0225, 'ood_train_loss': 0.7917, 'train_loss': 0.0405, 'train_acc': 0.7617, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 0, 'alpha': 0.976588934613626, 'target_risk': 0.286}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.9074, 'ood_train_loss': 0.8695, 'train_loss': 0.9065, 'train_acc': 0.5098, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4793, 'ood_train_loss': 1.0862, 'train_loss': 0.4935, 'train_acc': 0.5645, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2036, 'ood_train_loss': 1.0151, 'train_loss': 0.2226, 'train_acc': 0.6699, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1305, 'ood_train_loss': 1.1514, 'train_loss': 0.1544, 'train_acc': 0.6602, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1151, 'ood_train_loss': 1.1834, 'train_loss': 0.1401, 'train_acc': 0.6641, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0577, 'ood_train_loss': 0.904, 'train_loss': 0.0775, 'train_acc': 0.75, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0367, 'ood_train_loss': 0.9796, 'train_loss': 0.0588, 'train_acc': 0.7266, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0219, 'ood_train_loss': 1.0444, 'train_loss': 0.0458, 'train_acc': 0.7227, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0476, 'ood_train_loss': 0.8668, 'train_loss': 0.0668, 'train_acc': 0.748, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0257, 'ood_train_loss': 0.8931, 'train_loss': 0.046, 'train_acc': 0.752, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 1, 'alpha': 0.976588934613626, 'target_risk': 0.296}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7526, 'ood_train_loss': 0.7346, 'train_loss': 0.7521, 'train_acc': 0.5508, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4548, 'ood_train_loss': 0.8296, 'train_loss': 0.4635, 'train_acc': 0.6387, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2039, 'ood_train_loss': 0.9313, 'train_loss': 0.2209, 'train_acc': 0.6777, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1633, 'ood_train_loss': 1.1143, 'train_loss': 0.1855, 'train_acc': 0.6523, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0851, 'ood_train_loss': 1.0691, 'train_loss': 0.1081, 'train_acc': 0.7051, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.094, 'ood_train_loss': 1.01, 'train_loss': 0.1154, 'train_acc': 0.7305, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0529, 'ood_train_loss': 0.9984, 'train_loss': 0.075, 'train_acc': 0.7305, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0453, 'ood_train_loss': 0.9333, 'train_loss': 0.0661, 'train_acc': 0.7539, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0468, 'ood_train_loss': 0.978, 'train_loss': 0.0686, 'train_acc': 0.7559, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0223, 'ood_train_loss': 1.0985, 'train_loss': 0.0475, 'train_acc': 0.7266, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 2, 'alpha': 0.976588934613626, 'target_risk': 0.2945}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7379, 'ood_train_loss': 0.8103, 'train_loss': 0.7396, 'train_acc': 0.5332, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3477, 'ood_train_loss': 0.8134, 'train_loss': 0.3586, 'train_acc': 0.6523, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.261, 'ood_train_loss': 1.1975, 'train_loss': 0.2829, 'train_acc': 0.6074, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1328, 'ood_train_loss': 1.2968, 'train_loss': 0.16, 'train_acc': 0.6348, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1061, 'ood_train_loss': 1.2503, 'train_loss': 0.1328, 'train_acc': 0.6777, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0647, 'ood_train_loss': 1.1362, 'train_loss': 0.0898, 'train_acc': 0.6777, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0245, 'ood_train_loss': 1.0181, 'train_loss': 0.0477, 'train_acc': 0.7383, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0233, 'ood_train_loss': 0.8791, 'train_loss': 0.0433, 'train_acc': 0.7559, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0472, 'ood_train_loss': 0.9649, 'train_loss': 0.0687, 'train_acc': 0.7324, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0327, 'ood_train_loss': 0.96, 'train_loss': 0.0544, 'train_acc': 0.7246, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 3, 'alpha': 0.976588934613626, 'target_risk': 0.2985}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6618, 'ood_train_loss': 0.771, 'train_loss': 0.6644, 'train_acc': 0.5527, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3931, 'ood_train_loss': 0.8069, 'train_loss': 0.4028, 'train_acc': 0.6055, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.225, 'ood_train_loss': 0.9735, 'train_loss': 0.2426, 'train_acc': 0.6543, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1565, 'ood_train_loss': 1.1068, 'train_loss': 0.1787, 'train_acc': 0.6445, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1343, 'ood_train_loss': 1.0061, 'train_loss': 0.1547, 'train_acc': 0.7109, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1326, 'ood_train_loss': 1.0928, 'train_loss': 0.155, 'train_acc': 0.6797, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0423, 'ood_train_loss': 1.0604, 'train_loss': 0.0661, 'train_acc': 0.7109, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0508, 'ood_train_loss': 0.955, 'train_loss': 0.0719, 'train_acc': 0.7363, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0284, 'ood_train_loss': 0.848, 'train_loss': 0.0476, 'train_acc': 0.7441, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0247, 'ood_train_loss': 0.8282, 'train_loss': 0.0435, 'train_acc': 0.7363, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 4, 'alpha': 0.976588934613626, 'target_risk': 0.2875}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7094, 'ood_train_loss': 0.8543, 'train_loss': 0.7128, 'train_acc': 0.4824, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4738, 'ood_train_loss': 0.9823, 'train_loss': 0.4857, 'train_acc': 0.5938, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2481, 'ood_train_loss': 0.9656, 'train_loss': 0.2649, 'train_acc': 0.6562, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2443, 'ood_train_loss': 1.0339, 'train_loss': 0.2627, 'train_acc': 0.6777, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0642, 'ood_train_loss': 1.1682, 'train_loss': 0.09, 'train_acc': 0.6855, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.058, 'ood_train_loss': 1.1929, 'train_loss': 0.0846, 'train_acc': 0.6973, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0232, 'ood_train_loss': 0.9666, 'train_loss': 0.0452, 'train_acc': 0.7109, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0628, 'ood_train_loss': 1.0027, 'train_loss': 0.0848, 'train_acc': 0.707, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0269, 'ood_train_loss': 0.8999, 'train_loss': 0.0473, 'train_acc': 0.7539, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0234, 'ood_train_loss': 0.9073, 'train_loss': 0.0441, 'train_acc': 0.7637, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 5, 'alpha': 0.976588934613626, 'target_risk': 0.296}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7372, 'ood_train_loss': 0.8077, 'train_loss': 0.7388, 'train_acc': 0.5312, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4529, 'ood_train_loss': 1.2076, 'train_loss': 0.4706, 'train_acc': 0.5254, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.323, 'ood_train_loss': 1.1331, 'train_loss': 0.342, 'train_acc': 0.6445, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1242, 'ood_train_loss': 1.0542, 'train_loss': 0.146, 'train_acc': 0.6777, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1155, 'ood_train_loss': 0.87, 'train_loss': 0.1331, 'train_acc': 0.7402, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0427, 'ood_train_loss': 1.0443, 'train_loss': 0.0662, 'train_acc': 0.7207, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0618, 'ood_train_loss': 0.9839, 'train_loss': 0.0834, 'train_acc': 0.7324, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0358, 'ood_train_loss': 0.9847, 'train_loss': 0.058, 'train_acc': 0.7227, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.033, 'ood_train_loss': 0.9655, 'train_loss': 0.0548, 'train_acc': 0.7266, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0322, 'ood_train_loss': 0.8112, 'train_loss': 0.0504, 'train_acc': 0.7852, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 6, 'alpha': 0.976588934613626, 'target_risk': 0.2905}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7395, 'ood_train_loss': 0.8539, 'train_loss': 0.7422, 'train_acc': 0.502, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3604, 'ood_train_loss': 0.7978, 'train_loss': 0.3707, 'train_acc': 0.6348, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2349, 'ood_train_loss': 0.9468, 'train_loss': 0.2516, 'train_acc': 0.625, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1694, 'ood_train_loss': 0.9398, 'train_loss': 0.1874, 'train_acc': 0.6855, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1168, 'ood_train_loss': 1.355, 'train_loss': 0.1458, 'train_acc': 0.623, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0631, 'ood_train_loss': 0.9849, 'train_loss': 0.0847, 'train_acc': 0.7344, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0896, 'ood_train_loss': 0.9627, 'train_loss': 0.11, 'train_acc': 0.7227, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.045, 'ood_train_loss': 1.0796, 'train_loss': 0.0692, 'train_acc': 0.7324, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0315, 'ood_train_loss': 1.155, 'train_loss': 0.0578, 'train_acc': 0.7109, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0268, 'ood_train_loss': 1.1142, 'train_loss': 0.0523, 'train_acc': 0.7129, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 7, 'alpha': 0.976588934613626, 'target_risk': 0.289}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8006, 'ood_train_loss': 0.6933, 'train_loss': 0.7981, 'train_acc': 0.5391, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.2712, 'ood_train_loss': 0.7309, 'train_loss': 0.282, 'train_acc': 0.6934, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2114, 'ood_train_loss': 0.978, 'train_loss': 0.2293, 'train_acc': 0.6738, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2959, 'ood_train_loss': 0.8591, 'train_loss': 0.3091, 'train_acc': 0.709, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1054, 'ood_train_loss': 1.1697, 'train_loss': 0.1303, 'train_acc': 0.6426, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0922, 'ood_train_loss': 1.2218, 'train_loss': 0.1186, 'train_acc': 0.6973, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0654, 'ood_train_loss': 0.9764, 'train_loss': 0.0868, 'train_acc': 0.7227, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0273, 'ood_train_loss': 0.9271, 'train_loss': 0.0484, 'train_acc': 0.7246, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0262, 'ood_train_loss': 0.8871, 'train_loss': 0.0463, 'train_acc': 0.7344, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0311, 'ood_train_loss': 0.9186, 'train_loss': 0.0518, 'train_acc': 0.7324, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 8, 'alpha': 0.976588934613626, 'target_risk': 0.2915}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7023, 'ood_train_loss': 0.841, 'train_loss': 0.7055, 'train_acc': 0.5156, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4451, 'ood_train_loss': 0.9894, 'train_loss': 0.4578, 'train_acc': 0.5977, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2562, 'ood_train_loss': 0.9824, 'train_loss': 0.2732, 'train_acc': 0.6641, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1579, 'ood_train_loss': 1.1815, 'train_loss': 0.1818, 'train_acc': 0.6367, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1013, 'ood_train_loss': 1.0341, 'train_loss': 0.1231, 'train_acc': 0.6582, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.052, 'ood_train_loss': 1.1355, 'train_loss': 0.0773, 'train_acc': 0.6719, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0352, 'ood_train_loss': 1.0214, 'train_loss': 0.0583, 'train_acc': 0.7109, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0435, 'ood_train_loss': 1.017, 'train_loss': 0.0663, 'train_acc': 0.7168, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0338, 'ood_train_loss': 1.0081, 'train_loss': 0.0566, 'train_acc': 0.7188, 'batch_target_fraction': 0.1641}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0228, 'ood_train_loss': 1.0197, 'train_loss': 0.0462, 'train_acc': 0.707, 'batch_target_fraction': 0.1641}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 5, 'replicate_id': 9, 'alpha': 0.976588934613626, 'target_risk': 0.2895}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 0, 'target_train_loss': 0.7543, 'ood_train_loss': 0.7677, 'train_loss': 0.7546}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 20, 'target_train_loss': 0.3126, 'ood_train_loss': 1.0647, 'train_loss': 0.3302}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 40, 'target_train_loss': 0.0969, 'ood_train_loss': 1.1951, 'train_loss': 0.1226}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 60, 'target_train_loss': 0.0398, 'ood_train_loss': 1.1511, 'train_loss': 0.0658}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 80, 'target_train_loss': 0.0464, 'ood_train_loss': 1.0999, 'train_loss': 0.0711}
+INFO:root:{'alpha': 0.9766, 'risk_at_alpha': 0.2905}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 0, 'target_train_loss': 0.8817, 'ood_train_loss': 1.1595, 'train_loss': 0.8875}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 20, 'target_train_loss': 0.1672, 'ood_train_loss': 1.2748, 'train_loss': 0.1902}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 40, 'target_train_loss': 0.1014, 'ood_train_loss': 1.2963, 'train_loss': 0.1262}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 60, 'target_train_loss': 0.0213, 'ood_train_loss': 1.3103, 'train_loss': 0.0481}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 80, 'target_train_loss': 0.0208, 'ood_train_loss': 1.2555, 'train_loss': 0.0465}
+INFO:root:{'alpha': 0.9792, 'risk_at_alpha': 0.297}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 0, 'target_train_loss': 0.8059, 'ood_train_loss': 1.1599, 'train_loss': 0.8124}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 20, 'target_train_loss': 0.2653, 'ood_train_loss': 1.3068, 'train_loss': 0.2842}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 40, 'target_train_loss': 0.1326, 'ood_train_loss': 1.4243, 'train_loss': 0.1561}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 60, 'target_train_loss': 0.0252, 'ood_train_loss': 1.393, 'train_loss': 0.0502}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 80, 'target_train_loss': 0.0149, 'ood_train_loss': 1.2376, 'train_loss': 0.0372}
+INFO:root:{'alpha': 0.9818, 'risk_at_alpha': 0.3065}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 0, 'target_train_loss': 0.7112, 'ood_train_loss': 0.921, 'train_loss': 0.7145}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 20, 'target_train_loss': 0.2062, 'ood_train_loss': 1.2118, 'train_loss': 0.2219}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 40, 'target_train_loss': 0.0885, 'ood_train_loss': 1.1707, 'train_loss': 0.1054}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 60, 'target_train_loss': 0.0215, 'ood_train_loss': 1.1167, 'train_loss': 0.0386}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 80, 'target_train_loss': 0.013, 'ood_train_loss': 1.1218, 'train_loss': 0.0303}
+INFO:root:{'alpha': 0.9844, 'risk_at_alpha': 0.2915}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 0, 'target_train_loss': 0.7098, 'ood_train_loss': 1.048, 'train_loss': 0.7142}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 20, 'target_train_loss': 0.2645, 'ood_train_loss': 1.2119, 'train_loss': 0.2768}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 40, 'target_train_loss': 0.0884, 'ood_train_loss': 1.6174, 'train_loss': 0.1083}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 60, 'target_train_loss': 0.0332, 'ood_train_loss': 1.3181, 'train_loss': 0.05}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 80, 'target_train_loss': 0.0116, 'ood_train_loss': 1.133, 'train_loss': 0.0262}
+INFO:root:{'alpha': 0.987, 'risk_at_alpha': 0.292}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 0, 'target_train_loss': 0.7422, 'ood_train_loss': 1.1761, 'train_loss': 0.7467}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 20, 'target_train_loss': 0.28, 'ood_train_loss': 1.4897, 'train_loss': 0.2926}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 40, 'target_train_loss': 0.1472, 'ood_train_loss': 1.8156, 'train_loss': 0.1645}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 60, 'target_train_loss': 0.041, 'ood_train_loss': 1.4062, 'train_loss': 0.0552}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 80, 'target_train_loss': 0.0235, 'ood_train_loss': 1.6387, 'train_loss': 0.0403}
+INFO:root:{'alpha': 0.9896, 'risk_at_alpha': 0.303}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 0, 'target_train_loss': 0.8644, 'ood_train_loss': 0.8716, 'train_loss': 0.8644}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 20, 'target_train_loss': 0.2083, 'ood_train_loss': 1.2103, 'train_loss': 0.2161}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 40, 'target_train_loss': 0.0547, 'ood_train_loss': 1.8468, 'train_loss': 0.0687}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 60, 'target_train_loss': 0.0235, 'ood_train_loss': 1.6355, 'train_loss': 0.0361}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 80, 'target_train_loss': 0.0141, 'ood_train_loss': 1.4978, 'train_loss': 0.0257}
+INFO:root:{'alpha': 0.9922, 'risk_at_alpha': 0.3115}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 0, 'target_train_loss': 0.6806, 'ood_train_loss': 0.8992, 'train_loss': 0.6818}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 20, 'target_train_loss': 0.1987, 'ood_train_loss': 1.546, 'train_loss': 0.2057}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 40, 'target_train_loss': 0.1509, 'ood_train_loss': 1.6203, 'train_loss': 0.1585}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 60, 'target_train_loss': 0.0258, 'ood_train_loss': 1.5995, 'train_loss': 0.034}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 80, 'target_train_loss': 0.0129, 'ood_train_loss': 1.6924, 'train_loss': 0.0216}
+INFO:root:{'alpha': 0.9948, 'risk_at_alpha': 0.3155}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 0, 'target_train_loss': 0.726, 'ood_train_loss': 0.7773, 'train_loss': 0.7261}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 20, 'target_train_loss': 0.2907, 'ood_train_loss': 1.4021, 'train_loss': 0.2936}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 40, 'target_train_loss': 0.1082, 'ood_train_loss': 1.8694, 'train_loss': 0.1128}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 60, 'target_train_loss': 0.034, 'ood_train_loss': 2.1609, 'train_loss': 0.0395}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 80, 'target_train_loss': 0.0246, 'ood_train_loss': 1.8575, 'train_loss': 0.0293}
+INFO:root:{'alpha': 0.9974, 'risk_at_alpha': 0.3175}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 0, 'target_train_loss': 0.7731, 'ood_train_loss': 0.8779, 'train_loss': 0.7731}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 20, 'target_train_loss': 0.3021, 'ood_train_loss': 1.2666, 'train_loss': 0.3021}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 40, 'target_train_loss': 0.1762, 'ood_train_loss': 1.8897, 'train_loss': 0.1762}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 60, 'target_train_loss': 0.0283, 'ood_train_loss': 1.9833, 'train_loss': 0.0283}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 80, 'target_train_loss': 0.0291, 'ood_train_loss': 2.2043, 'train_loss': 0.0291}
+INFO:root:{'alpha': 1.0, 'risk_at_alpha': 0.322}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7257, 'ood_train_loss': 0.9425, 'train_loss': 0.7308, 'train_acc': 0.5303, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3243, 'ood_train_loss': 0.9928, 'train_loss': 0.3399, 'train_acc': 0.6445, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2595, 'ood_train_loss': 1.257, 'train_loss': 0.2829, 'train_acc': 0.624, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1178, 'ood_train_loss': 1.1278, 'train_loss': 0.1415, 'train_acc': 0.6709, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.072, 'ood_train_loss': 1.1444, 'train_loss': 0.0971, 'train_acc': 0.6689, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0792, 'ood_train_loss': 1.1885, 'train_loss': 0.1052, 'train_acc': 0.6875, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0096, 'ood_train_loss': 1.2177, 'train_loss': 0.0379, 'train_acc': 0.6904, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0393, 'ood_train_loss': 1.0007, 'train_loss': 0.0618, 'train_acc': 0.7402, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0157, 'ood_train_loss': 0.9783, 'train_loss': 0.0382, 'train_acc': 0.7168, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0171, 'ood_train_loss': 0.8959, 'train_loss': 0.0377, 'train_acc': 0.7402, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 0, 'alpha': 0.976588934613626, 'target_risk': 0.3005}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8172, 'ood_train_loss': 0.8023, 'train_loss': 0.8168, 'train_acc': 0.6035, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4271, 'ood_train_loss': 1.1093, 'train_loss': 0.4431, 'train_acc': 0.6201, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3456, 'ood_train_loss': 1.3514, 'train_loss': 0.3691, 'train_acc': 0.5762, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2094, 'ood_train_loss': 1.3695, 'train_loss': 0.2366, 'train_acc': 0.6152, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.13, 'ood_train_loss': 1.5137, 'train_loss': 0.1624, 'train_acc': 0.5986, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0746, 'ood_train_loss': 1.3623, 'train_loss': 0.1047, 'train_acc': 0.6426, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0403, 'ood_train_loss': 1.2009, 'train_loss': 0.0675, 'train_acc': 0.6855, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0456, 'ood_train_loss': 1.0794, 'train_loss': 0.0698, 'train_acc': 0.707, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0185, 'ood_train_loss': 1.1768, 'train_loss': 0.0456, 'train_acc': 0.6934, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0191, 'ood_train_loss': 1.0899, 'train_loss': 0.0442, 'train_acc': 0.708, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 1, 'alpha': 0.976588934613626, 'target_risk': 0.2945}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8032, 'ood_train_loss': 0.9458, 'train_loss': 0.8066, 'train_acc': 0.4727, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3831, 'ood_train_loss': 1.189, 'train_loss': 0.402, 'train_acc': 0.582, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.321, 'ood_train_loss': 1.1678, 'train_loss': 0.3408, 'train_acc': 0.6357, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1764, 'ood_train_loss': 1.1066, 'train_loss': 0.1981, 'train_acc': 0.6738, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1427, 'ood_train_loss': 1.3172, 'train_loss': 0.1702, 'train_acc': 0.6455, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0379, 'ood_train_loss': 1.2929, 'train_loss': 0.0673, 'train_acc': 0.6758, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0272, 'ood_train_loss': 1.2112, 'train_loss': 0.0549, 'train_acc': 0.6914, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0334, 'ood_train_loss': 0.9812, 'train_loss': 0.0556, 'train_acc': 0.7402, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0212, 'ood_train_loss': 1.1162, 'train_loss': 0.0468, 'train_acc': 0.7207, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0221, 'ood_train_loss': 0.9593, 'train_loss': 0.0441, 'train_acc': 0.7686, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 2, 'alpha': 0.976588934613626, 'target_risk': 0.2935}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7758, 'ood_train_loss': 0.7946, 'train_loss': 0.7763, 'train_acc': 0.5244, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3941, 'ood_train_loss': 1.0909, 'train_loss': 0.4105, 'train_acc': 0.5342, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3219, 'ood_train_loss': 1.2251, 'train_loss': 0.343, 'train_acc': 0.5977, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1559, 'ood_train_loss': 1.2015, 'train_loss': 0.1804, 'train_acc': 0.6309, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0987, 'ood_train_loss': 1.2148, 'train_loss': 0.1248, 'train_acc': 0.623, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0585, 'ood_train_loss': 1.2062, 'train_loss': 0.0854, 'train_acc': 0.6787, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0365, 'ood_train_loss': 1.0862, 'train_loss': 0.061, 'train_acc': 0.6826, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0441, 'ood_train_loss': 1.1376, 'train_loss': 0.0697, 'train_acc': 0.7021, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0443, 'ood_train_loss': 1.0288, 'train_loss': 0.0673, 'train_acc': 0.7188, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0164, 'ood_train_loss': 1.1183, 'train_loss': 0.0422, 'train_acc': 0.6934, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 3, 'alpha': 0.976588934613626, 'target_risk': 0.2975}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.6969, 'ood_train_loss': 0.9789, 'train_loss': 0.7035, 'train_acc': 0.5127, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4108, 'ood_train_loss': 1.2503, 'train_loss': 0.4305, 'train_acc': 0.5234, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2174, 'ood_train_loss': 1.0845, 'train_loss': 0.2377, 'train_acc': 0.6719, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1625, 'ood_train_loss': 1.1019, 'train_loss': 0.1845, 'train_acc': 0.6533, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.057, 'ood_train_loss': 1.1832, 'train_loss': 0.0834, 'train_acc': 0.6631, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0556, 'ood_train_loss': 1.0864, 'train_loss': 0.0797, 'train_acc': 0.6758, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0254, 'ood_train_loss': 1.1439, 'train_loss': 0.0516, 'train_acc': 0.6924, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0318, 'ood_train_loss': 0.9444, 'train_loss': 0.0532, 'train_acc': 0.7217, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0168, 'ood_train_loss': 1.0189, 'train_loss': 0.0402, 'train_acc': 0.7188, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0345, 'ood_train_loss': 0.9814, 'train_loss': 0.0567, 'train_acc': 0.7402, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 4, 'alpha': 0.976588934613626, 'target_risk': 0.297}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8712, 'ood_train_loss': 0.8765, 'train_loss': 0.8713, 'train_acc': 0.499, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.43, 'ood_train_loss': 1.3543, 'train_loss': 0.4517, 'train_acc': 0.5312, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3319, 'ood_train_loss': 1.2173, 'train_loss': 0.3526, 'train_acc': 0.6289, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1416, 'ood_train_loss': 1.24, 'train_loss': 0.1673, 'train_acc': 0.6523, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0566, 'ood_train_loss': 1.2809, 'train_loss': 0.0853, 'train_acc': 0.6553, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0393, 'ood_train_loss': 1.1817, 'train_loss': 0.0661, 'train_acc': 0.6934, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0339, 'ood_train_loss': 0.9897, 'train_loss': 0.0563, 'train_acc': 0.7139, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0277, 'ood_train_loss': 0.931, 'train_loss': 0.0489, 'train_acc': 0.7188, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0203, 'ood_train_loss': 0.9594, 'train_loss': 0.0423, 'train_acc': 0.7158, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0215, 'ood_train_loss': 0.9234, 'train_loss': 0.0427, 'train_acc': 0.7559, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 5, 'alpha': 0.976588934613626, 'target_risk': 0.2985}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.984, 'ood_train_loss': 0.9129, 'train_loss': 0.9823, 'train_acc': 0.5322, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3815, 'ood_train_loss': 1.0256, 'train_loss': 0.3966, 'train_acc': 0.6357, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2587, 'ood_train_loss': 1.0949, 'train_loss': 0.2783, 'train_acc': 0.6445, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.147, 'ood_train_loss': 1.1801, 'train_loss': 0.1712, 'train_acc': 0.626, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0639, 'ood_train_loss': 1.2495, 'train_loss': 0.0917, 'train_acc': 0.6533, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.1022, 'ood_train_loss': 1.1171, 'train_loss': 0.1259, 'train_acc': 0.71, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0504, 'ood_train_loss': 1.1059, 'train_loss': 0.0751, 'train_acc': 0.709, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.043, 'ood_train_loss': 1.22, 'train_loss': 0.0705, 'train_acc': 0.6982, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0228, 'ood_train_loss': 1.011, 'train_loss': 0.0459, 'train_acc': 0.7178, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0203, 'ood_train_loss': 1.0313, 'train_loss': 0.0439, 'train_acc': 0.7246, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 6, 'alpha': 0.976588934613626, 'target_risk': 0.3085}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8174, 'ood_train_loss': 0.8339, 'train_loss': 0.8177, 'train_acc': 0.5283, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4572, 'ood_train_loss': 0.9449, 'train_loss': 0.4686, 'train_acc': 0.6094, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3282, 'ood_train_loss': 1.0703, 'train_loss': 0.3455, 'train_acc': 0.6123, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1136, 'ood_train_loss': 1.1058, 'train_loss': 0.1369, 'train_acc': 0.6543, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1107, 'ood_train_loss': 1.1533, 'train_loss': 0.1351, 'train_acc': 0.6709, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0703, 'ood_train_loss': 1.0984, 'train_loss': 0.0944, 'train_acc': 0.7002, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0212, 'ood_train_loss': 1.1572, 'train_loss': 0.0478, 'train_acc': 0.6914, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0223, 'ood_train_loss': 1.1472, 'train_loss': 0.0486, 'train_acc': 0.6924, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0128, 'ood_train_loss': 0.9677, 'train_loss': 0.0352, 'train_acc': 0.7373, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0142, 'ood_train_loss': 0.9439, 'train_loss': 0.036, 'train_acc': 0.7217, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 7, 'alpha': 0.976588934613626, 'target_risk': 0.2925}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8074, 'ood_train_loss': 0.8687, 'train_loss': 0.8088, 'train_acc': 0.5449, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3572, 'ood_train_loss': 0.8682, 'train_loss': 0.3691, 'train_acc': 0.6328, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3144, 'ood_train_loss': 1.0908, 'train_loss': 0.3326, 'train_acc': 0.6162, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2164, 'ood_train_loss': 1.2086, 'train_loss': 0.2396, 'train_acc': 0.6221, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0527, 'ood_train_loss': 1.3145, 'train_loss': 0.0823, 'train_acc': 0.6465, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0257, 'ood_train_loss': 1.0598, 'train_loss': 0.0499, 'train_acc': 0.6963, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0232, 'ood_train_loss': 1.2126, 'train_loss': 0.051, 'train_acc': 0.6768, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0147, 'ood_train_loss': 1.1079, 'train_loss': 0.0403, 'train_acc': 0.7041, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.018, 'ood_train_loss': 1.06, 'train_loss': 0.0424, 'train_acc': 0.7197, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0113, 'ood_train_loss': 0.9682, 'train_loss': 0.0337, 'train_acc': 0.7334, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 8, 'alpha': 0.976588934613626, 'target_risk': 0.2945}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7849, 'ood_train_loss': 0.9733, 'train_loss': 0.7894, 'train_acc': 0.498, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4551, 'ood_train_loss': 0.9888, 'train_loss': 0.4676, 'train_acc': 0.6191, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2941, 'ood_train_loss': 1.1096, 'train_loss': 0.3131, 'train_acc': 0.6338, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2212, 'ood_train_loss': 1.1031, 'train_loss': 0.2418, 'train_acc': 0.666, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1, 'ood_train_loss': 1.218, 'train_loss': 0.1262, 'train_acc': 0.6709, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0373, 'ood_train_loss': 1.16, 'train_loss': 0.0636, 'train_acc': 0.6816, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0511, 'ood_train_loss': 1.1448, 'train_loss': 0.0767, 'train_acc': 0.6865, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0241, 'ood_train_loss': 1.0715, 'train_loss': 0.0486, 'train_acc': 0.7031, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0185, 'ood_train_loss': 1.091, 'train_loss': 0.0436, 'train_acc': 0.7148, 'batch_target_fraction': 0.0938}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0177, 'ood_train_loss': 1.0424, 'train_loss': 0.0417, 'train_acc': 0.7295, 'batch_target_fraction': 0.0938}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 10, 'replicate_id': 9, 'alpha': 0.976588934613626, 'target_risk': 0.292}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 0, 'target_train_loss': 1.037, 'ood_train_loss': 1.1603, 'train_loss': 1.0399}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 20, 'target_train_loss': 0.2948, 'ood_train_loss': 1.6236, 'train_loss': 0.3259}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 40, 'target_train_loss': 0.1188, 'ood_train_loss': 1.3926, 'train_loss': 0.1486}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 60, 'target_train_loss': 0.0326, 'ood_train_loss': 1.2413, 'train_loss': 0.0609}
+INFO:root:{'tuning_alpha': 0.9766, 'epoch': 80, 'target_train_loss': 0.0205, 'ood_train_loss': 1.2354, 'train_loss': 0.0489}
+INFO:root:{'alpha': 0.9766, 'risk_at_alpha': 0.3145}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 0, 'target_train_loss': 0.7319, 'ood_train_loss': 0.9319, 'train_loss': 0.736}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 20, 'target_train_loss': 0.2642, 'ood_train_loss': 1.2957, 'train_loss': 0.2857}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 40, 'target_train_loss': 0.1601, 'ood_train_loss': 2.0452, 'train_loss': 0.1993}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 60, 'target_train_loss': 0.0315, 'ood_train_loss': 1.2325, 'train_loss': 0.0565}
+INFO:root:{'tuning_alpha': 0.9792, 'epoch': 80, 'target_train_loss': 0.0126, 'ood_train_loss': 1.1504, 'train_loss': 0.0363}
+INFO:root:{'alpha': 0.9792, 'risk_at_alpha': 0.315}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 0, 'target_train_loss': 0.8889, 'ood_train_loss': 1.1928, 'train_loss': 0.8944}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 20, 'target_train_loss': 0.2051, 'ood_train_loss': 1.464, 'train_loss': 0.228}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 40, 'target_train_loss': 0.1337, 'ood_train_loss': 1.5473, 'train_loss': 0.1594}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 60, 'target_train_loss': 0.0456, 'ood_train_loss': 1.3901, 'train_loss': 0.0701}
+INFO:root:{'tuning_alpha': 0.9818, 'epoch': 80, 'target_train_loss': 0.0257, 'ood_train_loss': 1.442, 'train_loss': 0.0515}
+INFO:root:{'alpha': 0.9818, 'risk_at_alpha': 0.3205}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 0, 'target_train_loss': 0.9594, 'ood_train_loss': 1.0123, 'train_loss': 0.9602}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 20, 'target_train_loss': 0.314, 'ood_train_loss': 1.2517, 'train_loss': 0.3286}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 40, 'target_train_loss': 0.1328, 'ood_train_loss': 1.5825, 'train_loss': 0.1554}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 60, 'target_train_loss': 0.026, 'ood_train_loss': 1.509, 'train_loss': 0.0491}
+INFO:root:{'tuning_alpha': 0.9844, 'epoch': 80, 'target_train_loss': 0.0184, 'ood_train_loss': 1.4111, 'train_loss': 0.0401}
+INFO:root:{'alpha': 0.9844, 'risk_at_alpha': 0.31}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 0, 'target_train_loss': 0.8697, 'ood_train_loss': 1.0532, 'train_loss': 0.8721}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 20, 'target_train_loss': 0.2205, 'ood_train_loss': 1.7943, 'train_loss': 0.2409}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 40, 'target_train_loss': 0.0883, 'ood_train_loss': 1.8954, 'train_loss': 0.1118}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 60, 'target_train_loss': 0.0244, 'ood_train_loss': 1.5688, 'train_loss': 0.0445}
+INFO:root:{'tuning_alpha': 0.987, 'epoch': 80, 'target_train_loss': 0.0252, 'ood_train_loss': 1.5875, 'train_loss': 0.0455}
+INFO:root:{'alpha': 0.987, 'risk_at_alpha': 0.3165}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 0, 'target_train_loss': 0.8775, 'ood_train_loss': 1.0082, 'train_loss': 0.8788}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 20, 'target_train_loss': 0.2713, 'ood_train_loss': 1.4238, 'train_loss': 0.2833}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 40, 'target_train_loss': 0.0878, 'ood_train_loss': 1.5239, 'train_loss': 0.1027}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 60, 'target_train_loss': 0.087, 'ood_train_loss': 1.7127, 'train_loss': 0.1039}
+INFO:root:{'tuning_alpha': 0.9896, 'epoch': 80, 'target_train_loss': 0.0173, 'ood_train_loss': 1.786, 'train_loss': 0.0357}
+INFO:root:{'alpha': 0.9896, 'risk_at_alpha': 0.31}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 0, 'target_train_loss': 0.9382, 'ood_train_loss': 1.219, 'train_loss': 0.9404}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 20, 'target_train_loss': 0.2088, 'ood_train_loss': 1.6213, 'train_loss': 0.2199}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 40, 'target_train_loss': 0.1038, 'ood_train_loss': 2.2084, 'train_loss': 0.1202}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 60, 'target_train_loss': 0.0199, 'ood_train_loss': 1.8954, 'train_loss': 0.0345}
+INFO:root:{'tuning_alpha': 0.9922, 'epoch': 80, 'target_train_loss': 0.019, 'ood_train_loss': 1.811, 'train_loss': 0.0329}
+INFO:root:{'alpha': 0.9922, 'risk_at_alpha': 0.3125}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 0, 'target_train_loss': 0.8689, 'ood_train_loss': 1.3837, 'train_loss': 0.8716}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 20, 'target_train_loss': 0.2718, 'ood_train_loss': 2.5932, 'train_loss': 0.2839}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 40, 'target_train_loss': 0.1205, 'ood_train_loss': 1.7239, 'train_loss': 0.1289}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 60, 'target_train_loss': 0.0692, 'ood_train_loss': 1.7963, 'train_loss': 0.0781}
+INFO:root:{'tuning_alpha': 0.9948, 'epoch': 80, 'target_train_loss': 0.0319, 'ood_train_loss': 1.9184, 'train_loss': 0.0417}
+INFO:root:{'alpha': 0.9948, 'risk_at_alpha': 0.3195}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 0, 'target_train_loss': 1.0894, 'ood_train_loss': 1.2193, 'train_loss': 1.0897}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 20, 'target_train_loss': 0.258, 'ood_train_loss': 1.4528, 'train_loss': 0.2611}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 40, 'target_train_loss': 0.1576, 'ood_train_loss': 1.9152, 'train_loss': 0.1622}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 60, 'target_train_loss': 0.0349, 'ood_train_loss': 2.4554, 'train_loss': 0.0412}
+INFO:root:{'tuning_alpha': 0.9974, 'epoch': 80, 'target_train_loss': 0.0136, 'ood_train_loss': 2.511, 'train_loss': 0.0201}
+INFO:root:{'alpha': 0.9974, 'risk_at_alpha': 0.3245}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 0, 'target_train_loss': 0.916, 'ood_train_loss': 1.1153, 'train_loss': 0.916}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 20, 'target_train_loss': 0.4072, 'ood_train_loss': 1.6869, 'train_loss': 0.4072}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 40, 'target_train_loss': 0.0957, 'ood_train_loss': 2.2735, 'train_loss': 0.0957}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 60, 'target_train_loss': 0.015, 'ood_train_loss': 2.8774, 'train_loss': 0.015}
+INFO:root:{'tuning_alpha': 1.0, 'epoch': 80, 'target_train_loss': 0.0282, 'ood_train_loss': 2.9682, 'train_loss': 0.0282}
+INFO:root:{'alpha': 1.0, 'risk_at_alpha': 0.3255}
+INFO:root:{'epoch': 0, 'target_train_loss': 1.0805, 'ood_train_loss': 1.2342, 'train_loss': 1.0829, 'train_acc': 0.4897, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.5181, 'ood_train_loss': 1.5865, 'train_loss': 0.5348, 'train_acc': 0.6006, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2198, 'ood_train_loss': 1.2524, 'train_loss': 0.2359, 'train_acc': 0.6118, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2033, 'ood_train_loss': 1.4479, 'train_loss': 0.2227, 'train_acc': 0.6118, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1719, 'ood_train_loss': 1.5963, 'train_loss': 0.1942, 'train_acc': 0.6069, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0773, 'ood_train_loss': 1.5528, 'train_loss': 0.1004, 'train_acc': 0.6504, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0316, 'ood_train_loss': 1.4279, 'train_loss': 0.0534, 'train_acc': 0.6616, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.024, 'ood_train_loss': 1.5138, 'train_loss': 0.0472, 'train_acc': 0.6514, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0294, 'ood_train_loss': 1.3518, 'train_loss': 0.0501, 'train_acc': 0.6885, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0169, 'ood_train_loss': 1.3799, 'train_loss': 0.0381, 'train_acc': 0.6777, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 0, 'alpha': 0.9843926230757506, 'target_risk': 0.3185}
+INFO:root:{'epoch': 0, 'target_train_loss': 1.0265, 'ood_train_loss': 1.2577, 'train_loss': 1.0301, 'train_acc': 0.4604, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4862, 'ood_train_loss': 1.1046, 'train_loss': 0.4959, 'train_acc': 0.5962, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2258, 'ood_train_loss': 1.2983, 'train_loss': 0.2426, 'train_acc': 0.6118, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.131, 'ood_train_loss': 1.3469, 'train_loss': 0.1499, 'train_acc': 0.6396, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.123, 'ood_train_loss': 1.7099, 'train_loss': 0.1477, 'train_acc': 0.5845, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0511, 'ood_train_loss': 1.3937, 'train_loss': 0.0721, 'train_acc': 0.646, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.016, 'ood_train_loss': 1.3669, 'train_loss': 0.0371, 'train_acc': 0.6738, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0257, 'ood_train_loss': 1.3731, 'train_loss': 0.0468, 'train_acc': 0.665, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0197, 'ood_train_loss': 1.3042, 'train_loss': 0.0398, 'train_acc': 0.6846, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0198, 'ood_train_loss': 1.2656, 'train_loss': 0.0392, 'train_acc': 0.6958, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 1, 'alpha': 0.9843926230757506, 'target_risk': 0.2975}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.8461, 'ood_train_loss': 1.0491, 'train_loss': 0.8493, 'train_acc': 0.5195, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4435, 'ood_train_loss': 1.1359, 'train_loss': 0.4543, 'train_acc': 0.5962, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.1905, 'ood_train_loss': 1.2299, 'train_loss': 0.2067, 'train_acc': 0.6318, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1605, 'ood_train_loss': 1.5248, 'train_loss': 0.1818, 'train_acc': 0.6167, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.117, 'ood_train_loss': 1.5194, 'train_loss': 0.1389, 'train_acc': 0.6455, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0653, 'ood_train_loss': 1.5116, 'train_loss': 0.0878, 'train_acc': 0.6577, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0422, 'ood_train_loss': 1.4573, 'train_loss': 0.0643, 'train_acc': 0.667, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0237, 'ood_train_loss': 1.4451, 'train_loss': 0.0459, 'train_acc': 0.6567, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0212, 'ood_train_loss': 1.3461, 'train_loss': 0.0419, 'train_acc': 0.6875, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0209, 'ood_train_loss': 1.3029, 'train_loss': 0.0409, 'train_acc': 0.6812, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 2, 'alpha': 0.9843926230757506, 'target_risk': 0.3065}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.9656, 'ood_train_loss': 1.085, 'train_loss': 0.9675, 'train_acc': 0.4692, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.3238, 'ood_train_loss': 1.5647, 'train_loss': 0.3431, 'train_acc': 0.5474, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3101, 'ood_train_loss': 1.6036, 'train_loss': 0.3303, 'train_acc': 0.5835, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2112, 'ood_train_loss': 1.715, 'train_loss': 0.2347, 'train_acc': 0.5742, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1259, 'ood_train_loss': 1.3909, 'train_loss': 0.1457, 'train_acc': 0.6445, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0448, 'ood_train_loss': 1.4844, 'train_loss': 0.0673, 'train_acc': 0.6426, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0196, 'ood_train_loss': 1.3617, 'train_loss': 0.0406, 'train_acc': 0.6582, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0258, 'ood_train_loss': 1.3624, 'train_loss': 0.0467, 'train_acc': 0.6738, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0326, 'ood_train_loss': 1.3424, 'train_loss': 0.0531, 'train_acc': 0.6714, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0124, 'ood_train_loss': 1.3651, 'train_loss': 0.0335, 'train_acc': 0.6685, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 3, 'alpha': 0.9843926230757506, 'target_risk': 0.3155}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.9045, 'ood_train_loss': 1.1522, 'train_loss': 0.9083, 'train_acc': 0.4995, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4472, 'ood_train_loss': 1.4468, 'train_loss': 0.4628, 'train_acc': 0.5898, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2104, 'ood_train_loss': 1.4546, 'train_loss': 0.2298, 'train_acc': 0.5918, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1372, 'ood_train_loss': 1.6244, 'train_loss': 0.1605, 'train_acc': 0.6226, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0517, 'ood_train_loss': 1.5074, 'train_loss': 0.0744, 'train_acc': 0.6309, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.019, 'ood_train_loss': 1.5575, 'train_loss': 0.043, 'train_acc': 0.6489, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0302, 'ood_train_loss': 1.3993, 'train_loss': 0.0515, 'train_acc': 0.6475, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0159, 'ood_train_loss': 1.4767, 'train_loss': 0.0387, 'train_acc': 0.6626, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0444, 'ood_train_loss': 1.4581, 'train_loss': 0.0664, 'train_acc': 0.6616, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0185, 'ood_train_loss': 1.4332, 'train_loss': 0.0406, 'train_acc': 0.6777, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 4, 'alpha': 0.9843926230757506, 'target_risk': 0.328}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.7759, 'ood_train_loss': 1.1904, 'train_loss': 0.7823, 'train_acc': 0.4849, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4318, 'ood_train_loss': 1.1529, 'train_loss': 0.4431, 'train_acc': 0.5942, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2803, 'ood_train_loss': 1.3262, 'train_loss': 0.2967, 'train_acc': 0.624, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2441, 'ood_train_loss': 1.7159, 'train_loss': 0.2671, 'train_acc': 0.6162, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0488, 'ood_train_loss': 1.5796, 'train_loss': 0.0727, 'train_acc': 0.6226, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0757, 'ood_train_loss': 1.5656, 'train_loss': 0.099, 'train_acc': 0.6558, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0392, 'ood_train_loss': 1.5665, 'train_loss': 0.063, 'train_acc': 0.6406, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0155, 'ood_train_loss': 1.3378, 'train_loss': 0.0362, 'train_acc': 0.6758, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0157, 'ood_train_loss': 1.306, 'train_loss': 0.0358, 'train_acc': 0.687, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0109, 'ood_train_loss': 1.3797, 'train_loss': 0.0323, 'train_acc': 0.6636, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 5, 'alpha': 0.9843926230757506, 'target_risk': 0.3095}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.9828, 'ood_train_loss': 1.1335, 'train_loss': 0.9852, 'train_acc': 0.4678, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4144, 'ood_train_loss': 1.2882, 'train_loss': 0.428, 'train_acc': 0.605, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.4574, 'ood_train_loss': 1.542, 'train_loss': 0.4744, 'train_acc': 0.5771, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2593, 'ood_train_loss': 1.4985, 'train_loss': 0.2786, 'train_acc': 0.5884, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1049, 'ood_train_loss': 1.6791, 'train_loss': 0.1295, 'train_acc': 0.6045, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0492, 'ood_train_loss': 1.5873, 'train_loss': 0.0732, 'train_acc': 0.6162, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0495, 'ood_train_loss': 1.4723, 'train_loss': 0.0717, 'train_acc': 0.6372, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.055, 'ood_train_loss': 1.3272, 'train_loss': 0.0748, 'train_acc': 0.6636, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0417, 'ood_train_loss': 1.4092, 'train_loss': 0.063, 'train_acc': 0.6523, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0563, 'ood_train_loss': 1.4961, 'train_loss': 0.0788, 'train_acc': 0.6387, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 6, 'alpha': 0.9843926230757506, 'target_risk': 0.301}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.9163, 'ood_train_loss': 1.0835, 'train_loss': 0.9189, 'train_acc': 0.5029, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.317, 'ood_train_loss': 1.0685, 'train_loss': 0.3287, 'train_acc': 0.6006, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2689, 'ood_train_loss': 1.2002, 'train_loss': 0.2834, 'train_acc': 0.6079, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.2274, 'ood_train_loss': 1.3606, 'train_loss': 0.2451, 'train_acc': 0.6489, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1133, 'ood_train_loss': 1.6234, 'train_loss': 0.1369, 'train_acc': 0.6206, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0831, 'ood_train_loss': 1.5702, 'train_loss': 0.1063, 'train_acc': 0.6025, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0348, 'ood_train_loss': 1.4091, 'train_loss': 0.0563, 'train_acc': 0.6431, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0134, 'ood_train_loss': 1.4394, 'train_loss': 0.0357, 'train_acc': 0.6621, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0377, 'ood_train_loss': 1.3801, 'train_loss': 0.0587, 'train_acc': 0.6621, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0362, 'ood_train_loss': 1.4612, 'train_loss': 0.0585, 'train_acc': 0.6519, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 7, 'alpha': 0.9843926230757506, 'target_risk': 0.2975}
+INFO:root:{'epoch': 0, 'target_train_loss': 0.9161, 'ood_train_loss': 1.2897, 'train_loss': 0.9219, 'train_acc': 0.4888, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4198, 'ood_train_loss': 1.1486, 'train_loss': 0.4312, 'train_acc': 0.5947, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.2559, 'ood_train_loss': 1.2261, 'train_loss': 0.2711, 'train_acc': 0.6348, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1712, 'ood_train_loss': 1.7603, 'train_loss': 0.196, 'train_acc': 0.5806, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.0946, 'ood_train_loss': 1.6008, 'train_loss': 0.1181, 'train_acc': 0.6274, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0639, 'ood_train_loss': 1.5566, 'train_loss': 0.0872, 'train_acc': 0.6328, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0283, 'ood_train_loss': 1.5875, 'train_loss': 0.0527, 'train_acc': 0.6313, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.025, 'ood_train_loss': 1.4653, 'train_loss': 0.0475, 'train_acc': 0.6445, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0259, 'ood_train_loss': 1.5373, 'train_loss': 0.0495, 'train_acc': 0.6338, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0251, 'ood_train_loss': 1.4733, 'train_loss': 0.0477, 'train_acc': 0.6523, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 8, 'alpha': 0.9843926230757506, 'target_risk': 0.3185}
+INFO:root:{'epoch': 0, 'target_train_loss': 1.0055, 'ood_train_loss': 1.0524, 'train_loss': 1.0062, 'train_acc': 0.5103, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 10, 'target_train_loss': 0.4148, 'ood_train_loss': 0.9815, 'train_loss': 0.4236, 'train_acc': 0.606, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 20, 'target_train_loss': 0.3015, 'ood_train_loss': 1.4907, 'train_loss': 0.3201, 'train_acc': 0.5796, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 30, 'target_train_loss': 0.1583, 'ood_train_loss': 1.3394, 'train_loss': 0.1767, 'train_acc': 0.6514, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 40, 'target_train_loss': 0.1971, 'ood_train_loss': 1.4439, 'train_loss': 0.2166, 'train_acc': 0.6216, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 50, 'target_train_loss': 0.0573, 'ood_train_loss': 1.5847, 'train_loss': 0.0811, 'train_acc': 0.6377, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 60, 'target_train_loss': 0.0204, 'ood_train_loss': 1.3886, 'train_loss': 0.0418, 'train_acc': 0.6694, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 70, 'target_train_loss': 0.0275, 'ood_train_loss': 1.3278, 'train_loss': 0.0478, 'train_acc': 0.6733, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 80, 'target_train_loss': 0.0317, 'ood_train_loss': 1.3902, 'train_loss': 0.0529, 'train_acc': 0.6655, 'batch_target_fraction': 0.0469}
+INFO:root:{'epoch': 90, 'target_train_loss': 0.0133, 'ood_train_loss': 1.2071, 'train_loss': 0.0319, 'train_acc': 0.6816, 'batch_target_fraction': 0.0469}
+INFO:root:{'in_task': 2, 'out_task': 5, 'm_n_ratio': 20, 'replicate_id': 9, 'alpha': 0.9843926230757506, 'target_risk': 0.294}
