@@ -124,7 +124,7 @@ def evaluate(net, val_loader, gpu, is_multihead=False):
     error = 1-acc/count
     return error
 
-def search_alpha(net, dataset, n, hp, gpu, use_custom_sampler, sensitivity=0.05, val_split=0.1, SEED=1996):
+def search_alpha(prev_alpha, net, dataset, n, hp, gpu, use_custom_sampler, sensitivity=0.05, val_split=0.1, SEED=1996):
 
     train_loader = dataset.get_data_loader(
                     batch_size=hp['batch_size'],
@@ -137,7 +137,15 @@ def search_alpha(net, dataset, n, hp, gpu, use_custom_sampler, sensitivity=0.05,
     # set alpha search space
     # alpha_range = np.arange(0.5, 1+1e-5, sensitivity)
     # alpha_range = np.concatenate((np.arange(0.5, 0.9, 0.05), np.arange(0.9, 1+1e-5, 0.001)))
-    alpha_range = np.arange(0.9, 1+1e-5, 0.001)
+    
+    # static search space
+    # alpha_range = np.arange(0.9, 1+1e-5, 0.001)
+
+    # adaptive search space
+    if prev_alpha == 0.5:
+        alpha_range = np.arange(0.9, 1+1e-5, 0.005)[:-1]
+    else:
+        alpha_range = np.linspace(prev_alpha, 1, 20)[:-1]
 
     scores = []
  

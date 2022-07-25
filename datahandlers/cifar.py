@@ -15,7 +15,7 @@ class RotatedCIFAR10Handler:
     """
     Object for the CIFAR-10 dataset
     """
-    def __init__(self, task, angle, augment):
+    def __init__(self, task, angle, augment=False):
         # separate the selected task-data from the main dataset
         mean_norm = [0.50, 0.50, 0.50]
         std_norm = [0.2, 0.25, 0.25]
@@ -127,7 +127,7 @@ class RotatedCIFAR10Handler:
 
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, batch_size, train=True, isTaskAware=True):
+    def get_data_loader(self, batch_size, train=True, isTaskAware=True, use_custom_sampler=True):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -139,24 +139,27 @@ class RotatedCIFAR10Handler:
             ss = np.random.SeedSequence([id, base_seed])
             # More than 128 bits (4 32-bit words) would be overkill.
             np.random.seed(ss.generate_state(4))
+        num_workers = 4
         if train:
             if not isTaskAware:
                 # Use a usual dataloader if task-agnostic setting
-                data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=num_workers) # original
             else:
                 # Use the dataloader if task-aware setting
                 targets = self.comb_trainset.targets
                 task_vector = torch.tensor([targets[i][0] for i in range(len(targets))], dtype=torch.int32)
                 if task_vector.sum()==0:
-                    # Use a usual dataloader if there're no OOD samples in the combined dataset
-                    data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                    # Use a usual dataloader if there're no OOD samples in the combined dataset (applies in the task-aware setting)
+                    data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=num_workers) # original
                 else:
                     # Use a custom batch-sampler there're OOD samples in the combined dataset
-                    batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size), batch_size, True)
-                    data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=4, batch_sampler=batch_sampler)
-                    # data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=4) # original
+                    if use_custom_sampler:
+                        batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size), batch_size, True)
+                        data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=num_workers, batch_sampler=batch_sampler)
+                    else:
+                        data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=num_workers) # original
         else:
-            data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=4)
+            data_loader = DataLoader(self.testset, batch_size=batch_size, shuffle=False, worker_init_fn=wif, pin_memory=True, num_workers=num_workers)
         return data_loader
 
     def get_task_data_loader(self, task, batch_size, train=False):

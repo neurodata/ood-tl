@@ -43,11 +43,12 @@ def run_experiment(exp_conf, gpu):
             augment=exp_conf['augment']
         )
 
+        alpha = 0.50 # initialize
+
         i = 0
         for mn in exp_conf['m_n_ratio']:
             m = mn * n # OOD sample size
             print("m = {}".format(m))
-            alpha = 0.5 # initialize
 
             for r, rep in enumerate(range(exp_conf['reps'])):
                 print("T{} vs. T{} : Doing rep...{}".format(exp_conf['in_task'], task, rep))
@@ -88,6 +89,7 @@ def run_experiment(exp_conf, gpu):
                             if exp_conf['tune_alpha']: 
                                 # if OOD samples are present, we search for the optimal alpha                             
                                 alpha = search_alpha(
+                                    prev_alpha=alpha,
                                     net=net,
                                     dataset=dataset,
                                     n=n,
