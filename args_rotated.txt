@@ -1,0 +1,10 @@
+--exp_id no_aug_std_0_ag --angles 0 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
+--exp_id no_aug_std_10_ag --angles 10 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
+--exp_id no_aug_std_45_ag --angles 45 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
+--exp_id no_aug_std_90_ag --angles 90 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
+--exp_id no_aug_std_135_ag --angles 135 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
+--exp_id no_aug_cus_0_nai --angles 0 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
+--exp_id no_aug_cus_10_nai --angles 10 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
+--exp_id no_aug_cus_45_nai --angles 45 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
+--exp_id no_aug_cus_90_nai --angles 90 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
+--exp_id no_aug_cus_135_nai --angles 135 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:0 --makefolder
