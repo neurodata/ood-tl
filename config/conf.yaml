@@ -1,0 +1,21 @@
+deploy: False # Store run in wandb in True
+tag: scratch  # Tag is used to determine logging-directory
+seed: 0
+
+
+# Nested configs. Disable hydra logging
+defaults:
+  - _self_
+  # - hp: cifar10  # nested file directories
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+
+# Disable hydra directory structure
+hydra:
+  output_subdir: Null
+  run:
+    dir: .
+
+  sweep:
+    dir: .
+    subdir: .
