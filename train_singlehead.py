@@ -3,7 +3,14 @@ import torch
 import torchvision
 
 from utils.init import set_seed, open_log, init_wandb, cleanup
-from utils.data import get_cifar10_dataset, get_dataloader
+
+from datahandlers.cifar import SplitCIFARHandler
+
+def get_data(cfg):
+    if cfg.task.dataset == "split_cifar10":
+        return SplitCIFARHandler(cfg)
+    else:
+        raise NotImplementedError
 
 
 
@@ -13,7 +20,12 @@ def main(cfg):
     set_seed(cfg.seed)
     fp = open_log(cfg)
 
-    # Code here
+    dataHandler = get_data(cfg)
+    dataHandler.sample_data()
+
+    # test
+    trainloader = dataHandler.get_data_loader(train=True)
+    
 
     cleanup(cfg, fp)
 

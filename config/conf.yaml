@@ -2,11 +2,33 @@ deploy: False # Store run in wandb in True
 tag: scratch  # Tag is used to determine logging-directory
 seed: 0
 
+loss:
+  α: 0.5                 # Weighted loss function
+  tune_α: False
+  group_task_loss: True  # Avg losses based on task grouping
+
+task:
+  dataset: split_cifar10
+  task_map: [[0,1], [2,3], [4,5], [6,7], [8,9]]
+  target: 0
+  ood: [1]
+  augment: False
+  n: 2        # Samples per label (NOTE: different from ashwin's code)
+  m_n: 2      # Samples of OOD per label
+  β: 0.5   # either float or unbiased
+  custom_sampler: True
+  
+
+hp: 
+  epochs: 100
+  bs: 2
+
+net: wrn
+
 
 # Nested configs. Disable hydra logging
 defaults:
   - _self_
-  # - hp: cifar10  # nested file directories
   - override hydra/job_logging: disabled
   - override hydra/hydra_logging: disabled
 

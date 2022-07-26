@@ -1,30 +1,14 @@
 import torch
-from sklearn.model_selection import StratifiedShuffleSplit
-from sklearn.model_selection import StratifiedKFold
 import numpy as np
 
+from torch.utils.data import Sampler
 
-class Sampler(object):
-    """Base class for all Samplers.
-    Every Sampler subclass has to provide an __iter__ method, providing a way
-    to iterate over indices of dataset elements, and a __len__ method that
-    returns the length of the returned iterators.
-    """
-
-    def __init__(self, data_source):
-        pass
-
-    def __iter__(self):
-        raise NotImplementedError
-
-    def __len__(self):
-        raise NotImplementedError
 
 class CustomBatchSampler(Sampler):
-    """Stratified Sampling
+    """Samples 
     Provides equal representation of target classes in each batch
     """
-    def __init__(self, task_vector, batch_size):
+    def __init__(self, cfg, tasks):
         """
         Arguments
         ---------
@@ -33,49 +17,53 @@ class CustomBatchSampler(Sampler):
         batch_size : integer
             batch_size
         """
-        self.n_splits = int(task_vector.size(0) / batch_size)
-        self.task_vector = task_vector
-        self.batch_size = batch_size
 
-        tasks = self.task_vector.numpy()
-        self.target_indices = np.where(tasks==0)[0].tolist()
-        self.ood_indices = np.where(tasks==1)[0].tolist()
+        self.cfg = cfg
+        self.tasks = tasks
+        self.npts = len(tasks)
+        self.numtasks = len(cfg.task.ood) + 1
 
-        self.beta = len(self.target_indices)/(len(tasks))
+        # Indices for each task
+        self.task_indices = []
+        for i in range(self.numtasks):
+            tinds = np.where(tasks==i)[0]
+            np.random.shuffle(tinds)
+            self.task_indices.append(tinds)
 
-    def gen_sample_array(self):
-        try:
-            from sklearn.model_selection import StratifiedShuffleSplit
-        except:
-            print('Need scikit-learn for this functionality')
-        import numpy as np
-        
-        # s = StratifiedKFold(n_splits=self.n_splits, shuffle=True)
-        # X = torch.randn(self.task_vector.size(0),2).numpy()
-        # y = self.task_vector.numpy()
-        # s.get_n_splits(X, y)
+        self.β = cfg.task.β
+        if self.β == "unbiased":
+            self.β = len(self.task_indices[0]) / len(tasks)
 
-        # unique batches
-        # # indices = []
-        # # for _, test_index in s.split(X, y):
-        # #     indices = np.hstack([indices, test_index])
+        # Num samples per task in each batch
+        self.batch_num = []
+        bs = cfg.hp.bs
+        #   Target task samples per batch
+        self.batch_num.append(max(1, int(self.β * bs)))
 
-        # non-unique batches (resampling occurs)
-        # indices = []
-        # for i in range(self.n_splits):
-        #     _ , test_index = next(s.split(X, y))
-        #     indices = np.hstack([indices, test_index])
-
-        indices = []
-        for i in range(self.n_splits):
-            indices.extend(np.random.choice(self.target_indices, round(self.batch_size * self.beta), replace=False))
-            indices.extend(np.random.choice(self.ood_indices,  round(self.batch_size * (1-self.beta)), replace=False))
-        indices = np.array(indices)
-        
-        return indices.astype('int')
+        #   OOD task samples per batch
+        ood_frac = (1 - self.β) / (self.numtasks - 1)
+        for i in range(1, self.numtasks):
+            self.batch_num.append(int(ood_frac * bs))
 
     def __iter__(self):
-        return iter(self.gen_sample_array())
+        cfg = self.cfg
+        self.num_iters = max(1, self.npts // cfg.hp.bs)
+
+        # all_batches = []
+        for it in range(num_iters):
+            batch = []
+            # sample 
+
+            for i in range(self.numtasks):
+                nind = len(self.task_indices[i])
+                if nind == 0:
+                    self.task_indices[i] = np.where(self.tasks==i)[0]
+                    np.random.shuffle(self.task_indices[i])
+
+                batch.extend(self.task_indices[i][:self.batch_num[i]])
+
+                self.task_indices[i] = self.task_indices[i][self.batch_num[i]:]
+            yield batch
 
     def __len__(self):
-        return len(self.task_vector)
+        return self.num_iters
