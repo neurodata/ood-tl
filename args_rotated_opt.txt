@@ -1,1 +1,0 @@
---exp_id no_aug_cus_135_opt --angles 135 --task_aware --tune_alpha --net smallconv --no-augment --custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:1 --makefolder
