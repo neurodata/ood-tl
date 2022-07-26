@@ -1,5 +1,3 @@
---exp_id no_aug_std_0_ag --angles 0 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---exp_id no_aug_std_10_ag --angles 10 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---exp_id no_aug_std_45_ag --angles 45 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---exp_id no_aug_std_90_ag --angles 90 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---exp_id no_aug_std_135_ag --angles 135 --no-task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id no_aug_custom_1_5_nai_beta --in_task 1 --out_task 5 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.5 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id no_aug_custom_2_3_nai_beta --in_task 2 --out_task 3 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.5 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id no_aug_custom_2_5_nai_beta --in_task 2 --out_task 5 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.5 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
