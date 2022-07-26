@@ -144,9 +144,9 @@ def search_alpha(prev_alpha, net, dataset, n, hp, gpu, use_custom_sampler, beta,
 
     # adaptive search space
     if prev_alpha == 0.5:
-        alpha_range = np.arange(0.9, 1+1e-5, 0.005)[:-1]
+        alpha_range = np.arange(0.9, 1+1e-5, 0.01)[:-1]
     else:
-        alpha_range = np.linspace(prev_alpha, 1, 20)[:-1]
+        alpha_range = np.linspace(prev_alpha, 1, 10)[:-1]
 
     scores = []
  
