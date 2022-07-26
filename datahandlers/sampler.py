@@ -24,7 +24,7 @@ class CustomBatchSampler(Sampler):
     """Stratified Sampling
     Provides equal representation of target classes in each batch
     """
-    def __init__(self, task_vector, batch_size):
+    def __init__(self, task_vector, batch_size, beta=None):
         """
         Arguments
         ---------
@@ -41,7 +41,10 @@ class CustomBatchSampler(Sampler):
         self.target_indices = np.where(tasks==0)[0].tolist()
         self.ood_indices = np.where(tasks==1)[0].tolist()
 
-        self.beta = len(self.target_indices)/(len(tasks))
+        if beta is None:
+            self.beta = len(self.target_indices)/(len(tasks))
+        else:
+            self.beta = beta
 
     def gen_sample_array(self):
         try:

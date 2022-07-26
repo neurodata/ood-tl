@@ -7,9 +7,7 @@ import random
 import numpy as np
 import torch
 import pandas as pd
-import seaborn as sns
 import logging
-sns.set_theme()
 
 from utils.config import fetch_configs
 from datahandlers.cifar import RotatedCIFAR10Handler
@@ -96,6 +94,7 @@ def run_experiment(exp_conf, gpu):
                                     hp=hp,
                                     gpu=gpu,
                                     use_custom_sampler=exp_conf['custom_sampler'],
+                                    beta=exp_conf['beta']
                                     sensitivity=0.05,
                                     val_split=exp_conf['val_split']
                                 )                     
@@ -111,7 +110,8 @@ def run_experiment(exp_conf, gpu):
                     batch_size=hp['batch_size'],
                     train=True,
                     isTaskAware=exp_conf['task_aware'],
-                    use_custom_sampler=exp_conf['custom_sampler']
+                    use_custom_sampler=exp_conf['custom_sampler'],
+                    beta=exp_conf['beta']
                 )
 
                 optimizer = torch.optim.SGD(
@@ -191,6 +191,10 @@ def main():
     parser.add_argument('--custom_sampler', action='store_true')
     parser.add_argument('--no-custom_sampler', dest='custom_sampler', action='store_false')
 
+    parser.add_argument('--beta', type=float,
+                            default=None,
+                            help="Specify the target fraction for the custom batch-sampler")
+
     parser.add_argument('--epochs', type=int,
                         help="Number of epochs")
 
@@ -222,6 +226,7 @@ def main():
         exp_conf['augment'] = args.augment
     if args.custom_sampler is not None:
         exp_conf['custom_sampler'] = args.custom_sampler
+    exp_conf['beta'] = args.beta
     if args.epochs is not None:
         exp_conf['hp']['epochs'] = args.epochs
     if args.batch_size is not None:

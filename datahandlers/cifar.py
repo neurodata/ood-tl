@@ -127,7 +127,7 @@ class RotatedCIFAR10Handler:
 
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, batch_size, train=True, isTaskAware=True, use_custom_sampler=True):
+    def get_data_loader(self, batch_size, train=True, isTaskAware=True, use_custom_sampler=True, beta=None):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -154,7 +154,7 @@ class RotatedCIFAR10Handler:
                 else:
                     # Use a custom batch-sampler there're OOD samples in the combined dataset
                     if use_custom_sampler:
-                        batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size), batch_size, True)
+                        batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size, beta), batch_size, True)
                         data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=num_workers, batch_sampler=batch_sampler)
                     else:
                         data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=num_workers) # original
@@ -274,7 +274,7 @@ class SplitCIFARHandler:
 
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, batch_size, train=True, isTaskAware=True, use_custom_sampler=True):
+    def get_data_loader(self, batch_size, train=True, isTaskAware=True, use_custom_sampler=True, beta=None):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -301,7 +301,7 @@ class SplitCIFARHandler:
                 else:
                     # Use a custom batch-sampler there're OOD samples in the combined dataset
                     if use_custom_sampler:
-                        batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size), batch_size, True)
+                        batch_sampler = torch.utils.data.BatchSampler(CustomBatchSampler(task_vector, batch_size, beta), batch_size, True)
                         data_loader = DataLoader(self.comb_trainset, worker_init_fn=wif, pin_memory=True, num_workers=num_workers, batch_sampler=batch_sampler)
                     else:
                         data_loader = DataLoader(self.comb_trainset, batch_size=batch_size, shuffle=True, worker_init_fn=wif, pin_memory=True, num_workers=num_workers) # original
