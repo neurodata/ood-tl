@@ -103,8 +103,6 @@ class SplitCIFARHandler:
         comb_trainset.data = data[indices]
         comb_trainset.targets = targets[indices].tolist()
 
-        print(comb_trainset.targets)
-
         self.comb_trainset = comb_trainset
 
     def get_data_loader(self, train=True):
@@ -125,15 +123,11 @@ class SplitCIFARHandler:
 
         if train:
             if cfg.task.custom_sampler and cfg.task.m_n > 0:
-                # Use the dataloader in the task-aware setting
                 tasks = np.array(self.comb_trainset.targets)[:, 0]
                 batch_sampler = CustomBatchSampler(cfg, tasks)
-                # data_loader = DataLoader(
-                #     self.comb_trainset, worker_init_fn=wif, pin_memory=True,
-                #     num_workers=num_workers, batch_sampler=batch_sampler)
                 data_loader = DataLoader(
-                    self.comb_trainset,pin_memory=True,
-                    num_workers=0, batch_sampler=batch_sampler)
+                    self.comb_trainset, worker_init_fn=wif, pin_memory=True,
+                    num_workers=num_workers, batch_sampler=batch_sampler)
             else:
                 # If no OOD samples use naive sampler
                 data_loader = DataLoader(
@@ -142,7 +136,7 @@ class SplitCIFARHandler:
                     pin_memory=True, num_workers=num_workers)
         else:
             data_loader = DataLoader(
-                self.testset, batch_size=batch_size, shuffle=False,
+                self.testset, batch_size=cfg.hp.bs, shuffle=False,
                 worker_init_fn=wif, pin_memory=True, num_workers=num_workers)
 
         return data_loader

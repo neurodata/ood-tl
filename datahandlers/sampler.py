@@ -22,6 +22,7 @@ class CustomBatchSampler(Sampler):
         self.tasks = tasks
         self.npts = len(tasks)
         self.numtasks = len(cfg.task.ood) + 1
+        self.num_iters = max(1, self.npts // cfg.hp.bs)
 
         # Indices for each task
         self.task_indices = []
@@ -47,10 +48,9 @@ class CustomBatchSampler(Sampler):
 
     def __iter__(self):
         cfg = self.cfg
-        self.num_iters = max(1, self.npts // cfg.hp.bs)
 
         # all_batches = []
-        for it in range(num_iters):
+        for it in range(self.num_iters):
             batch = []
             # sample 
 
