@@ -74,7 +74,7 @@ class SplitCIFARHandler:
         self.trainset = trainset
         self.testset = testset
 
-    def sample_data(self):
+    def sample_data(self, seed):
         ## Balanced sample for each data
 
         cfg = self.cfg
@@ -88,7 +88,7 @@ class SplitCIFARHandler:
 
         for i in range(num_tasks):
             idx = (np.where(tasks == i))[0]
-            rng = np.random.default_rng(cfg.seed)
+            rng = np.random.default_rng(seed)
             rng.shuffle(idx)
 
             nsamples = cfg.task.n
