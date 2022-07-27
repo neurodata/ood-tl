@@ -101,7 +101,6 @@ class SplitCIFARHandler:
 
         comb_trainset.data = data[indices]
         comb_trainset.targets = targets[indices].tolist()
-
         self.comb_trainset = comb_trainset
 
     def get_data_loader(self, train=True):
@@ -118,24 +117,28 @@ class SplitCIFARHandler:
             np.random.seed(ss.generate_state(4))
 
         cfg = self.cfg
-        num_workers = 4
+
+        kwargs = {
+            'worker_init_fn': wif,
+            'pin_memory': True,
+            'num_workers': 4,
+            'multiprocessing_context':'fork'}
 
         if train:
             if cfg.task.custom_sampler and cfg.task.m_n > 0:
                 tasks = np.array(self.comb_trainset.targets)[:, 0]
                 batch_sampler = CustomBatchSampler(cfg, tasks)
+
                 data_loader = DataLoader(
-                    self.comb_trainset, worker_init_fn=wif, pin_memory=True,
-                    num_workers=num_workers, batch_sampler=batch_sampler)
+                    self.comb_trainset, batch_sampler=batch_sampler, **kwargs)
             else:
                 # If no OOD samples use naive sampler
                 data_loader = DataLoader(
                     self.comb_trainset, batch_size=cfg.hp.bs,
-                    shuffle=True, worker_init_fn=wif,
-                    pin_memory=True, num_workers=num_workers)
+                    shuffle=True, **kwargs)
         else:
             data_loader = DataLoader(
-                self.testset, batch_size=cfg.hp.bs, shuffle=False,
-                worker_init_fn=wif, pin_memory=True, num_workers=num_workers)
+                self.testset, batch_size=cfg.hp.bs, shuffle=False, **kwargs)
+                
 
         return data_loader
