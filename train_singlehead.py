@@ -13,13 +13,15 @@ from net.wideresnet import WideResNetSingleHeadNet
 from utils.run_net import train, evaluate
 
 
-def get_data(cfg):
+def get_data(cfg, seed):
     if cfg.task.dataset == "split_cifar10":
         dataHandler = SplitCIFARHandler(cfg)
     else:
         raise NotImplementedError
 
-    dataHandler.sample_data()
+    # Use different seeds across different runs
+    # But use the same seed
+    dataHandler.sample_data(seed)
     trainloader = dataHandler.get_data_loader(train=True)
     testloader = dataHandler.get_data_loader(train=False)
     return trainloader, testloader
@@ -67,9 +69,10 @@ def main(cfg):
 
     errs = []
     for rnum in range(cfg.reps):
-        set_seed(cfg.seed + rnum * 10)
+        seed =  cfg.seed + rnum * 10
+        set_seed(seed)
         net = get_net(cfg)
-        dataloaders = get_data(cfg)
+        dataloaders = get_data(cfg, seed)
         train(cfg, net, dataloaders[0])
         errs.append(evaluate(cfg, net, dataloaders[1], rnum))
 
