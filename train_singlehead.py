@@ -60,15 +60,14 @@ def get_net(cfg):
 @hydra.main(config_path="./config", config_name="conf.yaml")
 def main(cfg):
     init_wandb(cfg, project_name="ood_tl")
-    set_seed(cfg.seed)
     fp = open_log(cfg)
-
 
     if cfg.loss.tune_alpha:
         raise NotImplementedError
 
     errs = []
     for rnum in range(cfg.reps):
+        set_seed(cfg.seed + rnum * 10)
         net = get_net(cfg)
         dataloaders = get_data(cfg)
         train(cfg, net, dataloaders[0])
