@@ -2,6 +2,7 @@ import hydra
 import torch
 import torchvision
 import numpy as np
+import wandb
 
 from utils.init import set_seed, open_log, init_wandb, cleanup
 
@@ -63,7 +64,7 @@ def main(cfg):
     init_wandb(cfg, project_name="ood_tl")
     fp = open_log(cfg)
 
-    if cfg.loss.tune_α:
+    if cfg.loss.tune_alpha:
         raise NotImplementedError
 
     errs = []

@@ -1,0 +1,46 @@
+{'deploy': True, 'tag': '01_prelim/lr', 'seed': 10, 'device': 'cuda:0', 'reps': 3, 'loss': {'α': 0.5, 'tune_α': False, 'group_task_loss': True}, 'task': {'dataset': 'split_cifar10', 'task_map': [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9]], 'target': 0, 'ood': [1], 'augment': True, 'n': 50, 'm_n': 0, 'β': 0.5, 'custom_sampler': True}, 'hp': {'epochs': 100, 'bs': 16, 'lr': 0.1}, 'net': 'conv'}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 2.1063, 'train_acc': 0.48, 'task_loss': (2.1063, 0.0)}
+{'epoch': 2, 'train_loss': 0.6016, 'train_acc': 0.72, 'task_loss': (0.6016, 0.0)}
+{'epoch': 3, 'train_loss': 0.3932, 'train_acc': 0.71, 'task_loss': (0.3932, 0.0)}
+{'epoch': 4, 'train_loss': 0.6794, 'train_acc': 0.75, 'task_loss': (0.6794, 0.0)}
+{'epoch': 5, 'train_loss': 0.4914, 'train_acc': 0.68, 'task_loss': (0.4914, 0.0)}
+{'epoch': 6, 'train_loss': 0.4008, 'train_acc': 0.78, 'task_loss': (0.4008, 0.0)}
+{'epoch': 7, 'train_loss': 0.3051, 'train_acc': 0.77, 'task_loss': (0.3051, 0.0)}
+{'epoch': 8, 'train_loss': 0.2409, 'train_acc': 0.8, 'task_loss': (0.2409, 0.0)}
+{'epoch': 9, 'train_loss': 0.3054, 'train_acc': 0.77, 'task_loss': (0.3054, 0.0)}
+Exception ignored in: <function _releaseLock at 0x7f645a5f1dc0>
+Traceback (most recent call last):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/logging/__init__.py", line 227, in _releaseLock
+    def _releaseLock():
+KeyboardInterrupt: 
+Error executing job with overrides: ['seed=10', 'net=conv', 'reps=3', 'deploy=True', 'tag=01_prelim/lr', 'hp.lr=0.1', 'hp.bs=16']
+Traceback (most recent call last):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1011, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/queue.py", line 179, in get
+    raise Empty
+_queue.Empty
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 74, in main
+    train(cfg, net, dataloaders[0])
+  File "/home/ubuntu/ood-tl/utils/run_net.py", line 37, in train
+    for dat, target in trainloader:
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 530, in __next__
+    data = self._next_data()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1207, in _next_data
+    idx, data = self._get_data()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1163, in _get_data
+    success, data = self._try_get_data()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1024, in _try_get_data
+    raise RuntimeError('DataLoader worker (pid(s) {}) exited unexpectedly'.format(pids_str)) from e
+RuntimeError: DataLoader worker (pid(s) 6884) exited unexpectedly
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+
+wandb: Waiting for W&B process to finish, PID 6648... (failed 1). Press ctrl-c to abort syncing.
+wandb: - 0.00MB of 0.00MB uploaded (0.00MB deduped)wandb: ERROR Control-C detected -- Run data was not synced

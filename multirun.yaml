@@ -1,0 +1,164 @@
+hydra:
+  run:
+    dir: .
+  sweep:
+    dir: .
+    subdir: .
+  launcher:
+    _target_: hydra._internal.core_plugins.basic_launcher.BasicLauncher
+  sweeper:
+    _target_: hydra._internal.core_plugins.basic_sweeper.BasicSweeper
+    max_batch_size: null
+  help:
+    app_name: ${hydra.job.name}
+    header: '${hydra.help.app_name} is powered by Hydra.
+
+      '
+    footer: 'Powered by Hydra (https://hydra.cc)
+
+      Use --hydra-help to view Hydra specific help
+
+      '
+    template: '${hydra.help.header}
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (group=option)
+
+
+      $APP_CONFIG_GROUPS
+
+
+      == Config ==
+
+      Override anything in the config (foo.bar=value)
+
+
+      $CONFIG
+
+
+      ${hydra.help.footer}
+
+      '
+  hydra_help:
+    template: 'Hydra (${hydra.runtime.version})
+
+      See https://hydra.cc for more info.
+
+
+      == Flags ==
+
+      $FLAGS_HELP
+
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (For example, append hydra/job_logging=disabled
+      to command line)
+
+
+      $HYDRA_CONFIG_GROUPS
+
+
+      Use ''--cfg hydra'' to Show the Hydra config.
+
+      '
+    hydra_help: ???
+  hydra_logging:
+    version: 1
+    root:
+      level: ERROR
+    disable_existing_loggers: true
+  job_logging:
+    version: 1
+    root:
+      level: ERROR
+    disable_existing_loggers: true
+  env: {}
+  searchpath: []
+  callbacks: {}
+  output_subdir: null
+  overrides:
+    hydra: []
+    task:
+    - seed=10
+    - reps=10
+    - deploy=True
+    - tag=02_beta/task_aware_sampler
+    - loss.group_task_loss=False
+    - task.custom_sampler=True
+    - task.beta=unbiased
+    - task.m_n=0,0.5,1,2,3,4,5,7.5,10,12.5,15
+    - task.augment=True,False
+  job:
+    name: train_singlehead
+    override_dirname: deploy=True,loss.group_task_loss=False,reps=10,seed=10,tag=02_beta/task_aware_sampler,task.augment=True,False,task.beta=unbiased,task.custom_sampler=True,task.m_n=0,0.5,1,2,3,4,5,7.5,10,12.5,15
+    id: ???
+    num: ???
+    config_name: conf.yaml
+    env_set: {}
+    env_copy: []
+    config:
+      override_dirname:
+        kv_sep: '='
+        item_sep: ','
+        exclude_keys: []
+  runtime:
+    version: 1.1.0
+    cwd: /home/ubuntu/ood-tl
+    config_sources:
+    - path: hydra.conf
+      schema: pkg
+      provider: hydra
+    - path: /home/ubuntu/ood-tl/config
+      schema: file
+      provider: main
+    - path: ''
+      schema: structured
+      provider: schema
+    choices:
+      hydra/env: default
+      hydra/callbacks: null
+      hydra/job_logging: disabled
+      hydra/hydra_logging: disabled
+      hydra/hydra_help: default
+      hydra/help: default
+      hydra/sweeper: basic
+      hydra/launcher: basic
+      hydra/output: default
+  verbose: false
+deploy: true
+tag: 02_beta/task_aware_sampler
+seed: 10
+device: cuda:0
+reps: 10
+loss:
+  alpha: 0.5
+  tune_alpha: false
+  group_task_loss: false
+task:
+  dataset: split_cifar10
+  task_map:
+  - - 0
+    - 1
+  - - 2
+    - 3
+  - - 4
+    - 5
+  - - 6
+    - 7
+  - - 8
+    - 9
+  target: 0
+  ood:
+  - 4
+  augment: true
+  'n': 50
+  m_n: 0
+  beta: unbiased
+  custom_sampler: true
+hp:
+  epochs: 100
+  bs: 16
+  lr: 0.01
+net: conv

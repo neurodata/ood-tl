@@ -6,28 +6,28 @@ device: cuda:0
 reps: 3
 
 loss:
-  α: 0.5                 # Weighted loss function
-  tune_α: False
+  alpha: 0.5                 # Weighted loss function
+  tune_alpha: False
   group_task_loss: True  # Avg losses based on task grouping
 
 task:
   dataset: split_cifar10
   task_map: [[0,1], [2,3], [4,5], [6,7], [8,9]]
   target: 0
-  ood: [1]
+  ood: [4]
   augment: True
   n: 50        # Samples per label (NOTE: different from ashwin's code)
   m_n: 0      # Samples of OOD per label
-  β: 0.5      # either float or string "unbiased" to use n/n+m
+  beta: 0.5      # either float or string "unbiased" to use n/n+m
   custom_sampler: True
   
 
 hp: 
   epochs: 100
-  bs: 64
+  bs: 16
   lr: 0.01
 
-net: wrn16_4
+net: conv
 
 
 # Nested configs. Disable hydra logging

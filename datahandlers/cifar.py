@@ -1,11 +1,10 @@
+import numpy as np
+import random
 import torch
 import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
-import numpy as np
-from skimage.transform import rotate
-import random
 from datahandlers.sampler import CustomBatchSampler
 
 from typing import List
@@ -94,6 +93,7 @@ class SplitCIFARHandler:
             nsamples = cfg.task.n
             if i > 0:
                 nsamples *= cfg.task.m_n
+            nsamples = int(nsamples)
 
             if nsamples > 0:
                 for lb in range(len(cfg.task.task_map[i])):
