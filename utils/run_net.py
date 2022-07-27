@@ -55,8 +55,8 @@ def train(cfg, net, trainloader, wandb_log=True):
                     mask = task_count != 0
                     task_loss[mask] /= task_count[mask]
 
-                    task_loss[1:] *=  (1 - cfg.loss.α) / (ntasks - 1)
-                    task_loss[0] *= (cfg.loss.α)
+                    task_loss[1:] *=  (1 - cfg.loss.alpha) / (ntasks - 1)
+                    task_loss[0] *= (cfg.loss.alpha)
 
                     final_loss = task_loss.sum()
 
@@ -95,6 +95,7 @@ def train(cfg, net, trainloader, wandb_log=True):
         print(info)
     
     return net
+
 
 def evaluate(cfg, net, testloader, run_num):
     device = torch.device(cfg.device if torch.cuda.is_available() else 'cpu')

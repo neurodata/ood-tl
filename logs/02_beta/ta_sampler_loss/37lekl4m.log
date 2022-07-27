@@ -1,0 +1,1899 @@
+{'deploy': True, 'tag': '02_beta/ta_sampler_loss', 'seed': 10, 'device': 'cuda:0', 'reps': 10, 'loss': {'alpha': 0.5, 'tune_alpha': False, 'group_task_loss': True}, 'task': {'dataset': 'split_cifar10', 'task_map': [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9]], 'target': 0, 'ood': [4], 'augment': False, 'n': 50, 'm_n': 5, 'beta': 0.2, 'custom_sampler': True}, 'hp': {'epochs': 100, 'bs': 16, 'lr': 0.01}, 'net': 'conv'}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 0.8338, 'train_acc': 0.642, 'task_loss': (0.4095, 0.4243)}
+{'epoch': 2, 'train_loss': 0.5313, 'train_acc': 0.745, 'task_loss': (0.2423, 0.289)}
+{'epoch': 3, 'train_loss': 0.3519, 'train_acc': 0.8179, 'task_loss': (0.1183, 0.2336)}
+{'epoch': 4, 'train_loss': 0.291, 'train_acc': 0.8561, 'task_loss': (0.0886, 0.2024)}
+{'epoch': 5, 'train_loss': 0.1658, 'train_acc': 0.9035, 'task_loss': (0.0425, 0.1233)}
+{'epoch': 6, 'train_loss': 0.1562, 'train_acc': 0.9199, 'task_loss': (0.0404, 0.1159)}
+{'epoch': 7, 'train_loss': 0.0768, 'train_acc': 0.9617, 'task_loss': (0.011, 0.0659)}
+{'epoch': 8, 'train_loss': 0.0478, 'train_acc': 0.9763, 'task_loss': (0.0064, 0.0413)}
+{'epoch': 9, 'train_loss': 0.022, 'train_acc': 0.991, 'task_loss': (0.0031, 0.019)}
+{'epoch': 10, 'train_loss': 0.0151, 'train_acc': 0.9982, 'task_loss': (0.0013, 0.0139)}
+{'epoch': 11, 'train_loss': 0.0103, 'train_acc': 0.9964, 'task_loss': (0.0018, 0.0085)}
+{'epoch': 12, 'train_loss': 0.0111, 'train_acc': 0.9982, 'task_loss': (0.0011, 0.01)}
+{'epoch': 13, 'train_loss': 0.0065, 'train_acc': 1.0, 'task_loss': (0.0011, 0.0054)}
+{'epoch': 14, 'train_loss': 0.0034, 'train_acc': 1.0, 'task_loss': (0.0005, 0.003)}
+{'epoch': 15, 'train_loss': 0.0047, 'train_acc': 1.0, 'task_loss': (0.0005, 0.0043)}
+{'epoch': 16, 'train_loss': 0.003, 'train_acc': 1.0, 'task_loss': (0.0005, 0.0026)}
+{'epoch': 17, 'train_loss': 0.0028, 'train_acc': 1.0, 'task_loss': (0.0005, 0.0023)}
+{'epoch': 18, 'train_loss': 0.0019, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0016)}
+{'epoch': 19, 'train_loss': 0.0017, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0016)}
+{'epoch': 20, 'train_loss': 0.0014, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0013)}
+{'epoch': 21, 'train_loss': 0.0012, 'train_acc': 1.0, 'task_loss': (0.0002, 0.001)}
+{'epoch': 22, 'train_loss': 0.0021, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0018)}
+{'epoch': 23, 'train_loss': 0.0021, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0019)}
+{'epoch': 24, 'train_loss': 0.0013, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0011)}
+{'epoch': 25, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 26, 'train_loss': 0.0025, 'train_acc': 0.9982, 'task_loss': (1e-04, 0.0024)}
+{'epoch': 27, 'train_loss': 0.0013, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0011)}
+{'epoch': 28, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 29, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 30, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 31, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 32, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0006)}
+{'epoch': 33, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 34, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 35, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 36, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 37, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 38, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 39, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 40, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 41, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 42, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 43, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 44, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 45, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 46, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 47, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0004)}
+{'epoch': 48, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 49, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 50, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 51, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 52, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 53, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 54, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 55, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 56, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 57, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 58, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 59, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 60, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 61, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (0.0, 0.0008)}
+{'epoch': 62, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 63, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 64, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 65, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 66, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 67, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 68, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 69, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 70, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 71, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 72, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 73, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 74, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 75, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 76, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 77, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 78, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 79, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 80, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 81, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 82, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 83, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 84, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 85, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 86, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 87, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 88, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 89, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 90, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 91, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 92, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 93, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 94, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 95, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 96, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 97, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 98, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 99, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 100, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (0.0, 0.0005)}
+{'run_num': 0, 'final_test_err': 0.16774999999999995}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 0.7397, 'train_acc': 0.6727, 'task_loss': (0.3755, 0.3642)}
+{'epoch': 2, 'train_loss': 0.5616, 'train_acc': 0.7213, 'task_loss': (0.2576, 0.3041)}
+{'epoch': 3, 'train_loss': 0.4387, 'train_acc': 0.7923, 'task_loss': (0.1742, 0.2645)}
+{'epoch': 4, 'train_loss': 0.33, 'train_acc': 0.8324, 'task_loss': (0.1126, 0.2174)}
+{'epoch': 5, 'train_loss': 0.2403, 'train_acc': 0.8761, 'task_loss': (0.0746, 0.1658)}
+{'epoch': 6, 'train_loss': 0.1589, 'train_acc': 0.9107, 'task_loss': (0.04, 0.1189)}
+{'epoch': 7, 'train_loss': 0.1069, 'train_acc': 0.9454, 'task_loss': (0.0269, 0.08)}
+{'epoch': 8, 'train_loss': 0.0849, 'train_acc': 0.949, 'task_loss': (0.0124, 0.0725)}
+{'epoch': 9, 'train_loss': 0.0379, 'train_acc': 0.9855, 'task_loss': (0.0059, 0.032)}
+{'epoch': 10, 'train_loss': 0.0288, 'train_acc': 0.9909, 'task_loss': (0.0034, 0.0254)}
+{'epoch': 11, 'train_loss': 0.0134, 'train_acc': 0.9982, 'task_loss': (0.0015, 0.0118)}
+{'epoch': 12, 'train_loss': 0.0067, 'train_acc': 0.9982, 'task_loss': (0.001, 0.0057)}
+{'epoch': 13, 'train_loss': 0.0047, 'train_acc': 1.0, 'task_loss': (0.0006, 0.0041)}
+{'epoch': 14, 'train_loss': 0.0052, 'train_acc': 1.0, 'task_loss': (0.0011, 0.0042)}
+{'epoch': 15, 'train_loss': 0.0042, 'train_acc': 1.0, 'task_loss': (0.0006, 0.0036)}
+{'epoch': 16, 'train_loss': 0.0021, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0018)}
+{'epoch': 17, 'train_loss': 0.0039, 'train_acc': 1.0, 'task_loss': (0.0012, 0.0027)}
+{'epoch': 18, 'train_loss': 0.0033, 'train_acc': 1.0, 'task_loss': (0.0003, 0.003)}
+{'epoch': 19, 'train_loss': 0.0015, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0013)}
+{'epoch': 20, 'train_loss': 0.0015, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0011)}
+{'epoch': 21, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (1e-04, 0.001)}
+{'epoch': 22, 'train_loss': 0.0016, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0014)}
+{'epoch': 23, 'train_loss': 0.0019, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0016)}
+{'epoch': 24, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0009)}
+{'epoch': 25, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0009)}
+{'epoch': 26, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 27, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 28, 'train_loss': 0.0013, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0011)}
+{'epoch': 29, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 30, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0009)}
+{'epoch': 31, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 32, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0006)}
+{'epoch': 33, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0008)}
+{'epoch': 34, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 35, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 36, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 37, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 38, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 39, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 40, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 41, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 42, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 43, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0006)}
+{'epoch': 44, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 45, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 46, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 47, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 48, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 49, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 50, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0005)}
+{'epoch': 51, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 52, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 53, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 54, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 55, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 56, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 57, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0004)}
+{'epoch': 58, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 59, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (0.0, 0.0006)}
+{'epoch': 60, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 61, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 62, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 63, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 64, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 65, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 66, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 67, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 68, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 69, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 70, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 71, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 72, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 73, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 74, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 75, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 76, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 77, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 78, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 79, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 80, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 81, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 82, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 83, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 84, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 85, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 86, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 87, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 88, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 89, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 90, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 91, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 92, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 93, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 94, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 95, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 96, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 97, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 98, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 99, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 100, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'run_num': 1, 'final_test_err': 0.18225000000000002}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 0.7714, 'train_acc': 0.6655, 'task_loss': (0.4063, 0.3651)}
+{'epoch': 2, 'train_loss': 0.621, 'train_acc': 0.6995, 'task_loss': (0.2396, 0.3813)}
+{'epoch': 3, 'train_loss': 0.3582, 'train_acc': 0.8033, 'task_loss': (0.1061, 0.252)}
+{'epoch': 4, 'train_loss': 0.3185, 'train_acc': 0.8215, 'task_loss': (0.0931, 0.2254)}
+{'epoch': 5, 'train_loss': 0.1768, 'train_acc': 0.898, 'task_loss': (0.0307, 0.1461)}
+{'epoch': 6, 'train_loss': 0.125, 'train_acc': 0.9308, 'task_loss': (0.0305, 0.0945)}
+{'epoch': 7, 'train_loss': 0.101, 'train_acc': 0.9526, 'task_loss': (0.0212, 0.0798)}
+{'epoch': 8, 'train_loss': 0.0676, 'train_acc': 0.9709, 'task_loss': (0.0169, 0.0507)}
+{'epoch': 9, 'train_loss': 0.0535, 'train_acc': 0.9819, 'task_loss': (0.0169, 0.0365)}
+{'epoch': 10, 'train_loss': 0.0283, 'train_acc': 0.9872, 'task_loss': (0.003, 0.0253)}
+{'epoch': 11, 'train_loss': 0.0242, 'train_acc': 0.9909, 'task_loss': (0.0022, 0.022)}
+{'epoch': 12, 'train_loss': 0.0109, 'train_acc': 0.9982, 'task_loss': (0.0013, 0.0097)}
+{'epoch': 13, 'train_loss': 0.0075, 'train_acc': 0.9964, 'task_loss': (0.0009, 0.0066)}
+{'epoch': 14, 'train_loss': 0.0034, 'train_acc': 1.0, 'task_loss': (0.0004, 0.003)}
+{'epoch': 15, 'train_loss': 0.0026, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0021)}
+{'epoch': 16, 'train_loss': 0.0024, 'train_acc': 1.0, 'task_loss': (0.0004, 0.002)}
+{'epoch': 17, 'train_loss': 0.0023, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0019)}
+{'epoch': 18, 'train_loss': 0.0023, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0019)}
+{'epoch': 19, 'train_loss': 0.0014, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0013)}
+{'epoch': 20, 'train_loss': 0.0015, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0014)}
+{'epoch': 21, 'train_loss': 0.0014, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0011)}
+{'epoch': 22, 'train_loss': 0.0018, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0016)}
+{'epoch': 23, 'train_loss': 0.0014, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0012)}
+{'epoch': 24, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0008)}
+{'epoch': 25, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0009)}
+{'epoch': 26, 'train_loss': 0.0014, 'train_acc': 1.0, 'task_loss': (0.0004, 0.001)}
+{'epoch': 27, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 28, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (1e-04, 0.001)}
+{'epoch': 29, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 30, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 31, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 32, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 33, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (1e-04, 0.001)}
+{'epoch': 34, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 35, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 36, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 37, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0005)}
+{'epoch': 38, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 39, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 40, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 41, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 42, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 43, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 44, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 45, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 46, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 47, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 48, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 49, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 50, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 51, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 52, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 53, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 54, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 55, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 56, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 57, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 58, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 59, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 60, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 61, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 62, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 63, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 64, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 65, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 66, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 67, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 68, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 69, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 70, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 71, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 72, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 73, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 74, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 75, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 76, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 77, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 78, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 79, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 80, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 81, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 82, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 83, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 84, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 85, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 86, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 87, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 88, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 89, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 90, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 91, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 92, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 93, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 94, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 95, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 96, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 97, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 98, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 99, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 100, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'run_num': 2, 'final_test_err': 0.17500000000000004}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 0.7581, 'train_acc': 0.6456, 'task_loss': (0.3374, 0.4207)}
+{'epoch': 2, 'train_loss': 0.548, 'train_acc': 0.7377, 'task_loss': (0.2373, 0.3107)}
+{'epoch': 3, 'train_loss': 0.3718, 'train_acc': 0.7978, 'task_loss': (0.1032, 0.2686)}
+{'epoch': 4, 'train_loss': 0.2553, 'train_acc': 0.8707, 'task_loss': (0.078, 0.1773)}
+{'epoch': 5, 'train_loss': 0.2208, 'train_acc': 0.8725, 'task_loss': (0.0686, 0.1522)}
+{'epoch': 6, 'train_loss': 0.1279, 'train_acc': 0.9308, 'task_loss': (0.0255, 0.1024)}
+{'epoch': 7, 'train_loss': 0.0718, 'train_acc': 0.9636, 'task_loss': (0.0092, 0.0626)}
+{'epoch': 8, 'train_loss': 0.086, 'train_acc': 0.9672, 'task_loss': (0.0177, 0.0683)}
+{'epoch': 9, 'train_loss': 0.0285, 'train_acc': 0.991, 'task_loss': (0.0048, 0.0237)}
+{'epoch': 10, 'train_loss': 0.0146, 'train_acc': 0.9982, 'task_loss': (0.0021, 0.0125)}
+{'epoch': 11, 'train_loss': 0.0139, 'train_acc': 0.9927, 'task_loss': (0.001, 0.0129)}
+{'epoch': 12, 'train_loss': 0.0072, 'train_acc': 1.0, 'task_loss': (0.0017, 0.0054)}
+{'epoch': 13, 'train_loss': 0.0056, 'train_acc': 1.0, 'task_loss': (0.0015, 0.0042)}
+{'epoch': 14, 'train_loss': 0.0031, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0029)}
+{'epoch': 15, 'train_loss': 0.0032, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0028)}
+{'epoch': 16, 'train_loss': 0.0019, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0016)}
+{'epoch': 17, 'train_loss': 0.0018, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0015)}
+{'epoch': 18, 'train_loss': 0.0015, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0014)}
+{'epoch': 19, 'train_loss': 0.0015, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0013)}
+{'epoch': 20, 'train_loss': 0.0014, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0012)}
+{'epoch': 21, 'train_loss': 0.0017, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0015)}
+{'epoch': 22, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0009)}
+{'epoch': 23, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 24, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 25, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0008)}
+{'epoch': 26, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 27, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 28, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 29, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 30, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 31, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 32, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 33, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 34, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 35, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 36, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 37, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 38, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 39, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 40, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 41, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 42, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 43, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 44, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 45, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 46, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 47, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 48, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 49, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 50, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 51, 'train_loss': 0.0013, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0011)}
+{'epoch': 52, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 53, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 54, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 55, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 56, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 57, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 58, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 59, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 60, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 61, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 62, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 63, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 64, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 65, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 66, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 67, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 68, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 69, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 70, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 71, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 72, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 73, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 74, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 75, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 76, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 77, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 78, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 79, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 80, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 81, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 82, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 83, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 84, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 85, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 86, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 87, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 88, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 89, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 90, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 91, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 92, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 93, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 94, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 95, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 96, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 97, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 98, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 99, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 100, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'run_num': 3, 'final_test_err': 0.17100000000000004}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 0.8198, 'train_acc': 0.6184, 'task_loss': (0.422, 0.3978)}
+{'epoch': 2, 'train_loss': 0.4533, 'train_acc': 0.7723, 'task_loss': (0.1791, 0.2742)}
+{'epoch': 3, 'train_loss': 0.398, 'train_acc': 0.7978, 'task_loss': (0.159, 0.239)}
+{'epoch': 4, 'train_loss': 0.261, 'train_acc': 0.8652, 'task_loss': (0.0618, 0.1992)}
+{'epoch': 5, 'train_loss': 0.1515, 'train_acc': 0.9071, 'task_loss': (0.0334, 0.1182)}
+{'epoch': 6, 'train_loss': 0.1006, 'train_acc': 0.9545, 'task_loss': (0.024, 0.0766)}
+{'epoch': 7, 'train_loss': 0.0888, 'train_acc': 0.9526, 'task_loss': (0.0244, 0.0644)}
+{'epoch': 8, 'train_loss': 0.0372, 'train_acc': 0.9836, 'task_loss': (0.0064, 0.0308)}
+{'epoch': 9, 'train_loss': 0.0343, 'train_acc': 0.9819, 'task_loss': (0.0094, 0.0249)}
+{'epoch': 10, 'train_loss': 0.0627, 'train_acc': 0.9672, 'task_loss': (0.0139, 0.0488)}
+{'epoch': 11, 'train_loss': 0.0727, 'train_acc': 0.9654, 'task_loss': (0.0258, 0.0469)}
+{'epoch': 12, 'train_loss': 0.0378, 'train_acc': 0.9799, 'task_loss': (0.0052, 0.0326)}
+{'epoch': 13, 'train_loss': 0.0136, 'train_acc': 0.9982, 'task_loss': (0.0027, 0.0109)}
+{'epoch': 14, 'train_loss': 0.0069, 'train_acc': 1.0, 'task_loss': (0.0008, 0.0061)}
+{'epoch': 15, 'train_loss': 0.0047, 'train_acc': 1.0, 'task_loss': (0.0009, 0.0038)}
+{'epoch': 16, 'train_loss': 0.004, 'train_acc': 1.0, 'task_loss': (0.0005, 0.0035)}
+{'epoch': 17, 'train_loss': 0.0021, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0019)}
+{'epoch': 18, 'train_loss': 0.0015, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0012)}
+{'epoch': 19, 'train_loss': 0.0012, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0011)}
+{'epoch': 20, 'train_loss': 0.0015, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0013)}
+{'epoch': 21, 'train_loss': 0.0017, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0015)}
+{'epoch': 22, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 23, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 24, 'train_loss': 0.0012, 'train_acc': 1.0, 'task_loss': (0.0002, 0.001)}
+{'epoch': 25, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0009)}
+{'epoch': 26, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0008)}
+{'epoch': 27, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0009)}
+{'epoch': 28, 'train_loss': 0.0012, 'train_acc': 1.0, 'task_loss': (0.0002, 0.001)}
+{'epoch': 29, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 30, 'train_loss': 0.0013, 'train_acc': 1.0, 'task_loss': (0.0003, 0.001)}
+{'epoch': 31, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 32, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 33, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0009)}
+{'epoch': 34, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 35, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 36, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 37, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 38, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 39, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 40, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 41, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 42, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 43, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (0.0, 0.0005)}
+{'epoch': 44, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 45, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 46, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 47, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 48, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 49, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 50, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 51, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 52, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 53, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 54, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 55, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 56, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 57, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 58, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 59, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 60, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 61, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 62, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 63, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 64, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 65, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 66, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 67, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 68, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 69, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 70, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 71, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 72, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 73, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 74, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 75, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 76, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 77, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 78, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 79, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 80, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 81, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 82, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 83, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 84, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 85, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 86, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 87, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 88, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 89, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 90, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 91, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 92, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 93, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 94, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 95, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 96, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 97, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 98, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 99, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 100, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'run_num': 4, 'final_test_err': 0.17625000000000002}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 0.7534, 'train_acc': 0.6456, 'task_loss': (0.3852, 0.3682)}
+{'epoch': 2, 'train_loss': 0.4963, 'train_acc': 0.7632, 'task_loss': (0.183, 0.3133)}
+{'epoch': 3, 'train_loss': 0.3573, 'train_acc': 0.8069, 'task_loss': (0.1299, 0.2275)}
+{'epoch': 4, 'train_loss': 0.3699, 'train_acc': 0.8306, 'task_loss': (0.135, 0.2349)}
+{'epoch': 5, 'train_loss': 0.2277, 'train_acc': 0.8816, 'task_loss': (0.0439, 0.1838)}
+{'epoch': 6, 'train_loss': 0.171, 'train_acc': 0.9089, 'task_loss': (0.04, 0.131)}
+{'epoch': 7, 'train_loss': 0.0993, 'train_acc': 0.9545, 'task_loss': (0.0191, 0.0801)}
+{'epoch': 8, 'train_loss': 0.0509, 'train_acc': 0.9727, 'task_loss': (0.0126, 0.0383)}
+{'epoch': 9, 'train_loss': 0.0371, 'train_acc': 0.9837, 'task_loss': (0.0067, 0.0304)}
+{'epoch': 10, 'train_loss': 0.0283, 'train_acc': 0.9872, 'task_loss': (0.0021, 0.0261)}
+{'epoch': 11, 'train_loss': 0.0163, 'train_acc': 0.9964, 'task_loss': (0.0019, 0.0144)}
+{'epoch': 12, 'train_loss': 0.0168, 'train_acc': 0.9963, 'task_loss': (0.0028, 0.014)}
+{'epoch': 13, 'train_loss': 0.0074, 'train_acc': 1.0, 'task_loss': (0.0012, 0.0062)}
+{'epoch': 14, 'train_loss': 0.0071, 'train_acc': 1.0, 'task_loss': (0.0005, 0.0066)}
+{'epoch': 15, 'train_loss': 0.0037, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0034)}
+{'epoch': 16, 'train_loss': 0.0027, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0024)}
+{'epoch': 17, 'train_loss': 0.0018, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0014)}
+{'epoch': 18, 'train_loss': 0.0021, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0017)}
+{'epoch': 19, 'train_loss': 0.0019, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0016)}
+{'epoch': 20, 'train_loss': 0.0016, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0014)}
+{'epoch': 21, 'train_loss': 0.0015, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0012)}
+{'epoch': 22, 'train_loss': 0.0016, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0014)}
+{'epoch': 23, 'train_loss': 0.0022, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0019)}
+{'epoch': 24, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 25, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 26, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 27, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 28, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 29, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0008)}
+{'epoch': 30, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 31, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 32, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 33, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 34, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 35, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 36, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 37, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 38, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 39, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 40, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0005)}
+{'epoch': 41, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 42, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 43, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 44, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 45, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 46, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 47, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 48, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 49, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 50, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 51, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 52, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 53, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 54, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 55, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 56, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 57, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 58, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 59, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 60, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 61, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 62, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 63, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 64, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 65, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 66, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 67, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 68, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 69, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 70, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 71, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 72, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 73, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 74, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 75, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 76, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 77, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 78, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 79, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 80, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 81, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 82, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 83, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 84, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 85, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 86, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 87, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 88, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 89, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 90, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 91, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 92, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 93, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 94, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 95, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 96, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 97, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 98, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 99, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 100, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'run_num': 5, 'final_test_err': 0.18200000000000005}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 0.7474, 'train_acc': 0.642, 'task_loss': (0.3589, 0.3885)}
+{'epoch': 2, 'train_loss': 0.6041, 'train_acc': 0.7523, 'task_loss': (0.2725, 0.3317)}
+{'epoch': 3, 'train_loss': 0.378, 'train_acc': 0.8197, 'task_loss': (0.1297, 0.2483)}
+{'epoch': 4, 'train_loss': 0.2229, 'train_acc': 0.8852, 'task_loss': (0.0564, 0.1665)}
+{'epoch': 5, 'train_loss': 0.2658, 'train_acc': 0.8761, 'task_loss': (0.0901, 0.1757)}
+{'epoch': 6, 'train_loss': 0.2154, 'train_acc': 0.8907, 'task_loss': (0.052, 0.1634)}
+{'epoch': 7, 'train_loss': 0.1012, 'train_acc': 0.9435, 'task_loss': (0.0185, 0.0827)}
+{'epoch': 8, 'train_loss': 0.046, 'train_acc': 0.9818, 'task_loss': (0.0067, 0.0393)}
+{'epoch': 9, 'train_loss': 0.0302, 'train_acc': 0.991, 'task_loss': (0.0035, 0.0266)}
+{'epoch': 10, 'train_loss': 0.029, 'train_acc': 0.9945, 'task_loss': (0.005, 0.024)}
+{'epoch': 11, 'train_loss': 0.0133, 'train_acc': 0.9982, 'task_loss': (0.0018, 0.0115)}
+{'epoch': 12, 'train_loss': 0.0079, 'train_acc': 1.0, 'task_loss': (0.0011, 0.0068)}
+{'epoch': 13, 'train_loss': 0.0051, 'train_acc': 1.0, 'task_loss': (0.001, 0.0041)}
+{'epoch': 14, 'train_loss': 0.0043, 'train_acc': 1.0, 'task_loss': (0.0007, 0.0036)}
+{'epoch': 15, 'train_loss': 0.0035, 'train_acc': 1.0, 'task_loss': (0.0005, 0.0031)}
+{'epoch': 16, 'train_loss': 0.0019, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0017)}
+{'epoch': 17, 'train_loss': 0.0018, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0016)}
+{'epoch': 18, 'train_loss': 0.0018, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0016)}
+{'epoch': 19, 'train_loss': 0.0019, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0015)}
+{'epoch': 20, 'train_loss': 0.0014, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0012)}
+{'epoch': 21, 'train_loss': 0.0013, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0011)}
+{'epoch': 22, 'train_loss': 0.0014, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0013)}
+{'epoch': 23, 'train_loss': 0.0012, 'train_acc': 1.0, 'task_loss': (1e-04, 0.001)}
+{'epoch': 24, 'train_loss': 0.0025, 'train_acc': 1.0, 'task_loss': (0.0005, 0.0021)}
+{'epoch': 25, 'train_loss': 0.0019, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0015)}
+{'epoch': 26, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0009)}
+{'epoch': 27, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 28, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 29, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 30, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 31, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0006)}
+{'epoch': 32, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (1e-04, 0.001)}
+{'epoch': 33, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 34, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 35, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 36, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0008)}
+{'epoch': 37, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 38, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 39, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 40, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 41, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 42, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 43, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 44, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 45, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 46, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 47, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 48, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 49, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 50, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 51, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 52, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 53, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 54, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 55, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 56, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 57, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 58, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 59, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 60, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 61, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 62, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 63, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 64, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 65, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (0.0, 0.0006)}
+{'epoch': 66, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 67, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 68, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 69, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 70, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 71, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 72, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 73, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 74, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 75, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 76, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 77, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 78, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 79, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 80, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 81, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 82, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 83, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 84, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 85, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 86, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 87, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 88, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 89, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 90, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 91, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 92, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 93, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 94, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 95, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 96, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 97, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 98, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 99, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 100, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'run_num': 6, 'final_test_err': 0.18225000000000002}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 0.8577, 'train_acc': 0.6293, 'task_loss': (0.4077, 0.45)}
+{'epoch': 2, 'train_loss': 0.5899, 'train_acc': 0.7413, 'task_loss': (0.2544, 0.3355)}
+{'epoch': 3, 'train_loss': 0.3739, 'train_acc': 0.7996, 'task_loss': (0.1282, 0.2457)}
+{'epoch': 4, 'train_loss': 0.3146, 'train_acc': 0.8561, 'task_loss': (0.129, 0.1856)}
+{'epoch': 5, 'train_loss': 0.2446, 'train_acc': 0.8743, 'task_loss': (0.0691, 0.1755)}
+{'epoch': 6, 'train_loss': 0.14, 'train_acc': 0.9235, 'task_loss': (0.0265, 0.1135)}
+{'epoch': 7, 'train_loss': 0.0689, 'train_acc': 0.9672, 'task_loss': (0.0136, 0.0553)}
+{'epoch': 8, 'train_loss': 0.0374, 'train_acc': 0.9781, 'task_loss': (0.0034, 0.0339)}
+{'epoch': 9, 'train_loss': 0.0217, 'train_acc': 0.9946, 'task_loss': (0.0037, 0.018)}
+{'epoch': 10, 'train_loss': 0.019, 'train_acc': 0.9927, 'task_loss': (0.0023, 0.0167)}
+{'epoch': 11, 'train_loss': 0.0109, 'train_acc': 0.9964, 'task_loss': (0.0011, 0.0097)}
+{'epoch': 12, 'train_loss': 0.0072, 'train_acc': 0.9982, 'task_loss': (0.0008, 0.0065)}
+{'epoch': 13, 'train_loss': 0.0073, 'train_acc': 0.9982, 'task_loss': (0.0007, 0.0066)}
+{'epoch': 14, 'train_loss': 0.0059, 'train_acc': 1.0, 'task_loss': (0.0019, 0.0039)}
+{'epoch': 15, 'train_loss': 0.0039, 'train_acc': 1.0, 'task_loss': (0.0007, 0.0032)}
+{'epoch': 16, 'train_loss': 0.0026, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0023)}
+{'epoch': 17, 'train_loss': 0.0018, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0016)}
+{'epoch': 18, 'train_loss': 0.0023, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0019)}
+{'epoch': 19, 'train_loss': 0.002, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0016)}
+{'epoch': 20, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (1e-04, 0.001)}
+{'epoch': 21, 'train_loss': 0.0012, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0011)}
+{'epoch': 22, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0008)}
+{'epoch': 23, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 24, 'train_loss': 0.0013, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0011)}
+{'epoch': 25, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 26, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 27, 'train_loss': 0.0012, 'train_acc': 1.0, 'task_loss': (0.0002, 0.001)}
+{'epoch': 28, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 29, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 30, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 31, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0009)}
+{'epoch': 32, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 33, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 34, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 35, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 36, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0007)}
+{'epoch': 37, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 38, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 39, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 40, 'train_loss': 0.0008, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 41, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 42, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 43, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 44, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 45, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 46, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 47, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 48, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 49, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 50, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 51, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 52, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 53, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 54, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 55, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 56, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 57, 'train_loss': 0.0006, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0005)}
+{'epoch': 58, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 59, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 60, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 61, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 62, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 63, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 64, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 65, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 66, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 67, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 68, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 69, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 70, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 71, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 72, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 73, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 74, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 75, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 76, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 77, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 78, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 79, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 80, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 81, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 82, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 83, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 84, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 85, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 86, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 87, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 88, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0004)}
+{'epoch': 89, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 90, 'train_loss': 0.0005, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0004)}
+{'epoch': 91, 'train_loss': 0.0002, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'epoch': 92, 'train_loss': 0.0004, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 93, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 94, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 95, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 96, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 97, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0002)}
+{'epoch': 98, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0003)}
+{'epoch': 99, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0003)}
+{'epoch': 100, 'train_loss': 0.0003, 'train_acc': 1.0, 'task_loss': (0.0, 0.0002)}
+{'run_num': 7, 'final_test_err': 0.1775}
+Files already downloaded and verified
+Files already downloaded and verified
+{'epoch': 1, 'train_loss': 0.7387, 'train_acc': 0.6474, 'task_loss': (0.3552, 0.3835)}
+{'epoch': 2, 'train_loss': 0.6327, 'train_acc': 0.6995, 'task_loss': (0.2492, 0.3835)}
+{'epoch': 3, 'train_loss': 0.4988, 'train_acc': 0.7832, 'task_loss': (0.2348, 0.264)}
+{'epoch': 4, 'train_loss': 0.3546, 'train_acc': 0.8106, 'task_loss': (0.117, 0.2376)}
+{'epoch': 5, 'train_loss': 0.158, 'train_acc': 0.9217, 'task_loss': (0.0446, 0.1134)}
+{'epoch': 6, 'train_loss': 0.117, 'train_acc': 0.9271, 'task_loss': (0.0143, 0.1027)}
+{'epoch': 7, 'train_loss': 0.0913, 'train_acc': 0.9545, 'task_loss': (0.0253, 0.066)}
+{'epoch': 8, 'train_loss': 0.062, 'train_acc': 0.9745, 'task_loss': (0.0109, 0.0511)}
+{'epoch': 9, 'train_loss': 0.0297, 'train_acc': 0.9892, 'task_loss': (0.0052, 0.0245)}
+{'epoch': 10, 'train_loss': 0.0169, 'train_acc': 0.9964, 'task_loss': (0.0029, 0.0141)}
+{'epoch': 11, 'train_loss': 0.0115, 'train_acc': 0.9982, 'task_loss': (0.0025, 0.0089)}
+{'epoch': 12, 'train_loss': 0.0122, 'train_acc': 0.9927, 'task_loss': (0.0024, 0.0098)}
+{'epoch': 13, 'train_loss': 0.0179, 'train_acc': 0.9964, 'task_loss': (0.0041, 0.0138)}
+{'epoch': 14, 'train_loss': 0.0039, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0035)}
+{'epoch': 15, 'train_loss': 0.0051, 'train_acc': 0.9982, 'task_loss': (0.0008, 0.0043)}
+{'epoch': 16, 'train_loss': 0.003, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0026)}
+{'epoch': 17, 'train_loss': 0.002, 'train_acc': 1.0, 'task_loss': (0.0004, 0.0017)}
+{'epoch': 18, 'train_loss': 0.0024, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0023)}
+{'epoch': 19, 'train_loss': 0.0019, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0017)}
+{'epoch': 20, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0008)}
+{'epoch': 21, 'train_loss': 0.0014, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0012)}
+{'epoch': 22, 'train_loss': 0.0012, 'train_acc': 1.0, 'task_loss': (0.0003, 0.0009)}
+{'epoch': 23, 'train_loss': 0.001, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0009)}
+{'epoch': 24, 'train_loss': 0.0009, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0007)}
+{'epoch': 25, 'train_loss': 0.0013, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0011)}
+{'epoch': 26, 'train_loss': 0.0007, 'train_acc': 1.0, 'task_loss': (1e-04, 0.0006)}
+{'epoch': 27, 'train_loss': 0.0011, 'train_acc': 1.0, 'task_loss': (0.0002, 0.0009)}
+Exception ignored in: <function _releaseLock at 0x7faaef778dc0>
+Traceback (most recent call last):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/logging/__init__.py", line 227, in _releaseLock
+    def _releaseLock():
+KeyboardInterrupt: 
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/ubuntu/ood-tl/train_singlehead.py", line 88, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 68, in launch
+    sweep_config = self.hydra_context.config_loader.load_sweep_config(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 304, in load_sweep_config
+    sweep_config = self.load_configuration(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 146, in load_configuration
+    return self._load_configuration_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_loader_impl.py", line 239, in _load_configuration_impl
+    defaults_list = create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 719, in create_defaults_list
+    defaults, tree = _create_defaults_list(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 689, in _create_defaults_list
+    defaults_tree = _create_defaults_tree(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 337, in _create_defaults_tree
+    ret = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 420, in _create_defaults_tree_impl
+    return _expand_virtual_root(repo, root, overrides, skip_missing)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 262, in _expand_virtual_root
+    subtree = _create_defaults_tree_impl(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 429, in _create_defaults_tree_impl
+    update_package_header(repo=repo, node=parent)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/defaults_list.py", line 244, in update_package_header
+    loaded = repo.load_config(config_path=node.get_config_path())
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 337, in load_config
+    ret = self.delegate.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/config_repository.py", line 91, in load_config
+    ret = source.load_config(config_path=config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/_internal/core_plugins/structured_config_source.py", line 33, in load_config
+    ret = self.store.load(config_path=normalized_config_path)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/hydra/core/config_store.py", line 97, in load
+    ret.node = copy.deepcopy(ret.node)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 129, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/listconfig.py", line 134, in __deepcopy__
+    vc = copy.deepcopy(v, memo=memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 116, in __deepcopy__
+    res = DictConfig(None)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 111, in __init__
+    self._set_value(content, flags=flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 635, in _set_value
+    self._set_value_impl(value, flags)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 649, in _set_value_impl
+    self._validate_set(key=None, value=value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/dictconfig.py", line 173, in _validate_set
+    vk = get_value_kind(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 511, in get_value_kind
+    value = _get_value(value)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/omegaconf/_utils.py", line 678, in _get_value
+    if isinstance(value, ValueNode):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/abc.py", line 117, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+
+wandb: Waiting for W&B process to finish, PID 8517... (failed 255). Press ctrl-c to abort syncing.
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1805, in _atexit_cleanup
+    self._on_finish()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1980, in _on_finish
+    self._backend.interface._publish_telemetry(self._telemetry_obj)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 67, in _publish_telemetry
+    self._publish(rec)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/interface/interface_queue.py", line 49, in _publish
+    raise Exception("The wandb backend process has shutdown")
+Exception: The wandb backend process has shutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1814, in _atexit_cleanup
+    self._backend.cleanup()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/backend/backend.py", line 248, in cleanup
+    self.interface.join()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 458, in join
+    super().join()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 599, in join
+    _ = self._communicate_shutdown()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 455, in _communicate_shutdown
+    _ = self._communicate(record)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 213, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 218, in _communicate_async
+    raise Exception("The wandb backend process has shutdown")
+Exception: The wandb backend process has shutdown
