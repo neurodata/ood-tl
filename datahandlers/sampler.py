@@ -31,7 +31,7 @@ class CustomBatchSampler(Sampler):
             np.random.shuffle(tinds)
             self.task_indices.append(tinds)
 
-        self.β = cfg.task.β
+        self.β = cfg.task.beta
         if self.β == "unbiased":
             self.β = len(self.task_indices[0]) / len(tasks)
 
