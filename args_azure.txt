@@ -1,0 +1,4 @@
+--in_task 5 --out_task 1 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:1 --makefolder
+--in_task 5 --out_task 2 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:1 --makefolder
+--in_task 5 --out_task 3 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:1 --makefolder
+--in_task 5 --out_task 4 --task_aware --no-tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:1 --makefolder
