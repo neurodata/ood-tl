@@ -244,7 +244,7 @@ def main():
     if args.exp_id is not None:
         exp_conf['exp_id'] = args.exp_id
     else:
-        exp_id = "T{}_T{}".format(args.in_task, args.out_task)
+        exp_id = "T{}_T{}".format(args.in_task, args.out_task[0])
         exp_conf['exp_id'] = exp_id
     
     gpu = args.gpu
