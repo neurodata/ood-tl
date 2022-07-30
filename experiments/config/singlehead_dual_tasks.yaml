@@ -13,4 +13,4 @@ sample_scheme: False
 hp: {'epochs': 100,'batch_size': 64, 'lr': 0.01, 'l2_reg': 0.00001}
 reps: 10
 val_split: 0.15
-save_folder: "./experiments/results/cifar10_dual_tasks"
+save_folder: "./experiments/results/cifar10_dual_tasks/task_matrix"

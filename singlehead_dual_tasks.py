@@ -241,6 +241,11 @@ def main():
         exp_conf['hp']['batch_size'] = args.batch_size
     if args.reps is not None:
         exp_conf['reps'] = args.reps
+    if args.exp_id is not None:
+        exp_conf['exp_id'] = args.exp_id
+    else:
+        exp_id = "T{}_T{}".format(args.in_task, args.out_task)
+        exp_conf['exp_id'] = exp_id
     
     gpu = args.gpu
 
@@ -258,7 +263,7 @@ def main():
         if not os.path.exists(exp_conf['save_folder']):
             os.makedirs(exp_conf['save_folder'])
         # create a results folder to store the results from the current experiment
-        exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}_{}".format(args.exp_id, setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S')))
+        exp_folder_path = os.path.join(exp_conf['save_folder'], "{}_{}_{}".format(exp_conf['exp_id'], setting, datetime.datetime.now().strftime('%Y_%m_%d_%H:%M:%S')))
         os.makedirs(exp_folder_path)
         exp_conf['save_folder'] = exp_folder_path
 
