@@ -1,8 +1,8 @@
---in_task 4 --out_task 1 --task_aware --tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---in_task 4 --out_task 2 --task_aware --tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---in_task 4 --out_task 3 --task_aware --tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---in_task 4 --out_task 5 --task_aware --tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---in_task 5 --out_task 1 --task_aware --tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---in_task 5 --out_task 2 --task_aware --tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---in_task 5 --out_task 3 --task_aware --tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
---in_task 5 --out_task 4 --task_aware --tune_alpha --net smallconv --no-augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id no_aug_no_beta_nai --in_task 1 --out_task 5 --task_aware --no-tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id no_aug_no_beta_opt --in_task 1 --out_task 5 --task_aware --tune_alpha --net smallconv --no-augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id aug_no_beta_nai --in_task 1 --out_task 5 --task_aware --no-tune_alpha --net smallconv --augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id aug_no_beta_opt --in_task 1 --out_task 5 --task_aware --tune_alpha --net smallconv --augment --no-custom_sampler --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id aug_beta_50_nai --in_task 1 --out_task 5 --task_aware --no-tune_alpha --net smallconv --augment --custom_sampler --beta 0.5 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id aug_no_beta_50_opt --in_task 1 --out_task 5 --task_aware --tune_alpha --net smallconv --augment --custom_sampler --beta 0.5 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id aug_beta_75_nai --in_task 1 --out_task 5 --task_aware --no-tune_alpha --net smallconv --augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
+--exp_id aug_no_beta_75_opt --in_task 1 --out_task 5 --task_aware --tune_alpha --net smallconv --augment --custom_sampler --beta 0.75 --epochs 100 --batch_size 128 --reps 10 --gpu cuda:3 --makefolder
