@@ -53,7 +53,7 @@ class SplitCIFARHandler:
                 tr_vals = [curlab for _ in range(len(task_tr_ind))]
                 tr_lab.append(tr_vals)
 
-                if task_id == 0:
+                if task_id == 0: # test-set only comprises of target data
                     task_te_ind = np.where(np.isin(testset.targets,
                                                     [lab % 10]))[0]
                     te_ind.append(task_te_ind)

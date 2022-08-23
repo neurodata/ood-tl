@@ -1,33 +1,33 @@
 deploy: False # Store run in wandb in True
 tag: scratch  # Tag is used to determine logging-directory
 seed: 0
-device: cuda:0
+device: cuda:2
 
-reps: 10
+reps: 3
 
 loss:
   alpha: 0.5                 # Weighted loss function
   tune_alpha: False
-  group_task_loss: True  # Avg losses based on task grouping
+  group_task_loss: False  # Avg losses based on task grouping
 
 task:
   dataset: split_cifar10
   task_map: [[0,1], [2,3], [4,5], [6,7], [8,9]]
   target: 0
   ood: [4]
-  augment: True
+  augment: False
   n: 50        # Samples per label (NOTE: different from ashwin's code)
   m_n: 0      # Samples of OOD per label
-  beta: 0.5      # either float or string "unbiased" to use n/n+m
-  custom_sampler: True
+  beta: "unbiased"  # either float or string "unbiased" to use n/n+m
+  custom_sampler: False
   
 
 hp: 
   epochs: 100
-  bs: 16
+  bs: 128
   lr: 0.01
 
-net: conv
+net: wrn10_2 
 
 
 # Nested configs. Disable hydra logging
@@ -48,4 +48,4 @@ hydra:
     subdir: .
 
   launcher:
-    n_jobs: 5
+    n_jobs: 10

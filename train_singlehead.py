@@ -3,6 +3,7 @@ import torch
 import torchvision
 import numpy as np
 import wandb
+import pandas as pd
 
 from utils.init import set_seed, open_log, init_wandb, cleanup
 
@@ -58,6 +59,25 @@ def get_net(cfg):
 
     return net
 
+def save_results(cfg):
+    api = wandb.Api()
+    runs = api.runs("ashwin1996/ood_tl")
+
+    summary_list, config_list, name_list = [], [], []
+    for run in runs: 
+        summary_list.append(run.summary._json_dict)
+        config_list.append(
+            {k: v for k,v in run.config.items()
+            if not k.startswith('_')})
+        name_list.append(run.name)
+
+    runs_df = pd.DataFrame({
+        "summary": summary_list,
+        "config": config_list,
+        "name": name_list
+        })
+    runs_df.to_csv(cfg.tag + "project.csv")
+
 
 @hydra.main(config_path="./config", config_name="conf.yaml")
 def main(cfg):
@@ -74,7 +94,8 @@ def main(cfg):
         net = get_net(cfg)
         dataloaders = get_data(cfg, seed)
         train(cfg, net, dataloaders[0])
-        errs.append(evaluate(cfg, net, dataloaders[1], rnum))
+        err = evaluate(cfg, net, dataloaders[1], rnum)
+        errs.append(err)
 
     info = {
         "avg_err": round(np.mean(errs), 4),
@@ -85,6 +106,8 @@ def main(cfg):
         wandb.log(info)
 
     cleanup(cfg, fp)
+
+    # save_results(cfg)
 
 
 if __name__ == "__main__":
