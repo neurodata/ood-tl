@@ -68,6 +68,9 @@ target/
 *.db
 *.rdb
 
+# logs
+*.log
+
 # Pycharm
 .idea
 
