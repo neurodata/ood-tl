@@ -1,2 +1,0 @@
-# task agnostic
-python3 train_singlehead.py -m seed=10 reps=10 deploy=True tag=04_rho_rep10/task_agnostic  task.custom_sampler=False task.target=0,1,2,3,4 task.ood=[0],[1],[2],[3],[4] task.m_n=0,1,2,3 task.augment=False
