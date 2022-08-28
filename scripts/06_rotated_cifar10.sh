@@ -1,0 +1,2 @@
+# Evaluat the effect of distribution shift within CINIC
+python3 train_singlehead.py -m seed=10 reps=3 deploy=True tag=06_rotated_cifar10/task_agnostic net=conv task.dataset=rotated_cifar10 task.angle=135 task.custom_sampler=False task.target=1 task.ood=[] task.m_n=0,1,2,3,4,5,10,20,30 task.augment=False

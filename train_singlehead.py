@@ -7,7 +7,7 @@ import pandas as pd
 
 from utils.init import set_seed, open_log, init_wandb, cleanup
 
-from datahandlers.cifar import SplitCIFARHandler
+from datahandlers.cifar import SplitCIFARHandler, RotatedCIFAR10Handler, BlurredCIFAR10Handler
 from datahandlers.cinic import SplitCINIC10Handler
 from net.smallconv import SmallConvSingleHeadNet
 from net.wideresnet import WideResNetSingleHeadNet
@@ -20,6 +20,10 @@ def get_data(cfg, seed):
         dataHandler = SplitCIFARHandler(cfg)
     elif cfg.task.dataset == "split_cinic10":
         dataHandler = SplitCINIC10Handler(cfg)
+    elif cfg.task.dataset == "rotated_cifar10":
+        dataHandler = RotatedCIFAR10Handler(cfg)
+    elif cfg.task.dataset == "blurred_cifar10":
+        dataHandler = BlurredCIFAR10Handler(cfg)
     else:
         raise NotImplementedError
 
