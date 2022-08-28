@@ -11,9 +11,9 @@ loss:
   group_task_loss: False  # Avg losses based on task grouping
 
 task:
-  dataset: rotated_cifar10
-  angle: 135 # only for rotated CIFAR exps
-  sigma: 1 # only for blurred CIFAR exps
+  dataset: blurred_cifar10
+  angle: None # only for rotated CIFAR exps
+  sigma: 2 # only for blurred CIFAR exps
   task_map: [[0,1], [2,3], [4,5], [6,7], [8,9]]
   target: 0
   ood: [] # set an empty array for rotated, blurred CIFAR exps
