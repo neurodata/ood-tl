@@ -5,10 +5,13 @@ import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
-from datahandlers.sampler import CustomBatchSampler
+from skimage.transform import rotate
+from skimage.filters import gaussian
 
 from typing import List
 from copy import deepcopy
+
+from datahandlers.sampler import CustomBatchSampler
 
 
 class SplitCIFARHandler:
@@ -97,7 +100,10 @@ class SplitCIFARHandler:
             if nsamples > 0:
                 for lb in range(len(cfg.task.task_map[i])):
                     lab_idx = np.where(targets[idx, 1] == lb)[0]
-                    indices.extend(list(idx[lab_idx][:nsamples]))
+                    if i > 0: # for rotated and blurred CIFAR-10, we don't want to target indices appearing in the OOD set
+                        indices.extend(list(idx[lab_idx][cfg.task.n:cfg.task.n + nsamples]))
+                    else:
+                        indices.extend(list(idx[lab_idx][:nsamples]))
 
         comb_trainset.data = data[indices]
         comb_trainset.targets = targets[indices].tolist()
@@ -142,3 +148,64 @@ class SplitCIFARHandler:
                 
 
         return data_loader
+
+
+class RotatedCIFAR10Handler(SplitCIFARHandler):
+    """
+    Object for the CIFAR-10 dataset
+    """
+    def __init__(self, cfg):
+        super().__init__(cfg)
+        # separate the selected task-data from the main dataset
+        trainset = self.trainset
+        testset = self.testset
+        
+        # Rotate the selected task-data by the specified angle
+        rot_trainset = deepcopy(trainset)
+        for i in range(len(trainset.data)):
+          im = trainset.data[i]/255.0
+          rot_trainset.data[i] = rotate(im, cfg.task.angle)*255
+
+        # Combined the selected task-data with rotated selected task-data and add (task_id, class label) as targets
+        trainset.data = np.concatenate((trainset.data, rot_trainset.data))
+        train_targets = []
+        for i in range(2*len(trainset.targets)):
+            if i < len(trainset.targets):
+                train_targets.append([0, trainset.targets[i][1]])
+            else:
+                train_targets.append([1, trainset.targets[i-len(trainset.targets)][1]])
+        trainset.targets = train_targets
+        self.trainset = trainset
+
+        self.cfg.task.ood = [1]
+
+
+class BlurredCIFAR10Handler(SplitCIFARHandler):
+    """
+    Object for the CIFAR-10 dataset
+    """
+    def __init__(self, cfg):
+        super().__init__(cfg)
+        # separate the selected task-data from the main dataset
+        trainset = self.trainset
+        testset = self.testset
+        
+        # Rotate the selected task-data by the specified angle
+        rot_trainset = deepcopy(trainset)
+        for i in range(len(trainset.data)):
+          im = trainset.data[i]/255.0
+          rot_trainset.data[i] = gaussian(im, cfg.task.sigma)*255
+
+        # Combined the selected task-data with rotated selected task-data and add (task_id, class label) as targets
+        trainset.data = np.concatenate((trainset.data, rot_trainset.data))
+        train_targets = []
+        for i in range(2*len(trainset.targets)):
+            if i < len(trainset.targets):
+                train_targets.append([0, trainset.targets[i][1]])
+            else:
+                train_targets.append([1, trainset.targets[i-len(trainset.targets)][1]])
+        trainset.targets = train_targets
+        self.trainset = trainset
+
+        self.cfg.task.ood = [1]
+
