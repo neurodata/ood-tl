@@ -7,6 +7,7 @@ import wandb
 from utils.init import set_seed, open_log, init_wandb, cleanup
 
 from datahandlers.cifar import SplitCIFARHandler
+from datahandlers.cinic import CINICHandler
 from net.smallconv import SmallConvSingleHeadNet
 from net.wideresnet import WideResNetSingleHeadNet
 
@@ -16,6 +17,8 @@ from utils.run_net import train, evaluate
 def get_data(cfg, seed):
     if cfg.task.dataset == "split_cifar10":
         dataHandler = SplitCIFARHandler(cfg)
+    elif cfg.task.dataset == "cinic10":
+        dataHandler = CINICHandler(cfg)
     else:
         raise NotImplementedError
 
