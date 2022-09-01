@@ -35,7 +35,7 @@ defaults:
   - _self_
   - override hydra/job_logging: disabled
   - override hydra/hydra_logging: disabled
-  - override hydra/launcher: joblib
+
 
 # Disable hydra directory structure
 hydra:
@@ -46,6 +46,3 @@ hydra:
   sweep:
     dir: .
     subdir: .
-
-  launcher:
-    n_jobs: 5
