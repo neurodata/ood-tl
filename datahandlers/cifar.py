@@ -121,8 +121,8 @@ class SplitCIFARHandler:
         kwargs = {
             'worker_init_fn': wif,
             'pin_memory': True,
-            'num_workers': 4,
-            'multiprocessing_context':'fork'}
+            'num_workers': 4
+        }
 
         if train:
             if cfg.task.custom_sampler and cfg.task.m_n > 0:

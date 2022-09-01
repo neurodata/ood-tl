@@ -28,3 +28,4 @@ dependencies:
       - torchvision==0.9.1+cu101
       - typing_extensions==4.1.1
       - hydra-joblib-launcher
+      - wandb==0.9.7
