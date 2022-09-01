@@ -31,10 +31,15 @@ def get_data(cfg, seed):
 
 
 def get_net(cfg):
+    if cfg.task.dataset == "split_cifar10":
+        ncls = len(cfg.task.task_map[0])
+    elif cfg.task.dataset == "cinic10":
+        ncls = 10
+
     if cfg.net == 'wrn10_2':
         net = WideResNetSingleHeadNet(
             depth=10,
-            num_cls=len(cfg.task.task_map[0]),
+            num_cls=ncls,
             base_chans=4,
             widen_factor=2,
             drop_rate=0,
@@ -43,7 +48,7 @@ def get_net(cfg):
     elif cfg.net == 'wrn16_4':
         net = WideResNetSingleHeadNet(
             depth=16,
-            num_cls=len(cfg.task.task_map[0]),
+            num_cls=ncls,
             base_chans=16,
             widen_factor=4,
             drop_rate=0,
@@ -51,7 +56,7 @@ def get_net(cfg):
         )
     elif cfg.net == 'conv':
         net = SmallConvSingleHeadNet(
-            num_cls=len(cfg.task.task_map[0]),
+            num_cls=ncls,
             channels=3, 
             avg_pool=2,
             lin_size=320
