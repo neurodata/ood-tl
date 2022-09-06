@@ -26,7 +26,7 @@ def get_cinic_imagenet():
         if "cifar10" in img:
             continue
 
-        if labcount[lab] >= 500:
+        if labcount[lab] >= 7500:
             continue
 
         img_mat = Image.open(img)
