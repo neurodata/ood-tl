@@ -18,7 +18,7 @@ class SplitCIFARHandler:
     def __init__(self, cfg):
         self.cfg = cfg
         mean_norm = [0.50, 0.50, 0.50]
-        std_norm = [0.2, 0.25, 0.25]
+        std_norm = [0.25, 0.25, 0.25]
         vanilla_transform = transforms.Compose([
                             transforms.ToTensor(),
                             transforms.Normalize(mean=mean_norm, std=std_norm)])

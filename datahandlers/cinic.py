@@ -19,7 +19,7 @@ class CINICHandler:
     def __init__(self, cfg):
         self.cfg = cfg
         mean_norm = [0.50, 0.50, 0.50]
-        std_norm = [0.2, 0.25, 0.25]
+        std_norm = [0.25, 0.25, 0.25]
         vanilla_transform = transforms.Compose([
                             transforms.ToTensor(),
                             transforms.Normalize(mean=mean_norm, std=std_norm)])
@@ -162,3 +162,97 @@ class CINICHandler:
                 
 
         return data_loader
+
+
+
+
+class MixedCINICHandler(CINICHandler):
+    """
+    Object for the CINIC-10 dataset
+    """
+    def __init__(self, cfg):
+        self.cfg = cfg
+        mean_norm = [0.50, 0.50, 0.50]
+        std_norm = [0.25, 0.25, 0.25]
+        vanilla_transform = transforms.Compose([
+                            transforms.ToTensor(),
+                            transforms.Normalize(mean=mean_norm, std=std_norm)])
+        augment_transform = transforms.Compose([
+                            transforms.RandomCrop(32, padding=4),
+                            transforms.RandomHorizontalFlip(),
+                            transforms.ToTensor(),
+                            transforms.Normalize(mean_norm, std_norm)])
+
+        # CIFAR10 dataset
+        if cfg.task.augment:
+            train_transform = augment_transform
+        else:
+            train_transform = vanilla_transform
+
+        trainset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
+                                                train=True, transform=train_transform)
+        testset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
+                                               train=False, transform=vanilla_transform)
+
+        # Load cinic-negative dataset
+        cinic_dat = np.load("./data/cifar10_neg/CIFAR10_neg.npz")
+        x_cinic = cinic_dat['data']
+        y_cinic = cinic_dat['labels']
+
+        tr_ind, te_ind = [], []
+        tr_lab, te_lab = [], []
+        # Right now, we get all labels
+        for lab in range(10):
+            curlab = (0, lab)
+
+            task_tr_ind = np.where(np.isin(trainset.targets,
+                                           [lab % 10]))[0]
+            tr_ind.append(task_tr_ind)
+            tr_vals = [curlab for _ in range(len(task_tr_ind))]
+            tr_lab.append(tr_vals)
+
+            task_te_ind = np.where(np.isin(testset.targets,
+                                           [lab % 10]))[0]
+            te_ind.append(task_te_ind)
+            te_vals = [curlab for _ in range(len(task_te_ind))]
+            te_lab.append(te_vals)
+
+        tr_ind, te_ind = np.concatenate(tr_ind), np.concatenate(te_ind)
+        tr_lab, te_lab = np.concatenate(tr_lab), np.concatenate(te_lab)
+
+        trainset.data = trainset.data[tr_ind]
+
+        # Testset
+        testset.data = testset.data[te_ind]
+        testset.targets = [list(it) for it in te_lab]
+        self.testset = testset
+
+        ctr_ind, ctr_lab = [], []
+        for lab in range(10):
+            curlab = (1, lab)
+            task_tr_ind = np.where(np.isin(y_cinic,
+                                           [lab % 10]))[0]
+            ctr_ind.append(task_tr_ind)
+            ctr_vals = [curlab for _ in range(len(task_tr_ind))]
+            ctr_lab.append(ctr_vals)
+
+        ctr_ind, ctr_lab = np.concatenate(ctr_ind), np.concatenate(ctr_lab)
+        ctr_dat = x_cinic[ctr_ind]
+
+        # Load cinic_imagenet_dataset
+        cinic_img_dat = np.load("./data/cinic10_img.npy")
+        numsamples = cfg.task.num_cinic
+        cinic_img_dat = cinic_img_dat[:, :numsamples].reshape(-1, 32, 32, 3)
+
+        ylab_img = [(1, i) for i in range(10) for j in range(numsamples)]
+        ylab_img = np.array(ylab_img)
+
+        # Merge CINIC dataset
+        trainset.data = np.concatenate([
+            trainset.data, ctr_dat, cinic_img_dat], axis=0)
+
+        trainset.targets = np.concatenate([
+            tr_lab, ctr_lab, ylab_img], axis=0)
+        trainset.targets = [list(it) for it in trainset.targets]
+
+        self.trainset = trainset

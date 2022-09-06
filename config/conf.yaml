@@ -20,6 +20,8 @@ task:
   m_n: 0      # Samples of OOD per label
   beta: 0.5      # either float or string "unbiased" to use n/n+m
   custom_sampler: True
+
+  num_cinic: 200
   
 
 hp: 
