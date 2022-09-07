@@ -1,2 +1,2 @@
 # Monitor the variation of transfer exponents when OOD sample size increases
-python3 train_singlehead.py -m seed=10 reps=10 deploy=True tag=04_rho_rep10/task_agnostic  task.custom_sampler=False task.target=0,1,2,3,4 task.ood=[0],[1],[2],[3],[4] task.m_n=0,1,2,3 task.augment=False
+python3 train_singlehead.py -m seed=10 reps=10 deploy=True device=cuda:3 tag=04_transfer_exps_cifar10/wrn task.dataset=split_cifar10 net=wrn10_2 task.custom_sampler=False task.target=0,1,2,3,4 task.ood=[0],[1],[2],[3],[4] task.m_n=0,1,2,3,4,5,10,20 task.augment=False
