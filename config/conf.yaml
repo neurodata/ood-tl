@@ -16,10 +16,10 @@ task:
   sigma: 2 # only for blurred CIFAR exps
   task_map: [[0,1], [2,3], [4,5], [6,7], [8,9]]
   target: 0
-  ood: [] # set an empty array for rotated, blurred CIFAR exps
+  ood: [4] # set an empty array for rotated, blurred CIFAR exps
   augment: False
   n: 50        # Samples per label (NOTE: different from ashwin's code)
-  m_n: 0      # Samples of OOD per label
+  m_n: 1      # Samples of OOD per label
   beta: "unbiased"  # either float or string "unbiased" to use n/n+m
   custom_sampler: False
   

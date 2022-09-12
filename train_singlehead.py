@@ -32,7 +32,8 @@ def get_data(cfg, seed):
     dataHandler.sample_data(seed)
     trainloader = dataHandler.get_data_loader(train=True)
     testloader = dataHandler.get_data_loader(train=False)
-    return trainloader, testloader
+    unshuffled_trainloader = dataHandler.get_data_loader(train=True, shuffle=False)
+    return trainloader, testloader, unshuffled_trainloader
 
 
 def get_net(cfg):
@@ -100,7 +101,7 @@ def main(cfg):
         set_seed(seed)
         net = get_net(cfg)
         dataloaders = get_data(cfg, seed)
-        train(cfg, net, dataloaders[0])
+        train(cfg, net, dataloaders)
         err = evaluate(cfg, net, dataloaders[1], rnum)
         errs.append(err)
 

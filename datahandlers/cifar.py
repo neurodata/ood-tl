@@ -41,6 +41,10 @@ class SplitCIFARHandler:
         testset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
                                                train=False, transform=vanilla_transform)
 
+        # add a unique identifier to each data point
+        trainset.ids = np.arange(0, len(trainset.targets), 1)
+        testset.ids = np.arange(0, len(testset.targets), 1)
+
         tmap = cfg.task.task_map
         tasks = [tmap[cfg.task.target]] + [tmap[i] for i in cfg.task.ood]
 
@@ -71,6 +75,9 @@ class SplitCIFARHandler:
 
         trainset.targets = [list(it) for it in tr_lab]
         testset.targets = [list(it) for it in te_lab]
+
+        trainset.ids = trainset.ids[tr_ind]
+        testset.ids = testset.ids[te_ind]
 
         self.trainset = trainset
         self.testset = testset
@@ -109,7 +116,7 @@ class SplitCIFARHandler:
         comb_trainset.targets = targets[indices].tolist()
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, train=True):
+    def get_data_loader(self, train=True, shuffle=True):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -141,7 +148,7 @@ class SplitCIFARHandler:
                 # If no OOD samples use naive sampler
                 data_loader = DataLoader(
                     self.comb_trainset, batch_size=cfg.hp.bs,
-                    shuffle=True, **kwargs)
+                    shuffle=shuffle, **kwargs)
         else:
             data_loader = DataLoader(
                 self.testset, batch_size=cfg.hp.bs, shuffle=False, **kwargs)

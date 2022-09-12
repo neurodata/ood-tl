@@ -5,10 +5,13 @@ import numpy as np
 import torch.cuda.amp as amp
 
 
-def train(cfg, net, trainloader, wandb_log=True):
+def train(cfg, net, trainloaders, wandb_log=True):
     device = torch.device(cfg.device if torch.cuda.is_available() else 'cpu')
     fp16 = device != 'cpu'
     net.to(device)
+
+    trainloader = trainloaders[0]
+    unshuffled_trainloader = trainloaders[2]
 
     optimizer = torch.optim.SGD(
         net.parameters(), 
@@ -24,6 +27,9 @@ def train(cfg, net, trainloader, wandb_log=True):
     )
     scaler = amp.GradScaler()
     ntasks = len(cfg.task.ood) + 1
+
+    num_trainsamples = len(unshuffled_trainloader.dataset)
+    epoch_agreement_matrix = np.zeros((num_trainsamples, cfg.hp.epochs))
 
     for epoch in range(cfg.hp.epochs):
         t_train_loss = 0.0
@@ -80,10 +86,31 @@ def train(cfg, net, trainloader, wandb_log=True):
             out = out.cpu().detach().numpy()
             train_acc += np.sum(labels == (np.argmax(out, axis=1)))
 
+        # evaluate the network on all the training data at the end of each epoch
+        net.eval()
+        with torch.no_grad():
+            pred_agreement = []
+            task_ids = []
+            for dat, target in unshuffled_trainloader:
+                tasks, labels = target
+                dat = dat.to(device)
+                tasks = tasks.long().to(device)
+                labels = labels.long().to(device)
+
+                out = net(dat)
+                out = out.cpu().detach().numpy()
+                labels = labels.cpu().numpy()
+                pred_agreement.extend(list(labels == (np.argmax(out, axis=1))))
+                task_ids.extend(tasks.cpu().numpy())
+
+        epoch_agreement_matrix[:, epoch] = np.array(pred_agreement).astype('int')
+
         info = {
             "epoch": epoch + 1,
             "train_loss": np.round(train_loss/batches, 4),
-            "train_acc": np.round(train_acc/batches, 4)
+            "train_acc": np.round(train_acc/batches, 4),
+            "task_ids": task_ids,
+            "epoch_agreement_matrix": epoch_agreement_matrix.tolist()
         }
 
         if cfg.deploy and wandb_log:
