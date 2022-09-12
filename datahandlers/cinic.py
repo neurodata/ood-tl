@@ -111,7 +111,7 @@ class SplitCINIC10Handler:
             nsamples = int(nsamples)
 
             if nsamples > 0:
-                for lb in range(len(cfg.task.task_map[i])):
+                for lb in range(len(cfg.task.task_map[0])):
                     lab_idx = np.where(targets[idx, 1] == lb)[0]
                     indices.extend(list(idx[lab_idx][:nsamples]))
 
