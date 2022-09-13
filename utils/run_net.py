@@ -30,6 +30,7 @@ def train(cfg, net, trainloaders, wandb_log=True):
 
     num_trainsamples = len(unshuffled_trainloader.dataset)
     epoch_agreement_matrix = np.zeros((num_trainsamples, cfg.hp.epochs))
+    epoch_proba_matrix = np.zeros((num_trainsamples, cfg.hp.epochs))
 
     for epoch in range(cfg.hp.epochs):
         t_train_loss = 0.0
@@ -90,6 +91,7 @@ def train(cfg, net, trainloaders, wandb_log=True):
         net.eval()
         with torch.no_grad():
             pred_agreement = []
+            pred_proba = []
             task_ids = []
             for dat, target in unshuffled_trainloader:
                 tasks, labels = target
@@ -98,19 +100,22 @@ def train(cfg, net, trainloaders, wandb_log=True):
                 labels = labels.long().to(device)
 
                 out = net(dat)
+                out = nn.functional.softmax(out)
                 out = out.cpu().detach().numpy()
                 labels = labels.cpu().numpy()
                 pred_agreement.extend(list(labels == (np.argmax(out, axis=1))))
-                task_ids.extend(tasks.cpu().numpy())
+                pred_proba.extend(list(np.max(out, axis=1)))
 
         epoch_agreement_matrix[:, epoch] = np.array(pred_agreement).astype('int')
+        epoch_proba_matrix[:, epoch] = np.around(np.array(pred_proba), decimals=5).astype(np.float16)
 
         info = {
             "epoch": epoch + 1,
             "train_loss": np.round(train_loss/batches, 4),
             "train_acc": np.round(train_acc/batches, 4),
             "task_ids": task_ids,
-            "epoch_agreement_matrix": epoch_agreement_matrix.tolist()
+            "epoch_agreement_matrix": epoch_agreement_matrix.tolist(),
+            "epoch_proba_matrix": epoch_proba_matrix.tolist()
         }
 
         if cfg.deploy and wandb_log:
