@@ -9,8 +9,8 @@ from utils.init import set_seed, open_log, init_wandb, cleanup
 
 from datahandlers.cifar import SplitCIFARHandler, RotatedCIFAR10Handler, BlurredCIFAR10Handler
 from datahandlers.cinic import SplitCINIC10Handler
-from net.smallconv import SmallConvSingleHeadNet
-from net.wideresnet import WideResNetSingleHeadNet
+from net.smallconv import SmallConvSingleHeadNet, SmallConvMultiHeadNet
+from net.wideresnet import WideResNetSingleHeadNet, WideResNetMultiHeadNet
 
 from utils.run_net import train, evaluate
 
@@ -60,6 +60,34 @@ def get_net(cfg):
             channels=3, 
             avg_pool=2,
             lin_size=320
+        )
+    elif cfg.net == 'multi_conv':
+        net = SmallConvMultiHeadNet(
+            num_task=2,
+            num_cls=len(cfg.task.task_map[0]),
+            channels=3, 
+            avg_pool=2,
+            lin_size=320
+        )
+    elif cfg.net == 'multi_wrn10_2':
+        net = WideResNetMultiHeadNet(
+            depth=10,
+            num_task=2,
+            num_cls=len(cfg.task.task_map[0]),
+            base_chans=4,
+            widen_factor=2,
+            drop_rate=0,
+            inp_channels=3
+        )
+    elif cfg.net == 'multi_wrn16_4':
+        net = WideResNetMultiHeadNet(
+            depth=16,
+            num_task=2,
+            num_cls=len(cfg.task.task_map[0]),
+            base_chans=16,
+            widen_factor=4,
+            drop_rate=0.2,
+            inp_channels=3
         )
     else: 
         raise NotImplementedError

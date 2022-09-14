@@ -43,7 +43,10 @@ def train(cfg, net, trainloader, wandb_log=True):
             optimizer.zero_grad(set_to_none=True)
 
             with amp.autocast(enabled=fp16):
-                out = net(dat)
+                if cfg.is_multihead:
+                    out = net(dat, tasks)
+                else:
+                    out = net(dat)
 
                 if cfg.loss.group_task_loss:
                     task_oh = torch.nn.functional.one_hot(tasks, ntasks)
@@ -92,7 +95,7 @@ def train(cfg, net, trainloader, wandb_log=True):
         if cfg.loss.group_task_loss:
             info["task_loss"] = tuple(np.round(t_train_loss/batches, 4))
 
-        print(info)
+        # print(info)
     
     return net
 
@@ -114,7 +117,11 @@ def evaluate(cfg, net, testloader, run_num):
             labels = labels.long().to(device)
             batch_size = int(labels.size()[0])
 
-            out = net(dat)
+            if cfg.is_multihead:
+                out = net(dat, tasks)
+            else:
+                out = net(dat)
+
             out = out.cpu().detach().numpy()
             labels = labels.cpu().numpy()
             acc += np.sum(labels == (np.argmax(out, axis=1)))
@@ -123,7 +130,7 @@ def evaluate(cfg, net, testloader, run_num):
     error = 1 - (acc/count)
     info = {"run_num": run_num,
             "final_test_err": error}
-    print(info)
+    # print(info)
     if cfg.deploy:
         wandb.log(info)
 
