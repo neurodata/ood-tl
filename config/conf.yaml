@@ -3,6 +3,7 @@ tag: scratch  # Tag is used to determine logging-directory
 seed: 0
 device: cuda:2
 
+is_multihead: False
 reps: 3
 
 loss:
