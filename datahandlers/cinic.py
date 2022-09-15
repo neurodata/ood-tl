@@ -23,15 +23,15 @@ class CINIC10(torchvision.datasets.VisionDataset):
         8:'ship',
         9:'truck'
     }
-    def __init__(self, root, subdataset, task, train=True, transform=None, target_transform=None):
-        if train:
-            flag = 'train'
-        else:
-            flag = 'test'
-        class_0_data = np.load(root + '/cinic-10-{}/{}/{}/data.npy'.format(subdataset, flag, self.class_map[task[0]])) / 255.0
-        class_1_data = np.load(root + '/cinic-10-{}/{}/{}/data.npy'.format(subdataset, flag, self.class_map[task[1]])) / 255.0
-        self.data = torch.tensor(np.vstack((class_0_data, class_1_data)), dtype=torch.float)
-        self.targets = list(np.concatenate((np.zeros(len(class_0_data)), np.ones(len(class_1_data)))).astype('int'))
+    def __init__(self, subdataset, task, flag, transform=None, target_transform=None):
+        data = []
+        labels = []
+        for i, idx in enumerate(task):
+            class_idx_data = np.load('/cis/home/adesilva/ashwin/research/ood-tl/data/cinic10' + '/cinic-10-{}/{}/{}/data.npy'.format(subdataset, flag, self.class_map[task[idx]])) / 255.0
+            data.append(class_idx_data)
+            labels.append(i * np.ones(len(class_idx_data)))
+        self.data = torch.tensor(np.vstack(data), dtype=torch.float)
+        self.targets = list(np.concatenate(labels).astype('int'))
         self.transform = transform
         self.target_transform = target_transform
 
@@ -45,6 +45,34 @@ class CINIC10(torchvision.datasets.VisionDataset):
         if self.target_transform:
             target = self.target_transform(target)
         return image, target
+
+class CIFAR10Neg(torchvision.datasets.VisionDataset):
+    def __init__(self, task, transform=None, target_transform=None):
+        CIFAR_10_neg = np.load('/cis/home/adesilva/ashwin/research/ood-tl/data/cifar10_neg/CIFAR10_neg.npz')
+        imgs_labels = CIFAR_10_neg['labels']
+        imgs = CIFAR_10_neg['data']
+        data = []
+        labels = []
+        for i, idx in enumerate(task):
+            class_idx_data =  imgs[imgs_labels == idx] / 255.0
+            data.append(class_idx_data)
+            labels.append(i * np.ones(len(class_idx_data)))
+        self.data = torch.tensor(np.vstack(data), dtype=torch.float)
+        self.targets = list(np.concatenate(labels).astype('int'))
+        self.transform = transform
+        self.target_transform = target_transform
+
+    def __len__(self):
+        return len(self.targets)
+
+    def __getitem__(self, idx):
+        image, target = self.data[idx], self.targets[idx]
+        if self.transform:
+            image = self.transform(image)
+        if self.target_transform:
+            target = self.target_transform(target)
+        return image, target
+
 
 class SplitCINIC10Handler:
     """
@@ -64,16 +92,17 @@ class SplitCINIC10Handler:
                             transforms.Normalize(mean_norm, std_norm)])
 
         if cfg.task.augment:
-            train_transform = augment_transform
+            self.train_transform = augment_transform
         else:
-            train_transform = vanilla_transform
+            self.train_transform = vanilla_transform
+        self.test_transform = vanilla_transform
 
         tmap = cfg.task.task_map
         task = tmap[cfg.task.target]
 
-        cifar_trainset = CINIC10('data/cinic10', 'cifar', task=task, train=True, transform=train_transform)
-        imagenet_trainset = CINIC10('data/cinic10', 'imagenet', task=task, train=True, transform=train_transform)
-        cifar_testset = CINIC10('data/cinic10', 'cifar', task=task, train=False, transform=vanilla_transform)
+        cifar_trainset = CINIC10('cifar', task=task, flag='train', transform=self.train_transform)
+        imagenet_trainset = CINIC10('imagenet', task=task, flag='train', transform=self.train_transform)
+        cifar_testset = CINIC10('cifar', task=task, flag='test', transform=self.test_transform)
 
         self.trainset = deepcopy(cifar_trainset)
         self.testset = deepcopy(cifar_trainset)
@@ -119,7 +148,7 @@ class SplitCINIC10Handler:
         comb_trainset.targets = targets[indices].tolist()
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, train=True):
+    def get_data_loader(self, train=True, shuffle=True):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -151,10 +180,47 @@ class SplitCINIC10Handler:
                 # If no OOD samples use naive sampler
                 data_loader = DataLoader(
                     self.comb_trainset, batch_size=cfg.hp.bs,
-                    shuffle=True, **kwargs)
+                    shuffle=shuffle, **kwargs)
         else:
             data_loader = DataLoader(
                 self.testset, batch_size=cfg.hp.bs, shuffle=False, **kwargs)
                 
 
         return data_loader
+
+class SplitCIFAR10NegHandler(SplitCINIC10Handler):
+    """
+    Object for the CIFAR-10 dataset
+    """
+    def __init__(self, cfg):
+        super().__init__(cfg)
+        
+        tmap = cfg.task.task_map
+        task = tmap[cfg.task.target]
+
+        # get the cifar10 train and val sets from CINIC10
+        cifar_trainset = CINIC10('cifar', task=task, flag='train', transform=self.train_transform)
+        cifar_testset = CINIC10('cifar', task=task, flag='valid', transform=self.test_transform)
+        
+        # get the cifar10neg trainset (this is a subset of CINIC10 Test Set)
+        cifar10neg_trainset = CIFAR10Neg(task, transform=self.train_transform)
+
+        # Form the combined trainset
+        data = np.concatenate((cifar_trainset.data, cifar10neg_trainset.data))
+        self.trainset.data = data
+
+        temp_targets = cifar_trainset.targets
+        temp_targets.extend(cifar10neg_trainset.targets)
+        targets = []
+        for i in range(len(temp_targets)):
+            if i < len(cifar_trainset.targets):
+                targets.append([0, temp_targets[i]])
+            else:
+                targets.append([1, temp_targets[i]])
+        self.trainset.targets = targets
+        self.cfg.task.ood = [1]
+
+        # Form testset
+        self.testset.data = cifar_testset.data
+        self.testset.targets = [[0, lab] for lab in cifar_testset.targets]
+

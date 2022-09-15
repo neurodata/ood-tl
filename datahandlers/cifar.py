@@ -41,10 +41,6 @@ class SplitCIFARHandler:
         testset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
                                                train=False, transform=vanilla_transform)
 
-        # add a unique identifier to each data point
-        trainset.ids = np.arange(0, len(trainset.targets), 1)
-        testset.ids = np.arange(0, len(testset.targets), 1)
-
         tmap = cfg.task.task_map
         tasks = [tmap[cfg.task.target]] + [tmap[i] for i in cfg.task.ood]
 
@@ -75,9 +71,6 @@ class SplitCIFARHandler:
 
         trainset.targets = [list(it) for it in tr_lab]
         testset.targets = [list(it) for it in te_lab]
-
-        trainset.ids = trainset.ids[tr_ind]
-        testset.ids = testset.ids[te_ind]
 
         self.trainset = trainset
         self.testset = testset
@@ -215,4 +208,3 @@ class BlurredCIFAR10Handler(SplitCIFARHandler):
         self.trainset = trainset
 
         self.cfg.task.ood = [1]
-

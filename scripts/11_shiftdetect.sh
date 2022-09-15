@@ -1,0 +1,2 @@
+# rotation
+python3 train_singlehead.py -m seed=10 reps=5 deploy=True device=cuda:2 tag=11_shiftdetect/rotated_cifar10 net=wrn10_2 eval_at_epoch=True task.dataset=rotated_cifar10 task.angle=135 task.custom_sampler=False task.target=1 task.ood=[] task.n=50 task.m_n=1,2,3,4,5,10,20,30 task.augment=False hydra.launcher.n_jobs=10
