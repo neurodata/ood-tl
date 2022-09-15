@@ -1,0 +1,1 @@
+python3 train_singlehead.py -m seed=10 reps=1 deploy=True device=cuda:3 tag=09_cifar10_pred_agreement/whole task.dataset=split_cifar10 net=wrn10_2 task.custom_sampler=False task.target=0,1,2,3,4 task.ood=[0],[1],[2],[3],[4] task.n=50 task.m_n=1,2,3,4,5,10,20 task.augment=False
