@@ -206,18 +206,13 @@ class SplitCIFAR10NegHandler(SplitCINIC10Handler):
         cifar10neg_trainset = CIFAR10Neg(task, transform=self.train_transform)
 
         # Form the combined trainset
-        data = np.concatenate((cifar_trainset.data, cifar10neg_trainset.data))
-        self.trainset.data = data
+        self.trainset.data = np.concatenate((cifar_trainset.data, cifar10neg_trainset.data))
 
-        temp_targets = cifar_trainset.targets
-        temp_targets.extend(cifar10neg_trainset.targets)
-        targets = []
-        for i in range(len(temp_targets)):
-            if i < len(cifar_trainset.targets):
-                targets.append([0, temp_targets[i]])
-            else:
-                targets.append([1, temp_targets[i]])
-        self.trainset.targets = targets
+        labels = [[0, lab] for lab in cifar_trainset.targets]
+        cifar10neg_labels = [[1, lab] for lab in cifar10neg_trainset.targets]
+        labels.extend(cifar10neg_labels)
+        self.trainset.targets = labels
+
         self.cfg.task.ood = [1]
 
         # Form testset
