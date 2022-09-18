@@ -14,8 +14,8 @@ loss:
 
 task:
   dataset: blurred_cifar10
-  angle: None # only for rotated CIFAR exps
-  sigma: 2 # only for blurred CIFAR exps
+  target_env: None # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma)
+  ood_env: None # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma)
   task_map: [[0,1], [2,3], [4,5], [6,7], [8,9]]
   target: 0
   ood: [4] # set an empty array for rotated, blurred CIFAR exps

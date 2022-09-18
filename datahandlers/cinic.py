@@ -216,6 +216,6 @@ class SplitCIFAR10NegHandler(SplitCINIC10Handler):
         self.cfg.task.ood = [1]
 
         # Form testset
-        self.testset.data = cifar_testset.data
+        self.testset.data = cifar_testset.data.numpy()
         self.testset.targets = [[0, lab] for lab in cifar_testset.targets]
 

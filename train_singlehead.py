@@ -9,6 +9,8 @@ from utils.init import set_seed, open_log, init_wandb, cleanup
 
 from datahandlers.cifar import SplitCIFARHandler, RotatedCIFAR10Handler, BlurredCIFAR10Handler
 from datahandlers.cinic import SplitCINIC10Handler, SplitCIFAR10NegHandler
+from datahandlers.mnist import RotatedMNISTHandler
+from datahandlers.officehomes import OfficeHomeHandler
 from net.smallconv import SmallConvSingleHeadNet, SmallConvMultiHeadNet
 from net.wideresnet import WideResNetSingleHeadNet, WideResNetMultiHeadNet
 
@@ -26,12 +28,25 @@ def get_data(cfg, seed):
         dataHandler = BlurredCIFAR10Handler(cfg)
     elif cfg.task.dataset == "split_cifar10neg":
         dataHandler = SplitCIFAR10NegHandler(cfg)
+    elif cfg.task.dataset == "rotated_mnist":
+        dataHandler = RotatedMNISTHandler(cfg)
+    elif cfg.task.dataset == "officehomes":
+        dataHandler = OfficeHomeHandler(cfg)
     else:
         raise NotImplementedError
 
     # Use different seeds across different runs
     # But use the same seed
     dataHandler.sample_data(seed)
+    task_labels = np.array(dataHandler.comb_trainset.targets)[:, 0]
+    num_target_samples = len(task_labels[task_labels==0])
+    num_ood_samples = len(task_labels[task_labels==1])
+    info = {
+        "n": num_target_samples,
+        "m": num_ood_samples
+    }
+    if cfg.deploy:
+        wandb.log(info)
     trainloader = dataHandler.get_data_loader(train=True)
     testloader = dataHandler.get_data_loader(train=False)
     unshuffled_trainloader = dataHandler.get_data_loader(train=True, shuffle=False)
@@ -60,9 +75,9 @@ def get_net(cfg):
     elif cfg.net == 'conv':
         net = SmallConvSingleHeadNet(
             num_cls=len(cfg.task.task_map[0]),
-            channels=3, 
+            channels=1, # for cifar:3, mnist:80
             avg_pool=2,
-            lin_size=320
+            lin_size=80 # for cifar:320, mnist:80
         )
     elif cfg.net == 'multi_conv':
         net = SmallConvMultiHeadNet(

@@ -137,8 +137,8 @@ class WideResNetSingleHeadNet(nn.Module):
         out = self.block2(out)
         out = self.block3(out)
         out = self.relu(self.bn1(out))
-        out = F.avg_pool2d(out, 8)
-        # out = self.pool(out)
+        # out = F.avg_pool2d(out, 8) # adaptive_average_pooling
+        out = self.pool(out) # for different input sizes
         out = out.view(-1, self.nChannels)
         return self.fc(out)
 
