@@ -107,10 +107,8 @@ def evaluate(cfg, net, testloader, run_num):
 
     with torch.no_grad():
         for dat, target in testloader:
-
-            tasks, labels = target
+            labels = target[:, 1]
             dat = dat.to(device)
-            tasks = tasks.long().to(device)
             labels = labels.long().to(device)
             batch_size = int(labels.size()[0])
 

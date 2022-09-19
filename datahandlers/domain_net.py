@@ -1,3 +1,4 @@
+import pickle
 import numpy as np
 import random
 import torch
@@ -12,7 +13,7 @@ from copy import deepcopy
 
 
 
-class CINICHandler(CINICHandler):
+class DomainNetHandler():
     """
     Object for the CINIC-10 dataset
     """
@@ -42,62 +43,24 @@ class CINICHandler(CINICHandler):
         testset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
                                                train=False, transform=vanilla_transform)
 
-        tr_ind, te_ind = [], []
-        tr_lab, te_lab = [], []
-        for lab in range(10):
-            curlab = (0, lab)
 
-            task_tr_ind = np.where(np.isin(trainset.targets,
-                                           [lab % 10]))[0]
-            tr_ind.append(task_tr_ind)
-            tr_vals = [curlab for _ in range(len(task_tr_ind))]
-            tr_lab.append(tr_vals)
+        with open("../domain_net/bird_plane.pkl", "rb") as fp:
+            info = pickle.load(fp)
 
-            task_te_ind = np.where(np.isin(testset.targets,
-                                           [lab % 10]))[0]
-            te_ind.append(task_te_ind)
-            te_vals = [curlab for _ in range(len(task_te_ind))]
-            te_lab.append(te_vals)
+        trainset.data = np.array(info['xtrain'])
+        trainset.targets = info['ytrain']
 
-        tr_ind, te_ind = np.concatenate(tr_ind), np.concatenate(te_ind)
-        tr_lab, te_lab = np.concatenate(tr_lab), np.concatenate(te_lab)
-        trainset.data = trainset.data[tr_ind]
+        ytest = info['ytest']
+        ind = np.where(ytest[:, 0] == 0)[0]
 
-        # Testset
-        testset.data = testset.data[te_ind]
-        testset.targets = [list(it) for it in te_lab]
-        self.testset = testset
+        xtest = np.array(info['xtest'])[ind]
+        ytest = ytest[ind]
 
-        # Load cinic-negative dataset (Task1)
-        cifarN = np.load("./data/cifar10_neg/CIFAR10_neg.npz")
-        x_cifarN = cifarN['data']
-        y_cifarN = cifarN['labels']
+        testset.data = xtest
+        testset.targets = ytest
 
-        cifN_tr_ind, cifN_tr_lab = [], []
-        for lab in range(10):
-            curlab = (1, lab)
-            task_tr_ind = np.where(np.isin(y_cifarN,
-                                           [lab % 10]))[0]
-            cifN_tr_ind.append(task_tr_ind)
-            cifN_tr_vals = [curlab for _ in range(len(task_tr_ind))]
-            cifN_tr_lab.append(cifN_tr_vals)
-
-        cifN_tr_ind, cifN_tr_lab = np.concatenate(cifN_tr_ind), np.concatenate(cifN_tr_lab)
-        cifN_tr_dat = x_cifarN[cifN_tr_ind]
-
-        # Load cinic Dataset, excluding
-        cinic_dat = np.load("./data/cinic10_img.npy")
-        cinic_dat = cinic_dat.reshape(-1, 32, 32, 3)
-
-        ylab_img = [(2, i) for i in range(10) for j in range(numsamples)]
-        ylab_img = np.array(ylab_img)
-
-        # Merge All 3 datasets
-        trainset.data = np.concatenate([
-            trainset.data, cifN_tr_dat, cinic_dat], axis=0)
-        trainset.targets = np.concatenate([tr_lab, cifN_tr_lab, ylab_img], axis=0)
-        trainset.targets = [list(it) for it in trainset.targets]
         self.trainset = trainset
+        self.testset = testset
 
 
     def sample_data(self, seed):
@@ -111,8 +74,7 @@ class CINICHandler(CINICHandler):
 
         indices = []
 
-
-        for i in range(3):
+        for i in range(2):
             idx = (np.where(tasks == i))[0]
             rng = np.random.default_rng(seed)
             rng.shuffle(idx)
@@ -123,7 +85,7 @@ class CINICHandler(CINICHandler):
             nsamples = int(nsamples)
 
             if nsamples > 0:
-                for lb in range(10):
+                for lb in range(2):
                     lab_idx = np.where(targets[idx, 1] == lb)[0]
                     indices.extend(list(idx[lab_idx][:nsamples]))
 

@@ -7,7 +7,7 @@ import wandb
 from utils.init import set_seed, open_log, init_wandb, cleanup
 
 from datahandlers.cifar import SplitCIFARHandler
-from datahandlers.cinic import CINICHandler, MixedCINICHandler
+from datahandlers.domain_net import DomainNetHandler
 from net.smallconv import SmallConvSingleHeadNet
 from net.wideresnet import WideResNetSingleHeadNet
 
@@ -18,9 +18,11 @@ def get_data(cfg, seed):
     if cfg.task.dataset == "split_cifar10":
         dataHandler = SplitCIFARHandler(cfg)
     elif cfg.task.dataset == "cinic10":
-        dataHandler = CINICHandler(cfg)
+        raise NotImplementedError
     elif cfg.task.dataset == "cinic_img":
-        dataHandler = MixedCINICHandler(cfg)
+        raise NotImplementedError
+    elif cfg.task.dataset == "domain_net":
+        dataHandler = DomainNetHandler(cfg)
     else:
         raise NotImplementedError
 
@@ -39,6 +41,8 @@ def get_net(cfg):
         ncls = 10
     elif cfg.task.dataset == "cinic_img":
         ncls = 10
+    elif cfg.task.dataset == "domain_net":
+        ncls = 2
 
     if cfg.net == 'wrn10_2':
         net = WideResNetSingleHeadNet(

@@ -18,6 +18,8 @@ def get_cinic_imagenet():
                 transforms.ToTensor(),
                 transforms.Normalize(mean=cinic_mean,std=cinic_std)]))
 
+    import ipdb;ipdb.set_trace()
+
     labcount = np.zeros(10)
     xdat = [[] for _ in range(10)]
 
