@@ -43,21 +43,34 @@ class DomainNetHandler():
         testset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
                                                train=False, transform=vanilla_transform)
 
-
-        with open("../domain_net/bird_plane.pkl", "rb") as fp:
+        with open("../domain_net/domain_net.pkl", "rb") as fp:
             info = pickle.load(fp)
+        xtrain = info['xtrain']
+        ytrain = info['ytrain']
 
-        trainset.data = np.array(info['xtrain'])
-        trainset.targets = info['ytrain']
+        # Trainset
+        ood_ind = np.where(np.isin(ytrain[:, 0], cfg.task.ood))[0]
+        tar_ind = np.where(ytrain[:, 0] == cfg.task.target)[0]
+        all_ind = np.concatenate([tar_ind, ood_ind])
 
+        trainset.data = xtrain[all_ind]
+
+        tar_lab = ytrain[tar_ind]
+        ood_lab = ytrain[ood_ind]
+        tar_lab = [(0, lab[1]) for lab in tar_lab]
+        ood_lab = [(1, lab[1]) for lab in ood_lab]
+        trainset.targets = tar_lab + ood_lab
+
+        # Test dataset
+        xtest = info['xtest']
         ytest = info['ytest']
-        ind = np.where(ytest[:, 0] == 0)[0]
 
-        xtest = np.array(info['xtest'])[ind]
-        ytest = ytest[ind]
+        testind = np.where(ytest[:, 0] == cfg.task.target)[0]
 
-        testset.data = xtest
-        testset.targets = ytest
+        testset.data = xtest[testind]
+
+        ytest = ytest[testind]
+        testset.targets = [(0, tg[1]) for tg in ytest]
 
         self.trainset = trainset
         self.testset = testset
