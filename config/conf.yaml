@@ -4,8 +4,10 @@ seed: 0
 device: cuda:2
 
 is_multihead: False
+ptw: False
+ptw_path: pretrained_imagenet_1_wrn10_2.pt
 eval_at_epoch: False
-reps: 3
+reps: 10
 
 loss:
   alpha: 0.5                 # Weighted loss function
@@ -13,11 +15,11 @@ loss:
   group_task_loss: False  # Avg losses based on task grouping
 
 task:
-  dataset: blurred_cifar10
+  dataset: split_cifar10
   target_env: None # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma)
   ood_env: None # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma)
   task_map: [[0,1], [2,3], [4,5], [6,7], [8,9]]
-  target: 0
+  target: 1
   ood: [4] # set an empty array for rotated, blurred CIFAR exps
   augment: False
   n: 50        # Samples per label (NOTE: different from ashwin's code)

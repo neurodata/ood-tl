@@ -27,10 +27,10 @@ class CINIC10(torchvision.datasets.VisionDataset):
         data = []
         labels = []
         for i, idx in enumerate(task):
-            class_idx_data = np.load('/cis/home/adesilva/ashwin/research/ood-tl/data/cinic10' + '/cinic-10-{}/{}/{}/data.npy'.format(subdataset, flag, self.class_map[task[idx]])) / 255.0
+            class_idx_data = np.load('/cis/home/adesilva/ashwin/research/ood-tl/data/cinic10' + '/cinic-10-{}/{}/{}/data.npy'.format(subdataset, flag, self.class_map[task[i]])) / 255.0
             data.append(class_idx_data)
             labels.append(i * np.ones(len(class_idx_data)))
-        self.data = torch.tensor(np.vstack(data), dtype=torch.float)
+        self.data = torch.tensor(np.vstack(data), dtype=torch.float).numpy()
         self.targets = list(np.concatenate(labels).astype('int'))
         self.transform = transform
         self.target_transform = target_transform

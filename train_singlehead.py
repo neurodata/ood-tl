@@ -11,6 +11,7 @@ from datahandlers.cifar import SplitCIFARHandler, RotatedCIFAR10Handler, Blurred
 from datahandlers.cinic import SplitCINIC10Handler, SplitCIFAR10NegHandler
 from datahandlers.mnist import RotatedMNISTHandler
 from datahandlers.officehomes import OfficeHomeHandler
+from datahandlers.pacs import PACSHandler
 from net.smallconv import SmallConvSingleHeadNet, SmallConvMultiHeadNet
 from net.wideresnet import WideResNetSingleHeadNet, WideResNetMultiHeadNet
 
@@ -32,6 +33,8 @@ def get_data(cfg, seed):
         dataHandler = RotatedMNISTHandler(cfg)
     elif cfg.task.dataset == "officehomes":
         dataHandler = OfficeHomeHandler(cfg)
+    elif cfg.task.dataset == "pacs":
+        dataHandler = PACSHandler(cfg)
     else:
         raise NotImplementedError
 

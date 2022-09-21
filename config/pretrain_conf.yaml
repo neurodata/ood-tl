@@ -1,0 +1,35 @@
+deploy: False # Store run in wandb in True
+tag: scratch  # Tag is used to determine logging-directory
+seed: 0
+device: cuda:2
+
+dataset: imagenet
+task_map: [[0,1],[2,3],[4,5],[6,7],[8,9]]
+task: 1
+net: wrn10_2 
+augment: False
+
+hp: 
+  epochs: 100
+  bs: 128
+  lr: 0.01
+
+# Nested configs. Disable hydra logging
+defaults:
+  - _self_
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+  - override hydra/launcher: joblib
+
+# Disable hydra directory structure
+hydra:
+  output_subdir: Null
+  run:
+    dir: .
+
+  sweep:
+    dir: .
+    subdir: .
+
+  launcher:
+    n_jobs: 9

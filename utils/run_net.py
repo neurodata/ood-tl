@@ -8,6 +8,17 @@ import torch.cuda.amp as amp
 def train(cfg, net, trainloaders, wandb_log=True):
     device = torch.device(cfg.device if torch.cuda.is_available() else 'cpu')
     fp16 = device != 'cpu'
+    if cfg.ptw:
+        checkpoint = torch.load('weights/' + cfg.ptw_path)
+        net.load_state_dict(checkpoint['model_state_dict']) # load the imagenet pretrained weights
+        net.fc = nn.Linear(net.fc.in_features, len(cfg.task.task_map[0])) # randomly initialize the linear layer
+        
+        # freeze the network except for the linear layer
+        for param in net.parameters():
+            param.requires_grad = False
+        net.fc.bias.requires_grad = True
+        net.fc.weight.requires_grad = True
+    
     net.to(device)
 
     trainloader = trainloaders[0]
@@ -37,6 +48,11 @@ def train(cfg, net, trainloaders, wandb_log=True):
         train_loss = 0.0
         train_acc = 0.0
         batches = 0.0
+
+        if cfg.ptw and (epoch > 50):
+            # above a certain epoch, train with a fully unfreezed network
+            for param in net.parameters():
+                param.requires_grad = True
     
         criterion = nn.CrossEntropyLoss(reduction='none')
         net.train()
