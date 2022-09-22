@@ -16,6 +16,7 @@ from net.smallconv import SmallConvSingleHeadNet, SmallConvMultiHeadNet
 from net.wideresnet import WideResNetSingleHeadNet, WideResNetMultiHeadNet
 
 from utils.run_net import train, evaluate
+from utils.tune import search_alpha
 
 
 def get_data(cfg, seed):
@@ -78,7 +79,7 @@ def get_net(cfg):
     elif cfg.net == 'conv':
         net = SmallConvSingleHeadNet(
             num_cls=len(cfg.task.task_map[0]),
-            channels=1, # for cifar:3, mnist:80
+            channels=1, # for cifar:3, mnist:1
             avg_pool=2,
             lin_size=80 # for cifar:320, mnist:80
         )
@@ -115,65 +116,31 @@ def get_net(cfg):
 
     return net
 
-def get_opt_alpha(cfg):
-    api = wandb.Api()
-    runs = api.runs("ashwin1996/ood_tl")
-    tag = cfg.loss.tune_alpha_tag
-
-    # for run in runs: 
-    #     try:
-    #         run_tag = run.config['tag']
-    #     except KeyError:
-    #         run_tag = "none"
-    #     if (run_tag == tag) and (run.config['task']['target'] == cfg.task.target) and (run.config['task']['ood'][0] == cfg.task.ood[0]):
-    #         opt_alpha_list = run.summary['opt_alpha_list']
-    #         break
-
-    opt_alpha_list = [0.5,0.9,0.9444444444444444,0.9814814814814816,0.9835390946502058,0.9890260631001372,0.995122694711172]
-    
-    m_n_list = np.array(cfg.loss.m_n_list)
-    idx = np.where(m_n_list == cfg.task.m_n)[0][0]
-    return opt_alpha_list[idx]
-
 @hydra.main(config_path="./config", config_name="conf.yaml")
 def main(cfg):
     init_wandb(cfg, project_name="ood_tl")
     fp = open_log(cfg)
 
-    if cfg.loss.use_opt_alpha:
-        alpha = get_opt_alpha(cfg)
-        cfg.loss.alpha = np.float64(alpha).item()
-        info = {
-            'alpha': alpha
-        }
-        if cfg.deploy:
-            wandb.log(info)
-
-    errs = []
-    for rnum in range(cfg.reps):
-        if cfg.random_reps:
-            seed =  cfg.seed + rnum * 10
-        else:
-            seed = cfg.seed
-        set_seed(seed)
-        net = get_net(cfg)
-        dataloaders = get_data(cfg, seed)
-        train(cfg, net, dataloaders)
-        err = evaluate(cfg, net, dataloaders[1], rnum)
-        errs.append(err)
-
-    info = {
-        "avg_err": round(np.mean(errs), 4),
-        "std_err": round(np.std(errs), 4)
-    }
-    print(info)
-    if cfg.deploy:
-        wandb.log(info)
-
-    cleanup(cfg, fp)
-
-    # save_results(cfg)
-
+    opt_alpha_list = [1]
+    opt_err_list = [0.5]
+    if cfg.loss.tune_alpha:
+        for m_n in cfg.loss.m_n_list:
+            if m_n == 0:
+                continue
+            seed =  cfg.seed
+            set_seed(seed)
+            net = get_net(cfg)
+            cfg.task.m_n = m_n
+            dataloaders = get_data(cfg, seed)
+            opt_alpha, opt_err = search_alpha(cfg, opt_alpha_list[-1], net, dataloaders)
+            opt_alpha_list.append(opt_alpha)
+            opt_err_list.append(opt_err)
+            info = {
+                "opt_alpha_list": opt_alpha_list,
+                "opt_err_list": opt_err_list
+            }
+            if cfg.deploy:
+                wandb.log(info)
 
 if __name__ == "__main__":
     main()

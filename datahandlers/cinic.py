@@ -12,7 +12,7 @@ from copy import deepcopy
 
 class CINIC10(torchvision.datasets.VisionDataset):
     class_map = {
-        0: 'airplane',
+        0:'airplane',
         1:'automobile',
         2:'bird',
         3:'cat',
@@ -113,7 +113,7 @@ class SplitCINIC10Handler:
         labels.extend(imagenet_labels)
         self.trainset.targets = labels
 
-        self.testset.data = cifar_testset.data.numpy()
+        self.testset.data = cifar_testset.data
         labels = [[0, lab] for lab in cifar_testset.targets]
         self.testset.targets = labels
 

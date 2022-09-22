@@ -72,6 +72,14 @@ def train(cfg, net, trainloaders, wandb_log=True):
                     out = net(dat)
 
                 if cfg.loss.group_task_loss:
+                    
+                    # loss = criterion(out, labels)
+                    # wt = cfg.loss.alpha
+                    # wo = (1-cfg.loss.alpha)
+                    # loss_target = torch.nan_to_num(loss[tasks==0].mean())
+                    # loss_ood = torch.nan_to_num(loss[tasks==1].mean())
+                    # final_loss = wt*loss_target + wo*loss_ood
+                    
                     task_oh = torch.nn.functional.one_hot(tasks, ntasks)
                     task_count = task_oh.sum(0)
 
