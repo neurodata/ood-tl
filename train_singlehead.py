@@ -120,16 +120,16 @@ def get_opt_alpha(cfg):
     runs = api.runs("ashwin1996/ood_tl")
     tag = cfg.loss.tune_alpha_tag
 
-    # for run in runs: 
-    #     try:
-    #         run_tag = run.config['tag']
-    #     except KeyError:
-    #         run_tag = "none"
-    #     if (run_tag == tag) and (run.config['task']['target'] == cfg.task.target) and (run.config['task']['ood'][0] == cfg.task.ood[0]):
-    #         opt_alpha_list = run.summary['opt_alpha_list']
-    #         break
+    for run in runs: 
+        try:
+            run_tag = run.config['tag']
+        except KeyError:
+            run_tag = "none"
+        if (run_tag == tag) and (run.config['task']['target'] == cfg.task.target) and (run.config['task']['ood'][0] == cfg.task.ood[0]):
+            opt_alpha_list = run.summary['opt_alpha_list']
+            break
 
-    opt_alpha_list = [0.5,0.9,0.9444444444444444,0.9814814814814816,0.9835390946502058,0.9890260631001372,0.995122694711172]
+    # opt_alpha_list = [0.5,0.9,0.9444444444444444,0.9814814814814816,0.9835390946502058,0.9890260631001372,0.995122694711172]
     
     m_n_list = np.array(cfg.loss.m_n_list)
     idx = np.where(m_n_list == cfg.task.m_n)[0][0]
