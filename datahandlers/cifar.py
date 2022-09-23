@@ -103,7 +103,7 @@ class SplitCIFARHandler:
         comb_trainset.targets = targets[indices].tolist()
         self.comb_trainset = comb_trainset
 
-    def get_data_loader(self, train=True):
+    def get_data_loader(self, train=True, batch=None):
         def wif(id):
             """
             Used to fix randomization bug for pytorch dataloader + numpy
@@ -118,6 +118,11 @@ class SplitCIFARHandler:
 
         cfg = self.cfg
 
+        if batch is None:
+            bs = cfg.hp.bs
+        else:
+            bs = batch
+
         kwargs = {
             'worker_init_fn': wif,
             'pin_memory': True,
@@ -127,18 +132,17 @@ class SplitCIFARHandler:
         if train:
             if cfg.task.custom_sampler and cfg.task.m_n > 0:
                 tasks = np.array(self.comb_trainset.targets)[:, 0]
-                batch_sampler = CustomBatchSampler(cfg, tasks)
+                batch_sampler = CustomBatchSampler(cfg, tasks, batch)
 
                 data_loader = DataLoader(
                     self.comb_trainset, batch_sampler=batch_sampler, **kwargs)
             else:
                 # If no OOD samples use naive sampler
                 data_loader = DataLoader(
-                    self.comb_trainset, batch_size=cfg.hp.bs,
+                    self.comb_trainset, batch_size=bs,
                     shuffle=True, **kwargs)
         else:
             data_loader = DataLoader(
-                self.testset, batch_size=cfg.hp.bs, shuffle=False, **kwargs)
+                self.testset, batch_size=bs, shuffle=False, **kwargs)
                 
-
         return data_loader

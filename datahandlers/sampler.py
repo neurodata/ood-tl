@@ -8,7 +8,7 @@ class CustomBatchSampler(Sampler):
     """Samples 
     Provides equal representation of target classes in each batch
     """
-    def __init__(self, cfg, tasks):
+    def __init__(self, cfg, tasks, batch=None):
         """
         Arguments
         ---------
@@ -17,12 +17,13 @@ class CustomBatchSampler(Sampler):
         batch_size : integer
             batch_size
         """
+        bs = cfg.hp.bs if batch is None else batch
 
         self.cfg = cfg
         self.tasks = tasks
         self.npts = len(tasks)
         self.numtasks = len(cfg.task.ood) + 1
-        self.num_iters = max(1, self.npts // cfg.hp.bs)
+        self.num_iters = max(1, self.npts // bs)
 
         # Indices for each task
         self.task_indices = []
@@ -37,7 +38,6 @@ class CustomBatchSampler(Sampler):
 
         # Num samples per task in each batch
         self.batch_num = []
-        bs = cfg.hp.bs
         #   Target task samples per batch
         self.batch_num.append(max(1, int(self.β * bs)))
 
