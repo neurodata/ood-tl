@@ -14,6 +14,7 @@ from ray.tune.search.bayesopt import BayesOptSearch
 from ray.tune.search import ConcurrencyLimiter
 
 from utils.run_net import train, evaluate, train_tune
+from train_singlehead import get_net
 
 from functools import partial
 from ray import tune
@@ -40,69 +41,27 @@ def get_data_handler(cfg, seed):
     return dataHandler
 
 
-def get_net(cfg):
-    if cfg.task.dataset == "split_cifar10":
-        ncls = len(cfg.task.task_map[0])
-    elif cfg.task.dataset == "cinic10":
-        ncls = 10
-    elif cfg.task.dataset == "cinic_img":
-        ncls = 10
-    elif cfg.task.dataset == "domain_net":
-        ncls = 2
-
-    if cfg.net == 'wrn10_2':
-        net = WideResNetSingleHeadNet(
-            depth=10,
-            num_cls=ncls,
-            base_chans=4,
-            widen_factor=2,
-            drop_rate=0,
-            inp_channels=3
-        )
-    elif cfg.net == 'wrn16_4':
-        net = WideResNetSingleHeadNet(
-            depth=16,
-            num_cls=ncls,
-            base_chans=16,
-            widen_factor=4,
-            drop_rate=0,
-            inp_channels=3
-        )
-    elif cfg.net == 'conv':
-        net = SmallConvSingleHeadNet(
-            num_cls=ncls,
-            channels=3, 
-            avg_pool=2,
-            lin_size=320
-        )
-    else: 
-        raise NotImplementedError
-
-    return net
-
 
 def get_tune_config(cfg):
     config = {
         "lr": tune.loguniform(1e-4, 1e-1),
-        "wd": tune.loguniform(1e-6, 1e-2),
-        # "bs": tune.choice([4, 8, 16, 32, 64])
+        "wd": tune.loguniform(1e-6, 1e-1),
         "bs": tune.uniform(1.5, 6.5)
     }
     scheduler = ASHAScheduler(
         metric="accuracy",
         mode="max",
         max_t=cfg.hp.epochs,
-        grace_period=5,
+        grace_period=2,
         reduction_factor=2)
     reporter = CLIReporter(
         metric_columns=["accuracy", "training_iteration"])
 
-
-    algo = BayesOptSearch(utility_kwargs={"kind": "ucb", "kappa": 2.5, "xi":
-        0.0},
+    algo = BayesOptSearch(
+        utility_kwargs={"kind": "ucb", "kappa": 2.5, "xi": 0.0},
         metric="accuracy",
         mode="max")
-    algo = ConcurrencyLimiter(algo, max_concurrent=4)
+    algo = ConcurrencyLimiter(algo, max_concurrent=8)
 
     return config, scheduler, reporter, algo
 
@@ -131,14 +90,15 @@ def main(cfg):
             partial(train_tune, cfg=cfg, net=net, dataHandler=datahandler),
             resources_per_trial={"cpu": 2, "gpu": 0.25},
             config=tune_config,
-            num_samples=512,
+            num_samples=128,
             search_alg=algo,
-            verbose=1,
+            verbose=0,
             scheduler=scheduler,
             progress_reporter=reporter)
 
         best_config = result.get_best_config('accuracy', 'max')
         err = 1 - np.max(result.results_df['accuracy'])
+        print(err, best_config)
         errs.append(err)
 
     info = {
