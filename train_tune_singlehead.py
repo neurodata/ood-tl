@@ -90,7 +90,7 @@ def main(cfg):
             partial(train_tune, cfg=cfg, net=net, dataHandler=datahandler),
             resources_per_trial={"cpu": 2, "gpu": 0.25},
             config=tune_config,
-            num_samples=128,
+            num_samples=256,
             search_alg=algo,
             verbose=0,
             scheduler=scheduler,
@@ -98,7 +98,7 @@ def main(cfg):
 
         best_config = result.get_best_config('accuracy', 'max')
         err = 1 - np.max(result.results_df['accuracy'])
-        print(err, best_config)
+        print(rnum, err, best_config)
         errs.append(err)
 
     info = {

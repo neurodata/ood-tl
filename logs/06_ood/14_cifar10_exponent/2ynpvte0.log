@@ -1,0 +1,75 @@
+{'deploy': True, 'tag': '06_ood/14_cifar10_exponent', 'seed': 10, 'device': 'cuda:0', 'reps': 10, 'loss': {'alpha': 0.5, 'tune_alpha': False, 'group_task_loss': False}, 'task': {'dataset': 'split_cifar10', 'task_map': [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9]], 'target': 1, 'ood': [4], 'augment': False, 'n': 50, 'm_n': 0, 'beta': 0.5, 'custom_sampler': False, 'm_cinic': 1, 'm_cinic_neg': 0.0}, 'hp': {'epochs': 100, 'bs': 16, 'lr': 0.01}, 'net': 'wrn10_2'}
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "train_tune_singlehead.py", line 116, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 74, in launch
+    ret = run_job(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/core/utils.py", line 160, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "train_tune_singlehead.py", line 82, in main
+    datahandler = get_data_handler(cfg, seed)
+  File "train_tune_singlehead.py", line 28, in get_data_handler
+    dataHandler = SplitCIFARHandler(cfg)
+  File "/home/ubuntu/ood-tl/datahandlers/cifar.py", line 36, in __init__
+    trainset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/cifar.py", line 67, in __init__
+    if not self._check_integrity():
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/cifar.py", line 133, in _check_integrity
+    if not check_integrity(fpath, md5):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/utils.py", line 86, in check_integrity
+    return check_md5(fpath, md5)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/utils.py", line 78, in check_md5
+    return md5 == calculate_md5(fpath, **kwargs)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/utils.py", line 73, in calculate_md5
+    md5.update(chunk)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train_tune_singlehead.py", line 116, in <module>
+    main()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/main.py", line 49, in decorated_main
+    _run_hydra(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/utils.py", line 375, in _run_hydra
+    run_and_report(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/utils.py", line 211, in run_and_report
+    return func()
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/utils.py", line 376, in <lambda>
+    lambda: hydra.multirun(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/hydra.py", line 139, in multirun
+    ret = sweeper.sweep(arguments=task_overrides)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/core_plugins/basic_sweeper.py", line 157, in sweep
+    results = self.launcher.launch(batch, initial_job_idx=initial_job_idx)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/_internal/core_plugins/basic_launcher.py", line 74, in launch
+    ret = run_job(
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/hydra/core/utils.py", line 160, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "train_tune_singlehead.py", line 82, in main
+    datahandler = get_data_handler(cfg, seed)
+  File "train_tune_singlehead.py", line 28, in get_data_handler
+    dataHandler = SplitCIFARHandler(cfg)
+  File "/home/ubuntu/ood-tl/datahandlers/cifar.py", line 36, in __init__
+    trainset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/cifar.py", line 67, in __init__
+    if not self._check_integrity():
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/cifar.py", line 133, in _check_integrity
+    if not check_integrity(fpath, md5):
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/utils.py", line 86, in check_integrity
+    return check_md5(fpath, md5)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/utils.py", line 78, in check_md5
+    return md5 == calculate_md5(fpath, **kwargs)
+  File "/home/ubuntu/tools/miniconda3/envs/manifold/lib/python3.8/site-packages/torchvision/datasets/utils.py", line 73, in calculate_md5
+    md5.update(chunk)
+KeyboardInterrupt
+wandb: ERROR Control-C detected -- Run data was not synced

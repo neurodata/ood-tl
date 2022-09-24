@@ -1,0 +1,32 @@
+{'deploy': True, 'tag': '06_ood/02_cifar10_exponent', 'seed': 10, 'device': 'cuda:0', 'reps': 10, 'loss': {'alpha': 0.5, 'tune_alpha': False, 'group_task_loss': False}, 'task': {'dataset': 'split_cifar10', 'task_map': [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9]], 'target': 1, 'ood': [4], 'augment': False, 'n': 50, 'm_n': 4, 'beta': 0.5, 'custom_sampler': False, 'm_cinic': 1, 'm_cinic_neg': 0.0}, 'hp': {'epochs': 100, 'bs': 16, 'lr': 0.01}, 'net': 'wrn10_2'}
+Files already downloaded and verified
+Files already downloaded and verified
+0 0.3405 {'lr': 0.0022272788060411462, 'wd': 0.047791886812967685, 'bs': 4.559841656567799}
+Files already downloaded and verified
+Files already downloaded and verified
+1 0.363 {'lr': 0.025964861149276788, 'wd': 0.006728401242637127, 'bs': 3.1766176444686565}
+Files already downloaded and verified
+Files already downloaded and verified
+2 0.3235 {'lr': 0.0008917310837197067, 'wd': 0.08269560573752208, 'bs': 4.024998903324979}
+Files already downloaded and verified
+Files already downloaded and verified
+3 0.37150000000000005 {'lr': 0.08036123146930978, 'wd': 0.005330925810886567, 'bs': 5.453932767679161}
+Files already downloaded and verified
+Files already downloaded and verified
+4 0.347 {'lr': 0.0042244578285983, 'wd': 0.03910076848032806, 'bs': 3.2016045361798264}
+Files already downloaded and verified
+Files already downloaded and verified
+5 0.3215 {'lr': 0.043643723157931635, 'wd': 0.0015376538973992313, 'bs': 6.24096073695749}
+Files already downloaded and verified
+Files already downloaded and verified
+6 0.31200000000000006 {'lr': 0.0021563909801506644, 'wd': 0.09699101530634728, 'bs': 5.040362888980227}
+Files already downloaded and verified
+Files already downloaded and verified
+7 0.33899999999999997 {'lr': 0.007962095326590193, 'wd': 0.017810839952062084, 'bs': 4.493937489623383}
+Files already downloaded and verified
+Files already downloaded and verified
+8 0.3245 {'lr': 0.0008917310837197067, 'wd': 0.08269560573752208, 'bs': 4.024998903324979}
+Files already downloaded and verified
+Files already downloaded and verified
+9 0.33199999999999996 {'lr': 0.0030782149081289636, 'wd': 0.02218980547357956, 'bs': 4.595869910713089}
+{'avg_err': 0.3374, 'std_err': 0.0179}

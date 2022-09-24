@@ -1,0 +1,33 @@
+{'deploy': True, 'tag': '06_ood/02_cifar10_exponent', 'seed': 10, 'device': 'cuda:0', 'reps': 10, 'loss': {'alpha': 0.5, 'tune_alpha': False, 'group_task_loss': False}, 'task': {'dataset': 'split_cifar10', 'task_map': [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9]], 'target': 1, 'ood': [4], 'augment': False, 'n': 50, 'm_n': 15, 'beta': 0.5, 'custom_sampler': False, 'm_cinic': 1, 'm_cinic_neg': 0.0}, 'hp': {'epochs': 100, 'bs': 16, 'lr': 0.01}, 'net': 'wrn10_2'}
+Files already downloaded and verified
+Files already downloaded and verified
+0 0.36150000000000004 {'lr': 0.004081347863511167, 'wd': 0.011142839086924513, 'bs': 5.595971121235388}
+Files already downloaded and verified
+Files already downloaded and verified
+1 0.352 {'lr': 0.0021563909801506644, 'wd': 0.09699101530634728, 'bs': 5.040362888980227}
+Files already downloaded and verified
+Files already downloaded and verified
+[2m[36m(func pid=43038)[0m E0924 14:50:00.468256604   43098 chttp2_transport.cc:1103]   Received a GOAWAY with error code ENHANCE_YOUR_CALM and debug data equal to "too_many_pings"
+2 0.371 {'lr': 0.09440104221477519, 'wd': 0.0016396835739085768, 'bs': 4.940822178358422}
+Files already downloaded and verified
+Files already downloaded and verified
+3 0.375 {'lr': 0.03943175676210521, 'wd': 1e-06, 'bs': 6.078183278652146}
+Files already downloaded and verified
+Files already downloaded and verified
+4 0.34650000000000003 {'lr': 0.05831962977834929, 'wd': 0.0061196857978329505, 'bs': 5.02308955809135}
+Files already downloaded and verified
+Files already downloaded and verified
+5 0.34199999999999997 {'lr': 0.0021563909801506644, 'wd': 0.09699101530634728, 'bs': 5.040362888980227}
+Files already downloaded and verified
+Files already downloaded and verified
+6 0.36 {'lr': 0.01568626218019941, 'wd': 0.015600296039099928, 'bs': 4.493292420985183}
+Files already downloaded and verified
+Files already downloaded and verified
+7 0.36750000000000005 {'lr': 0.1, 'wd': 1e-06, 'bs': 4.845491031427964}
+Files already downloaded and verified
+Files already downloaded and verified
+8 0.35650000000000004 {'lr': 0.0021563909801506644, 'wd': 0.09699101530634728, 'bs': 5.040362888980227}
+Files already downloaded and verified
+Files already downloaded and verified
+9 0.352 {'lr': 0.021312677156759788, 'wd': 0.018183314895742857, 'bs': 5.662213204002109}
+{'avg_err': 0.3584, 'std_err': 0.0101}
