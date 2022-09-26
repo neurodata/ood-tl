@@ -4,6 +4,7 @@ import torchvision
 import numpy as np
 import wandb
 
+from copy import deepcopy
 from utils.init import set_seed, open_log, init_wandb, cleanup
 
 from datahandlers.cifar import SplitCIFARHandler
@@ -80,17 +81,25 @@ def main(cfg):
     init_wandb(cfg, project_name="ood_tl")
     fp = open_log(cfg)
 
-    if cfg.loss.tune_alpha:
-        raise NotImplementedError
-
     errs = []
     for rnum in range(cfg.reps):
         seed =  cfg.seed + rnum * 10
         set_seed(seed)
         net = get_net(cfg)
         dataloaders = get_data(cfg, seed)
-        train(cfg, net, dataloaders[0])
-        errs.append(evaluate(cfg, net, dataloaders[1], rnum))
+
+        if cfg.loss.tune_alpha:
+            pass
+            alpha_err = []
+            tune_net = deepcopy(net)
+            for alpha in np.arange(0.1, 0.9, 0.5):
+                cfg.loss.alpha = float(alpha)
+                train(cfg, tune_net, dataloaders[0])
+                alpha_err.append(evaluate(cfg, tune_net, dataloaders[1], rnum))
+            errs.append(np.min(alpha_err))
+        else:
+            train(cfg, net, dataloaders[0])
+            errs.append(evaluate(cfg, net, dataloaders[1], rnum))
 
     info = {
         "avg_err": round(np.mean(errs), 4),
