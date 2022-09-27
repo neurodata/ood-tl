@@ -8,7 +8,7 @@ def search_alpha(cfg, prev_alpha, net, dataloaders):
 
     # adaptive search space
     if prev_alpha == 1:
-        alpha_range = np.arange(0.9, 1+1e-5, 0.005)[:-1]
+        alpha_range = np.arange(0.5, 1+1e-5, 0.025)[:-1]
     else:
         alpha_range = np.linspace(prev_alpha, 1, 20)[:-1]
 

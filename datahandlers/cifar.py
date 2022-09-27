@@ -164,7 +164,7 @@ class RotatedCIFAR10Handler(SplitCIFARHandler):
         rot_trainset = deepcopy(trainset)
         for i in range(len(trainset.data)):
           im = trainset.data[i]/255.0
-          rot_trainset.data[i] = rotate(im, cfg.task.angle)*255
+          rot_trainset.data[i] = rotate(im, cfg.task.ood_env)*255
 
         # Combined the selected task-data with rotated selected task-data and add (task_id, class label) as targets
         trainset.data = np.concatenate((trainset.data, rot_trainset.data))

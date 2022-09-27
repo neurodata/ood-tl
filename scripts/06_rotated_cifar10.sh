@@ -1,2 +1,2 @@
-# Evaluat the effect of distribution shift within CINIC
-python3 train_singlehead.py -m seed=10 reps=3 deploy=True tag=06_rotated_cifar10/task_agnostic net=conv task.dataset=rotated_cifar10 task.angle=135 task.custom_sampler=False task.target=1 task.ood=[] task.m_n=0,1,2,3,4,5,10,20,30 task.augment=False
+# Rotated CIFAR-10 WRN-10-2 T2
+python3 train_singlehead.py -m seed=10 reps=10 deploy=True device=cuda:2 tag=06_rotated_cifar10/wrn-10-2 net=wrn10_2 task.dataset=rotated_cifar10 task.ood_env=0,10,30,45,60,90,135 task.custom_sampler=False task.target=1 task.ood=[] task.n=50 task.m_n=0,1,2,3,4,5,10,20,30,40 task.augment=False hp.bs=128 hp.epochs=100 hydra.launcher.n_jobs=10
