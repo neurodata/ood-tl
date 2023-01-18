@@ -49,7 +49,7 @@ class PACSDataset(torchvision.datasets.VisionDataset):
             image = self.transform(image)
         if self.target_transform:
             target = self.target_transform(target)
-        return image, target
+        return image, target, idx   # added the index only for the second split forgetting exps
 
 class PACSHandler(DatasetHandler):
     def __init__(self, cfg):

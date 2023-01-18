@@ -29,7 +29,7 @@ class RotatedMNISTDataset(torchvision.datasets.VisionDataset):
             image = self.transform(image)
         if self.target_transform:
             target = self.target_transform(target)
-        return image, target
+        return image, target, idx # added the index only for the second split forgetting exps
 
 class RotatedMNISTHandler(DatasetHandler):
     def __init__(self, cfg):
@@ -52,6 +52,6 @@ class RotatedMNISTHandler(DatasetHandler):
             train_transform = vanilla_transform
         test_transform = vanilla_transform
 
-        angles = [0, cfg.task.angle]
+        angles = [0, cfg.task.ood_env]
         self.trainset = RotatedMNISTDataset(angles, train=True, transform=train_transform)
         self.testset = RotatedMNISTDataset([0], train=False, transform=test_transform)
