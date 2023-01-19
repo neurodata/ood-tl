@@ -14,6 +14,24 @@ from copy import deepcopy
 from datahandlers.sampler import CustomBatchSampler
 
 
+def dataset_with_indices(cls):
+    """
+    Modifies the given Dataset class to return a tuple data, target, index
+    instead of just data, target.
+    """
+
+    # def __init__()
+    # self.indices = torch.arange(self.targets.shape[0])
+
+    def __getitem__(self, index):
+        data, target = cls.__getitem__(self, index)
+        return data, target, index
+
+    return type(cls.__name__, (cls,), {
+        '__getitem__': __getitem__,
+    })
+
+
 class SplitCIFARHandler:
     """
     Object for the CIFAR-10 dataset
@@ -36,9 +54,10 @@ class SplitCIFARHandler:
         else:
             train_transform = vanilla_transform
 
-        trainset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
+        # added the index only for the second split forgetting exps
+        trainset = dataset_with_indices(torchvision.datasets.CIFAR10)('data/cifar10', download=True,
                                                 train=True, transform=train_transform)
-        testset = torchvision.datasets.CIFAR10('data/cifar10', download=True,
+        testset = dataset_with_indices(torchvision.datasets.CIFAR10)('data/cifar10', download=True,
                                                train=False, transform=vanilla_transform)
 
         tmap = cfg.task.task_map
