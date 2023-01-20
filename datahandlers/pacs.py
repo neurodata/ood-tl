@@ -60,7 +60,7 @@ class PACSHandler(DatasetHandler):
         # mean_norm =[0.485, 0.456, 0.406]
         # std_norm =[0.229, 0.224, 0.225]
         vanilla_transform = transforms.Compose([
-                            transforms.Resize((64,64)),
+                            # transforms.Resize((64,64)),
                             transforms.ToTensor(),
                             transforms.Normalize(mean=mean_norm, std=std_norm)])
         augment_transform = transforms.Compose([
