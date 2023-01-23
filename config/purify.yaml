@@ -1,0 +1,57 @@
+# This config file can be used for both run_exp.py and tune_alpha.py scripts 
+
+deploy: False # Store run in wandb in True
+tag: scratch  # Tag is used to determine logging-directory
+seed: 0
+random_reps: True
+device: cuda:1
+
+reps: 3                                    # number of replicates
+
+loss:
+  alpha: 0.5                          # Weighted loss function
+  group_task_loss: False              # Avg losses based on task grouping
+
+task:
+  dataset: pacs                                       # dataset
+  target_env: P                                    # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma), PACS (env), OfficeHome (env)
+  ood_env: S                                       # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma), PACS (env), OfficeHome (env)
+  task_map: [[0,1,4]]                               # task map (default: CIFAR-10 sub tasks)
+  target: 0
+  ood: [0]
+  n: 10                                               # Samples per label
+  m_n: 0.4   
+  augment: False                                           # Samples of OOD per label
+  beta: 0.75                                    # either float or string "unbiased" to use n/n+m
+  custom_sampler: False
+
+purify:
+  num_samples_per_iter: 10
+  max_iter: 2000
+
+hp: 
+  epochs: 40   # num epochs
+  bs: 16       # batch size (for large datasets: 128, for small datasets: 16 or 32)
+  lr: 0.001      # learning rate
+
+net: resnet_18    # network archiecture        
+
+# Nested configs. Disable hydra logging
+defaults:
+  - _self_
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+  - override hydra/launcher: basic
+
+# Disable hydra directory structure
+hydra:
+  output_subdir: Null
+  run:
+    dir: .
+
+  sweep:
+    dir: .
+    subdir: .
+
+  # launcher:
+  #   n_jobs: 9

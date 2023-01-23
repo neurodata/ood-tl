@@ -35,13 +35,20 @@ def open_log(cfg):
         return fout
 
 
-def init_wandb(cfg, project_name):
+def init_wandb(cfg, project_name, entity_name=None):
     if cfg.deploy:
-        wandb.init(project=project_name)
+        if entity_name is not None:
+            wandb.init(project=project_name, entity=entity_name)
+        else:
+            wandb.init(project=project_name)
         wandb.run.name = wandb.run.id
         wandb.run.save()
         wandb.config.update(OmegaConf.to_container(cfg))
 
+def update_config(cfg):
+    if cfg.deploy:
+        wandb.config.update(OmegaConf.to_container(cfg), allow_val_change=True)
+    print(cfg)
 
 def cleanup(cfg, fp):
     if cfg.deploy:

@@ -1,0 +1,1 @@
+python3 data_purification.py -m seed=10 deploy=True tag=01_data_purification/exp2 device=cuda:1
