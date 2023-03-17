@@ -1,0 +1,2 @@
+# DomainNet Fine-grained categories
+python3 train_singlehead.py -m seed=10 deploy=False device=cuda:1 tag=1-domainnet-fine-grained task.dataset=domainnet task.n=10 task.m_n=0,0.5,1,2,3,4 hp.bs=128 hp.epochs=100 hydra.launcher.n_jobs=9

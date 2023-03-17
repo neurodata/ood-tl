@@ -4,13 +4,13 @@ deploy: False # Store run in wandb in True
 tag: scratch  # Tag is used to determine logging-directory
 seed: 0
 random_reps: True
-device: cuda:2
+device: cuda:1
 
 is_multihead: False                         # toggle between multi-head and single-head
 ptw: False                                  # use pretrained weights
 ptw_path: pretrained_imagenet_1_wrn10_2.pt  # sepcifcy the pretrained weights
 eval_at_epoch: False 
-reps: 10                                    # number of replicates
+reps: 3                                    # number of replicates
 
 loss:
   alpha: 0.5                          # Weighted loss function
@@ -21,14 +21,17 @@ loss:
   group_task_loss: False              # Avg losses based on task grouping
 
 task:
-  dataset: split_cifar10                              # dataset
-  target_env: None                                    # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma), PACS (env), OfficeHome (env)
-  ood_env: None                                       # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma), PACS (env), OfficeHome (env)
-  task_map: [[0,1], [2,3], [4,5], [6,7], [8,9]]       # task map (default: CIFAR-10 sub tasks)
+  dataset: domainnet                              # dataset
+  target_env: real                                    # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma), PACS (env), OfficeHome (env)
+  ood_env: quick                                       # only for rotated CIFAR (angle), MNIST exps (angle), blurred CIFAR (sigma), PACS (env), OfficeHome (env)
+  task_map: [[ 19,  29,  37,  39,  41,  50,  54,  55,  57,  61,  76,  79,  81,
+        83,  89,  91, 145, 148, 157, 164, 177, 188, 191, 210, 257, 263,
+       266, 278, 282, 286, 287, 289, 292, 306, 309, 312, 319, 320, 323,
+       341]]                                      # task map (default: CIFAR-10 sub tasks)
   target: 0                                           # target sub task (only for CIFAR-10), for other datasets leave as 0
   ood: [0]                                            # OOD sub task (only for CIFAR-10), for other datasets leave as [0]
   augment: False
-  n: 50                                               # Samples per label
+  n: 10                                               # Samples per label
   m_n: 1                                              # Samples of OOD per label
   beta: "unbiased"                                    # either float or string "unbiased" to use n/n+m
   custom_sampler: False
@@ -39,7 +42,7 @@ hp:
   bs: 128       # batch size (for large datasets: 128, for small datasets: 16 or 32)
   lr: 0.01      # learning rate
 
-net: wrn10_2    # network archiecture        
+net: wrn16_4    # network archiecture        
 
 
 # Nested configs. Disable hydra logging
