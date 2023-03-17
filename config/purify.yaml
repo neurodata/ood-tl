@@ -1,12 +1,10 @@
-# This config file can be used for both run_exp.py and tune_alpha.py scripts 
-
 deploy: False # Store run in wandb in True
 tag: scratch  # Tag is used to determine logging-directory
 seed: 0
 random_reps: True
 device: cuda:1
 
-reps: 3                                    # number of replicates
+reps: 3                                   # number of replicates
 
 loss:
   alpha: 0.5                          # Weighted loss function
@@ -41,7 +39,7 @@ defaults:
   - _self_
   - override hydra/job_logging: disabled
   - override hydra/hydra_logging: disabled
-  - override hydra/launcher: basic
+  - override hydra/launcher: joblib
 
 # Disable hydra directory structure
 hydra:
@@ -53,5 +51,5 @@ hydra:
     dir: .
     subdir: .
 
-  # launcher:
-  #   n_jobs: 9
+  launcher:
+    n_jobs: 9

@@ -1,1 +1,1 @@
-python3 data_purification.py -m seed=10 deploy=True tag=01_data_purification/exp2 device=cuda:1
+python3 data_purification.py -m seed=10 deploy=True tag=01_data_purification/exp4 device=cuda:1 random_reps=False task.m_n=0.4,0.8,1.2,1.6,2.0 hydra.launcher.n_jobs=10

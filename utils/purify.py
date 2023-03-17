@@ -166,11 +166,23 @@ def purify_data(cfg, loader, featurizer, num_features):
     clustering = AgglomerativeClustering(n_clusters=2, metric='precomputed', linkage='complete', compute_distances=True).fit(mean_pairwise_weights)
     cluster_assignments = clustering.labels_
 
-    # select the smaller cluster as OOD
-    if np.sum(cluster_assignments) > 0.5 * len(cluster_assignments):
-        cluster_assignments = abs(cluster_assignments - 1)
-
     targets = np.array(loader.dataset.targets)
+    true = targets[:, 0]
+    true_m_n_ratio = len(np.where(true==1)[0])/len(np.where(true==0)[0])
+
+    # select the appropriate cluster
+    pred1 = cluster_assignments
+    pred1_m_n_ratio = len(np.where(pred1==1)[0])/len(np.where(pred1==0)[0])
+    pred2 = abs(cluster_assignments - 1)
+    pred2_m_n_ratio = len(np.where(pred2==1)[0])/len(np.where(pred2==0)[0])
+
+    if abs(true_m_n_ratio - pred1_m_n_ratio) < abs(true_m_n_ratio - pred2_m_n_ratio):
+        cluster_assignments = pred1
+    elif abs(true_m_n_ratio - pred1_m_n_ratio) > abs(true_m_n_ratio - pred2_m_n_ratio):
+        cluster_assignments = pred2
+    else:
+        cluster_assignments = pred1
+
     targets[:, 0] = cluster_assignments
     new_loader = deepcopy(loader)
     new_loader.dataset.targets = targets.tolist()
@@ -221,26 +233,26 @@ def train(cfg, net, trainloader, wandb_log=True):
 
                 if cfg.loss.group_task_loss:
                     
-                    # loss = criterion(out, labels)
-                    # wt = cfg.loss.alpha
-                    # wo = (1-cfg.loss.alpha)
-                    # loss_target = torch.nan_to_num(loss[tasks==0].mean())
-                    # loss_ood = torch.nan_to_num(loss[tasks==1].mean())
-                    # final_loss = wt*loss_target + wo*loss_ood
-                    
-                    task_oh = torch.nn.functional.one_hot(tasks, ntasks)
-                    task_count = task_oh.sum(0)
-
                     loss = criterion(out, labels)
-                    task_loss = (loss.view(-1, 1) * task_oh).sum(0)
+                    wt = cfg.loss.alpha
+                    wo = (1-cfg.loss.alpha)
+                    loss_target = torch.nan_to_num(loss[tasks==0].mean())
+                    loss_ood = torch.nan_to_num(loss[tasks==1].mean())
+                    final_loss = wt*loss_target + wo*loss_ood
+                    
+                    # task_oh = torch.nn.functional.one_hot(tasks, ntasks)
+                    # task_count = task_oh.sum(0)
 
-                    mask = task_count != 0
-                    task_loss[mask] /= task_count[mask]
+                    # loss = criterion(out, labels)
+                    # task_loss = (loss.view(-1, 1) * task_oh).sum(0)
 
-                    task_loss[1:] *=  (1 - cfg.loss.alpha) / (ntasks - 1)
-                    task_loss[0] *= (cfg.loss.alpha)
+                    # mask = task_count != 0
+                    # task_loss[mask] /= task_count[mask]
 
-                    final_loss = task_loss.sum()
+                    # task_loss[1:] *=  (1 - cfg.loss.alpha) / (ntasks - 1)
+                    # task_loss[0] *= (cfg.loss.alpha)
+
+                    # final_loss = task_loss.sum()
 
                 else:
                     final_loss = criterion(out, labels).mean()
@@ -254,9 +266,9 @@ def train(cfg, net, trainloader, wandb_log=True):
             batches += batch_size
             train_loss += final_loss.item() * batch_size
 
-            if cfg.loss.group_task_loss:
-                tl = task_loss.detach().to('cpu').numpy()
-                t_train_loss += tl * batch_size  # This is not exact
+            # if cfg.loss.group_task_loss:
+            #     tl = task_loss.detach().to('cpu').numpy()
+            #     t_train_loss += tl * batch_size  # This is not exact
 
             labels = labels.cpu().numpy()
             out = out.cpu().detach().numpy()
@@ -272,8 +284,8 @@ def train(cfg, net, trainloader, wandb_log=True):
         if cfg.deploy and wandb_log:
             wandb.log(info)
 
-        if cfg.loss.group_task_loss:
-            info["task_loss"] = tuple(np.round(t_train_loss/batches, 4))
+        # if cfg.loss.group_task_loss:
+        #     info["task_loss"] = tuple(np.round(t_train_loss/batches, 4))
     
     return net
 
