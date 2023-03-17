@@ -98,3 +98,5 @@ target/
 
 # unwanted folders
 dev/
+
+*.pt

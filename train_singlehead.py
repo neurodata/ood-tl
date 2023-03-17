@@ -12,6 +12,7 @@ from datahandlers.cinic import SplitCINIC10Handler, SplitCIFAR10NegHandler
 from datahandlers.mnist import RotatedMNISTHandler
 from datahandlers.officehomes import OfficeHomeHandler
 from datahandlers.pacs import PACSHandler
+from datahandlers.domainnet import DomainNetHandler
 from net.smallconv import SmallConvSingleHeadNet, SmallConvMultiHeadNet
 from net.wideresnet import WideResNetSingleHeadNet, WideResNetMultiHeadNet
 
@@ -35,6 +36,8 @@ def get_data(cfg, seed):
         dataHandler = OfficeHomeHandler(cfg)
     elif cfg.task.dataset == "pacs":
         dataHandler = PACSHandler(cfg)
+    elif cfg.task.dataset == "domainnet":
+        dataHandler = DomainNetHandler(cfg)
     else:
         raise NotImplementedError
 
@@ -137,7 +140,7 @@ def get_opt_alpha(cfg):
 
 @hydra.main(config_path="./config", config_name="conf.yaml")
 def main(cfg):
-    init_wandb(cfg, project_name="ood_tl")
+    init_wandb(cfg, project_name="ood-tl-extra")
     fp = open_log(cfg)
 
     if cfg.loss.use_opt_alpha:
@@ -171,8 +174,6 @@ def main(cfg):
         wandb.log(info)
 
     cleanup(cfg, fp)
-
-    # save_results(cfg)
 
 
 if __name__ == "__main__":
