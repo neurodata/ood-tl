@@ -160,7 +160,8 @@ def train(cfg, net, trainloaders, wandb_log=True):
         if cfg.loss.group_task_loss:
             info["task_loss"] = tuple(np.round(t_train_loss/batches, 4))
 
-        # print(info)
+        if train_acc/batches >= 0.99:
+            break
     
     return net
 
